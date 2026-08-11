@@ -155,6 +155,13 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     size_terms = my_sizes.get(watch.get("size_category", ""), [])
     my_size = size_matches(size_title, size_terms)
 
+    photo_obj = item.get("photo") or {}
+    listed_at = (photo_obj.get("high_resolution") or {}).get("timestamp") or item.get("created_at_ts")
+    try:
+        listed_at = int(listed_at) if listed_at is not None else None
+    except (TypeError, ValueError):
+        listed_at = None
+
     score = 0
     if discount_pct is not None and discount_pct > 0:
         score += min(discount_pct, 60)
@@ -197,6 +204,7 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "is_bargain": is_bargain,
         "bargain_reason": bargain_reason,
         "source": source,
+        "listed_at": listed_at,
     }
 
 
