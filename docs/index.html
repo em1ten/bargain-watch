@@ -403,6 +403,14 @@
     <button id="filter-starred">Starred only</button>
     <button id="filter-bargains">Big bargains</button>
     <span class="spacer"></span>
+    <div class="field" style="min-width:auto;">
+      <select id="sort-select">
+        <option value="newest">Newest first</option>
+        <option value="price-low">Price: low to high</option>
+        <option value="price-high">Price: high to low</option>
+        <option value="discount">Biggest discount first</option>
+      </select>
+    </div>
     <button id="toggle-settings">My size &amp; conditions</button>
     <button id="toggle-addbrand">Manage searches</button>
   </div>
@@ -419,6 +427,11 @@
     <div class="field" style="margin-bottom:6px;">
       <label>Condition (none selected = show all)</label>
       <div class="checks" id="condition-checks"></div>
+    </div>
+    <div class="panel-divider"></div>
+    <div class="field" style="margin-bottom:0;">
+      <label>Brands shown on this dashboard</label>
+      <div class="checks" id="brand-checks"></div>
     </div>
   </div>
 
@@ -508,6 +521,8 @@ let showStarredOnly = false;
 let showBargainsOnly = false;
 let sizeFilter = getLocal('size', '');
 let conditionFilter = new Set(getLocal('conditions', []));
+let hiddenBrands = new Set(getLocal('hidden-brands', []));
+let sortMode = getLocal('sort', 'newest');
 
 function saveStarred() { setLocal('starred', [...starred]); }
 
@@ -686,6 +701,46 @@ ALL_CONDITIONS.forEach(cond => {
   conditionChecksEl.appendChild(pill);
 });
 
+const sortSelect = document.getElementById('sort-select');
+sortSelect.value = sortMode;
+sortSelect.addEventListener('change', () => {
+  sortMode = sortSelect.value;
+  setLocal('sort', sortMode);
+  render();
+});
+
+function sortItems(items) {
+  const sorted = [...items];
+  if (sortMode === 'price-low' || sortMode === 'price-high') {
+    sorted.sort((a, b) => {
+      const pa = parseFloat(a.price) || Infinity;
+      const pb = parseFloat(b.price) || Infinity;
+      return sortMode === 'price-low' ? pa - pb : pb - pa;
+    });
+  } else if (sortMode === 'discount') {
+    sorted.sort((a, b) => (b.discount_pct ?? -Infinity) - (a.discount_pct ?? -Infinity));
+  }
+  // 'newest' keeps the order the scanner already returned (Vinted's newest_first)
+  return sorted;
+}
+
+function renderBrandChecks(brandNames) {
+  const el = document.getElementById('brand-checks');
+  el.innerHTML = '';
+  brandNames.forEach(name => {
+    const pill = document.createElement('span');
+    pill.className = 'check-pill' + (!hiddenBrands.has(name) ? ' on' : '');
+    pill.textContent = name;
+    pill.addEventListener('click', () => {
+      if (hiddenBrands.has(name)) { hiddenBrands.delete(name); pill.classList.add('on'); }
+      else { hiddenBrands.add(name); pill.classList.remove('on'); }
+      setLocal('hidden-brands', [...hiddenBrands]);
+      render();
+    });
+    el.appendChild(pill);
+  });
+}
+
 // --- Add-brand via GitHub Contents API ---
 const ghRepoInput = document.getElementById('gh-repo');
 const ghTokenInput = document.getElementById('gh-token');
@@ -848,7 +903,11 @@ function render() {
   contentEl.innerHTML = '';
   const frag = document.createDocumentFragment();
 
+  renderBrandChecks(latestData.watches.map(w => w.name));
+
   for (const watch of latestData.watches) {
+    if (hiddenBrands.has(watch.name)) continue;
+
     const section = document.createElement('section');
     section.className = 'brand-section';
 
@@ -858,7 +917,7 @@ function render() {
     h2.textContent = watch.name;
     head.appendChild(h2);
 
-    const visibleItems = (watch.items || []).filter(itemPassesUserFilters);
+    const visibleItems = sortItems((watch.items || []).filter(itemPassesUserFilters));
     const newVisibleCount = visibleItems.filter(i => i.is_new).length;
 
     if (newVisibleCount) {
