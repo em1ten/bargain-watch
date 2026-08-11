@@ -103,7 +103,7 @@ def passes_filters(item, exclude_terms):
     return True
 
 
-def to_card(item, domain):
+def to_card(item, domain, rrp=None, bargain_threshold_pct=50, bargain_max_price=None):
     photo = (item.get("photo") or {}).get("url", "")
     price_obj = item.get("total_item_price") or item.get("price") or {}
     amount = price_obj.get("amount")
@@ -116,6 +116,27 @@ def to_card(item, domain):
         "reputation": user.get("feedback_reputation"),  # 0.0-1.0 if present
     }
 
+    discount_pct = None
+    price_amount = None
+    if amount is not None:
+        try:
+            price_amount = float(amount)
+        except (TypeError, ValueError):
+            price_amount = None
+    if rrp and price_amount is not None and rrp > 0:
+        discount_pct = round((1 - price_amount / rrp) * 100)
+
+    discount_hit = discount_pct is not None and discount_pct >= bargain_threshold_pct
+    price_hit = bargain_max_price is not None and price_amount is not None and price_amount <= bargain_max_price
+
+    is_bargain = discount_hit or price_hit
+    if discount_hit:
+        bargain_reason = f"-{discount_pct}% vs RRP"
+    elif price_hit:
+        bargain_reason = f"Under {currency} {int(bargain_max_price)}"
+    else:
+        bargain_reason = None
+
     return {
         "id": item.get("id"),
         "title": item.get("title", "").strip(),
@@ -126,6 +147,10 @@ def to_card(item, domain):
         "photo": photo,
         "url": f"https://{domain}/items/{item.get('id')}",
         "seller": seller,
+        "rrp": rrp,
+        "discount_pct": discount_pct,
+        "is_bargain": is_bargain,
+        "bargain_reason": bargain_reason,
     }
 
 
@@ -157,6 +182,8 @@ def main():
     currency = config.get("currency", "GBP")
     per_page = config.get("max_items_per_watch", 40)
     global_exclude = config.get("global_exclude", [])
+    bargain_threshold_pct = config.get("bargain_threshold_pct", 50)
+    bargain_max_price = config.get("bargain_max_price")
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
     seen_ids = load_json_set(SEEN_PATH)
@@ -183,7 +210,7 @@ def main():
             continue
 
         filtered = [i for i in raw_items if passes_filters(i, exclude_terms)]
-        cards = [to_card(item, domain) for item in filtered]
+        cards = [to_card(item, domain, watch.get("rrp"), bargain_threshold_pct, bargain_max_price) for item in filtered]
         new_cards = [c for c in cards if c["id"] not in seen_ids]
 
         for c in cards:
