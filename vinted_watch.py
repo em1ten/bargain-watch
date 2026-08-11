@@ -28,6 +28,7 @@ finds are tagged so the dashboard can show where they came from.
 
 import json
 import os
+import re
 import time
 import unicodedata
 from datetime import date
@@ -100,7 +101,7 @@ def pick_discovery(pool, per_day):
     return picked
 
 
-def run_search(session, domain, watch, currency, per_page):
+def run_search(session, domain, watch, currency, per_page, catalog_ids):
     params = {
         "search_text": watch["search_text"],
         "order": "newest_first",
@@ -111,6 +112,9 @@ def run_search(session, domain, watch, currency, per_page):
         params["price_to"] = watch["price_to"]
     if watch.get("price_from"):
         params["price_from"] = watch["price_from"]
+    ids = watch.get("catalog_ids", catalog_ids)
+    if ids:
+        params["catalog_ids"] = ids
 
     url = f"https://{domain}/api/v2/catalog/items"
     resp = session.get(url, params=params, timeout=20)
@@ -154,10 +158,22 @@ def brand_matches(item, watch):
 
 
 def size_matches(size_title, size_terms):
+    """Match a size term as a distinct token within the listing's size string,
+    not as a raw substring - otherwise 'L' wrongly matches inside 'XL', '38L',
+    or the '9' in 'UK 9' wrongly matches inside '39'."""
     if not size_terms:
         return False
     size = (size_title or "").strip().lower()
-    return bool(size) and any(s.lower() in size for s in size_terms)
+    if not size:
+        return False
+    for term in size_terms:
+        t = term.strip().lower()
+        if not t:
+            continue
+        pattern = r"(?<![a-z0-9])" + re.escape(t) + r"(?![a-z0-9])"
+        if re.search(pattern, size):
+            return True
+    return False
 
 
 def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new):
@@ -276,6 +292,7 @@ def main():
     my_sizes = config.get("my_sizes", {})
     feed_size = config.get("feed_size", 60)
     global_exclude = config.get("global_exclude", [])
+    catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
     seen_ids = load_json_set(SEEN_PATH)
@@ -296,7 +313,7 @@ def main():
         exclude_terms = global_exclude + watch.get("exclude", [])
         print(f"Checking ({source}): {name}")
         try:
-            raw_items = run_search(session, domain, watch, currency, per_page)
+            raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids)
         except requests.RequestException as e:
             print(f"  ! request failed: {e}")
             errors.append(name)
