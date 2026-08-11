@@ -1,11 +1,10 @@
 {
+  "_comment": "Vinted is the only marketplace wired up so far. Structured so a second scanner (e.g. ebay_watch.py) can plug in later and write into the same docs/data.json shape. Size and condition are filtered per-viewer on the dashboard, not here.",
   "domain": "www.vinted.co.uk",
   "currency": "GBP",
   "max_items_per_watch": 40,
 
   "global_exclude": ["kids", "toy", "doll", "replica", "fake", "case", "phone", "figure"],
-
-  "conditions": ["New with tags", "New without tags", "Very good"],
 
   "watches": [
     { "name": "Nudie Jeans",        "search_text": "nudie jeans",         "price_to": 60,  "notify": "instant" },
