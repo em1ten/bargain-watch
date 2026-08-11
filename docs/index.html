@@ -182,6 +182,7 @@
   .badge.new{color:var(--stitch); border:1.5px solid var(--stitch); background:rgba(22,31,48,0.8); transform:rotate(-4deg);}
   .badge.deal{color:var(--denim-950); background:var(--brass-bright);}
   .badge.rank{color:var(--denim-950); background:var(--cream);}
+  .badge.condition{color:var(--denim-950); background:var(--teal);}
   .star-btn{
     position:absolute;
     top:8px; right:8px;
@@ -382,7 +383,13 @@ function buildCard(item, rank){
   if (item.is_new){
     const b = document.createElement('span');
     b.className = 'badge new';
-    b.textContent = 'NEW';
+    b.textContent = 'JUST LISTED';
+    badges.appendChild(b);
+  }
+  if (item.condition_badge){
+    const b = document.createElement('span');
+    b.className = 'badge condition';
+    b.textContent = item.condition_badge;
     badges.appendChild(b);
   }
   if (item.bargain_reason){
