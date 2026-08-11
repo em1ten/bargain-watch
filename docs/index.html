@@ -127,7 +127,7 @@
     box-shadow:0 0 0 1px var(--brass-bright), 0 4px 16px rgba(179,144,79,0.25);
   }
   .card a.hit{position:absolute; inset:0; z-index:1;}
-  .photo-wrap{aspect-ratio:1/1; background:var(--denim-700); overflow:hidden;}
+  .photo-wrap{aspect-ratio:1/1; background:var(--denim-700); overflow:hidden; position:relative;}
   .photo-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
   .card-body{padding:11px 13px 13px;}
   .watch-label{
@@ -391,7 +391,7 @@ function buildCard(item, rank){
     b.textContent = item.bargain_reason;
     badges.appendChild(b);
   }
-  if (badges.children.length) card.appendChild(badges);
+  if (badges.children.length) photoWrap.appendChild(badges);
 
   const starBtn = document.createElement('button');
   starBtn.className = 'star-btn' + (starred.has(item.id) ? ' starred' : '');
@@ -404,7 +404,7 @@ function buildCard(item, rank){
     saveStarred();
     if (activeFilter === 'starred') renderFeed();
   });
-  card.appendChild(starBtn);
+  photoWrap.appendChild(starBtn);
 
   const thumbRow = document.createElement('div');
   thumbRow.className = 'thumb-row';
@@ -423,7 +423,7 @@ function buildCard(item, rank){
   downBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setFeedback(item.id, item.watch, 'down'); });
   thumbRow.appendChild(downBtn);
 
-  card.appendChild(thumbRow);
+  photoWrap.appendChild(thumbRow);
 
   const body = document.createElement('div');
   body.className = 'card-body';
