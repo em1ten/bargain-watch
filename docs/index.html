@@ -316,6 +316,25 @@
     font-size:15px;
     line-height:1;
   }
+  .card.bargain{
+    border-color:var(--brass-bright);
+    box-shadow:0 0 0 1px var(--brass-bright), 0 4px 16px rgba(179,144,79,0.3);
+  }
+  .card.bargain:hover{border-color:var(--brass-bright);}
+  .bargain-badge{
+    position:absolute;
+    bottom:8px; left:8px;
+    z-index:2;
+    background:var(--brass-bright);
+    color:var(--denim-950);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:3px 7px;
+    border-radius:3px;
+    pointer-events:none;
+  }
   .star-btn.starred{
     color:var(--brass-bright);
     border-color:var(--brass-bright);
@@ -355,6 +374,7 @@
   <div class="toolbar">
     <button id="filter-all" class="active">All listings</button>
     <button id="filter-starred">Starred only</button>
+    <button id="filter-bargains">Big bargains</button>
     <span class="spacer"></span>
     <button id="toggle-settings">My size &amp; conditions</button>
     <button id="toggle-addbrand">Add a search</button>
@@ -409,6 +429,10 @@
         <input type="number" id="nb-price" placeholder="e.g. 60">
       </div>
       <div class="field">
+        <label for="nb-rrp">Typical retail price (optional)</label>
+        <input type="number" id="nb-rrp" placeholder="e.g. 150">
+      </div>
+      <div class="field">
         <label for="nb-notify">Notify</label>
         <select id="nb-notify">
           <option value="instant">Instant</option>
@@ -447,6 +471,7 @@ function setLocal(key, value) {
 
 let starred = new Set(getLocal('starred', []));
 let showStarredOnly = false;
+let showBargainsOnly = false;
 let sizeFilter = getLocal('size', '');
 let conditionFilter = new Set(getLocal('conditions', []));
 
@@ -473,8 +498,9 @@ function itemPassesUserFilters(item) {
 
 function buildCard(item) {
   const card = document.createElement('div');
-  card.className = 'card';
+  card.className = 'card' + (item.is_bargain ? ' bargain' : '');
   card.dataset.id = item.id;
+  card.dataset.bargain = item.is_bargain ? '1' : '0';
 
   const photoWrap = document.createElement('div');
   photoWrap.className = 'photo-wrap';
@@ -492,6 +518,13 @@ function buildCard(item) {
     stamp.className = 'stamp';
     stamp.textContent = 'NEW';
     card.appendChild(stamp);
+  }
+
+  if (item.is_bargain) {
+    const badge = document.createElement('div');
+    badge.className = 'bargain-badge';
+    badge.textContent = item.bargain_reason || 'Bargain';
+    card.appendChild(badge);
   }
 
   const starBtn = document.createElement('button');
@@ -556,23 +589,32 @@ function applyFilter() {
   document.querySelectorAll('.card').forEach(card => {
     const id = Number(card.dataset.id);
     const starOk = !showStarredOnly || starred.has(id);
-    card.style.display = starOk ? '' : 'none';
+    const bargainOk = !showBargainsOnly || card.dataset.bargain === '1';
+    card.style.display = (starOk && bargainOk) ? '' : 'none';
   });
   document.querySelectorAll('.brand-section').forEach(section => {
     const visible = [...section.querySelectorAll('.card')].some(c => c.style.display !== 'none');
-    section.style.display = (showStarredOnly && !visible) ? 'none' : '';
+    section.style.display = ((showStarredOnly || showBargainsOnly) && !visible) ? 'none' : '';
   });
 }
 
 document.getElementById('filter-all').addEventListener('click', () => {
   showStarredOnly = false;
+  showBargainsOnly = false;
   document.getElementById('filter-all').classList.add('active');
   document.getElementById('filter-starred').classList.remove('active');
+  document.getElementById('filter-bargains').classList.remove('active');
   applyFilter();
 });
 document.getElementById('filter-starred').addEventListener('click', () => {
-  showStarredOnly = true;
-  document.getElementById('filter-starred').classList.add('active');
+  showStarredOnly = !showStarredOnly;
+  document.getElementById('filter-starred').classList.toggle('active', showStarredOnly);
+  document.getElementById('filter-all').classList.remove('active');
+  applyFilter();
+});
+document.getElementById('filter-bargains').addEventListener('click', () => {
+  showBargainsOnly = !showBargainsOnly;
+  document.getElementById('filter-bargains').classList.toggle('active', showBargainsOnly);
   document.getElementById('filter-all').classList.remove('active');
   applyFilter();
 });
@@ -627,6 +669,7 @@ document.getElementById('nb-submit').addEventListener('click', async () => {
   const name = document.getElementById('nb-name').value.trim();
   const searchText = document.getElementById('nb-search').value.trim();
   const priceTo = document.getElementById('nb-price').value.trim();
+  const rrp = document.getElementById('nb-rrp').value.trim();
   const notify = document.getElementById('nb-notify').value;
 
   statusEl.textContent = '';
@@ -655,6 +698,7 @@ document.getElementById('nb-submit').addEventListener('click', async () => {
 
     const newWatch = { name, search_text: searchText, notify };
     if (priceTo) newWatch.price_to = Number(priceTo);
+    if (rrp) newWatch.rrp = Number(rrp);
     currentConfig.watches.push(newWatch);
 
     statusEl.textContent = 'Committing update…';
@@ -682,6 +726,7 @@ document.getElementById('nb-submit').addEventListener('click', async () => {
     document.getElementById('nb-name').value = '';
     document.getElementById('nb-search').value = '';
     document.getElementById('nb-price').value = '';
+    document.getElementById('nb-rrp').value = '';
   } catch (err) {
     statusEl.textContent = err.message;
     statusEl.className = 'status-msg err';
