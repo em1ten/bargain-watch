@@ -12,10 +12,10 @@ The dashboard is deliberately read-only: all configuration lives in
 config.json in the repo (protected by your GitHub login), so the page
 itself has no inputs, tokens, or write access to anything.
 
-Scoring (roughly 0-100, higher = better find):
+Scoring (roughly 0-100+, higher = better find):
   + discount vs RRP        (up to 60)
   + at/under flat bargain price (+15)
-  + condition               (new with tags +15 ... good +3)
+  + condition               (new with tags +30, new without tags +24, very good +8, good +3)
   + trustworthy seller      (+5)
   + matches your size       (+20)
   + new since last scan     (+5)
@@ -50,10 +50,14 @@ REQUEST_HEADERS = {
 }
 
 CONDITION_SCORES = {
-    "New with tags": 15,
-    "New without tags": 12,
+    "New with tags": 30,
+    "New without tags": 24,
     "Very good": 8,
     "Good": 3,
+}
+CONDITION_BADGE = {
+    "New with tags": "BNWT",
+    "New without tags": "UNWORN",
 }
 
 
@@ -205,6 +209,7 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "bargain_reason": bargain_reason,
         "source": source,
         "listed_at": listed_at,
+        "condition_badge": CONDITION_BADGE.get(condition),
     }
 
 
