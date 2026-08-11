@@ -1,144 +1,29 @@
-
-Config · JSON
 {
-  "_comment": "Vinted is the only marketplace wired up so far. Structured so a second scanner (e.g. ebay_watch.py) can plug in later and write into the same docs/data.json shape. Size and condition are filtered per-viewer on the dashboard, not here. 'rrp' is a rough typical retail price per brand, used to flag standout discounts — these are estimates, worth checking against each brand's actual site and adjusting.",
+  "_comment": "Vinted is the only marketplace wired up so far. Structured so a second scanner (e.g. ebay_watch.py) can plug in later and write into the same docs/data.json shape. Size and condition are filtered per-viewer on the dashboard, not here. 'rrp' is a rough typical retail price per brand, used to flag standout discounts \u2014 these are estimates, worth checking against each brand's actual site and adjusting.",
   "domain": "www.vinted.co.uk",
   "currency": "GBP",
   "max_items_per_watch": 40,
   "bargain_threshold_pct": 50,
   "bargain_max_price": 20,
-  "global_exclude": [
-    "kids",
-    "toy",
-    "doll",
-    "replica",
-    "fake",
-    "case",
-    "phone",
-    "figure"
-  ],
+
+  "global_exclude": ["kids", "toy", "doll", "replica", "fake", "case", "phone", "figure"],
+
   "watches": [
-    {
-      "name": "Nudie Jeans",
-      "search_text": "nudie jeans",
-      "price_to": 60,
-      "notify": "instant",
-      "rrp": 140
-    },
-    {
-      "name": "Edwin",
-      "search_text": "edwin jeans",
-      "price_to": 60,
-      "notify": "instant",
-      "rrp": 150
-    },
-    {
-      "name": "Momotaro",
-      "search_text": "momotaro jeans",
-      "price_to": 150,
-      "notify": "instant",
-      "rrp": 350
-    },
-    {
-      "name": "Iron Heart",
-      "search_text": "iron heart",
-      "price_to": 150,
-      "notify": "instant",
-      "rrp": 300
-    },
-    {
-      "name": "Tellason",
-      "search_text": "tellason",
-      "price_to": 100,
-      "notify": "instant",
-      "rrp": 230
-    },
-    {
-      "name": "Roy Denim",
-      "search_text": "roy denim",
-      "price_to": 100,
-      "notify": "instant",
-      "rrp": 220
-    },
-    {
-      "name": "Universal Works",
-      "search_text": "universal works",
-      "price_to": 60,
-      "notify": "instant",
-      "rrp": 150,
-      "exclude": [
-        "plug",
-        "adapter",
-        "socket",
-        "charger",
-        "extension lead"
-      ]
-    },
-    {
-      "name": "Carhartt WIP",
-      "search_text": "carhartt wip",
-      "price_to": 50,
-      "notify": "digest",
-      "rrp": 110
-    },
-    {
-      "name": "Folk Clothing",
-      "search_text": "folk clothing",
-      "price_to": 60,
-      "notify": "digest",
-      "rrp": 140
-    },
-    {
-      "name": "Norse Projects",
-      "search_text": "norse projects",
-      "price_to": 60,
-      "notify": "digest",
-      "rrp": 150
-    },
-    {
-      "name": "CP Company",
-      "search_text": "cp company",
-      "price_to": 120,
-      "notify": "instant",
-      "rrp": 350
-    },
-    {
-      "name": "Stone Island",
-      "search_text": "stone island",
-      "price_to": 120,
-      "notify": "instant",
-      "rrp": 350
-    },
-    {
-      "name": "Red Wing",
-      "search_text": "red wing boots",
-      "price_to": 120,
-      "notify": "digest",
-      "rrp": 230
-    },
-    {
-      "name": "Trickers",
-      "search_text": "trickers",
-      "price_to": 120,
-      "notify": "digest",
-      "rrp": 350,
-      "exclude": [
-        "sticker",
-        "decal",
-        "vinyl"
-      ]
-    },
-    {
-      "name": "Selvedge denim",
-      "search_text": "selvedge",
-      "price_to": 60,
-      "notify": "digest"
-    },
-    {
-      "name": "Uniqlo",
-      "search_text": "uniqlo",
-      "price_to": 25,
-      "notify": "off"
-    }
+    { "name": "Nudie Jeans",        "search_text": "nudie jeans",         "price_to": 60,  "notify": "instant", "rrp": 140 },
+    { "name": "Edwin",              "search_text": "edwin jeans",         "price_to": 60,  "notify": "instant", "rrp": 150 },
+    { "name": "Momotaro",           "search_text": "momotaro jeans",      "price_to": 150, "notify": "instant", "rrp": 350 },
+    { "name": "Iron Heart",         "search_text": "iron heart",          "price_to": 150, "notify": "instant", "rrp": 300, "exclude": ["necklace", "pendant", "earring", "bracelet", "valentine", "love heart", "heart print", "heart mug", "heart charm", "heart ring", "teddy"] },
+    { "name": "Tellason",           "search_text": "tellason",            "price_to": 100, "notify": "instant", "rrp": 230 },
+    { "name": "Roy Denim",          "search_text": "roy denim",           "price_to": 100, "notify": "instant", "rrp": 220 },
+    { "name": "Universal Works",    "search_text": "universal works",     "price_to": 60,  "notify": "instant", "rrp": 150, "exclude": ["plug", "adapter", "socket", "charger", "extension lead"] },
+    { "name": "Carhartt WIP",       "search_text": "carhartt wip",        "price_to": 50,  "notify": "digest",  "rrp": 110 },
+    { "name": "Folk Clothing",      "search_text": "folk clothing",       "price_to": 60,  "notify": "digest",  "rrp": 140 },
+    { "name": "Norse Projects",     "search_text": "norse projects",      "price_to": 60,  "notify": "digest",  "rrp": 150 },
+    { "name": "CP Company",         "search_text": "cp company",          "price_to": 120, "notify": "instant", "rrp": 350 },
+    { "name": "Stone Island",       "search_text": "stone island",        "price_to": 120, "notify": "instant", "rrp": 350 },
+    { "name": "Red Wing",           "search_text": "red wing boots",      "price_to": 120, "notify": "digest",  "rrp": 230 },
+    { "name": "Trickers",           "search_text": "trickers",            "price_to": 120, "notify": "digest",  "rrp": 350, "exclude": ["sticker", "decal", "vinyl"] },
+    { "name": "Selvedge denim",     "search_text": "selvedge",            "price_to": 60,  "notify": "digest"  },
+    { "name": "Uniqlo",             "search_text": "uniqlo",              "price_to": 25,  "notify": "off"     }
   ]
 }
