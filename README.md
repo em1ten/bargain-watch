@@ -13,7 +13,8 @@ Built to start with Vinted, with room to add other marketplaces later.
   searches plus a daily rotation of discovery brands, scores every listing,
   and writes one ranked feed to `docs/data.json`
 - `docs/index.html` (served via GitHub Pages) shows that feed with tap-only
-  filter pills: All / My size / New / Bargains / Discovery / Starred
+  filter pills: All / My size / New / Bargains / Discovery / Starred, plus
+  thumbs up/down on each card that nudge the whole feed's ranking
 - New finds push to your phone via ntfy.sh — instantly for priority brands,
   bundled into one daily digest for the rest (`digest_send.py`)
 
@@ -38,6 +39,20 @@ day, 3 rotate in automatically and get scanned alongside your core watches —
 their finds show up tagged "discovery" in the feed, so new brands surface
 without you doing anything. The rotation cycles through the whole pool over
 time.
+
+## Thumbs up/down — teaching the feed your taste
+
+▲/▼ on each card don't just mark that one listing — they nudge that
+**brand's** position in the whole feed, up or down, for you specifically.
+Tap the same one again to undo it. It's stored in your browser only (no
+server, no account), so it's a personal ranking layer sitting on top of the
+shared score everyone else's dashboard would show.
+
+Worth knowing: since it's brand-level rather than per-listing, downvoting
+one bad match nudges that whole brand down a little rather than hiding just
+that item — a few taps in the same direction will move it more than one.
+If you'd rather it worked differently (e.g. per-listing only, or hiding
+downvoted items outright), that's a quick change — just say so.
 
 ## Deliberately read-only dashboard
 
