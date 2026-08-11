@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bargain Watch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --denim-950:#161f30;
@@ -17,6 +17,7 @@
     --brass:#b3904f;
     --brass-bright:#d9b567;
     --stitch:#c65a3c;
+    --teal:#5aa89b;
     --line:rgba(241,232,214,0.14);
   }
   *{box-sizing:border-box;}
@@ -29,232 +30,80 @@
     font-family:'Fraunces', serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px;}
 
   header{
-    padding:56px 24px 40px;
+    padding:44px 4px 26px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
     border-bottom:1px solid var(--line);
-    margin-bottom:28px;
-    position:relative;
-  }
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    font-size:12px;
-    color:var(--brass-bright);
-    margin:0 0 14px;
+    margin-bottom:20px;
   }
   h1{
     font-family:'Oswald', sans-serif;
     font-weight:700;
     text-transform:uppercase;
     letter-spacing:0.03em;
-    font-size:clamp(34px, 5vw, 56px);
-    margin:0 0 10px;
-    color:var(--cream);
-  }
-  .sub{
-    font-size:16px;
-    color:var(--cream-dim);
-    max-width:56ch;
-    line-height:1.5;
+    font-size:clamp(28px, 4.5vw, 44px);
     margin:0;
+    line-height:1;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--brass-bright);
+    margin:0 0 8px;
   }
   #stamp{
-    position:absolute;
-    top:52px; right:24px;
     font-family:'JetBrains Mono', monospace;
     font-size:11px;
     color:var(--cream-dim);
-    border:1px solid var(--line);
-    padding:8px 12px;
-    border-radius:2px;
     text-align:right;
     line-height:1.6;
+    white-space:nowrap;
   }
 
-  .toolbar{
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:20px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-  }
-  .toolbar button{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.03em;
-    background:transparent;
-    color:var(--cream-dim);
-    border:1px solid var(--line);
-    padding:7px 14px;
-    border-radius:20px;
-    cursor:pointer;
-  }
-  .toolbar button.active{
-    color:var(--denim-950);
-    background:var(--brass-bright);
-    border-color:var(--brass-bright);
-    font-weight:700;
-  }
-  .toolbar .spacer{flex:1;}
-
-  .panel{
-    background:var(--denim-900);
-    border:1px solid var(--line);
-    border-radius:8px;
-    padding:20px 22px;
-    margin-bottom:36px;
-    display:none;
-  }
-  .panel.open{display:block;}
-  .panel h3{
-    font-family:'Oswald', sans-serif;
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-    font-size:14px;
-    font-weight:600;
-    margin:0 0 14px;
-    color:var(--brass-bright);
-  }
-  .panel-row{
+  .pills{
     display:flex;
     flex-wrap:wrap;
-    gap:18px;
-    margin-bottom:18px;
-  }
-  .field{display:flex; flex-direction:column; gap:6px; min-width:160px;}
-  .field label{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    color:var(--cream-dim);
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-  }
-  .field input, .field select{
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-    background:var(--denim-950);
-    border:1px solid var(--line);
-    color:var(--cream);
-    padding:8px 10px;
-    border-radius:4px;
-  }
-  .field input::placeholder{color:var(--cream-dim); opacity:0.6;}
-  .checks{display:flex; flex-wrap:wrap; gap:10px;}
-  .check-pill{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:6px 12px;
-    cursor:pointer;
-    color:var(--cream-dim);
-    user-select:none;
-  }
-  .check-pill.on{
-    color:var(--denim-950);
-    background:var(--brass-bright);
-    border-color:var(--brass-bright);
-    font-weight:700;
-  }
-  .panel-divider{border-top:1px solid var(--line); margin:18px 0;}
-  .watch-list{display:flex; flex-direction:column; gap:6px; margin-bottom:6px;}
-  .watch-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    background:var(--denim-950);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:8px 12px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-  }
-  .watch-row .wname{color:var(--cream);}
-  .watch-row .wmeta{color:var(--cream-dim); font-size:11px; margin-left:8px;}
-  .btn-remove{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    background:transparent;
-    color:var(--stitch);
-    border:1px solid var(--stitch);
-    padding:4px 10px;
-    border-radius:14px;
-    cursor:pointer;
-    flex-shrink:0;
-  }
-  .btn-remove:disabled{opacity:0.5; cursor:default;}
-  .panel small{
-    display:block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    color:var(--cream-dim);
-    line-height:1.6;
+    gap:8px;
     margin-bottom:14px;
   }
-  .btn-primary{
+  .pill{
     font-family:'JetBrains Mono', monospace;
     font-size:12px;
-    font-weight:700;
-    background:var(--brass-bright);
-    color:var(--denim-950);
-    border:none;
-    padding:9px 18px;
+    letter-spacing:0.03em;
+    background:transparent;
+    color:var(--cream-dim);
+    border:1px solid var(--line);
+    padding:8px 16px;
     border-radius:20px;
     cursor:pointer;
+    user-select:none;
   }
-  .btn-primary:disabled{opacity:0.5; cursor:default;}
-  .status-msg{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    margin-top:10px;
-    line-height:1.6;
-  }
-  .status-msg.ok{color:#9fd6a8;}
-  .status-msg.err{color:var(--stitch);}
-
-  .brand-section{margin-bottom:52px;}
-  .brand-head{
-    display:flex;
-    align-items:baseline;
-    gap:14px;
-    margin-bottom:18px;
-    padding-bottom:10px;
-    border-bottom:2px solid var(--brass);
-  }
-  .brand-head h2{
-    font-family:'Oswald', sans-serif;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    font-size:20px;
-    font-weight:600;
-    margin:0;
-    color:var(--cream);
-  }
-  .count-pill{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
+  .pill.active{
     color:var(--denim-950);
     background:var(--brass-bright);
-    padding:3px 9px;
-    border-radius:20px;
+    border-color:var(--brass-bright);
     font-weight:700;
   }
-  .empty-note{
+
+  .discovery-note{
     font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    color:var(--cream-dim);
+    font-size:11.5px;
+    color:var(--teal);
+    margin:0 0 22px;
+    line-height:1.6;
   }
 
   .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-    gap:16px;
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+    gap:14px;
   }
   .card{
     background:linear-gradient(180deg, var(--denim-800), var(--denim-900));
@@ -262,25 +111,30 @@
     border-radius:6px;
     overflow:hidden;
     position:relative;
-    display:flex;
-    flex-direction:column;
     transition:transform .15s ease, border-color .15s ease;
   }
   .card:hover{transform:translateY(-3px); border-color:var(--brass);}
-  .card a.hit{position:absolute; inset:0; z-index:1;}
-  .photo-wrap{
-    aspect-ratio:1/1;
-    background:var(--denim-700);
-    overflow:hidden;
+  .card.bargain{
+    border-color:var(--brass-bright);
+    box-shadow:0 0 0 1px var(--brass-bright), 0 4px 16px rgba(179,144,79,0.25);
   }
+  .card a.hit{position:absolute; inset:0; z-index:1;}
+  .photo-wrap{aspect-ratio:1/1; background:var(--denim-700); overflow:hidden;}
   .photo-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
-  .card-body{padding:12px 14px 14px; position:relative;}
+  .card-body{padding:11px 13px 13px;}
+  .watch-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass-bright);
+    margin:0 0 4px;
+  }
+  .watch-label .disc{color:var(--teal);}
   .card-title{
-    font-family:'Fraunces', serif;
-    font-size:14.5px;
+    font-size:14px;
     line-height:1.35;
-    margin:0 0 6px;
-    color:var(--cream);
+    margin:0 0 7px;
     display:-webkit-box;
     -webkit-line-clamp:2;
     -webkit-box-orient:vertical;
@@ -291,269 +145,133 @@
     justify-content:space-between;
     align-items:center;
     font-family:'JetBrains Mono', monospace;
-    font-size:12px;
+    font-size:11.5px;
     color:var(--cream-dim);
-    margin-bottom:6px;
   }
-  .price-tag{
-    color:var(--brass-bright);
+  .price-tag{color:var(--brass-bright); font-weight:700; font-size:13px;}
+  .size-flag{
+    color:var(--teal);
     font-weight:700;
   }
-  .sub-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10.5px;
-    color:var(--cream-dim);
-    opacity:0.85;
-  }
-  .condition-pill{
-    border:1px solid var(--line);
-    border-radius:3px;
-    padding:1px 6px;
-  }
-  .stamp{
+  .badges{
     position:absolute;
     top:8px; left:8px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .badge{
     font-family:'JetBrains Mono', monospace;
     font-size:10px;
-    letter-spacing:0.08em;
-    color:var(--stitch);
-    border:1.5px solid var(--stitch);
-    padding:2px 6px;
-    border-radius:3px;
-    transform:rotate(-6deg);
-    background:rgba(22,31,48,0.75);
     font-weight:700;
-    pointer-events:none;
-    z-index:2;
+    letter-spacing:0.05em;
+    padding:2px 7px;
+    border-radius:3px;
+    width:fit-content;
   }
+  .badge.new{color:var(--stitch); border:1.5px solid var(--stitch); background:rgba(22,31,48,0.8); transform:rotate(-4deg);}
+  .badge.deal{color:var(--denim-950); background:var(--brass-bright);}
   .star-btn{
     position:absolute;
     top:8px; right:8px;
     z-index:3;
-    width:28px; height:28px;
+    width:30px; height:30px;
     border-radius:50%;
     border:1px solid var(--line);
-    background:rgba(22,31,48,0.75);
+    background:rgba(22,31,48,0.78);
     color:var(--cream-dim);
     display:flex; align-items:center; justify-content:center;
     cursor:pointer;
-    font-size:15px;
+    font-size:16px;
     line-height:1;
+    padding:0;
   }
-  .card.bargain{
-    border-color:var(--brass-bright);
-    box-shadow:0 0 0 1px var(--brass-bright), 0 4px 16px rgba(179,144,79,0.3);
-  }
-  .card.bargain:hover{border-color:var(--brass-bright);}
-  .bargain-badge{
-    position:absolute;
-    bottom:8px; left:8px;
-    z-index:2;
-    background:var(--brass-bright);
-    color:var(--denim-950);
+  .star-btn.starred{color:var(--brass-bright); border-color:var(--brass-bright);}
+
+  #loading, #error, #empty{
     font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:0.03em;
-    padding:3px 7px;
-    border-radius:3px;
-    pointer-events:none;
+    color:var(--cream-dim);
+    padding:60px 20px;
+    text-align:center;
+    display:none;
   }
-  .star-btn.starred{
-    color:var(--brass-bright);
-    border-color:var(--brass-bright);
-  }
+  #loading{display:block;}
 
   footer{
-    margin-top:60px;
-    padding-top:24px;
+    margin-top:56px;
+    padding-top:22px;
     border-top:1px solid var(--line);
     font-family:'JetBrains Mono', monospace;
-    font-size:12px;
+    font-size:11.5px;
     color:var(--cream-dim);
     line-height:1.7;
   }
 
-  #loading, #error{
-    font-family:'JetBrains Mono', monospace;
-    color:var(--cream-dim);
-    padding:60px 24px;
-    text-align:center;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .card{transition:none;}
-  }
+  @media (prefers-reduced-motion: reduce){ .card{transition:none;} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <p class="eyebrow">Personal search watch</p>
-    <h1>Bargain Watch</h1>
-    <p class="sub">Tracks the searches below across Vinted and flags what's new since the last check. Set your own size and condition below — it's saved in this browser only.</p>
+    <div>
+      <p class="eyebrow">Best finds, ranked</p>
+      <h1>Bargain Watch</h1>
+    </div>
     <div id="stamp"></div>
   </header>
 
-  <div class="toolbar">
-    <button id="filter-all" class="active">All listings</button>
-    <button id="filter-starred">Starred only</button>
-    <button id="filter-bargains">Big bargains</button>
-    <span class="spacer"></span>
-    <div class="field" style="min-width:auto;">
-      <select id="sort-select">
-        <option value="newest">Newest first</option>
-        <option value="price-low">Price: low to high</option>
-        <option value="price-high">Price: high to low</option>
-        <option value="discount">Biggest discount first</option>
-      </select>
-    </div>
-    <button id="toggle-settings">My size &amp; conditions</button>
-    <button id="toggle-addbrand">Manage searches</button>
+  <div class="pills" id="pills">
+    <button class="pill active" data-filter="all">All</button>
+    <button class="pill" data-filter="my_size">My size</button>
+    <button class="pill" data-filter="is_new">New</button>
+    <button class="pill" data-filter="is_bargain">Bargains</button>
+    <button class="pill" data-filter="discovery">Discovery</button>
+    <button class="pill" data-filter="starred">Starred</button>
   </div>
 
-  <div class="panel" id="settings-panel">
-    <h3>Your filters</h3>
-    <small>Applies only in this browser. Doesn't change what anyone else sees, and doesn't affect notifications (those are set in config.json for now).</small>
-    <div class="panel-row">
-      <div class="field">
-        <label for="size-input">Size contains</label>
-        <input type="text" id="size-input" placeholder="e.g. W36, or L, or UK 9">
-      </div>
-    </div>
-    <div class="field" style="margin-bottom:6px;">
-      <label>Condition (none selected = show all)</label>
-      <div class="checks" id="condition-checks"></div>
-    </div>
-    <div class="panel-divider"></div>
-    <div class="field" style="margin-bottom:0;">
-      <label>Brands shown on this dashboard</label>
-      <div class="checks" id="brand-checks"></div>
-    </div>
-  </div>
-
-  <div class="panel" id="addbrand-panel">
-    <h3>Manage searches</h3>
-    <small>
-      This reads and writes config.json straight in your GitHub repo, so it only works if you (or whoever's using
-      this) has write access to it — it's not open to random visitors of this page. You'll need a GitHub personal
-      access token scoped to just this repo's contents (Settings → Developer settings → Fine-grained tokens →
-      generate one, permission "Contents: Read and write", repository access limited to this repo). It's stored
-      only in this browser's local storage, never sent anywhere except straight to GitHub.
-    </small>
-    <div class="panel-row">
-      <div class="field">
-        <label for="gh-repo">GitHub repo (owner/name)</label>
-        <input type="text" id="gh-repo" placeholder="yourname/bargain-watch">
-      </div>
-      <div class="field">
-        <label for="gh-token">GitHub token</label>
-        <input type="password" id="gh-token" placeholder="github_pat_...">
-      </div>
-    </div>
-
-    <div class="panel-divider"></div>
-    <h3 style="margin-top:0;">Current searches</h3>
-    <div id="watch-list" class="watch-list"></div>
-    <div class="status-msg" id="watchlist-status"></div>
-
-    <div class="panel-divider"></div>
-    <h3 style="margin-top:0;">Add a search</h3>
-    <div class="panel-row">
-      <div class="field">
-        <label for="nb-name">Brand / search name</label>
-        <input type="text" id="nb-name" placeholder="e.g. Arpenteur">
-      </div>
-      <div class="field">
-        <label for="nb-search">Search text</label>
-        <input type="text" id="nb-search" placeholder="what to type into Vinted's search">
-      </div>
-      <div class="field">
-        <label for="nb-price">Price ceiling (optional)</label>
-        <input type="number" id="nb-price" placeholder="e.g. 60">
-      </div>
-      <div class="field">
-        <label for="nb-rrp">Typical retail price (optional)</label>
-        <input type="number" id="nb-rrp" placeholder="e.g. 150">
-      </div>
-      <div class="field">
-        <label for="nb-notify">Notify</label>
-        <select id="nb-notify">
-          <option value="instant">Instant</option>
-          <option value="digest">Daily digest</option>
-          <option value="off">Off (dashboard only)</option>
-        </select>
-      </div>
-    </div>
-    <button class="btn-primary" id="nb-submit">Add to config.json</button>
-    <div class="status-msg" id="nb-status"></div>
-  </div>
+  <p class="discovery-note" id="discovery-note"></p>
 
   <div id="loading">Loading latest scan…</div>
-  <div id="error" style="display:none;"></div>
-  <div id="content"></div>
+  <div id="error"></div>
+  <div id="empty">Nothing matches this filter right now.</div>
+  <div class="grid" id="feed"></div>
 
   <footer>
-    Data refreshes automatically on a schedule via GitHub Actions. Sourced from Vinted's public search results —
-    not affiliated with or endorsed by Vinted. <span id="footer-time"></span>
-    <br>Stars, size, and condition filters are saved in this browser only, not synced anywhere.
+    Refreshes automatically every 20 minutes via GitHub Actions, ranked by discount, price, condition, seller,
+    and your size. Discovery brands rotate daily. Sourced from Vinted's public search results — not affiliated
+    with or endorsed by Vinted. Stars are saved in this browser only.
   </footer>
 </div>
 
 <script>
-const STORE_PREFIX = 'bargain-watch-';
-const ALL_CONDITIONS = ['New with tags', 'New without tags', 'Very good', 'Good', 'Satisfactory'];
+const STAR_KEY = 'bargain-watch-starred';
+let starred = new Set();
+try { starred = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } catch {}
+function saveStarred(){ localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); }
 
-function getLocal(key, fallback) {
-  const raw = localStorage.getItem(STORE_PREFIX + key);
-  if (raw === null) return fallback;
-  try { return JSON.parse(raw); } catch { return raw; }
-}
-function setLocal(key, value) {
-  localStorage.setItem(STORE_PREFIX + key, typeof value === 'string' ? value : JSON.stringify(value));
-}
+let activeFilter = 'all';
+let feedData = [];
 
-let starred = new Set(getLocal('starred', []));
-let showStarredOnly = false;
-let showBargainsOnly = false;
-let sizeFilter = getLocal('size', '');
-let conditionFilter = new Set(getLocal('conditions', []));
-let hiddenBrands = new Set(getLocal('hidden-brands', []));
-let sortMode = getLocal('sort', 'newest');
-
-function saveStarred() { setLocal('starred', [...starred]); }
-
-function formatReputation(seller) {
-  const parts = [];
-  if (seller.login) parts.push(seller.login);
-  if (typeof seller.reputation === 'number') parts.push(`${Math.round(seller.reputation * 100)}%`);
-  if (seller.feedback_count) parts.push(`${seller.feedback_count} reviews`);
-  return parts.join(' · ');
-}
-
-function itemPassesUserFilters(item) {
-  if (sizeFilter) {
-    const size = (item.size || '').toLowerCase();
-    if (!size.includes(sizeFilter.toLowerCase())) return false;
+function cardMatches(item){
+  switch (activeFilter) {
+    case 'my_size':    return item.my_size;
+    case 'is_new':     return item.is_new;
+    case 'is_bargain': return item.is_bargain;
+    case 'discovery':  return item.source === 'discovery';
+    case 'starred':    return starred.has(item.id);
+    default:           return true;
   }
-  if (conditionFilter.size > 0) {
-    if (!conditionFilter.has(item.condition)) return false;
-  }
-  return true;
 }
 
-function buildCard(item) {
+function buildCard(item){
   const card = document.createElement('div');
   card.className = 'card' + (item.is_bargain ? ' bargain' : '');
-  card.dataset.id = item.id;
-  card.dataset.bargain = item.is_bargain ? '1' : '0';
 
   const photoWrap = document.createElement('div');
   photoWrap.className = 'photo-wrap';
-  if (item.photo) {
+  if (item.photo){
     const img = document.createElement('img');
     img.src = item.photo;
     img.loading = 'lazy';
@@ -562,36 +280,48 @@ function buildCard(item) {
   }
   card.appendChild(photoWrap);
 
-  if (item.is_new) {
-    const stamp = document.createElement('div');
-    stamp.className = 'stamp';
-    stamp.textContent = 'NEW';
-    card.appendChild(stamp);
+  const badges = document.createElement('div');
+  badges.className = 'badges';
+  if (item.is_new){
+    const b = document.createElement('span');
+    b.className = 'badge new';
+    b.textContent = 'NEW';
+    badges.appendChild(b);
   }
-
-  if (item.is_bargain) {
-    const badge = document.createElement('div');
-    badge.className = 'bargain-badge';
-    badge.textContent = item.bargain_reason || 'Bargain';
-    card.appendChild(badge);
+  if (item.bargain_reason){
+    const b = document.createElement('span');
+    b.className = 'badge deal';
+    b.textContent = item.bargain_reason;
+    badges.appendChild(b);
   }
+  if (badges.children.length) card.appendChild(badges);
 
   const starBtn = document.createElement('button');
   starBtn.className = 'star-btn' + (starred.has(item.id) ? ' starred' : '');
-  starBtn.setAttribute('aria-label', 'Toggle watchlist star');
+  starBtn.setAttribute('aria-label', 'Toggle star');
   starBtn.textContent = starred.has(item.id) ? '★' : '☆';
   starBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (starred.has(item.id)) { starred.delete(item.id); starBtn.classList.remove('starred'); starBtn.textContent = '☆'; }
+    e.preventDefault(); e.stopPropagation();
+    if (starred.has(item.id)){ starred.delete(item.id); starBtn.classList.remove('starred'); starBtn.textContent = '☆'; }
     else { starred.add(item.id); starBtn.classList.add('starred'); starBtn.textContent = '★'; }
     saveStarred();
-    if (showStarredOnly) applyFilter();
+    if (activeFilter === 'starred') renderFeed();
   });
   card.appendChild(starBtn);
 
   const body = document.createElement('div');
   body.className = 'card-body';
+
+  const label = document.createElement('p');
+  label.className = 'watch-label';
+  label.textContent = item.watch;
+  if (item.source === 'discovery'){
+    const tag = document.createElement('span');
+    tag.className = 'disc';
+    tag.textContent = ' · discovery';
+    label.appendChild(tag);
+  }
+  body.appendChild(label);
 
   const title = document.createElement('p');
   title.className = 'card-title';
@@ -601,26 +331,18 @@ function buildCard(item) {
   const meta = document.createElement('div');
   meta.className = 'meta-row';
   const size = document.createElement('span');
-  size.textContent = item.size || item.brand || '';
+  if (item.my_size){
+    size.className = 'size-flag';
+    size.textContent = (item.size || '') + ' ✓';
+  } else {
+    size.textContent = item.size || '';
+  }
   const price = document.createElement('span');
   price.className = 'price-tag';
   price.textContent = item.price || '';
   meta.appendChild(size);
   meta.appendChild(price);
   body.appendChild(meta);
-
-  const subRow = document.createElement('div');
-  subRow.className = 'sub-row';
-  const seller = document.createElement('span');
-  seller.textContent = item.seller ? formatReputation(item.seller) : '';
-  subRow.appendChild(seller);
-  if (item.condition) {
-    const cond = document.createElement('span');
-    cond.className = 'condition-pill';
-    cond.textContent = item.condition;
-    subRow.appendChild(cond);
-  }
-  body.appendChild(subRow);
 
   card.appendChild(body);
 
@@ -634,349 +356,46 @@ function buildCard(item) {
   return card;
 }
 
-function applyFilter() {
-  document.querySelectorAll('.card').forEach(card => {
-    const id = Number(card.dataset.id);
-    const starOk = !showStarredOnly || starred.has(id);
-    const bargainOk = !showBargainsOnly || card.dataset.bargain === '1';
-    card.style.display = (starOk && bargainOk) ? '' : 'none';
-  });
-  document.querySelectorAll('.brand-section').forEach(section => {
-    const visible = [...section.querySelectorAll('.card')].some(c => c.style.display !== 'none');
-    section.style.display = ((showStarredOnly || showBargainsOnly) && !visible) ? 'none' : '';
-  });
-}
-
-document.getElementById('filter-all').addEventListener('click', () => {
-  showStarredOnly = false;
-  showBargainsOnly = false;
-  document.getElementById('filter-all').classList.add('active');
-  document.getElementById('filter-starred').classList.remove('active');
-  document.getElementById('filter-bargains').classList.remove('active');
-  applyFilter();
-});
-document.getElementById('filter-starred').addEventListener('click', () => {
-  showStarredOnly = !showStarredOnly;
-  document.getElementById('filter-starred').classList.toggle('active', showStarredOnly);
-  document.getElementById('filter-all').classList.remove('active');
-  applyFilter();
-});
-document.getElementById('filter-bargains').addEventListener('click', () => {
-  showBargainsOnly = !showBargainsOnly;
-  document.getElementById('filter-bargains').classList.toggle('active', showBargainsOnly);
-  document.getElementById('filter-all').classList.remove('active');
-  applyFilter();
-});
-
-document.getElementById('toggle-settings').addEventListener('click', () => {
-  document.getElementById('settings-panel').classList.toggle('open');
-  document.getElementById('addbrand-panel').classList.remove('open');
-});
-document.getElementById('toggle-addbrand').addEventListener('click', () => {
-  const panel = document.getElementById('addbrand-panel');
-  panel.classList.toggle('open');
-  document.getElementById('settings-panel').classList.remove('open');
-  if (panel.classList.contains('open')) loadWatchList();
-});
-
-const sizeInput = document.getElementById('size-input');
-sizeInput.value = sizeFilter;
-sizeInput.addEventListener('input', () => {
-  sizeFilter = sizeInput.value.trim();
-  setLocal('size', sizeFilter);
-  render();
-});
-
-const conditionChecksEl = document.getElementById('condition-checks');
-ALL_CONDITIONS.forEach(cond => {
-  const pill = document.createElement('span');
-  pill.className = 'check-pill' + (conditionFilter.has(cond) ? ' on' : '');
-  pill.textContent = cond;
-  pill.addEventListener('click', () => {
-    if (conditionFilter.has(cond)) { conditionFilter.delete(cond); pill.classList.remove('on'); }
-    else { conditionFilter.add(cond); pill.classList.add('on'); }
-    setLocal('conditions', [...conditionFilter]);
-    render();
-  });
-  conditionChecksEl.appendChild(pill);
-});
-
-const sortSelect = document.getElementById('sort-select');
-sortSelect.value = sortMode;
-sortSelect.addEventListener('change', () => {
-  sortMode = sortSelect.value;
-  setLocal('sort', sortMode);
-  render();
-});
-
-function sortItems(items) {
-  const sorted = [...items];
-  if (sortMode === 'price-low' || sortMode === 'price-high') {
-    sorted.sort((a, b) => {
-      const pa = parseFloat(a.price) || Infinity;
-      const pb = parseFloat(b.price) || Infinity;
-      return sortMode === 'price-low' ? pa - pb : pb - pa;
-    });
-  } else if (sortMode === 'discount') {
-    sorted.sort((a, b) => (b.discount_pct ?? -Infinity) - (a.discount_pct ?? -Infinity));
-  }
-  // 'newest' keeps the order the scanner already returned (Vinted's newest_first)
-  return sorted;
-}
-
-function renderBrandChecks(brandNames) {
-  const el = document.getElementById('brand-checks');
-  el.innerHTML = '';
-  brandNames.forEach(name => {
-    const pill = document.createElement('span');
-    pill.className = 'check-pill' + (!hiddenBrands.has(name) ? ' on' : '');
-    pill.textContent = name;
-    pill.addEventListener('click', () => {
-      if (hiddenBrands.has(name)) { hiddenBrands.delete(name); pill.classList.add('on'); }
-      else { hiddenBrands.add(name); pill.classList.remove('on'); }
-      setLocal('hidden-brands', [...hiddenBrands]);
-      render();
-    });
-    el.appendChild(pill);
-  });
-}
-
-// --- Add-brand via GitHub Contents API ---
-const ghRepoInput = document.getElementById('gh-repo');
-const ghTokenInput = document.getElementById('gh-token');
-ghRepoInput.value = getLocal('gh-repo', '');
-ghTokenInput.value = getLocal('gh-token', '');
-ghRepoInput.addEventListener('change', () => setLocal('gh-repo', ghRepoInput.value.trim()));
-ghTokenInput.addEventListener('change', () => setLocal('gh-token', ghTokenInput.value.trim()));
-
-function utf8ToB64(str) { return btoa(unescape(encodeURIComponent(str))); }
-function b64ToUtf8(str) { return decodeURIComponent(escape(atob(str.replace(/\n/g, '')))); }
-
-function ghHeaders(token) {
-  return { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' };
-}
-
-async function getRemoteConfig(repo, token) {
-  const res = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, { headers: ghHeaders(token) });
-  if (!res.ok) throw new Error(`Couldn't read config.json (${res.status}). Check the repo name and token permissions.`);
-  const data = await res.json();
-  return { config: JSON.parse(b64ToUtf8(data.content)), sha: data.sha };
-}
-
-async function putRemoteConfig(repo, token, config, sha, message) {
-  const res = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
-    method: 'PUT',
-    headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      message,
-      content: utf8ToB64(JSON.stringify(config, null, 2)),
-      sha,
-      branch: 'main',
-    }),
-  });
-  if (!res.ok) {
-    const errBody = await res.json().catch(() => ({}));
-    throw new Error(errBody.message || `Commit failed (${res.status}).`);
-  }
-}
-
-async function loadWatchList() {
-  const repo = ghRepoInput.value.trim();
-  const token = ghTokenInput.value.trim();
-  const listEl = document.getElementById('watch-list');
-  const statusEl = document.getElementById('watchlist-status');
-  statusEl.textContent = '';
-  statusEl.className = 'status-msg';
-
-  if (!repo || !token) {
-    listEl.innerHTML = '';
-    statusEl.textContent = 'Fill in the repo and token above to see and manage your current searches.';
-    return;
-  }
-
-  listEl.innerHTML = '<p class="empty-note">Loading…</p>';
-  try {
-    const { config } = await getRemoteConfig(repo, token);
-    listEl.innerHTML = '';
-    (config.watches || []).forEach(watch => {
-      const row = document.createElement('div');
-      row.className = 'watch-row';
-
-      const label = document.createElement('span');
-      label.innerHTML = `<span class="wname">${watch.name}</span><span class="wmeta">${watch.notify || 'instant'}${watch.price_to ? ' · under £' + watch.price_to : ''}</span>`;
-      row.appendChild(label);
-
-      const removeBtn = document.createElement('button');
-      removeBtn.className = 'btn-remove';
-      removeBtn.textContent = 'Remove';
-      removeBtn.addEventListener('click', () => removeWatch(watch.name, removeBtn));
-      row.appendChild(removeBtn);
-
-      listEl.appendChild(row);
-    });
-    if ((config.watches || []).length === 0) {
-      listEl.innerHTML = '<p class="empty-note">No searches yet.</p>';
-    }
-  } catch (err) {
-    listEl.innerHTML = '';
-    statusEl.textContent = err.message;
-    statusEl.className = 'status-msg err';
-  }
-}
-
-async function removeWatch(name, btn) {
-  const repo = ghRepoInput.value.trim();
-  const token = ghTokenInput.value.trim();
-  const statusEl = document.getElementById('watchlist-status');
-  btn.disabled = true;
-  statusEl.textContent = `Removing ${name}…`;
-  statusEl.className = 'status-msg';
-  try {
-    const { config, sha } = await getRemoteConfig(repo, token);
-    config.watches = (config.watches || []).filter(w => w.name !== name);
-    await putRemoteConfig(repo, token, config, sha, `Remove watch: ${name}`);
-    statusEl.textContent = `Removed "${name}".`;
-    statusEl.className = 'status-msg ok';
-    loadWatchList();
-  } catch (err) {
-    statusEl.textContent = err.message;
-    statusEl.className = 'status-msg err';
-    btn.disabled = false;
-  }
-}
-
-document.getElementById('nb-submit').addEventListener('click', async () => {
-  const statusEl = document.getElementById('nb-status');
-  const btn = document.getElementById('nb-submit');
-  const repo = ghRepoInput.value.trim();
-  const token = ghTokenInput.value.trim();
-  const name = document.getElementById('nb-name').value.trim();
-  const searchText = document.getElementById('nb-search').value.trim();
-  const priceTo = document.getElementById('nb-price').value.trim();
-  const rrp = document.getElementById('nb-rrp').value.trim();
-  const notify = document.getElementById('nb-notify').value;
-
-  statusEl.textContent = '';
-  statusEl.className = 'status-msg';
-
-  if (!repo || !token || !name || !searchText) {
-    statusEl.textContent = 'Fill in the repo, token, name, and search text first.';
-    statusEl.className = 'status-msg err';
-    return;
-  }
-
-  btn.disabled = true;
-  statusEl.textContent = 'Reading current config.json…';
-
-  try {
-    const { config: currentConfig, sha } = await getRemoteConfig(repo, token);
-
-    const newWatch = { name, search_text: searchText, notify };
-    if (priceTo) newWatch.price_to = Number(priceTo);
-    if (rrp) newWatch.rrp = Number(rrp);
-    currentConfig.watches.push(newWatch);
-
-    statusEl.textContent = 'Committing update…';
-    await putRemoteConfig(repo, token, currentConfig, sha, `Add watch: ${name}`);
-
-    statusEl.textContent = `Added "${name}". It'll show up after the next scan (runs every 20 min, or trigger it manually from the Actions tab).`;
-    statusEl.className = 'status-msg ok';
-    document.getElementById('nb-name').value = '';
-    document.getElementById('nb-search').value = '';
-    document.getElementById('nb-price').value = '';
-    document.getElementById('nb-rrp').value = '';
-    loadWatchList();
-  } catch (err) {
-    statusEl.textContent = err.message;
-    statusEl.className = 'status-msg err';
-  } finally {
-    btn.disabled = false;
-  }
-});
-
-// --- Rendering ---
-let latestData = null;
-
-function render() {
-  if (!latestData) return;
-  const contentEl = document.getElementById('content');
-  contentEl.innerHTML = '';
+function renderFeed(){
+  const feedEl = document.getElementById('feed');
+  const emptyEl = document.getElementById('empty');
+  feedEl.innerHTML = '';
+  const visible = feedData.filter(cardMatches);
+  emptyEl.style.display = visible.length ? 'none' : 'block';
   const frag = document.createDocumentFragment();
-
-  renderBrandChecks(latestData.watches.map(w => w.name));
-
-  for (const watch of latestData.watches) {
-    if (hiddenBrands.has(watch.name)) continue;
-
-    const section = document.createElement('section');
-    section.className = 'brand-section';
-
-    const head = document.createElement('div');
-    head.className = 'brand-head';
-    const h2 = document.createElement('h2');
-    h2.textContent = watch.name;
-    head.appendChild(h2);
-
-    const visibleItems = sortItems((watch.items || []).filter(itemPassesUserFilters));
-    const newVisibleCount = visibleItems.filter(i => i.is_new).length;
-
-    if (newVisibleCount) {
-      const pill = document.createElement('span');
-      pill.className = 'count-pill';
-      pill.textContent = `${newVisibleCount} NEW`;
-      head.appendChild(pill);
-    }
-    section.appendChild(head);
-
-    if (watch.error) {
-      const note = document.createElement('p');
-      note.className = 'empty-note';
-      note.textContent = `Couldn't check this one this run (${watch.error}).`;
-      section.appendChild(note);
-      frag.appendChild(section);
-      continue;
-    }
-
-    if (visibleItems.length === 0) {
-      const note = document.createElement('p');
-      note.className = 'empty-note';
-      note.textContent = (watch.items && watch.items.length) ? 'Nothing matching your size/condition filters right now.' : 'Nothing matching right now.';
-      section.appendChild(note);
-      frag.appendChild(section);
-      continue;
-    }
-
-    const grid = document.createElement('div');
-    grid.className = 'grid';
-    for (const item of visibleItems) grid.appendChild(buildCard(item));
-    section.appendChild(grid);
-    frag.appendChild(section);
-  }
-
-  contentEl.appendChild(frag);
-  applyFilter();
+  visible.forEach(item => frag.appendChild(buildCard(item)));
+  feedEl.appendChild(frag);
 }
 
-async function load() {
+document.getElementById('pills').addEventListener('click', (e) => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  activeFilter = btn.dataset.filter;
+  document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === btn));
+  renderFeed();
+});
+
+async function load(){
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error');
-  const stampEl = document.getElementById('stamp');
-  const footerTimeEl = document.getElementById('footer-time');
-
   try {
     const res = await fetch('data.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('No data yet — the first scan hasn\'t run.');
     const data = await res.json();
-
     loadingEl.style.display = 'none';
-    latestData = data;
 
     const scanDate = new Date(data.generated_at * 1000);
-    stampEl.innerHTML = `LAST SCAN<br>${scanDate.toLocaleDateString()} ${scanDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
-    footerTimeEl.textContent = `Last updated ${scanDate.toLocaleString()}.`;
+    document.getElementById('stamp').innerHTML =
+      `LAST SCAN<br>${scanDate.toLocaleDateString()} ${scanDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
 
-    render();
-  } catch (err) {
+    if (Array.isArray(data.discovery_today) && data.discovery_today.length){
+      document.getElementById('discovery-note').textContent =
+        `Today's discovery brands: ${data.discovery_today.join(' · ')}`;
+    }
+
+    feedData = data.feed || [];
+    renderFeed();
+  } catch (err){
     loadingEl.style.display = 'none';
     errorEl.style.display = 'block';
     errorEl.textContent = err.message;

@@ -1,36 +1,35 @@
 #!/usr/bin/env python3
 """
-Vinted Watch
-------------
-Checks a list of saved searches against Vinted's public search endpoint,
-tracks which listings have already been seen, writes a snapshot for the
-dashboard (docs/data.json), and sends notifications via ntfy.sh — either
-straight away ("instant" watches) or queued up for the once-daily digest
-("digest" watches, sent by digest_send.py).
+Bargain Watch
+-------------
+Scans Vinted for a set of core searches plus a daily rotation of
+"discovery" brands, scores every listing, and writes one ranked feed
+for the dashboard (docs/data.json). Notifications go out via ntfy.sh
+for new finds on instant watches, and queue for the daily digest on
+digest watches.
 
-This talks to the same endpoint the Vinted website itself uses when you
-search. It's not an official/public API, so if Vinted changes something,
-this script may need small tweaks (that's normal for tools like this).
+The dashboard is deliberately read-only: all configuration lives in
+config.json in the repo (protected by your GitHub login), so the page
+itself has no inputs, tokens, or write access to anything.
 
-Usage:
-    python3 vinted_watch.py
+Scoring (roughly 0-100, higher = better find):
+  + discount vs RRP        (up to 60)
+  + at/under flat bargain price (+15)
+  + condition               (new with tags +15 ... good +3)
+  + trustworthy seller      (+5)
+  + matches your size       (+20)
+  + new since last scan     (+5)
 
-Config (config.json):
-    watches            - list of searches, each with an optional "notify"
-                          of "instant", "digest", or "off"
-    global_exclude      - keywords filtered out of every search's results
-                          (junk-filtering only — condition and size are
-                          filtered per-viewer on the dashboard instead)
-
-Env:
-    NTFY_TOPIC (env)   - optional. If set, "instant" watches push straight
-                         to https://ntfy.sh/<topic>. Leave unset to skip
-                         notifications and just update the dashboard.
+Discovery: each day, `discovery_per_day` brands are picked from the
+discovery_pool (rotating by day of year, so the mix changes daily
+without any input) and scanned alongside the core watches. Their
+finds are tagged so the dashboard can show where they came from.
 """
 
 import json
 import os
 import time
+from datetime import date
 from pathlib import Path
 
 import requests
@@ -48,6 +47,13 @@ REQUEST_HEADERS = {
         "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
     ),
     "Accept": "application/json, text/plain, */*",
+}
+
+CONDITION_SCORES = {
+    "New with tags": 15,
+    "New without tags": 12,
+    "Very good": 8,
+    "Good": 3,
 }
 
 
@@ -77,6 +83,18 @@ def new_session(domain):
     return session
 
 
+def pick_discovery(pool, per_day):
+    """Rotate through the pool by day of year, so the selection changes
+    daily and cycles through everything over time."""
+    if not pool or per_day <= 0:
+        return []
+    start = date.today().timetuple().tm_yday % len(pool)
+    picked = []
+    for i in range(min(per_day, len(pool))):
+        picked.append(pool[(start + i) % len(pool)])
+    return picked
+
+
 def run_search(session, domain, watch, currency, per_page):
     params = {
         "search_text": watch["search_text"],
@@ -92,18 +110,22 @@ def run_search(session, domain, watch, currency, per_page):
     url = f"https://{domain}/api/v2/catalog/items"
     resp = session.get(url, params=params, timeout=20)
     resp.raise_for_status()
-    payload = resp.json()
-    return payload.get("items", [])
+    return resp.json().get("items", [])
 
 
 def passes_filters(item, exclude_terms):
     title = (item.get("title") or "").lower()
-    if any(term.lower() in title for term in exclude_terms):
+    return not any(term.lower() in title for term in exclude_terms)
+
+
+def size_matches(size_title, size_terms):
+    if not size_terms:
         return False
-    return True
+    size = (size_title or "").strip().lower()
+    return bool(size) and any(s.lower() in size for s in size_terms)
 
 
-def to_card(item, domain, rrp=None, bargain_threshold_pct=50, bargain_max_price=None):
+def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new):
     photo = (item.get("photo") or {}).get("url", "")
     price_obj = item.get("total_item_price") or item.get("price") or {}
     amount = price_obj.get("amount")
@@ -113,51 +135,75 @@ def to_card(item, domain, rrp=None, bargain_threshold_pct=50, bargain_max_price=
     seller = {
         "login": user.get("login", ""),
         "feedback_count": user.get("feedback_count") or user.get("positive_feedback_count") or 0,
-        "reputation": user.get("feedback_reputation"),  # 0.0-1.0 if present
+        "reputation": user.get("feedback_reputation"),
     }
 
-    discount_pct = None
     price_amount = None
     if amount is not None:
         try:
             price_amount = float(amount)
         except (TypeError, ValueError):
-            price_amount = None
+            pass
+
+    rrp = watch.get("rrp")
+    discount_pct = None
     if rrp and price_amount is not None and rrp > 0:
         discount_pct = round((1 - price_amount / rrp) * 100)
 
-    discount_hit = discount_pct is not None and discount_pct >= bargain_threshold_pct
-    price_hit = bargain_max_price is not None and price_amount is not None and price_amount <= bargain_max_price
+    condition = (item.get("status") or "").strip()
+    size_title = (item.get("size_title") or "").strip()
+    size_terms = my_sizes.get(watch.get("size_category", ""), [])
+    my_size = size_matches(size_title, size_terms)
 
-    is_bargain = discount_hit or price_hit
-    if discount_hit:
-        bargain_reason = f"-{discount_pct}% vs RRP"
-    elif price_hit:
-        bargain_reason = f"Under {currency} {int(bargain_max_price)}"
+    score = 0
+    if discount_pct is not None and discount_pct > 0:
+        score += min(discount_pct, 60)
+    if max_price is not None and price_amount is not None and price_amount <= max_price:
+        score += 15
+    score += CONDITION_SCORES.get(condition, 0)
+    rep = seller.get("reputation")
+    if isinstance(rep, (int, float)) and rep >= 0.95 and seller["feedback_count"] >= 10:
+        score += 5
+    if my_size:
+        score += 20
+    if is_new:
+        score += 5
+
+    is_bargain = (discount_pct is not None and discount_pct >= threshold_pct) or (
+        max_price is not None and price_amount is not None and price_amount <= max_price
+    )
+    if discount_pct is not None and discount_pct >= threshold_pct:
+        bargain_reason = f"-{discount_pct}%"
+    elif is_bargain:
+        bargain_reason = f"Under {currency} {int(max_price)}"
     else:
         bargain_reason = None
 
     return {
         "id": item.get("id"),
         "title": item.get("title", "").strip(),
+        "watch": watch["name"],
         "brand": (item.get("brand_title") or "").strip(),
-        "size": (item.get("size_title") or "").strip(),
-        "condition": (item.get("status") or "").strip(),
+        "size": size_title,
+        "condition": condition,
         "price": f"{amount} {currency}" if amount else "",
         "photo": photo,
         "url": f"https://{domain}/items/{item.get('id')}",
         "seller": seller,
-        "rrp": rrp,
         "discount_pct": discount_pct,
+        "score": score,
+        "my_size": my_size,
+        "is_new": is_new,
         "is_bargain": is_bargain,
         "bargain_reason": bargain_reason,
+        "source": source,
     }
 
 
 def notify_ntfy(topic, title, cards):
     if not topic or not cards:
         return
-    lines = [f"{c['brand'] or ''} — {c['price']}: {c['title']}".strip(" —") for c in cards[:5]]
+    lines = [f"{c['watch']} — {c['price']}: {c['title']}" for c in cards[:5]]
     message = "\n".join(lines)
     if len(cards) > 5:
         message += f"\n…and {len(cards) - 5} more"
@@ -181,9 +227,11 @@ def main():
     domain = config.get("domain", "www.vinted.co.uk")
     currency = config.get("currency", "GBP")
     per_page = config.get("max_items_per_watch", 40)
+    threshold_pct = config.get("bargain_threshold_pct", 50)
+    max_price = config.get("bargain_max_price")
+    my_sizes = config.get("my_sizes", {})
+    feed_size = config.get("feed_size", 60)
     global_exclude = config.get("global_exclude", [])
-    bargain_threshold_pct = config.get("bargain_threshold_pct", 50)
-    bargain_max_price = config.get("bargain_max_price")
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
     seen_ids = load_json_set(SEEN_PATH)
@@ -192,53 +240,68 @@ def main():
         with open(DIGEST_PATH) as f:
             digest_pending = json.load(f)
 
+    discovery_today = pick_discovery(config.get("discovery_pool", []), config.get("discovery_per_day", 3))
+    scan_plan = [(w, "core") for w in config["watches"]] + [(w, "discovery") for w in discovery_today]
+
     session = new_session(domain)
+    all_cards = []
+    errors = []
 
-    dashboard = {"generated_at": int(time.time()), "watches": []}
-
-    for watch in config["watches"]:
+    for watch, source in scan_plan:
         name = watch["name"]
-        notify_mode = watch.get("notify", "instant")
         exclude_terms = global_exclude + watch.get("exclude", [])
-
-        print(f"Checking: {name}")
+        print(f"Checking ({source}): {name}")
         try:
             raw_items = run_search(session, domain, watch, currency, per_page)
         except requests.RequestException as e:
             print(f"  ! request failed: {e}")
-            dashboard["watches"].append({"name": name, "error": str(e), "items": []})
+            errors.append(name)
             continue
 
-        filtered = [i for i in raw_items if passes_filters(i, exclude_terms)]
-        cards = [to_card(item, domain, watch.get("rrp"), bargain_threshold_pct, bargain_max_price) for item in filtered]
-        new_cards = [c for c in cards if c["id"] not in seen_ids]
+        new_watch_cards = []
+        for item in raw_items:
+            if not passes_filters(item, exclude_terms):
+                continue
+            item_id = item.get("id")
+            is_new = item_id not in seen_ids
+            card = build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new)
+            all_cards.append(card)
+            if is_new:
+                seen_ids.add(item_id)
+                new_watch_cards.append(card)
 
-        for c in cards:
-            seen_ids.add(c["id"])
-            c["is_new"] = c in new_cards
-
-        dashboard["watches"].append({"name": name, "items": cards, "new_count": len(new_cards)})
-
-        if new_cards:
-            print(f"  {len(new_cards)} new")
+        if new_watch_cards and source == "core":
+            notify_mode = watch.get("notify", "instant")
+            print(f"  {len(new_watch_cards)} new")
             if notify_mode == "instant":
-                notify_ntfy(ntfy_topic, f"Vinted: {len(new_cards)} new — {name}", new_cards)
+                notify_ntfy(ntfy_topic, f"Vinted: {len(new_watch_cards)} new — {name}", new_watch_cards)
             elif notify_mode == "digest":
                 bucket = digest_pending.setdefault(name, [])
-                existing_ids = {c["id"] for c in bucket}
-                for c in new_cards:
-                    if c["id"] not in existing_ids:
-                        bucket.append(c)
-            # "off" -> no notification, still shown on dashboard
+                existing = {c["id"] for c in bucket}
+                bucket.extend(c for c in new_watch_cards if c["id"] not in existing)
 
         time.sleep(1)  # be polite between requests
+
+    # De-dupe (a discovery brand can overlap a core search), rank, trim
+    unique = {}
+    for c in all_cards:
+        existing = unique.get(c["id"])
+        if existing is None or c["score"] > existing["score"]:
+            unique[c["id"]] = c
+    feed = sorted(unique.values(), key=lambda c: c["score"], reverse=True)[:feed_size]
+
+    dashboard = {
+        "generated_at": int(time.time()),
+        "discovery_today": [w["name"] for w in discovery_today],
+        "errors": errors,
+        "feed": feed,
+    }
 
     DOCS_DIR.mkdir(exist_ok=True)
     save_json(DATA_PATH, dashboard)
     save_json(SEEN_PATH, sorted(seen_ids))
     save_json(DIGEST_PATH, digest_pending)
-
-    print("Done. Dashboard data written to docs/data.json")
+    print(f"Done. {len(feed)} listings in the feed.")
 
 
 if __name__ == "__main__":
