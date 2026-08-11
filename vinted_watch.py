@@ -29,6 +29,7 @@ finds are tagged so the dashboard can show where they came from.
 import json
 import os
 import time
+import unicodedata
 from datetime import date
 from pathlib import Path
 
@@ -120,6 +121,36 @@ def run_search(session, domain, watch, currency, per_page):
 def passes_filters(item, exclude_terms):
     title = (item.get("title") or "").lower()
     return not any(term.lower() in title for term in exclude_terms)
+
+
+def normalize_brand(s):
+    """Lowercase, strip accents/punctuation, so 'C.P. Company' and 'CP Company'
+    (or 'Klättermusen' and 'Klattermusen') compare equal."""
+    if not s:
+        return ""
+    s = unicodedata.normalize("NFKD", s)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return "".join(c.lower() for c in s if c.isalnum())
+
+
+def brand_matches(item, watch):
+    """Cross-check Vinted's own brand tag on the listing against the brand
+    being watched, rather than trusting free-text search alone. This is what
+    catches things like 'Iron Heart' text-matching iron-on patches, or
+    'Acne Studios' text-matching acne skincare pads - Vinted's search matches
+    loosely on words in the title, but the brand_title field is what the
+    seller actually tagged the item as."""
+    if not watch.get("require_brand_match", True):
+        return True
+    actual = normalize_brand(item.get("brand_title") or "")
+    if not actual:
+        return False  # no brand tag at all - usually generic/mistagged junk
+    candidates = watch.get("brand_match") or [watch["name"]]
+    for candidate in candidates:
+        expected = normalize_brand(candidate)
+        if expected and (expected in actual or actual in expected):
+            return True
+    return False
 
 
 def size_matches(size_title, size_terms):
@@ -274,6 +305,8 @@ def main():
         new_watch_cards = []
         for item in raw_items:
             if not passes_filters(item, exclude_terms):
+                continue
+            if not brand_matches(item, watch):
                 continue
             item_id = item.get("id")
             is_new = item_id not in seen_ids
