@@ -223,6 +223,34 @@
   .thumb-btn.up.active{color:var(--teal); border-color:var(--teal);}
   .thumb-btn.down.active{color:var(--stitch); border-color:var(--stitch);}
 
+  .hide-btn{
+    position:absolute;
+    bottom:8px; left:8px;
+    z-index:3;
+    width:26px; height:26px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(22,31,48,0.78);
+    color:var(--cream-dim);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-size:13px;
+    line-height:1;
+    padding:0;
+  }
+  .hide-btn:hover{color:var(--stitch); border-color:var(--stitch);}
+
+  .reset-link{
+    background:none;
+    border:none;
+    color:var(--brass-bright);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    text-decoration:underline;
+    cursor:pointer;
+    padding:0;
+  }
+
   #loading, #error, #empty{
     font-family:'JetBrains Mono', monospace;
     color:var(--cream-dim);
@@ -283,6 +311,7 @@
     Refreshes automatically every 20 minutes via GitHub Actions, ranked by discount, price, condition, seller,
     and your size. Discovery brands rotate daily. Sourced from Vinted's public search results — not affiliated
     with or endorsed by Vinted. Stars are saved in this browser only.
+    <br><span id="hidden-count"></span> <button class="reset-link" id="reset-hidden">Reset hidden listings</button>
   </footer>
 </div>
 
@@ -303,6 +332,22 @@ function saveFeedback(){ localStorage.setItem(FEEDBACK_KEY, JSON.stringify(feedb
 let affinity = {};
 try { affinity = JSON.parse(localStorage.getItem(AFFINITY_KEY) || '{}'); } catch {}
 function saveAffinity(){ localStorage.setItem(AFFINITY_KEY, JSON.stringify(affinity)); }
+
+const HIDDEN_KEY = 'bargain-watch-hidden';
+let hidden = new Set();
+try { hidden = new Set(JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]')); } catch {}
+function saveHidden(){ localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hidden])); }
+function hideItem(id){
+  hidden.add(id);
+  saveHidden();
+  updateHiddenCount();
+  renderFeed();
+}
+function updateHiddenCount(){
+  const el = document.getElementById('hidden-count');
+  if (!el) return;
+  el.textContent = hidden.size ? `${hidden.size} listing${hidden.size === 1 ? '' : 's'} hidden.` : '';
+}
 
 function stateValue(state){ return state === 'up' ? 1 : state === 'down' ? -1 : 0; }
 
@@ -326,6 +371,7 @@ let sortMode = 'rank';
 let feedData = [];
 
 function cardMatches(item){
+  if (hidden.has(item.id)) return false;
   switch (activeFilter) {
     case 'my_size':    return item.my_size;
     case 'is_new':     return item.is_new;
@@ -432,6 +478,13 @@ function buildCard(item, rank){
 
   photoWrap.appendChild(thumbRow);
 
+  const hideBtn = document.createElement('button');
+  hideBtn.className = 'hide-btn';
+  hideBtn.setAttribute('aria-label', 'Hide this listing - wrong brand, wrong category, or anything else off');
+  hideBtn.textContent = '✕';
+  hideBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); hideItem(item.id); });
+  photoWrap.appendChild(hideBtn);
+
   const body = document.createElement('div');
   body.className = 'card-body';
 
@@ -506,6 +559,13 @@ document.getElementById('sort-pills').addEventListener('click', (e) => {
   renderFeed();
 });
 
+document.getElementById('reset-hidden').addEventListener('click', () => {
+  hidden.clear();
+  saveHidden();
+  updateHiddenCount();
+  renderFeed();
+});
+
 async function load(){
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error');
@@ -525,6 +585,7 @@ async function load(){
     }
 
     feedData = data.feed || [];
+    updateHiddenCount();
     renderFeed();
   } catch (err){
     loadingEl.style.display = 'none';
