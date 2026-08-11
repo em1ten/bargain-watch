@@ -29,11 +29,7 @@
     { "name": "Carhartt WIP",    "search_text": "carhartt wip",    "price_to": 50,  "rrp": 110, "size_category": "tops",     "notify": "digest" },
     { "name": "Folk Clothing",   "search_text": "folk clothing",   "price_to": 60,  "rrp": 140, "size_category": "tops",     "notify": "digest" },
     { "name": "Norse Projects",  "search_text": "norse projects",  "price_to": 60,  "rrp": 150, "size_category": "tops",     "notify": "digest" },
-    { "name": "CP Company",      "search_text": "cp company",      "price_to": 120, "rrp": 350, "size_category": "tops",     "notify": "instant" },
-    { "name": "Stone Island",    "search_text": "stone island",    "price_to": 120, "rrp": 350, "size_category": "tops",     "notify": "instant" },
     { "name": "Red Wing",        "search_text": "red wing boots",  "price_to": 120, "rrp": 230, "size_category": "footwear", "notify": "digest" },
-    { "name": "Trickers",        "search_text": "trickers",        "price_to": 120, "rrp": 350, "size_category": "footwear", "notify": "digest",
-      "exclude": ["vinyl"] },
     { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest" },
     { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 25,              "size_category": "tops",     "notify": "off" }
   ],
