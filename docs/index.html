@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinted Watch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --denim-950:#161f30;
+    --denim-900:#1c2740;
+    --denim-800:#2b3b5c;
+    --denim-700:#3a4f78;
+    --cream:#f1e8d6;
+    --cream-dim:#c9bd9e;
+    --brass:#b3904f;
+    --brass-bright:#d9b567;
+    --stitch:#c65a3c;
+    --line:rgba(241,232,214,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(179,144,79,0.10), transparent 45%),
+      var(--denim-950);
+    color:var(--cream);
+    font-family:'Fraunces', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px;}
+
+  header{
+    padding:56px 24px 40px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:28px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--brass-bright);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    font-size:clamp(34px, 5vw, 56px);
+    margin:0 0 10px;
+    color:var(--cream);
+  }
+  .sub{
+    font-size:16px;
+    color:var(--cream-dim);
+    max-width:56ch;
+    line-height:1.5;
+    margin:0;
+  }
+  #stamp{
+    position:absolute;
+    top:52px; right:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--cream-dim);
+    border:1px solid var(--line);
+    padding:8px 12px;
+    border-radius:2px;
+    text-align:right;
+    line-height:1.6;
+  }
+
+  .toolbar{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:36px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+  }
+  .toolbar button{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.03em;
+    background:transparent;
+    color:var(--cream-dim);
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:20px;
+    cursor:pointer;
+  }
+  .toolbar button.active{
+    color:var(--denim-950);
+    background:var(--brass-bright);
+    border-color:var(--brass-bright);
+    font-weight:700;
+  }
+
+  .brand-section{margin-bottom:52px;}
+  .brand-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--brass);
+  }
+  .brand-head h2{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+    color:var(--cream);
+  }
+  .count-pill{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--denim-950);
+    background:var(--brass-bright);
+    padding:3px 9px;
+    border-radius:20px;
+    font-weight:700;
+  }
+  .empty-note{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--cream-dim);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:16px;
+  }
+  .card{
+    background:linear-gradient(180deg, var(--denim-800), var(--denim-900));
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-3px); border-color:var(--brass);}
+  .card a.hit{position:absolute; inset:0; z-index:1;}
+  .photo-wrap{
+    aspect-ratio:1/1;
+    background:var(--denim-700);
+    overflow:hidden;
+  }
+  .photo-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+  .card-body{padding:12px 14px 14px; position:relative;}
+  .card-title{
+    font-family:'Fraunces', serif;
+    font-size:14.5px;
+    line-height:1.35;
+    margin:0 0 6px;
+    color:var(--cream);
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--cream-dim);
+    margin-bottom:6px;
+  }
+  .price-tag{
+    color:var(--brass-bright);
+    font-weight:700;
+  }
+  .sub-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--cream-dim);
+    opacity:0.85;
+  }
+  .condition-pill{
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:1px 6px;
+  }
+  .stamp{
+    position:absolute;
+    top:8px; left:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.08em;
+    color:var(--stitch);
+    border:1.5px solid var(--stitch);
+    padding:2px 6px;
+    border-radius:3px;
+    transform:rotate(-6deg);
+    background:rgba(22,31,48,0.75);
+    font-weight:700;
+    pointer-events:none;
+    z-index:2;
+  }
+  .star-btn{
+    position:absolute;
+    top:8px; right:8px;
+    z-index:3;
+    width:28px; height:28px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(22,31,48,0.75);
+    color:var(--cream-dim);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-size:15px;
+    line-height:1;
+  }
+  .star-btn.starred{
+    color:var(--brass-bright);
+    border-color:var(--brass-bright);
+  }
+
+  footer{
+    margin-top:60px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--cream-dim);
+    line-height:1.7;
+  }
+
+  #loading, #error{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--cream-dim);
+    padding:60px 24px;
+    text-align:center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Personal search watch</p>
+    <h1>Vinted Watch</h1>
+    <p class="sub">Tracks the searches below across Vinted and flags what's new since the last check. Runs itself in the background — nothing to refresh here.</p>
+    <div id="stamp"></div>
+  </header>
+
+  <div class="toolbar">
+    <button id="filter-all" class="active">All listings</button>
+    <button id="filter-starred">Starred only</button>
+  </div>
+
+  <div id="loading">Loading latest scan…</div>
+  <div id="error" style="display:none;"></div>
+  <div id="content"></div>
+
+  <footer>
+    Data refreshes automatically on a schedule via GitHub Actions. Sourced from Vinted's public search results —
+    not affiliated with or endorsed by Vinted. <span id="footer-time"></span>
+    <br>Stars are saved in this browser only, not synced anywhere.
+  </footer>
+</div>
+
+<script>
+const STAR_KEY = 'vinted-watch-starred';
+
+function getStarred() {
+  try { return new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); }
+  catch { return new Set(); }
+}
+function saveStarred(set) {
+  localStorage.setItem(STAR_KEY, JSON.stringify([...set]));
+}
+
+let starred = getStarred();
+let showStarredOnly = false;
+
+function formatReputation(seller) {
+  const parts = [];
+  if (seller.login) parts.push(seller.login);
+  if (typeof seller.reputation === 'number') {
+    parts.push(`${Math.round(seller.reputation * 100)}%`);
+  }
+  if (seller.feedback_count) {
+    parts.push(`${seller.feedback_count} reviews`);
+  }
+  return parts.join(' · ');
+}
+
+function buildCard(item) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.id = item.id;
+
+  const photoWrap = document.createElement('div');
+  photoWrap.className = 'photo-wrap';
+  if (item.photo) {
+    const img = document.createElement('img');
+    img.src = item.photo;
+    img.loading = 'lazy';
+    img.alt = item.title || 'Listing photo';
+    photoWrap.appendChild(img);
+  }
+  card.appendChild(photoWrap);
+
+  if (item.is_new) {
+    const stamp = document.createElement('div');
+    stamp.className = 'stamp';
+    stamp.textContent = 'NEW';
+    card.appendChild(stamp);
+  }
+
+  const starBtn = document.createElement('button');
+  starBtn.className = 'star-btn' + (starred.has(item.id) ? ' starred' : '');
+  starBtn.setAttribute('aria-label', 'Toggle watchlist star');
+  starBtn.textContent = starred.has(item.id) ? '★' : '☆';
+  starBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (starred.has(item.id)) {
+      starred.delete(item.id);
+      starBtn.classList.remove('starred');
+      starBtn.textContent = '☆';
+    } else {
+      starred.add(item.id);
+      starBtn.classList.add('starred');
+      starBtn.textContent = '★';
+    }
+    saveStarred(starred);
+    if (showStarredOnly) applyFilter();
+  });
+  card.appendChild(starBtn);
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+
+  const title = document.createElement('p');
+  title.className = 'card-title';
+  title.textContent = item.title || '(untitled listing)';
+  body.appendChild(title);
+
+  const meta = document.createElement('div');
+  meta.className = 'meta-row';
+  const size = document.createElement('span');
+  size.textContent = item.size || item.brand || '';
+  const price = document.createElement('span');
+  price.className = 'price-tag';
+  price.textContent = item.price || '';
+  meta.appendChild(size);
+  meta.appendChild(price);
+  body.appendChild(meta);
+
+  const subRow = document.createElement('div');
+  subRow.className = 'sub-row';
+  const seller = document.createElement('span');
+  seller.textContent = item.seller ? formatReputation(item.seller) : '';
+  subRow.appendChild(seller);
+  if (item.condition) {
+    const cond = document.createElement('span');
+    cond.className = 'condition-pill';
+    cond.textContent = item.condition;
+    subRow.appendChild(cond);
+  }
+  body.appendChild(subRow);
+
+  card.appendChild(body);
+
+  const link = document.createElement('a');
+  link.className = 'hit';
+  link.href = item.url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  card.appendChild(link);
+
+  return card;
+}
+
+function applyFilter() {
+  document.querySelectorAll('.card').forEach(card => {
+    const id = Number(card.dataset.id);
+    card.style.display = (showStarredOnly && !starred.has(id)) ? 'none' : '';
+  });
+  document.querySelectorAll('.brand-section').forEach(section => {
+    const visible = [...section.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+    section.style.display = (showStarredOnly && !visible) ? 'none' : '';
+  });
+}
+
+document.getElementById('filter-all').addEventListener('click', () => {
+  showStarredOnly = false;
+  document.getElementById('filter-all').classList.add('active');
+  document.getElementById('filter-starred').classList.remove('active');
+  applyFilter();
+});
+document.getElementById('filter-starred').addEventListener('click', () => {
+  showStarredOnly = true;
+  document.getElementById('filter-starred').classList.add('active');
+  document.getElementById('filter-all').classList.remove('active');
+  applyFilter();
+});
+
+async function load() {
+  const loadingEl = document.getElementById('loading');
+  const errorEl = document.getElementById('error');
+  const contentEl = document.getElementById('content');
+  const stampEl = document.getElementById('stamp');
+  const footerTimeEl = document.getElementById('footer-time');
+
+  try {
+    const res = await fetch('data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('No data yet — the first scan hasn\'t run.');
+    const data = await res.json();
+
+    loadingEl.style.display = 'none';
+
+    const scanDate = new Date(data.generated_at * 1000);
+    stampEl.innerHTML = `LAST SCAN<br>${scanDate.toLocaleDateString()} ${scanDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
+    footerTimeEl.textContent = `Last updated ${scanDate.toLocaleString()}.`;
+
+    const frag = document.createDocumentFragment();
+
+    for (const watch of data.watches) {
+      const section = document.createElement('section');
+      section.className = 'brand-section';
+
+      const head = document.createElement('div');
+      head.className = 'brand-head';
+      const h2 = document.createElement('h2');
+      h2.textContent = watch.name;
+      head.appendChild(h2);
+
+      if (watch.new_count) {
+        const pill = document.createElement('span');
+        pill.className = 'count-pill';
+        pill.textContent = `${watch.new_count} NEW`;
+        head.appendChild(pill);
+      }
+      section.appendChild(head);
+
+      if (watch.error) {
+        const note = document.createElement('p');
+        note.className = 'empty-note';
+        note.textContent = `Couldn't check this one this run (${watch.error}).`;
+        section.appendChild(note);
+        frag.appendChild(section);
+        continue;
+      }
+
+      if (!watch.items || watch.items.length === 0) {
+        const note = document.createElement('p');
+        note.className = 'empty-note';
+        note.textContent = 'Nothing matching right now.';
+        section.appendChild(note);
+        frag.appendChild(section);
+        continue;
+      }
+
+      const grid = document.createElement('div');
+      grid.className = 'grid';
+      for (const item of watch.items) {
+        grid.appendChild(buildCard(item));
+      }
+      section.appendChild(grid);
+      frag.appendChild(section);
+    }
+
+    contentEl.appendChild(frag);
+    applyFilter();
+  } catch (err) {
+    loadingEl.style.display = 'none';
+    errorEl.style.display = 'block';
+    errorEl.textContent = err.message;
+  }
+}
+
+load();
+</script>
+</body>
+</html>

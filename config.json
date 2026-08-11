@@ -1,0 +1,30 @@
+{
+  "domain": "www.vinted.co.uk",
+  "currency": "GBP",
+  "max_items_per_watch": 40,
+
+  "global_exclude": ["kids", "toy", "doll", "replica", "fake", "case", "phone", "figure"],
+
+  "conditions": ["New with tags", "New without tags", "Very good"],
+
+  "watches": [
+    { "name": "Nudie Jeans",        "search_text": "nudie jeans",         "price_to": 60,  "notify": "instant" },
+    { "name": "Edwin",              "search_text": "edwin jeans",         "price_to": 60,  "notify": "instant" },
+    { "name": "Momotaro",           "search_text": "momotaro jeans",      "price_to": 150, "notify": "instant" },
+    { "name": "Iron Heart",         "search_text": "iron heart",          "price_to": 150, "notify": "instant" },
+    { "name": "PBJ",                "search_text": "pbj denim",           "price_to": 100, "notify": "instant" },
+    { "name": "3sixteen",           "search_text": "3sixteen",            "price_to": 100, "notify": "instant" },
+    { "name": "Tellason",           "search_text": "tellason",            "price_to": 100, "notify": "instant" },
+    { "name": "Roy Denim",          "search_text": "roy denim",           "price_to": 100, "notify": "instant" },
+    { "name": "Universal Works",    "search_text": "universal works",     "price_to": 60,  "notify": "instant" },
+    { "name": "Carhartt WIP",       "search_text": "carhartt wip",        "price_to": 50,  "notify": "digest"  },
+    { "name": "Folk Clothing",      "search_text": "folk clothing",       "price_to": 60,  "notify": "digest"  },
+    { "name": "Norse Projects",     "search_text": "norse projects",      "price_to": 60,  "notify": "digest"  },
+    { "name": "CP Company",         "search_text": "cp company",          "price_to": 120, "notify": "instant" },
+    { "name": "Stone Island",       "search_text": "stone island",        "price_to": 120, "notify": "instant" },
+    { "name": "Red Wing",           "search_text": "red wing boots",      "price_to": 120, "notify": "digest"  },
+    { "name": "Trickers",           "search_text": "trickers",            "price_to": 120, "notify": "digest"  },
+    { "name": "Selvedge denim",     "search_text": "selvedge",            "price_to": 60,  "notify": "digest"  },
+    { "name": "Uniqlo",             "search_text": "uniqlo",              "price_to": 25,  "notify": "off"     }
+  ]
+}
