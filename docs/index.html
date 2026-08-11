@@ -190,6 +190,29 @@
   }
   .star-btn.starred{color:var(--brass-bright); border-color:var(--brass-bright);}
 
+  .thumb-row{
+    position:absolute;
+    bottom:8px; right:8px;
+    z-index:3;
+    display:flex;
+    gap:5px;
+  }
+  .thumb-btn{
+    width:26px; height:26px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(22,31,48,0.78);
+    color:var(--cream-dim);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-size:11px;
+    line-height:1;
+    padding:0;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .thumb-btn.up.active{color:var(--teal); border-color:var(--teal);}
+  .thumb-btn.down.active{color:var(--stitch); border-color:var(--stitch);}
+
   #loading, #error, #empty{
     font-family:'JetBrains Mono', monospace;
     color:var(--cream-dim);
@@ -247,9 +270,38 @@
 
 <script>
 const STAR_KEY = 'bargain-watch-starred';
+const FEEDBACK_KEY = 'bargain-watch-feedback';
+const AFFINITY_KEY = 'bargain-watch-affinity';
+const AFFINITY_WEIGHT = 12;
+
 let starred = new Set();
 try { starred = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } catch {}
 function saveStarred(){ localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); }
+
+let feedback = {};
+try { feedback = JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '{}'); } catch {}
+function saveFeedback(){ localStorage.setItem(FEEDBACK_KEY, JSON.stringify(feedback)); }
+
+let affinity = {};
+try { affinity = JSON.parse(localStorage.getItem(AFFINITY_KEY) || '{}'); } catch {}
+function saveAffinity(){ localStorage.setItem(AFFINITY_KEY, JSON.stringify(affinity)); }
+
+function stateValue(state){ return state === 'up' ? 1 : state === 'down' ? -1 : 0; }
+
+function setFeedback(id, watchName, requested){
+  const current = feedback[id] || null;
+  const next = current === requested ? null : requested; // tap same again to undo
+  affinity[watchName] = (affinity[watchName] || 0) - stateValue(current) + stateValue(next);
+  if (affinity[watchName] === 0) delete affinity[watchName];
+  if (next) feedback[id] = next; else delete feedback[id];
+  saveFeedback();
+  saveAffinity();
+  renderFeed();
+}
+
+function displayScore(item){
+  return item.score + (affinity[item.watch] || 0) * AFFINITY_WEIGHT;
+}
 
 let activeFilter = 'all';
 let feedData = [];
@@ -309,6 +361,25 @@ function buildCard(item){
   });
   card.appendChild(starBtn);
 
+  const thumbRow = document.createElement('div');
+  thumbRow.className = 'thumb-row';
+
+  const upBtn = document.createElement('button');
+  upBtn.className = 'thumb-btn up' + (feedback[item.id] === 'up' ? ' active' : '');
+  upBtn.setAttribute('aria-label', 'More like this');
+  upBtn.textContent = '▲';
+  upBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setFeedback(item.id, item.watch, 'up'); });
+  thumbRow.appendChild(upBtn);
+
+  const downBtn = document.createElement('button');
+  downBtn.className = 'thumb-btn down' + (feedback[item.id] === 'down' ? ' active' : '');
+  downBtn.setAttribute('aria-label', 'Less like this');
+  downBtn.textContent = '▼';
+  downBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setFeedback(item.id, item.watch, 'down'); });
+  thumbRow.appendChild(downBtn);
+
+  card.appendChild(thumbRow);
+
   const body = document.createElement('div');
   body.className = 'card-body';
 
@@ -360,7 +431,7 @@ function renderFeed(){
   const feedEl = document.getElementById('feed');
   const emptyEl = document.getElementById('empty');
   feedEl.innerHTML = '';
-  const visible = feedData.filter(cardMatches);
+  const visible = feedData.filter(cardMatches).sort((a, b) => displayScore(b) - displayScore(a));
   emptyEl.style.display = visible.length ? 'none' : 'block';
   const frag = document.createDocumentFragment();
   visible.forEach(item => frag.appendChild(buildCard(item)));
