@@ -257,6 +257,7 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "source": source,
         "listed_at": listed_at,
         "condition_badge": CONDITION_BADGE.get(condition),
+        "category": watch.get("category", "clothing"),
     }
 
 
