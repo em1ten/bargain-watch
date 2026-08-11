@@ -39,6 +39,13 @@
     { "name": "Novesta",         "search_text": "novesta",         "price_to": 30,  "rrp": 70,  "size_category": "footwear", "notify": "digest" },
     { "name": "Sunspel",         "search_text": "sunspel",         "price_to": 35,  "rrp": 90,  "size_category": "tops",     "notify": "digest" },
     { "name": "Hoka",            "search_text": "hoka trainers",   "price_to": 50,  "rrp": 140, "size_category": "footwear", "notify": "digest" },
+    { "name": "Deus Ex Machina", "search_text": "deus ex machina", "price_to": 60,  "rrp": 140, "size_category": "tops",     "notify": "digest" },
+    { "name": "Parlez",          "search_text": "parlez",          "price_to": 35,  "rrp": 80,  "size_category": "tops",     "notify": "digest" },
+    { "name": "Penfield",        "search_text": "penfield",        "price_to": 60,  "rrp": 150, "size_category": "tops",     "notify": "digest" },
+    { "name": "Service Works",   "search_text": "service works",   "price_to": 30,  "rrp": 70,  "size_category": "tops",     "notify": "digest" },
+    { "name": "Stan Ray",        "search_text": "stan ray",        "price_to": 40,  "rrp": 90,  "size_category": "tops",     "notify": "digest" },
+    { "name": "Ten C",           "search_text": "ten c",           "price_to": 150, "rrp": 450, "size_category": "tops",     "notify": "digest" },
+    { "name": "Aspesi",          "search_text": "aspesi",          "price_to": 120, "rrp": 300, "size_category": "tops",     "notify": "digest" },
     { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest" },
     { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 25,              "size_category": "tops",     "notify": "off" }
   ],
@@ -47,7 +54,6 @@
     { "name": "Arpenteur",       "search_text": "arpenteur",        "price_to": 80,  "rrp": 180, "size_category": "tops" },
     { "name": "A.P.C.",          "search_text": "apc jeans",        "price_to": 70,  "rrp": 180, "size_category": "denim" },
     { "name": "Our Legacy",      "search_text": "our legacy",       "price_to": 80,  "rrp": 200, "size_category": "tops" },
-    { "name": "Stan Ray",        "search_text": "stan ray",         "price_to": 40,  "rrp": 90,  "size_category": "tops" },
     { "name": "Margaret Howell", "search_text": "margaret howell",  "price_to": 80,  "rrp": 250, "size_category": "tops" },
     { "name": "MHL",             "search_text": "mhl",              "price_to": 60,  "rrp": 180, "size_category": "tops" },
     { "name": "Danner",          "search_text": "danner boots",     "price_to": 100, "rrp": 240, "size_category": "footwear" },
@@ -61,6 +67,13 @@
     { "name": "Gramicci",        "search_text": "gramicci",         "price_to": 40,  "rrp": 90,  "size_category": "tops" },
     { "name": "Patagonia",       "search_text": "patagonia jacket", "price_to": 60,  "rrp": 160, "size_category": "tops" },
     { "name": "Filson",          "search_text": "filson",           "price_to": 100, "rrp": 280, "size_category": "tops" },
-    { "name": "Buzz Rickson",    "search_text": "buzz rickson",     "price_to": 120, "rrp": 300, "size_category": "tops" }
+    { "name": "Buzz Rickson",    "search_text": "buzz rickson",     "price_to": 120, "rrp": 300, "size_category": "tops" },
+    { "name": "Herno",           "search_text": "herno jacket",     "price_to": 130, "rrp": 350, "size_category": "tops" },
+    { "name": "Rains",           "search_text": "rains jacket",     "price_to": 35,  "rrp": 90,  "size_category": "tops" },
+    { "name": "And Wander",      "search_text": "and wander",       "price_to": 80,  "rrp": 200, "size_category": "tops" },
+    { "name": "Descente Allterrain", "search_text": "descente allterrain", "price_to": 100, "rrp": 250, "size_category": "tops" },
+    { "name": "Snow Peak",       "search_text": "snow peak",        "price_to": 70,  "rrp": 180, "size_category": "tops" },
+    { "name": "Klattermusen",    "search_text": "klattermusen",     "price_to": 100, "rrp": 250, "size_category": "tops" },
+    { "name": "Houdini",         "search_text": "houdini jacket",   "price_to": 70,  "rrp": 180, "size_category": "tops" }
   ]
 }
