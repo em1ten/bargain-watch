@@ -46,7 +46,7 @@
     { "name": "Stan Ray",        "search_text": "stan ray",        "price_to": 40,  "rrp": 90,  "size_category": "tops",     "notify": "digest" },
     { "name": "Ten C",           "search_text": "ten c",           "price_to": 150, "rrp": 450, "size_category": "tops",     "notify": "digest" },
     { "name": "Aspesi",          "search_text": "aspesi",          "price_to": 120, "rrp": 300, "size_category": "tops",     "notify": "digest" },
-    { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest" },
+    { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest", "require_brand_match": false },
     { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 25,              "size_category": "tops",     "notify": "off" }
   ],
 
@@ -62,7 +62,7 @@
     { "name": "Sanders",         "search_text": "sanders shoes",    "price_to": 80,  "rrp": 220, "size_category": "footwear" },
     { "name": "Blundstone",      "search_text": "blundstone",       "price_to": 70,  "rrp": 170, "size_category": "footwear" },
     { "name": "Kangol",          "search_text": "kangol cap",       "price_to": 20,  "rrp": 45,  "size_category": "tops" },
-    { "name": "Momotaro Tees",   "search_text": "momotaro shirt",   "price_to": 60,  "rrp": 120, "size_category": "tops" },
+    { "name": "Momotaro Tees",   "search_text": "momotaro shirt",   "price_to": 60,  "rrp": 120, "size_category": "tops", "brand_match": ["Momotaro"] },
     { "name": "3sixteen",        "search_text": "3sixteen",         "price_to": 100, "rrp": 230, "size_category": "denim" },
     { "name": "Gramicci",        "search_text": "gramicci",         "price_to": 40,  "rrp": 90,  "size_category": "tops" },
     { "name": "Patagonia",       "search_text": "patagonia jacket", "price_to": 60,  "rrp": 160, "size_category": "tops" },
