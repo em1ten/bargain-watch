@@ -19,7 +19,8 @@ Config (config.json):
     watches            - list of searches, each with an optional "notify"
                           of "instant", "digest", or "off"
     global_exclude      - keywords filtered out of every search's results
-    conditions          - allowed condition labels (leave empty/omit for any)
+                          (junk-filtering only — condition and size are
+                          filtered per-viewer on the dashboard instead)
 
 Env:
     NTFY_TOPIC (env)   - optional. If set, "instant" watches push straight
@@ -95,14 +96,10 @@ def run_search(session, domain, watch, currency, per_page):
     return payload.get("items", [])
 
 
-def passes_filters(item, exclude_terms, allowed_conditions):
+def passes_filters(item, exclude_terms):
     title = (item.get("title") or "").lower()
     if any(term.lower() in title for term in exclude_terms):
         return False
-    if allowed_conditions:
-        status = (item.get("status") or "").strip()
-        if status and status not in allowed_conditions:
-            return False
     return True
 
 
@@ -160,7 +157,6 @@ def main():
     currency = config.get("currency", "GBP")
     per_page = config.get("max_items_per_watch", 40)
     global_exclude = config.get("global_exclude", [])
-    allowed_conditions = set(config.get("conditions", []))
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
     seen_ids = load_json_set(SEEN_PATH)
@@ -186,7 +182,7 @@ def main():
             dashboard["watches"].append({"name": name, "error": str(e), "items": []})
             continue
 
-        filtered = [i for i in raw_items if passes_filters(i, exclude_terms, allowed_conditions)]
+        filtered = [i for i in raw_items if passes_filters(i, exclude_terms)]
         cards = [to_card(item, domain) for item in filtered]
         new_cards = [c for c in cards if c["id"] not in seen_ids]
 
