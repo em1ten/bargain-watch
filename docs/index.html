@@ -162,6 +162,33 @@
     font-weight:700;
   }
   .panel-divider{border-top:1px solid var(--line); margin:18px 0;}
+  .watch-list{display:flex; flex-direction:column; gap:6px; margin-bottom:6px;}
+  .watch-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background:var(--denim-950);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:8px 12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+  }
+  .watch-row .wname{color:var(--cream);}
+  .watch-row .wmeta{color:var(--cream-dim); font-size:11px; margin-left:8px;}
+  .btn-remove{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    background:transparent;
+    color:var(--stitch);
+    border:1px solid var(--stitch);
+    padding:4px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .btn-remove:disabled{opacity:0.5; cursor:default;}
   .panel small{
     display:block;
     font-family:'JetBrains Mono', monospace;
@@ -377,7 +404,7 @@
     <button id="filter-bargains">Big bargains</button>
     <span class="spacer"></span>
     <button id="toggle-settings">My size &amp; conditions</button>
-    <button id="toggle-addbrand">Add a search</button>
+    <button id="toggle-addbrand">Manage searches</button>
   </div>
 
   <div class="panel" id="settings-panel">
@@ -396,10 +423,10 @@
   </div>
 
   <div class="panel" id="addbrand-panel">
-    <h3>Add a search</h3>
+    <h3>Manage searches</h3>
     <small>
-      This writes straight to config.json in your GitHub repo, so it only works if you (or whoever's using this)
-      has write access to it — it's not open to random visitors of this page. You'll need a GitHub personal
+      This reads and writes config.json straight in your GitHub repo, so it only works if you (or whoever's using
+      this) has write access to it — it's not open to random visitors of this page. You'll need a GitHub personal
       access token scoped to just this repo's contents (Settings → Developer settings → Fine-grained tokens →
       generate one, permission "Contents: Read and write", repository access limited to this repo). It's stored
       only in this browser's local storage, never sent anywhere except straight to GitHub.
@@ -414,7 +441,14 @@
         <input type="password" id="gh-token" placeholder="github_pat_...">
       </div>
     </div>
+
     <div class="panel-divider"></div>
+    <h3 style="margin-top:0;">Current searches</h3>
+    <div id="watch-list" class="watch-list"></div>
+    <div class="status-msg" id="watchlist-status"></div>
+
+    <div class="panel-divider"></div>
+    <h3 style="margin-top:0;">Add a search</h3>
     <div class="panel-row">
       <div class="field">
         <label for="nb-name">Brand / search name</label>
@@ -624,8 +658,10 @@ document.getElementById('toggle-settings').addEventListener('click', () => {
   document.getElementById('addbrand-panel').classList.remove('open');
 });
 document.getElementById('toggle-addbrand').addEventListener('click', () => {
-  document.getElementById('addbrand-panel').classList.toggle('open');
+  const panel = document.getElementById('addbrand-panel');
+  panel.classList.toggle('open');
   document.getElementById('settings-panel').classList.remove('open');
+  if (panel.classList.contains('open')) loadWatchList();
 });
 
 const sizeInput = document.getElementById('size-input');
@@ -661,6 +697,99 @@ ghTokenInput.addEventListener('change', () => setLocal('gh-token', ghTokenInput.
 function utf8ToB64(str) { return btoa(unescape(encodeURIComponent(str))); }
 function b64ToUtf8(str) { return decodeURIComponent(escape(atob(str.replace(/\n/g, '')))); }
 
+function ghHeaders(token) {
+  return { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' };
+}
+
+async function getRemoteConfig(repo, token) {
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, { headers: ghHeaders(token) });
+  if (!res.ok) throw new Error(`Couldn't read config.json (${res.status}). Check the repo name and token permissions.`);
+  const data = await res.json();
+  return { config: JSON.parse(b64ToUtf8(data.content)), sha: data.sha };
+}
+
+async function putRemoteConfig(repo, token, config, sha, message) {
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
+    method: 'PUT',
+    headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message,
+      content: utf8ToB64(JSON.stringify(config, null, 2)),
+      sha,
+      branch: 'main',
+    }),
+  });
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    throw new Error(errBody.message || `Commit failed (${res.status}).`);
+  }
+}
+
+async function loadWatchList() {
+  const repo = ghRepoInput.value.trim();
+  const token = ghTokenInput.value.trim();
+  const listEl = document.getElementById('watch-list');
+  const statusEl = document.getElementById('watchlist-status');
+  statusEl.textContent = '';
+  statusEl.className = 'status-msg';
+
+  if (!repo || !token) {
+    listEl.innerHTML = '';
+    statusEl.textContent = 'Fill in the repo and token above to see and manage your current searches.';
+    return;
+  }
+
+  listEl.innerHTML = '<p class="empty-note">Loading…</p>';
+  try {
+    const { config } = await getRemoteConfig(repo, token);
+    listEl.innerHTML = '';
+    (config.watches || []).forEach(watch => {
+      const row = document.createElement('div');
+      row.className = 'watch-row';
+
+      const label = document.createElement('span');
+      label.innerHTML = `<span class="wname">${watch.name}</span><span class="wmeta">${watch.notify || 'instant'}${watch.price_to ? ' · under £' + watch.price_to : ''}</span>`;
+      row.appendChild(label);
+
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'btn-remove';
+      removeBtn.textContent = 'Remove';
+      removeBtn.addEventListener('click', () => removeWatch(watch.name, removeBtn));
+      row.appendChild(removeBtn);
+
+      listEl.appendChild(row);
+    });
+    if ((config.watches || []).length === 0) {
+      listEl.innerHTML = '<p class="empty-note">No searches yet.</p>';
+    }
+  } catch (err) {
+    listEl.innerHTML = '';
+    statusEl.textContent = err.message;
+    statusEl.className = 'status-msg err';
+  }
+}
+
+async function removeWatch(name, btn) {
+  const repo = ghRepoInput.value.trim();
+  const token = ghTokenInput.value.trim();
+  const statusEl = document.getElementById('watchlist-status');
+  btn.disabled = true;
+  statusEl.textContent = `Removing ${name}…`;
+  statusEl.className = 'status-msg';
+  try {
+    const { config, sha } = await getRemoteConfig(repo, token);
+    config.watches = (config.watches || []).filter(w => w.name !== name);
+    await putRemoteConfig(repo, token, config, sha, `Remove watch: ${name}`);
+    statusEl.textContent = `Removed "${name}".`;
+    statusEl.className = 'status-msg ok';
+    loadWatchList();
+  } catch (err) {
+    statusEl.textContent = err.message;
+    statusEl.className = 'status-msg err';
+    btn.disabled = false;
+  }
+}
+
 document.getElementById('nb-submit').addEventListener('click', async () => {
   const statusEl = document.getElementById('nb-status');
   const btn = document.getElementById('nb-submit');
@@ -685,16 +814,7 @@ document.getElementById('nb-submit').addEventListener('click', async () => {
   statusEl.textContent = 'Reading current config.json…';
 
   try {
-    const apiBase = `https://api.github.com/repos/${repo}/contents/config.json`;
-    const getRes = await fetch(apiBase, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github+json',
-      },
-    });
-    if (!getRes.ok) throw new Error(`Couldn't read config.json (${getRes.status}). Check the repo name and token permissions.`);
-    const getData = await getRes.json();
-    const currentConfig = JSON.parse(b64ToUtf8(getData.content));
+    const { config: currentConfig, sha } = await getRemoteConfig(repo, token);
 
     const newWatch = { name, search_text: searchText, notify };
     if (priceTo) newWatch.price_to = Number(priceTo);
@@ -702,24 +822,7 @@ document.getElementById('nb-submit').addEventListener('click', async () => {
     currentConfig.watches.push(newWatch);
 
     statusEl.textContent = 'Committing update…';
-    const putRes = await fetch(apiBase, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: `Add watch: ${name}`,
-        content: utf8ToB64(JSON.stringify(currentConfig, null, 2)),
-        sha: getData.sha,
-        branch: 'main',
-      }),
-    });
-    if (!putRes.ok) {
-      const errBody = await putRes.json().catch(() => ({}));
-      throw new Error(errBody.message || `Commit failed (${putRes.status}).`);
-    }
+    await putRemoteConfig(repo, token, currentConfig, sha, `Add watch: ${name}`);
 
     statusEl.textContent = `Added "${name}". It'll show up after the next scan (runs every 20 min, or trigger it manually from the Actions tab).`;
     statusEl.className = 'status-msg ok';
@@ -727,6 +830,7 @@ document.getElementById('nb-submit').addEventListener('click', async () => {
     document.getElementById('nb-search').value = '';
     document.getElementById('nb-price').value = '';
     document.getElementById('nb-rrp').value = '';
+    loadWatchList();
   } catch (err) {
     statusEl.textContent = err.message;
     statusEl.className = 'status-msg err';
