@@ -91,6 +91,14 @@
     border-color:var(--brass-bright);
     font-weight:700;
   }
+  .pills-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--cream-dim);
+    margin:0 0 6px;
+  }
 
   .discovery-note{
     font-family:'JetBrains Mono', monospace;
@@ -173,6 +181,7 @@
   }
   .badge.new{color:var(--stitch); border:1.5px solid var(--stitch); background:rgba(22,31,48,0.8); transform:rotate(-4deg);}
   .badge.deal{color:var(--denim-950); background:var(--brass-bright);}
+  .badge.rank{color:var(--denim-950); background:var(--cream);}
   .star-btn{
     position:absolute;
     top:8px; right:8px;
@@ -254,6 +263,14 @@
     <button class="pill" data-filter="starred">Starred</button>
   </div>
 
+  <p class="pills-label">Sort</p>
+  <div class="pills" id="sort-pills">
+    <button class="pill active" data-sort="rank">Best match</button>
+    <button class="pill" data-sort="newest">Newest</button>
+    <button class="pill" data-sort="price-low">Price: low to high</button>
+    <button class="pill" data-sort="price-high">Price: high to low</button>
+  </div>
+
   <p class="discovery-note" id="discovery-note"></p>
 
   <div id="loading">Loading latest scan…</div>
@@ -304,6 +321,7 @@ function displayScore(item){
 }
 
 let activeFilter = 'all';
+let sortMode = 'rank';
 let feedData = [];
 
 function cardMatches(item){
@@ -317,7 +335,28 @@ function cardMatches(item){
   }
 }
 
-function buildCard(item){
+function sortItems(items){
+  const arr = [...items];
+  if (sortMode === 'newest'){
+    arr.sort((a, b) => {
+      if (a.listed_at != null && b.listed_at != null) return b.listed_at - a.listed_at;
+      if (a.listed_at != null) return -1;
+      if (b.listed_at != null) return 1;
+      return 0;
+    });
+  } else if (sortMode === 'price-low' || sortMode === 'price-high'){
+    arr.sort((a, b) => {
+      const pa = parseFloat(a.price) || Infinity;
+      const pb = parseFloat(b.price) || Infinity;
+      return sortMode === 'price-low' ? pa - pb : pb - pa;
+    });
+  } else {
+    arr.sort((a, b) => displayScore(b) - displayScore(a));
+  }
+  return arr;
+}
+
+function buildCard(item, rank){
   const card = document.createElement('div');
   card.className = 'card' + (item.is_bargain ? ' bargain' : '');
 
@@ -334,6 +373,12 @@ function buildCard(item){
 
   const badges = document.createElement('div');
   badges.className = 'badges';
+  if (sortMode === 'rank' && rank <= 20){
+    const r = document.createElement('span');
+    r.className = 'badge rank';
+    r.textContent = '#' + rank;
+    badges.appendChild(r);
+  }
   if (item.is_new){
     const b = document.createElement('span');
     b.className = 'badge new';
@@ -431,10 +476,10 @@ function renderFeed(){
   const feedEl = document.getElementById('feed');
   const emptyEl = document.getElementById('empty');
   feedEl.innerHTML = '';
-  const visible = feedData.filter(cardMatches).sort((a, b) => displayScore(b) - displayScore(a));
+  const visible = sortItems(feedData.filter(cardMatches));
   emptyEl.style.display = visible.length ? 'none' : 'block';
   const frag = document.createDocumentFragment();
-  visible.forEach(item => frag.appendChild(buildCard(item)));
+  visible.forEach((item, i) => frag.appendChild(buildCard(item, i + 1)));
   feedEl.appendChild(frag);
 }
 
@@ -442,7 +487,15 @@ document.getElementById('pills').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
   if (!btn) return;
   activeFilter = btn.dataset.filter;
-  document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === btn));
+  document.querySelectorAll('#pills .pill').forEach(p => p.classList.toggle('active', p === btn));
+  renderFeed();
+});
+
+document.getElementById('sort-pills').addEventListener('click', (e) => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  sortMode = btn.dataset.sort;
+  document.querySelectorAll('#sort-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
   renderFeed();
 });
 
