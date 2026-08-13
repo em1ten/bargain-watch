@@ -199,7 +199,13 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     rrp = watch.get("rrp")
     discount_pct = None
     if rrp and price_amount is not None and rrp > 0:
-        discount_pct = round((1 - price_amount / rrp) * 100)
+        # If the price is implausibly low relative to the brand's RRP, it's
+        # more likely a different (naturally cheaper) product from that brand
+        # - a cap vs a jacket, an accessory vs a coat - than a genuine steep
+        # discount. Skip the discount claim rather than show a misleading
+        # -95%+ badge on something that was probably just never that pricey.
+        if price_amount >= rrp * 0.15:
+            discount_pct = round((1 - price_amount / rrp) * 100)
 
     condition = (item.get("status") or "").strip()
     size_title = (item.get("size_title") or "").strip()
@@ -326,22 +332,31 @@ def main():
             print(f"  ! request failed: {e}")
             errors.append(name)
             continue
+        print(f"  {len(raw_items)} raw results from Vinted before any filtering")
 
         new_watch_cards = []
+        skipped_count = 0
         for item in raw_items:
-            if not passes_filters(item, exclude_terms):
+            try:
+                if not passes_filters(item, exclude_terms):
+                    continue
+                if not brand_matches(item, watch):
+                    continue
+                item_id = item.get("id")
+                is_new = item_id not in seen_ids
+                card = build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new)
+            except Exception as e:
+                skipped_count += 1
+                print(f"  ! skipped one malformed item: {e}")
                 continue
-            if not brand_matches(item, watch):
-                continue
-            item_id = item.get("id")
-            is_new = item_id not in seen_ids
-            card = build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new)
             all_cards.append(card)
             if is_new:
                 seen_ids.add(item_id)
                 new_watch_cards.append(card)
                 if card["score"] >= exceptional_threshold:
                     exceptional_finds.append(card)
+        if skipped_count:
+            print(f"  {skipped_count} item(s) skipped due to unexpected data")
 
         if new_watch_cards and source == "core":
             notify_mode = watch.get("notify", "instant")
