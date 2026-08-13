@@ -122,9 +122,15 @@ def run_search(session, domain, watch, currency, per_page, catalog_ids):
     return resp.json().get("items", [])
 
 
-def passes_filters(item, exclude_terms):
+def passes_filters(item, exclude_terms, allowed_conditions=None):
     title = (item.get("title") or "").lower()
-    return not any(term.lower() in title for term in exclude_terms)
+    if any(term.lower() in title for term in exclude_terms):
+        return False
+    if allowed_conditions:
+        status = (item.get("status") or "").strip()
+        if status and status not in allowed_conditions:
+            return False
+    return True
 
 
 def normalize_brand(s):
@@ -338,7 +344,7 @@ def main():
         skipped_count = 0
         for item in raw_items:
             try:
-                if not passes_filters(item, exclude_terms):
+                if not passes_filters(item, exclude_terms, watch.get("allowed_conditions")):
                     continue
                 if not brand_matches(item, watch):
                     continue
@@ -386,7 +392,17 @@ def main():
         existing = unique.get(c["id"])
         if existing is None or c["score"] > existing["score"]:
             unique[c["id"]] = c
-    feed = sorted(unique.values(), key=lambda c: c["score"], reverse=True)[:feed_size]
+
+    # Clothing and electronics are ranked and trimmed separately - electronics
+    # items structurally can't score as high (no size-match bonus, often no
+    # RRP set), so ranking them together let clothing silently squeeze every
+    # electronics result out of the top N, even when the scan found genuine
+    # matches.
+    clothing_cards = [c for c in unique.values() if c.get("category", "clothing") != "electronics"]
+    electronics_cards = [c for c in unique.values() if c.get("category") == "electronics"]
+    clothing_feed = sorted(clothing_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
+    electronics_feed = sorted(electronics_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
+    feed = clothing_feed + electronics_feed
 
     dashboard = {
         "generated_at": int(time.time()),
