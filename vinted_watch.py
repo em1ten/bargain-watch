@@ -258,10 +258,15 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "listed_at": listed_at,
         "condition_badge": CONDITION_BADGE.get(condition),
         "category": watch.get("category", "clothing"),
+        "source_config": {
+            k: watch[k]
+            for k in ("search_text", "price_to", "price_from", "rrp", "size_category", "catalog_ids", "exclude")
+            if k in watch
+        },
     }
 
 
-def notify_ntfy(topic, title, cards):
+def notify_ntfy(topic, title, cards, priority="default", tags="shirt"):
     if not topic or not cards:
         return
     lines = [f"{c['watch']} — {c['price']}: {c['title']}" for c in cards[:5]]
@@ -274,8 +279,8 @@ def notify_ntfy(topic, title, cards):
             data=message.encode("utf-8"),
             headers={
                 "Title": title.encode("utf-8"),
-                "Priority": "default",
-                "Tags": "shirt",
+                "Priority": priority,
+                "Tags": tags,
             },
             timeout=15,
         )
@@ -294,6 +299,7 @@ def main():
     feed_size = config.get("feed_size", 60)
     global_exclude = config.get("global_exclude", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
+    exceptional_threshold = config.get("exceptional_score_threshold", 90)
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
     seen_ids = load_json_set(SEEN_PATH)
@@ -308,6 +314,7 @@ def main():
     session = new_session(domain)
     all_cards = []
     errors = []
+    exceptional_finds = []
 
     for watch, source in scan_plan:
         name = watch["name"]
@@ -333,6 +340,8 @@ def main():
             if is_new:
                 seen_ids.add(item_id)
                 new_watch_cards.append(card)
+                if card["score"] >= exceptional_threshold:
+                    exceptional_finds.append(card)
 
         if new_watch_cards and source == "core":
             notify_mode = watch.get("notify", "instant")
@@ -345,6 +354,16 @@ def main():
                 bucket.extend(c for c in new_watch_cards if c["id"] not in existing)
 
         time.sleep(1)  # be polite between requests
+
+    if exceptional_finds:
+        print(f"{len(exceptional_finds)} exceptional find(s) (score >= {exceptional_threshold}) this scan")
+        notify_ntfy(
+            ntfy_topic,
+            f"🔥 Exceptional find{'s' if len(exceptional_finds) > 1 else ''}",
+            exceptional_finds,
+            priority="urgent",
+            tags="rotating_light",
+        )
 
     # De-dupe (a discovery brand can overlap a core search), rank, trim
     unique = {}
