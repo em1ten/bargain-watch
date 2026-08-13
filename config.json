@@ -6,7 +6,7 @@
   "max_items_per_watch": 40,
   "bargain_threshold_pct": 50,
   "bargain_max_price": 20,
-  "discovery_per_day": 3,
+  "discovery_per_day": 5,
   "feed_size": 60,
 
   "my_sizes": {
@@ -83,6 +83,21 @@
     { "name": "Descente Allterrain", "search_text": "descente allterrain", "price_to": 100, "rrp": 250, "size_category": "tops" },
     { "name": "Snow Peak",       "search_text": "snow peak",        "price_to": 70,  "rrp": 180, "size_category": "tops" },
     { "name": "Klattermusen",    "search_text": "klattermusen",     "price_to": 100, "rrp": 250, "size_category": "tops" },
-    { "name": "Houdini",         "search_text": "houdini jacket",   "price_to": 70,  "rrp": 180, "size_category": "tops" }
+    { "name": "Houdini",         "search_text": "houdini jacket",   "price_to": 70,  "rrp": 180, "size_category": "tops" },
+    { "name": "Nigel Cabourn",   "search_text": "nigel cabourn",    "price_to": 100, "rrp": 300, "size_category": "tops" },
+    { "name": "Kestin",          "search_text": "kestin",           "price_to": 80,  "rrp": 220, "size_category": "tops" },
+    { "name": "YMC",             "search_text": "ymc",              "price_to": 60,  "rrp": 150, "size_category": "tops" },
+    { "name": "Albam",           "search_text": "albam",            "price_to": 50,  "rrp": 140, "size_category": "tops" },
+    { "name": "Battenwear",      "search_text": "battenwear",       "price_to": 70,  "rrp": 180, "size_category": "tops" },
+    { "name": "Engineered Garments", "search_text": "engineered garments", "price_to": 90, "rrp": 250, "size_category": "tops" },
+    { "name": "Nanamica",        "search_text": "nanamica",         "price_to": 90,  "rrp": 250, "size_category": "tops" },
+    { "name": "Community Clothing", "search_text": "community clothing", "price_to": 40, "rrp": 100, "size_category": "tops" },
+    { "name": "Percival",        "search_text": "percival",         "price_to": 40,  "rrp": 90,  "size_category": "tops" },
+    { "name": "Oliver Spencer",  "search_text": "oliver spencer",   "price_to": 70,  "rrp": 200, "size_category": "tops" },
+    { "name": "Drakes",          "search_text": "drakes",           "price_to": 60,  "rrp": 160, "size_category": "tops" },
+    { "name": "Private White VC","search_text": "private white",    "price_to": 100, "rrp": 350, "size_category": "tops" },
+    { "name": "Barena",          "search_text": "barena venezia",   "price_to": 90,  "rrp": 280, "size_category": "tops" },
+    { "name": "Churchs",         "search_text": "churchs shoes",    "price_to": 90,  "rrp": 280, "size_category": "footwear" },
+    { "name": "Crockett Jones",  "search_text": "crockett jones",   "price_to": 100, "rrp": 350, "size_category": "footwear" }
   ]
 }
