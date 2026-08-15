@@ -1,5 +1,5 @@
 {
-  "generated_at": 1786769753,
+  "generated_at": 1786773448,
   "discovery_today": [
     "Our Legacy",
     "Margaret Howell",
@@ -71,6 +71,38 @@
         "price_to": 35,
         "rrp": 80,
         "size_category": "tops"
+      }
+    },
+    {
+      "id": 9648006605,
+      "title": "Clarks Flexwell Step Beeswax Leather Slip-On Sneakers",
+      "watch": "Clarks Originals",
+      "brand": "Clarks",
+      "size": "9.5",
+      "condition": "New with tags",
+      "price": "32.07 GBP",
+      "photo": "https://images1.vinted.net/t/06_0078b_MExaaN3tehPm44KAVExtZj9Y/f800/1786572963.jpeg?s=a94259e88e2989c3fa272a7b2381868f69acdf6b",
+      "url": "https://www.vinted.co.uk/items/9648006605",
+      "seller": {
+        "login": "ccamps18",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 64,
+      "score": 115,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-64%",
+      "source": "core",
+      "listed_at": 1786572963,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "clarks originals",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "footwear"
       }
     },
     {
@@ -817,6 +849,38 @@
       }
     },
     {
+      "id": 9664955007,
+      "title": "Uniqlo U airism t shirt",
+      "watch": "Uniqlo U",
+      "brand": "Uniqlo",
+      "size": "L",
+      "condition": "Good",
+      "price": "11.82 GBP",
+      "photo": "https://images1.vinted.net/t/06_00d05_94SkHzxCh156ZWsNo88CWj5v/f800/1786771130.jpeg?s=f4a31ed50fc9af518aa6f201d1bd20f397f178eb",
+      "url": "https://www.vinted.co.uk/items/9664955007",
+      "seller": {
+        "login": "biggeycheese",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 83,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1786771130,
+      "condition_badge": null,
+      "category": "clothing",
+      "source_config": {
+        "search_text": "uniqlo u",
+        "price_to": 30,
+        "rrp": 70,
+        "size_category": "tops"
+      }
+    },
+    {
       "id": 9630672537,
       "title": "Uniqlo U Uniqlo U AIRism Cotton Oversized Crew Neck T-Shirt Black L",
       "watch": "Uniqlo U",
@@ -1233,35 +1297,42 @@
       }
     },
     {
-      "id": 9647697024,
-      "title": "Men\u2019s boots",
-      "watch": "Red Wing",
-      "brand": "Red Wing Shoes",
-      "size": "13",
+      "id": 9665016571,
+      "title": "Universal works searsucker overshirt XL",
+      "watch": "Universal Works",
+      "brand": "Universal Works",
+      "size": "XL",
       "condition": "New with tags",
-      "price": "79.91 GBP",
-      "photo": "https://images1.vinted.net/t/04_01fe8_QHVHoTrxaAZrGZtj9Xd1j3XC/f800/1786568472.jpeg?s=48f91b8bbf2770ee6bee517eb425a19b645531fb",
-      "url": "https://www.vinted.co.uk/items/9647697024",
+      "price": "47.95 GBP",
+      "photo": "https://images1.vinted.net/t/04_00fea_Q3YzkXfpQNc7R6hkN5cnfQ2n/f800/1786773146.jpeg?s=1757b8b7c74c68d3d62095799569437365c3f4a3",
+      "url": "https://www.vinted.co.uk/items/9665016571",
       "seller": {
-        "login": "krogers1968",
+        "login": "17cf10",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 65,
+      "discount_pct": 68,
       "score": 95,
       "my_size": false,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-65%",
+      "bargain_reason": "-68%",
       "source": "core",
-      "listed_at": 1786568472,
+      "listed_at": 1786773146,
       "condition_badge": "BNWT",
       "category": "clothing",
       "source_config": {
-        "search_text": "red wing boots",
-        "price_to": 120,
-        "rrp": 230,
-        "size_category": "footwear"
+        "search_text": "universal works",
+        "price_to": 60,
+        "rrp": 150,
+        "size_category": "tops",
+        "exclude": [
+          "plug",
+          "adapter",
+          "socket",
+          "charger",
+          "extension lead"
+        ]
       }
     },
     {
@@ -1294,6 +1365,38 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "footwear"
+      }
+    },
+    {
+      "id": 9648103044,
+      "title": "Our Legacy button up shirt",
+      "watch": "Our Legacy",
+      "brand": "Our Legacy",
+      "size": "L",
+      "condition": "Very good",
+      "price": "79.12 GBP",
+      "photo": "https://images1.vinted.net/t/05_02490_MWxqbwkVMWVyTdoPUdqEjzUJ/f800/1786574970.jpeg?s=168a057a0d4757d52d8776a174c7ac8b47620693",
+      "url": "https://www.vinted.co.uk/items/9648103044",
+      "seller": {
+        "login": "bluejeansguy",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 60,
+      "score": 93,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-60%",
+      "source": "discovery",
+      "listed_at": 1786574970,
+      "condition_badge": null,
+      "category": "clothing",
+      "source_config": {
+        "search_text": "our legacy",
+        "price_to": 80,
+        "rrp": 200,
+        "size_category": "tops"
       }
     },
     {
@@ -1471,6 +1574,45 @@
       }
     },
     {
+      "id": 9654321777,
+      "title": "Universal Works Oxford Bomber Jacket Navy Blue Size XS",
+      "watch": "Universal Works",
+      "brand": "Universal Works",
+      "size": "XS",
+      "condition": "New with tags",
+      "price": "37.44 GBP",
+      "photo": "https://images1.vinted.net/t/01_019f1_vP271W5BFHqcYb7ySNgf8SR3/f800/1786641245.jpeg?s=6bffe9f5c6c1ab823cf7a3b9dd1c3937a5b4dff1",
+      "url": "https://www.vinted.co.uk/items/9654321777",
+      "seller": {
+        "login": "resku_fashion",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 75,
+      "score": 90,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-75%",
+      "source": "core",
+      "listed_at": 1786641245,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "universal works",
+        "price_to": 60,
+        "rrp": 150,
+        "size_category": "tops",
+        "exclude": [
+          "plug",
+          "adapter",
+          "socket",
+          "charger",
+          "extension lead"
+        ]
+      }
+    },
+    {
       "id": 9654226151,
       "title": "Universal Works Mens Brushed Polytech Merchant Jacket Sand Size XS",
       "watch": "Universal Works",
@@ -1588,84 +1730,6 @@
       }
     },
     {
-      "id": 9654321777,
-      "title": "Universal Works Oxford Bomber Jacket Navy Blue Size XS",
-      "watch": "Universal Works",
-      "brand": "Universal Works",
-      "size": "XS",
-      "condition": "New with tags",
-      "price": "37.44 GBP",
-      "photo": "https://images1.vinted.net/t/01_019f1_vP271W5BFHqcYb7ySNgf8SR3/f800/1786641245.jpeg?s=6bffe9f5c6c1ab823cf7a3b9dd1c3937a5b4dff1",
-      "url": "https://www.vinted.co.uk/items/9654321777",
-      "seller": {
-        "login": "resku_fashion",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 75,
-      "score": 90,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-75%",
-      "source": "core",
-      "listed_at": 1786641245,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "source_config": {
-        "search_text": "universal works",
-        "price_to": 60,
-        "rrp": 150,
-        "size_category": "tops",
-        "exclude": [
-          "plug",
-          "adapter",
-          "socket",
-          "charger",
-          "extension lead"
-        ]
-      }
-    },
-    {
-      "id": 9654215958,
-      "title": "Universal Works Mens Twist Wool Check Oxford Pant Navy Brown Size XS / 26",
-      "watch": "Universal Works",
-      "brand": "Universal Works",
-      "size": "XS",
-      "condition": "New with tags",
-      "price": "37.44 GBP",
-      "photo": "https://images1.vinted.net/t/01_02215_p59QFNuKaoSD5ywc2nW7WGLy/f800/1786640562.jpeg?s=0004280e2a4fdf511729d38bc28847dc00be51e4",
-      "url": "https://www.vinted.co.uk/items/9654215958",
-      "seller": {
-        "login": "resku_fashion",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 75,
-      "score": 90,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-75%",
-      "source": "core",
-      "listed_at": 1786640562,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "source_config": {
-        "search_text": "universal works",
-        "price_to": 60,
-        "rrp": 150,
-        "size_category": "tops",
-        "exclude": [
-          "plug",
-          "adapter",
-          "socket",
-          "charger",
-          "extension lead"
-        ]
-      }
-    },
-    {
       "id": 9654336236,
       "title": "Universal Works Climbing Gilet Teddy Fleece Grey Size XS",
       "watch": "Universal Works",
@@ -1705,15 +1769,15 @@
       }
     },
     {
-      "id": 9654189058,
-      "title": "Universal Works Mens Military Chino Charcoal Grey Size XS / 26",
+      "id": 9654215958,
+      "title": "Universal Works Mens Twist Wool Check Oxford Pant Navy Brown Size XS / 26",
       "watch": "Universal Works",
       "brand": "Universal Works",
-      "size": "W26",
+      "size": "XS",
       "condition": "New with tags",
       "price": "37.44 GBP",
-      "photo": "https://images1.vinted.net/t/06_02134_krBAJxAytt9pSDhwqXADZSsQ/f800/1786640389.jpeg?s=8c1ad59b6b5e99afd57acf22d96fda23102c1c48",
-      "url": "https://www.vinted.co.uk/items/9654189058",
+      "photo": "https://images1.vinted.net/t/01_02215_p59QFNuKaoSD5ywc2nW7WGLy/f800/1786640562.jpeg?s=0004280e2a4fdf511729d38bc28847dc00be51e4",
+      "url": "https://www.vinted.co.uk/items/9654215958",
       "seller": {
         "login": "resku_fashion",
         "feedback_count": 0,
@@ -1726,7 +1790,7 @@
       "is_bargain": true,
       "bargain_reason": "-75%",
       "source": "core",
-      "listed_at": 1786640389,
+      "listed_at": 1786640562,
       "condition_badge": "BNWT",
       "category": "clothing",
       "source_config": {
@@ -1936,67 +2000,65 @@
       }
     },
     {
-      "id": 9662580692,
-      "title": "Folk Mens Ecru Beige Off-White Twill Nelson Shorts Size 2 S Brand New",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "S",
+      "id": 9664984214,
+      "title": "New KabelDirekt RCA Cable \u2013 Stereo Audio",
+      "watch": "Hi-Fi & Turntables",
+      "brand": "Amazon",
+      "size": "",
       "condition": "New with tags",
-      "price": "47.95 GBP",
-      "photo": "https://images1.vinted.net/t/02_018b6_fzYc78nu7ryqmHQzHYW6ra8b/f800/1786728477.jpeg?s=418ba3c11faaefd2eed17d79a9bb24422b5f6c7f",
-      "url": "https://www.vinted.co.uk/items/9662580692",
+      "price": "5.95 GBP",
+      "photo": "https://images1.vinted.net/t/06_0247b_Cqz4m6hsPKhUyv7hCR7qHs3P/f800/1786772179.jpeg?s=28152aef7624842898523eb5329232c8454e82be",
+      "url": "https://www.vinted.co.uk/items/9664984214",
       "seller": {
-        "login": "daryloj",
+        "login": "tezza1411",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 66,
-      "score": 90,
+      "discount_pct": null,
+      "score": 50,
       "my_size": false,
-      "is_new": false,
+      "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-66%",
+      "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1786728477,
+      "listed_at": 1786772179,
       "condition_badge": "BNWT",
-      "category": "clothing",
+      "category": "electronics",
       "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
+        "search_text": "hifi",
+        "price_to": 150,
+        "catalog_ids": "2994,3566,3694"
       }
     },
     {
-      "id": 9662561132,
-      "title": "Folk Linen Cotton Blend Indigo Blue Corey Short Sleeved Button Up Shirt",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "M",
+      "id": 9647987991,
+      "title": "The Fall - Live At The Phoenix Festival '95 - Vinyl Record, New, Indie Rock",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
       "condition": "New with tags",
-      "price": "30.1 GBP",
-      "photo": "https://images1.vinted.net/t/05_00c5a_PHgSaTgTR1vwYYcSNVS9SKu9/f800/1786728333.jpeg?s=0bd84630bab23e23ceb232f0dc3dfae4b9b1abdc",
-      "url": "https://www.vinted.co.uk/items/9662561132",
+      "price": "19.52 GBP",
+      "photo": "https://images1.vinted.net/t/05_00d9a_faZ4Zowa51PkQVNMzGQcJfAD/f800/1786572622.jpeg?s=edb6f775f4714b33b7edd5f663c80efa96b16d07",
+      "url": "https://www.vinted.co.uk/items/9647987991",
       "seller": {
-        "login": "laurensellstuffs",
+        "login": "buymycomics",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 78,
-      "score": 90,
+      "discount_pct": null,
+      "score": 50,
       "my_size": false,
-      "is_new": false,
+      "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-78%",
+      "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1786728333,
+      "listed_at": 1786572622,
       "condition_badge": "BNWT",
-      "category": "clothing",
+      "category": "electronics",
       "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
       }
     },
     {
@@ -3116,6 +3178,37 @@
       }
     },
     {
+      "id": 9665018738,
+      "title": "Hogwarts Legacy PS5 game",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "7.0 GBP",
+      "photo": "https://images1.vinted.net/t/06_00fb2_AG5kM9Tn5ZBgueAKB6FukSUz/f800/1786773204.jpeg?s=c6a37e05546924874b439eb421cc65fb2f2622a4",
+      "url": "https://www.vinted.co.uk/items/9665018738",
+      "seller": {
+        "login": "rosna.e",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786773204,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
       "id": 9664533032,
       "title": "Forespoken game on ps5",
       "watch": "PS5 Games",
@@ -3747,37 +3840,6 @@
       }
     },
     {
-      "id": 9664290333,
-      "title": "Mafia the old country PS5",
-      "watch": "PS5 Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "20.65 GBP",
-      "photo": "https://images1.vinted.net/t/06_01e15_CE4KBB1B5TPMhkeScFX6DKUE/f800/1786745306.jpeg?s=e3984ebf0ede21704f12cf81ef2b4807b650f8ba",
-      "url": "https://www.vinted.co.uk/items/9664290333",
-      "seller": {
-        "login": "blakemore93",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 30,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1786745306,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "ps5 game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
       "id": 9664594626,
       "title": "Gotham Knights deluxe edition series x",
       "watch": "Xbox Series X Games",
@@ -3806,68 +3868,6 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9663703580,
-      "title": "FIFA 26 XBOX",
-      "watch": "Xbox Series X Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "21.7 GBP",
-      "photo": "https://images1.vinted.net/t/05_02164_BXgESc8tLxJHevc7RrdLkzCm/f800/1786737792.jpeg?s=db91b425d5aedc70a5fe313c3c2f142a165eda73",
-      "url": "https://www.vinted.co.uk/items/9663703580",
-      "seller": {
-        "login": "sunflower1014",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 30,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1786737792,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9656145934,
-      "title": "Temps - Party Gator Purgatory Ltd Edition Neon Pink & Green 12\" Vinyl Record LP",
-      "watch": "Hip Hop Vinyl",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "23.8 GBP",
-      "photo": "https://images1.vinted.net/t/03_0215a_kystdnj7bG12JD4MKtPWmjgK/f800/1786655661.jpeg?s=040ab9c752ebdb59d4fba1b0287c908a35ce5448",
-      "url": "https://www.vinted.co.uk/items/9656145934",
-      "seller": {
-        "login": "leakyshedrecords",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 30,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1786655661,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "hip hop vinyl",
-        "price_to": 40,
-        "catalog_ids": "3036,3041"
       }
     }
   ]
