@@ -1,5 +1,5 @@
 {
-  "generated_at": 1786827159,
+  "generated_at": 1786830266,
   "discovery_today": [
     "Our Legacy",
     "Margaret Howell",
@@ -10,34 +10,34 @@
   "errors": [],
   "feed": [
     {
-      "id": 9672530718,
-      "title": "Lightweight Barbour Ashby Jacket",
-      "watch": "Barbour",
-      "brand": "Barbour",
+      "id": 9672804679,
+      "title": "Folk - Men\u2019s Long Sleeve Shirt - Size L",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
       "size": "L",
       "condition": "New with tags",
-      "price": "84.7 GBP",
-      "photo": "https://images1.vinted.net/t/06_01fbd_rfr2xkA8c744gRHGxd75y7sy/f800/1786826119.jpeg?s=22ce8351c81e3c4ec67b7d745b625185db837260",
-      "url": "https://www.vinted.co.uk/items/9672530718",
+      "price": "26.95 GBP",
+      "photo": "https://images1.vinted.net/t/04_02205_cKjJqQU54usJAnhMwVd3t1K6/f800/1786829213.jpeg?s=490d6d5283037cdf5dfb42372ba658fbf84bb541",
+      "url": "https://www.vinted.co.uk/items/9672804679",
       "seller": {
-        "login": "becca80421",
+        "login": "joegautrey",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 66,
+      "discount_pct": 81,
       "score": 115,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-66%",
+      "bargain_reason": "-81%",
       "source": "core",
-      "listed_at": 1786826119,
+      "listed_at": 1786829213,
       "condition_badge": "BNWT",
       "category": "clothing",
       "source_config": {
-        "search_text": "barbour jacket",
-        "price_to": 100,
-        "rrp": 250,
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
         "size_category": "tops"
       }
     },
@@ -106,38 +106,6 @@
       }
     },
     {
-      "id": 9670649864,
-      "title": "FOLK \u2018Pirata\u2019 T-Shirt - Pink/Ecru - Mens Size Large",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "L",
-      "condition": "New with tags",
-      "price": "24.84 GBP",
-      "photo": "https://images1.vinted.net/t/04_000f7_7qbkkqBQy1yGzia3DjTfT4Ap/f800/1786812268.jpeg?s=04deb8f238eb2a2d65c140ae452c03bbbeecd2b2",
-      "url": "https://www.vinted.co.uk/items/9670649864",
-      "seller": {
-        "login": "truepink15621",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 82,
-      "score": 110,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "core",
-      "listed_at": 1786812268,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      }
-    },
-    {
       "id": 9666643181,
       "title": "Rab Zawn Hoody Men's Full Zip Technical Fleece Jacket Size L Red Clay BNWT",
       "watch": "Rab",
@@ -166,6 +134,38 @@
         "search_text": "rab jacket",
         "price_to": 60,
         "rrp": 160,
+        "size_category": "tops"
+      }
+    },
+    {
+      "id": 9672530718,
+      "title": "Lightweight Barbour Ashby Jacket",
+      "watch": "Barbour",
+      "brand": "Barbour",
+      "size": "L",
+      "condition": "New with tags",
+      "price": "84.7 GBP",
+      "photo": "https://images1.vinted.net/t/06_01fbd_rfr2xkA8c744gRHGxd75y7sy/f800/1786826119.jpeg?s=22ce8351c81e3c4ec67b7d745b625185db837260",
+      "url": "https://www.vinted.co.uk/items/9672530718",
+      "seller": {
+        "login": "becca80421",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 66,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-66%",
+      "source": "core",
+      "listed_at": 1786826119,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "barbour jacket",
+        "price_to": 100,
+        "rrp": 250,
         "size_category": "tops"
       }
     },
@@ -358,102 +358,6 @@
         "search_text": "penfield",
         "price_to": 60,
         "rrp": 150,
-        "size_category": "tops"
-      }
-    },
-    {
-      "id": 9672448055,
-      "title": "Folk Charcoal Size Large Jacket",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "L",
-      "condition": "New without tags",
-      "price": "51.63 GBP",
-      "photo": "https://images1.vinted.net/t/06_00ca6_fc4b1irp41D5rt83bV2T5tNQ/f800/1786825299.jpeg?s=a13f549672c295fccaa5d465349115f21246abcc",
-      "url": "https://www.vinted.co.uk/items/9672448055",
-      "seller": {
-        "login": "ahmed1",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 63,
-      "score": 109,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-63%",
-      "source": "core",
-      "listed_at": 1786825299,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      }
-    },
-    {
-      "id": 9672594895,
-      "title": "Barbour international quilted jacket",
-      "watch": "Barbour",
-      "brand": "Barbour",
-      "size": "L",
-      "condition": "New without tags",
-      "price": "84.7 GBP",
-      "photo": "https://images1.vinted.net/t/01_01b8f_g3GcD8BNFsjtkLL4Q66mbBjC/f800/1786826782.jpeg?s=ef3c67cab6c30f6dbf2eeb0aff8bdd998e5f4b97",
-      "url": "https://www.vinted.co.uk/items/9672594895",
-      "seller": {
-        "login": "foggy333",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 66,
-      "score": 109,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-66%",
-      "source": "core",
-      "listed_at": 1786826782,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "source_config": {
-        "search_text": "barbour jacket",
-        "price_to": 100,
-        "rrp": 250,
-        "size_category": "tops"
-      }
-    },
-    {
-      "id": 9672450944,
-      "title": "Sunspel Size L Men\u2019s White Sleeveless",
-      "watch": "Sunspel",
-      "brand": "Sunspel",
-      "size": "L",
-      "condition": "Very good",
-      "price": "16.45 GBP",
-      "photo": "https://images1.vinted.net/t/05_00fab_UuYV1P4k8Q6Kc2avUWyN78kh/f800/1786825327.jpeg?s=8b76957c24713812d8f85a5f21d618a1becda6d2",
-      "url": "https://www.vinted.co.uk/items/9672450944",
-      "seller": {
-        "login": "beto529555",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 82,
-      "score": 108,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "core",
-      "listed_at": 1786825327,
-      "condition_badge": null,
-      "category": "clothing",
-      "source_config": {
-        "search_text": "sunspel",
-        "price_to": 35,
-        "rrp": 90,
         "size_category": "tops"
       }
     },
@@ -721,28 +625,28 @@
       }
     },
     {
-      "id": 9670773187,
-      "title": "Jacket/over shirt",
+      "id": 9672448055,
+      "title": "Folk Charcoal Size Large Jacket",
       "watch": "Folk Clothing",
       "brand": "Folk",
       "size": "L",
       "condition": "New without tags",
-      "price": "21.7 GBP",
-      "photo": "https://images1.vinted.net/t/02_01243_HQBBDr8QJ33Cf2FbsHCumkJc/f800/1786812990.jpeg?s=01645d9daee8c67bece3916b4505b7aebca7a7ba",
-      "url": "https://www.vinted.co.uk/items/9670773187",
+      "price": "51.63 GBP",
+      "photo": "https://images1.vinted.net/t/06_00ca6_fc4b1irp41D5rt83bV2T5tNQ/f800/1786825299.jpeg?s=a13f549672c295fccaa5d465349115f21246abcc",
+      "url": "https://www.vinted.co.uk/items/9672448055",
       "seller": {
-        "login": "pcg1966",
+        "login": "ahmed1",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 84,
+      "discount_pct": 63,
       "score": 104,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-84%",
+      "bargain_reason": "-63%",
       "source": "core",
-      "listed_at": 1786812990,
+      "listed_at": 1786825299,
       "condition_badge": "UNWORN",
       "category": "clothing",
       "source_config": {
@@ -845,6 +749,38 @@
         "search_text": "uniqlo u",
         "price_to": 30,
         "rrp": 70,
+        "size_category": "tops"
+      }
+    },
+    {
+      "id": 9672594895,
+      "title": "Barbour international quilted jacket",
+      "watch": "Barbour",
+      "brand": "Barbour",
+      "size": "L",
+      "condition": "New without tags",
+      "price": "84.7 GBP",
+      "photo": "https://images1.vinted.net/t/01_01b8f_g3GcD8BNFsjtkLL4Q66mbBjC/f800/1786826782.jpeg?s=ef3c67cab6c30f6dbf2eeb0aff8bdd998e5f4b97",
+      "url": "https://www.vinted.co.uk/items/9672594895",
+      "seller": {
+        "login": "foggy333",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 66,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-66%",
+      "source": "core",
+      "listed_at": 1786826782,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "barbour jacket",
+        "price_to": 100,
+        "rrp": 250,
         "size_category": "tops"
       }
     },
@@ -1297,6 +1233,38 @@
       }
     },
     {
+      "id": 9672450944,
+      "title": "Sunspel Size L Men\u2019s White Sleeveless",
+      "watch": "Sunspel",
+      "brand": "Sunspel",
+      "size": "L",
+      "condition": "Very good",
+      "price": "16.45 GBP",
+      "photo": "https://images1.vinted.net/t/05_00fab_UuYV1P4k8Q6Kc2avUWyN78kh/f800/1786825327.jpeg?s=8b76957c24713812d8f85a5f21d618a1becda6d2",
+      "url": "https://www.vinted.co.uk/items/9672450944",
+      "seller": {
+        "login": "beto529555",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 82,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-82%",
+      "source": "core",
+      "listed_at": 1786825327,
+      "condition_badge": null,
+      "category": "clothing",
+      "source_config": {
+        "search_text": "sunspel",
+        "price_to": 35,
+        "rrp": 90,
+        "size_category": "tops"
+      }
+    },
+    {
       "id": 9671205007,
       "title": "Parlez jumper sweatshirt",
       "watch": "Parlez",
@@ -1489,38 +1457,6 @@
       }
     },
     {
-      "id": 9672256855,
-      "title": "Sunspel tshirt",
-      "watch": "Sunspel",
-      "brand": "Sunspel",
-      "size": "L",
-      "condition": "Good",
-      "price": "13.83 GBP",
-      "photo": "https://images1.vinted.net/t/02_014b9_EC4b9vHXCXMmDdyS2E4W4Rds/f800/1786823536.jpeg?s=0715786a4add49842bdc30c2d0b4d1bc504a7bc7",
-      "url": "https://www.vinted.co.uk/items/9672256855",
-      "seller": {
-        "login": "aceypacey1",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 85,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-85%",
-      "source": "core",
-      "listed_at": 1786823536,
-      "condition_badge": null,
-      "category": "clothing",
-      "source_config": {
-        "search_text": "sunspel",
-        "price_to": 35,
-        "rrp": 90,
-        "size_category": "tops"
-      }
-    },
-    {
       "id": 9670730869,
       "title": "Service Works pin stripe trousers",
       "watch": "Service Works",
@@ -1549,6 +1485,70 @@
         "search_text": "service works",
         "price_to": 30,
         "rrp": 70,
+        "size_category": "tops"
+      }
+    },
+    {
+      "id": 9672809827,
+      "title": "Folk Men\u2019s Blue Shirt - Size M",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "26.95 GBP",
+      "photo": "https://images1.vinted.net/t/01_00798_1RBKjH1sMaJdZxSbWizS5qC6/f800/1786829280.jpeg?s=6fa35a42af17d88ca31afaf32efd1e079baeffaa",
+      "url": "https://www.vinted.co.uk/items/9672809827",
+      "seller": {
+        "login": "joegautrey",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 81,
+      "score": 95,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-81%",
+      "source": "core",
+      "listed_at": 1786829280,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      }
+    },
+    {
+      "id": 9672661367,
+      "title": "Folk Shirt Medium",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "25.9 GBP",
+      "photo": "https://images1.vinted.net/t/05_00d3f_qfDLUMfmwXJ42c6Xt9t9T5QX/f800/1786827497.jpeg?s=01d63b639b336c43e307df527e9412b34de1713f",
+      "url": "https://www.vinted.co.uk/items/9672661367",
+      "seller": {
+        "login": "davmay777",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 82,
+      "score": 95,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-82%",
+      "source": "core",
+      "listed_at": 1786827497,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
         "size_category": "tops"
       }
     },
@@ -1585,145 +1585,17 @@
       }
     },
     {
-      "id": 9672390255,
-      "title": "Our Legacy Belt",
-      "watch": "Our Legacy",
-      "brand": "Our Legacy",
-      "size": "40 in | 100 cm",
-      "condition": "New with tags",
-      "price": "58.45 GBP",
-      "photo": "https://images1.vinted.net/t/06_0120d_6jTo8a9T7Dq9ds1nkmG71U6Q/f800/1786824748.jpeg?s=62bcc900cfe80f6e42523d094dea48b39df9999e",
-      "url": "https://www.vinted.co.uk/items/9672390255",
-      "seller": {
-        "login": "obitre5",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 71,
-      "score": 95,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "discovery",
-      "listed_at": 1786824748,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "source_config": {
-        "search_text": "our legacy",
-        "price_to": 80,
-        "rrp": 200,
-        "size_category": "tops"
-      }
-    },
-    {
-      "id": 9672391798,
-      "title": "Nudie lean dean jeans 36/32",
+      "id": 9672858510,
+      "title": "Nudie Jean (Men)",
       "watch": "Nudie Jeans",
       "brand": "Nudie Jeans",
       "size": "W36",
       "condition": "Very good",
-      "price": "42.7 GBP",
-      "photo": "https://images1.vinted.net/t/06_002b0_W7zTDNhS2hwdkcTv7rqL5MFr/f800/1786824763.jpeg?s=40ce705a12b80d3816a4fbe5eaf225a1a0cfd2a1",
-      "url": "https://www.vinted.co.uk/items/9672391798",
+      "price": "32.2 GBP",
+      "photo": "https://images1.vinted.net/t/05_01932_SvLiKdGRJtMLMZGfKbPH7Fkb/f800/1786829945.jpeg?s=bbd025ab27130799cdda1cde82438ad2676d8844",
+      "url": "https://www.vinted.co.uk/items/9672858510",
       "seller": {
-        "login": "springrain77",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 70,
-      "score": 93,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-70%",
-      "source": "core",
-      "listed_at": 1786824763,
-      "condition_badge": null,
-      "category": "clothing",
-      "source_config": {
-        "search_text": "nudie jeans",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "denim"
-      }
-    },
-    {
-      "id": 9672578477,
-      "title": "Folk Chore Jacket L Brown Checked Plais Utility Overshirt Workwear Oi Polloi",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "L",
-      "condition": "Very good",
-      "price": "37.45 GBP",
-      "photo": "https://images1.vinted.net/t/04_00dd0_PRyZ433n32JdWBy2E2BSBLAH/f800/1786826609.jpeg?s=0e3e8c32df7b66f8e4dcfcd79b7d1d2652644d6f",
-      "url": "https://www.vinted.co.uk/items/9672578477",
-      "seller": {
-        "login": "grizzlegrove",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 73,
-      "score": 93,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-73%",
-      "source": "core",
-      "listed_at": 1786826609,
-      "condition_badge": null,
-      "category": "clothing",
-      "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      }
-    },
-    {
-      "id": 9663473496,
-      "title": "Barbour quilted jacket",
-      "watch": "Barbour",
-      "brand": "Barbour",
-      "size": "L",
-      "condition": "Very good",
-      "price": "47.95 GBP",
-      "photo": "https://images1.vinted.net/t/02_0001f_gbPUyGQ934YCCg9hAPdgJjar/f800/1786735654.jpeg?s=8a57e39c91c88ab8c63f6ee622197ab75c5d84c6",
-      "url": "https://www.vinted.co.uk/items/9663473496",
-      "seller": {
-        "login": "thestorageexchange",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 81,
-      "score": 93,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-81%",
-      "source": "core",
-      "listed_at": 1786735654,
-      "condition_badge": null,
-      "category": "clothing",
-      "source_config": {
-        "search_text": "barbour jacket",
-        "price_to": 100,
-        "rrp": 250,
-        "size_category": "tops"
-      }
-    },
-    {
-      "id": 9672323128,
-      "title": "Barbour Weather Comfort Waterproof Hooded Jacket",
-      "watch": "Barbour",
-      "brand": "Barbour",
-      "size": "L",
-      "condition": "Very good",
-      "price": "58.45 GBP",
-      "photo": "https://images1.vinted.net/t/06_005a4_s9UeKUv9iFkHFLRM1q7Q8e3v/f800/1786824126.jpeg?s=b86439de28948713ff8d9468129c8568dddc804b",
-      "url": "https://www.vinted.co.uk/items/9672323128",
-      "seller": {
-        "login": "samsmixclothes",
+        "login": "heyz_yct",
         "feedback_count": 0,
         "reputation": null
       },
@@ -1734,28 +1606,60 @@
       "is_bargain": true,
       "bargain_reason": "-77%",
       "source": "core",
-      "listed_at": 1786824126,
+      "listed_at": 1786829945,
       "condition_badge": null,
       "category": "clothing",
       "source_config": {
-        "search_text": "barbour jacket",
-        "price_to": 100,
-        "rrp": 250,
+        "search_text": "nudie jeans",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "denim"
+      }
+    },
+    {
+      "id": 9672768538,
+      "title": "Folk Sweater",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "L",
+      "condition": "Very good",
+      "price": "21.7 GBP",
+      "photo": "https://images1.vinted.net/t/01_0257e_mcGUnaoBX3Wd1hLKLHokjKbD/f800/1786828755.jpeg?s=e3bb67b7aa0bc68c2b1128eaccc6d06d4fd31919",
+      "url": "https://www.vinted.co.uk/items/9672768538",
+      "seller": {
+        "login": "derbygarms2024",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 84,
+      "score": 93,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1786828755,
+      "condition_badge": null,
+      "category": "clothing",
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
         "size_category": "tops"
       }
     },
     {
-      "id": 9672442701,
-      "title": "Sunspel Cotton Tank Size L - Double Bundle",
-      "watch": "Sunspel",
-      "brand": "Sunspel",
+      "id": 9672741929,
+      "title": "NN07 Gael Wool Jacket",
+      "watch": "NN07",
+      "brand": "NN07",
       "size": "L",
       "condition": "Very good",
-      "price": "32.2 GBP",
-      "photo": "https://images1.vinted.net/t/06_01abb_Yo6AjgwnKQ7zvPePQsQvSDBe/f800/1786825249.jpeg?s=f7f9de8efb8a931dc4eb6fed7f5e70f339e849a3",
-      "url": "https://www.vinted.co.uk/items/9672442701",
+      "price": "42.68 GBP",
+      "photo": "https://images1.vinted.net/t/02_00435_vtSTdBqurTCdje2ix3Rj4UUG/f800/1786828434.jpeg?s=81cdcba41fc92a1c0e9d06ce4e2f32ac18821431",
+      "url": "https://www.vinted.co.uk/items/9672741929",
       "seller": {
-        "login": "beto529555",
+        "login": "franciscow50",
         "feedback_count": 0,
         "reputation": null
       },
@@ -1766,14 +1670,46 @@
       "is_bargain": true,
       "bargain_reason": "-64%",
       "source": "core",
-      "listed_at": 1786825249,
+      "listed_at": 1786828434,
       "condition_badge": null,
       "category": "clothing",
       "source_config": {
-        "search_text": "sunspel",
-        "price_to": 35,
-        "rrp": 90,
+        "search_text": "nn07",
+        "price_to": 50,
+        "rrp": 120,
         "size_category": "tops"
+      }
+    },
+    {
+      "id": 9652551756,
+      "title": "HOKA Rincon 3 Men's Size 10",
+      "watch": "Hoka",
+      "brand": "Hoka One One",
+      "size": "9",
+      "condition": "Very good",
+      "price": "46.19 GBP",
+      "photo": "https://images1.vinted.net/t/06_01027_TsTovNGxk1ApiX3fxsM6XovV/f800/1786630765.jpeg?s=3cddf22c5dd7c2f47870563a4a0e01f5e005be9c",
+      "url": "https://www.vinted.co.uk/items/9652551756",
+      "seller": {
+        "login": "thepharmamama",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 67,
+      "score": 93,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-67%",
+      "source": "core",
+      "listed_at": 1786630765,
+      "condition_badge": null,
+      "category": "clothing",
+      "source_config": {
+        "search_text": "hoka trainers",
+        "price_to": 50,
+        "rrp": 140,
+        "size_category": "footwear"
       }
     },
     {
@@ -1944,6 +1880,205 @@
       }
     },
     {
+      "id": 9671575006,
+      "title": "Folk Reads SS Shirt",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "XL",
+      "condition": "New with tags",
+      "price": "36.4 GBP",
+      "photo": "https://images1.vinted.net/t/06_02545_EmuygHAvRwbiodvyscWLC2nb/f800/1786818257.jpeg?s=c38287d9e7853c3f46c2d9991785d4cfb8879b5f",
+      "url": "https://www.vinted.co.uk/items/9671575006",
+      "seller": {
+        "login": "fallingdownn",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 74,
+      "score": 90,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-74%",
+      "source": "core",
+      "listed_at": 1786818257,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      }
+    },
+    {
+      "id": 9669347498,
+      "title": "Men\u2019s Heavy T-Shirt Norse Projects BNWT",
+      "watch": "Norse Projects",
+      "brand": "Norse Projects",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "47.95 GBP",
+      "photo": "https://images1.vinted.net/t/03_0213f_eZZwL2FEy5oWXenzEeNvYpGZ/f800/1786804997.jpeg?s=d58cde2e7a793786088482283f875e3bc3ff3577",
+      "url": "https://www.vinted.co.uk/items/9669347498",
+      "seller": {
+        "login": "l1ttlecloset",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 68,
+      "score": 90,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-68%",
+      "source": "core",
+      "listed_at": 1786804997,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "source_config": {
+        "search_text": "norse projects",
+        "price_to": 60,
+        "rrp": 150,
+        "size_category": "tops"
+      }
+    },
+    {
+      "id": 9672780317,
+      "title": "Resident Evil Village - PS5",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "11.2 GBP",
+      "photo": "https://images1.vinted.net/t/06_022f5_MWAqi48p7AFmzcXFgPgZ7v5o/f800/1786828901.jpeg?s=572a3644d04cb78be96a35c822aafa9ba381811a",
+      "url": "https://www.vinted.co.uk/items/9672780317",
+      "seller": {
+        "login": "h123mza",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786828901,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
+      "id": 9672644347,
+      "title": "PS5 LEGO Star Wars The skywalker saga",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "9.1 GBP",
+      "photo": "https://images1.vinted.net/t/06_02128_KkZQpD9mciAKeJZDXqgi1t5X/f800/1786827312.jpeg?s=7b45987e87cb1941081d94900af907f4dc5bfc5b",
+      "url": "https://www.vinted.co.uk/items/9672644347",
+      "seller": {
+        "login": "haydons14",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786827312,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
+      "id": 9672857875,
+      "title": "Mindseye Xbox series x game new with seals",
+      "watch": "Xbox Series X Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "16.45 GBP",
+      "photo": "https://images1.vinted.net/t/01_013cc_VUU2RJ9KW5DwhEvCdjJXpHB5/f800/1786829937.jpeg?s=f471d7b65494577e1a59b1adfefb3157578bb927",
+      "url": "https://www.vinted.co.uk/items/9672857875",
+      "seller": {
+        "login": "nathh9400",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786829937,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
+      "id": 9672773028,
+      "title": "Yeti Yonder chug cap",
+      "watch": "Yeti",
+      "brand": "Yeti",
+      "size": "",
+      "condition": "New with tags",
+      "price": "14.35 GBP",
+      "photo": "https://images1.vinted.net/t/02_00229_bAU4LPxeWyFhVYhjDiAUSDks/f800/1786828811.jpeg?s=13453be1fd36de35eb4b6a83b8854775f6b29c6e",
+      "url": "https://www.vinted.co.uk/items/9672773028",
+      "seller": {
+        "login": "la.18",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786828811,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "yeti",
+        "price_to": 60,
+        "catalog_ids": "",
+        "exclude": [
+          "toy",
+          "plush",
+          "costume",
+          "halloween",
+          "kids",
+          "book",
+          "dvd",
+          "onesie",
+          "funko"
+        ]
+      }
+    },
+    {
       "id": 9670768426,
       "title": "Vintage Polaroid High Definition 35mm Film \u2022 Expired",
       "watch": "Film Cameras",
@@ -1959,9 +2094,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 50,
+      "score": 45,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -1972,130 +2107,6 @@
         "search_text": "film camera",
         "price_to": 150,
         "catalog_ids": "2994,3054"
-      }
-    },
-    {
-      "id": 9672564636,
-      "title": "MW4 Modern Warfare 4 Early Access Beta Code",
-      "watch": "PS5 Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "11.2 GBP",
-      "photo": "https://images1.vinted.net/t/06_00e91_SjR6Q18RD2XGWU8K9bWuJS3r/f800/1786826465.jpeg?s=dd293c9438aaf2214a0797b6075f66503c9aeca2",
-      "url": "https://www.vinted.co.uk/items/9672564636",
-      "seller": {
-        "login": "nateace",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786826465,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "ps5 game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9672343626,
-      "title": "FIFA 22 xbox series x game",
-      "watch": "Xbox Series X Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "3.85 GBP",
-      "photo": "https://images1.vinted.net/t/03_005fd_iqpiJV7eQjif6eza3oY3MnFc/f800/1786824315.jpeg?s=db4b4b806b83968a7904923f0bc620fc92200764",
-      "url": "https://www.vinted.co.uk/items/9672343626",
-      "seller": {
-        "login": "zee12t",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786824315,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9672320476,
-      "title": "Xbox game",
-      "watch": "Xbox Series X Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "13.3 GBP",
-      "photo": "https://images1.vinted.net/t/02_00f61_XUG95Rt4BRfQ3ge3puumauQd/f800/1786824101.jpeg?s=d76717938992527e511cc76aac98781f9c2e6022",
-      "url": "https://www.vinted.co.uk/items/9672320476",
-      "seller": {
-        "login": "08lwalker",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786824101,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9672513365,
-      "title": "Cloudy June Crazy Woman 12\" Vinyl Record LP New And Sealed 2024 Signed Copy",
-      "watch": "Indie Rock Vinyl",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "13.3 GBP",
-      "photo": "https://images1.vinted.net/t/05_00e45_jYQVmzijQesQfHiujcWGuwSS/f800/1786825944.jpeg?s=772ce301cb790d78e4c079b95a39dc2f0b3bb2b6",
-      "url": "https://www.vinted.co.uk/items/9672513365",
-      "seller": {
-        "login": "andy86vinyl",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786825944,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "indie rock vinyl",
-        "price_to": 40,
-        "catalog_ids": "3036,3041"
       }
     },
     {
@@ -2223,6 +2234,68 @@
       }
     },
     {
+      "id": 9672343626,
+      "title": "FIFA 22 xbox series x game",
+      "watch": "Xbox Series X Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "3.85 GBP",
+      "photo": "https://images1.vinted.net/t/03_005fd_iqpiJV7eQjif6eza3oY3MnFc/f800/1786824315.jpeg?s=db4b4b806b83968a7904923f0bc620fc92200764",
+      "url": "https://www.vinted.co.uk/items/9672343626",
+      "seller": {
+        "login": "zee12t",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786824315,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
+      "id": 9672320476,
+      "title": "Xbox game",
+      "watch": "Xbox Series X Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "13.3 GBP",
+      "photo": "https://images1.vinted.net/t/02_00f61_XUG95Rt4BRfQ3ge3puumauQd/f800/1786824101.jpeg?s=d76717938992527e511cc76aac98781f9c2e6022",
+      "url": "https://www.vinted.co.uk/items/9672320476",
+      "seller": {
+        "login": "08lwalker",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786824101,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
       "id": 9670801397,
       "title": "Brand new and sealed wild hearts xbox game",
       "watch": "Xbox Series X Games",
@@ -2285,37 +2358,6 @@
       }
     },
     {
-      "id": 9667334327,
-      "title": "Jonny Drop In The Pocket Vinyl Breaks And Sample Library",
-      "watch": "Hip Hop Vinyl",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "19.36 GBP",
-      "photo": "https://images1.vinted.net/t/05_02274_EpLd9gS2qnjm8MQXgSn2mMeD/f800/1786793417.jpeg?s=668a75c4030c5dd6c4871886d25f876098ca0e90",
-      "url": "https://www.vinted.co.uk/items/9667334327",
-      "seller": {
-        "login": "smith-and-devine",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 45,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786793417,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "hip hop vinyl",
-        "price_to": 40,
-        "catalog_ids": "3036,3041"
-      }
-    },
-    {
       "id": 9666892299,
       "title": "Nas - I am Vinyl sealed",
       "watch": "Hip Hop Vinyl",
@@ -2338,6 +2380,37 @@
       "bargain_reason": "Under GBP 20",
       "source": "core",
       "listed_at": 1786790627,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "hip hop vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      }
+    },
+    {
+      "id": 9667334327,
+      "title": "Jonny Drop In The Pocket Vinyl Breaks And Sample Library",
+      "watch": "Hip Hop Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "19.36 GBP",
+      "photo": "https://images1.vinted.net/t/05_02274_EpLd9gS2qnjm8MQXgSn2mMeD/f800/1786793417.jpeg?s=668a75c4030c5dd6c4871886d25f876098ca0e90",
+      "url": "https://www.vinted.co.uk/items/9667334327",
+      "seller": {
+        "login": "smith-and-devine",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786793417,
       "condition_badge": "BNWT",
       "category": "electronics",
       "source_config": {
@@ -2440,37 +2513,6 @@
       }
     },
     {
-      "id": 9669384231,
-      "title": "This Is The Kit Careful Of Your Keepers Vinyl LP Indie Folk Rock 2023 Sealed",
-      "watch": "Indie Rock Vinyl",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "12.24 GBP",
-      "photo": "https://images1.vinted.net/t/06_016e9_wie431XN9pUC69nC5zxX1FTg/f800/1786805196.jpeg?s=a262892ec64aa4b8e75a65bdbc34cc8003d04c3c",
-      "url": "https://www.vinted.co.uk/items/9669384231",
-      "seller": {
-        "login": "lamornabuys",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 45,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786805196,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "indie rock vinyl",
-        "price_to": 40,
-        "catalog_ids": "3036,3041"
-      }
-    },
-    {
       "id": 9669330495,
       "title": "The Feeling Loss Hope Love Vinyl LP Indie Pop Rock 180g 2022 New Sealed",
       "watch": "Indie Rock Vinyl",
@@ -2493,6 +2535,37 @@
       "bargain_reason": "Under GBP 20",
       "source": "core",
       "listed_at": 1786804906,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      }
+    },
+    {
+      "id": 9669384231,
+      "title": "This Is The Kit Careful Of Your Keepers Vinyl LP Indie Folk Rock 2023 Sealed",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "12.24 GBP",
+      "photo": "https://images1.vinted.net/t/06_016e9_wie431XN9pUC69nC5zxX1FTg/f800/1786805196.jpeg?s=a262892ec64aa4b8e75a65bdbc34cc8003d04c3c",
+      "url": "https://www.vinted.co.uk/items/9669384231",
+      "seller": {
+        "login": "lamornabuys",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786805196,
       "condition_badge": "BNWT",
       "category": "electronics",
       "source_config": {
@@ -2967,6 +3040,37 @@
       }
     },
     {
+      "id": 9654431966,
+      "title": "The Homesick \u2013 The Big Exercise Vinyl LP. Sub Pop Loser Edition. Brand new and sealed.",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "6.95 GBP",
+      "photo": "https://images1.vinted.net/t/02_013fd_YzESe7LcZkPZy3R19TqBrcaK/f800/1786641959.jpeg?s=232ee8785ece8ca99e7b3c3338a0847000f0ba4d",
+      "url": "https://www.vinted.co.uk/items/9654431966",
+      "seller": {
+        "login": "johns-good-stuff",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786641959,
+      "condition_badge": "BNWT",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      }
+    },
+    {
       "id": 9669486349,
       "title": "Rap All Stars by Various Artists CD, 2018 Brand New And Sealed",
       "watch": "Rap CDs",
@@ -2989,37 +3093,6 @@
       "bargain_reason": "Under GBP 20",
       "source": "core",
       "listed_at": 1786805749,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "rap cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9656468752,
-      "title": "Unknown T album",
-      "watch": "Rap CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "4.38 GBP",
-      "photo": "https://images1.vinted.net/t/02_01381_fZEoAuapRVEMdkbiuEjJaCrx/f800/1786660923.jpeg?s=2d917f8844a99a639f4c216bd83a8cd728835c95",
-      "url": "https://www.vinted.co.uk/items/9656468752",
-      "seller": {
-        "login": "antondoc",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 45,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786660923,
       "condition_badge": "BNWT",
       "category": "electronics",
       "source_config": {
@@ -3060,6 +3133,130 @@
       }
     },
     {
+      "id": 9672784471,
+      "title": "TWS - Acer Wireless Earbuds",
+      "watch": "Hi-Fi & Turntables",
+      "brand": "Acer",
+      "size": "",
+      "condition": "New without tags",
+      "price": "16.45 GBP",
+      "photo": "https://images1.vinted.net/t/01_02676_MiMKG5hziW482FEa3DmaDcXx/f800/1786828953.jpeg?s=b4c86f764793c141d21675d0ecb5e6121770b507",
+      "url": "https://www.vinted.co.uk/items/9672784471",
+      "seller": {
+        "login": "my_wardrobe27",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786828953,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "hifi",
+        "price_to": 150,
+        "catalog_ids": "2994,3566,3694"
+      }
+    },
+    {
+      "id": 9672787898,
+      "title": "Batman arkunam origins multi view Batman/ joker",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "10.68 GBP",
+      "photo": "https://images1.vinted.net/t/04_01486_k9SPueedXVSkx8N3L6y1uzCK/f800/1786828997.jpeg?s=857ab66faf8ae83e5ec4edb77833db8eceef146b",
+      "url": "https://www.vinted.co.uk/items/9672787898",
+      "seller": {
+        "login": "godlycollector",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786828997,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
+      "id": 9672719818,
+      "title": "FC 25 disc Xbox one and series x",
+      "watch": "Xbox Series X Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "5.95 GBP",
+      "photo": "https://images1.vinted.net/t/05_00fd1_CgRopy5LdKZdhc2uPFJRvMSF/f800/1786828167.jpeg?s=83a07716a9f58eb08c5cb8f3f2f4c995617b96b3",
+      "url": "https://www.vinted.co.uk/items/9672719818",
+      "seller": {
+        "login": "armaan890",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786828167,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
+      "id": 9672701568,
+      "title": "Xbox series X , Among us",
+      "watch": "Xbox Series X Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "8.05 GBP",
+      "photo": "https://images1.vinted.net/t/05_02618_NLSXzZhQR7ZGnSbpisdnF6BZ/f800/1786827953.jpeg?s=bb100198de5ba4c01525e06c9c06c68a1f2d00d8",
+      "url": "https://www.vinted.co.uk/items/9672701568",
+      "seller": {
+        "login": "erumm5",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786827953,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      }
+    },
+    {
       "id": 9672366752,
       "title": "Kodak Ultra F9 35mm film camera",
       "watch": "Film Cameras",
@@ -3075,9 +3272,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -3106,44 +3303,13 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
       "listed_at": 1786826503,
-      "condition_badge": "UNWORN",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "ps5 game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9672467880,
-      "title": "2k25  ps5",
-      "watch": "PS5 Games",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "14.35 GBP",
-      "photo": "https://images1.vinted.net/t/05_001e9_5mC7HR6b5bkWGGTnmhxUkPv1/f800/1786825492.jpeg?s=93cce000f2f4b3b80e9f61b33a538ad098041b3f",
-      "url": "https://www.vinted.co.uk/items/9672467880",
-      "seller": {
-        "login": "chloe11857",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 44,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786825492,
       "condition_badge": "UNWORN",
       "category": "electronics",
       "source_config": {
@@ -3168,9 +3334,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -3184,32 +3350,32 @@
       }
     },
     {
-      "id": 9672619596,
-      "title": "Xbox series X , Among us",
-      "watch": "Xbox Series X Games",
+      "id": 9672467880,
+      "title": "2k25  ps5",
+      "watch": "PS5 Games",
       "brand": "",
       "size": "",
       "condition": "New without tags",
-      "price": "8.05 GBP",
-      "photo": "https://images1.vinted.net/t/05_02618_NLSXzZhQR7ZGnSbpisdnF6BZ/f800/1786827045.jpeg?s=2f3c7605ed95826547960e47df8499dd72fb1e1d",
-      "url": "https://www.vinted.co.uk/items/9672619596",
+      "price": "14.35 GBP",
+      "photo": "https://images1.vinted.net/t/05_001e9_5mC7HR6b5bkWGGTnmhxUkPv1/f800/1786825492.jpeg?s=93cce000f2f4b3b80e9f61b33a538ad098041b3f",
+      "url": "https://www.vinted.co.uk/items/9672467880",
       "seller": {
-        "login": "erumm5",
+        "login": "chloe11857",
         "feedback_count": 0,
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1786827045,
+      "listed_at": 1786825492,
       "condition_badge": "UNWORN",
       "category": "electronics",
       "source_config": {
-        "search_text": "xbox series x game",
+        "search_text": "ps5 game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
       }
@@ -3230,9 +3396,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -3241,68 +3407,6 @@
       "category": "electronics",
       "source_config": {
         "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9672342690,
-      "title": "Palma Violets - 180 - CD (2013) - Rough Trade Records - Indie Rock -",
-      "watch": "Indie CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "4.9 GBP",
-      "photo": "https://images1.vinted.net/t/01_0142a_EMFwvoQYP8y6SzjmgWRTVQEa/f800/1786824306.jpeg?s=a502107b5afb7e3e7550d2bd30a2625411835cb2",
-      "url": "https://www.vinted.co.uk/items/9672342690",
-      "seller": {
-        "login": "neilsmegastore",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 44,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786824306,
-      "condition_badge": "UNWORN",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "indie cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9672221068,
-      "title": "Black ops 6 PS5",
-      "watch": "PS5 Games",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "16.45 GBP",
-      "photo": "https://images1.vinted.net/t/02_023d0_sMLJU9tm31rJLjEmbf9xbLZM/f800/1786823229.jpeg?s=17c1674697c3b62dc992b02bbb32d1fda8135b80",
-      "url": "https://www.vinted.co.uk/items/9672221068",
-      "seller": {
-        "login": "charlieford1992",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786823229,
-      "condition_badge": "UNWORN",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "ps5 game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
       }
@@ -3370,37 +3474,6 @@
       }
     },
     {
-      "id": 9669944662,
-      "title": "FC 25 Xbox series X and Xbox 1 disc",
-      "watch": "Xbox Series X Games",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "10.15 GBP",
-      "photo": "https://images1.vinted.net/t/06_0180c_pNmWAArQ2SLz89apYQ89KLa3/f800/1786808254.jpeg?s=d333fe7c63d8baadb05f2bf7ed24ea037eaa4bb1",
-      "url": "https://www.vinted.co.uk/items/9669944662",
-      "seller": {
-        "login": "armaan890",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786808254,
-      "condition_badge": "UNWORN",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
       "id": 9663912347,
       "title": "Rustie Green Language Vinyl 2LP Warp Records Electronic Danny Brown",
       "watch": "Hip Hop Vinyl",
@@ -3423,6 +3496,37 @@
       "bargain_reason": "Under GBP 20",
       "source": "core",
       "listed_at": 1786740004,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "hip hop vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      }
+    },
+    {
+      "id": 9659811762,
+      "title": "Techno hip hop house records",
+      "watch": "Hip Hop Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "11.2 GBP",
+      "photo": "https://images1.vinted.net/t/02_0123b_HcpxE3LodgHQVmaXDnDFscdq/f800/1786710639.jpeg?s=d809de3ca3ce683ebf3f7e489aaed7ca6200b161",
+      "url": "https://www.vinted.co.uk/items/9659811762",
+      "seller": {
+        "login": "dazdeb",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 39,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786710639,
       "condition_badge": "UNWORN",
       "category": "electronics",
       "source_config": {
@@ -3618,6 +3722,37 @@
       }
     },
     {
+      "id": 9672342690,
+      "title": "Palma Violets - 180 - CD (2013) - Rough Trade Records - Indie Rock -",
+      "watch": "Indie CDs",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "4.9 GBP",
+      "photo": "https://images1.vinted.net/t/01_0142a_EMFwvoQYP8y6SzjmgWRTVQEa/f800/1786824306.jpeg?s=a502107b5afb7e3e7550d2bd30a2625411835cb2",
+      "url": "https://www.vinted.co.uk/items/9672342690",
+      "seller": {
+        "login": "neilsmegastore",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 39,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1786824306,
+      "condition_badge": "UNWORN",
+      "category": "electronics",
+      "source_config": {
+        "search_text": "indie cd",
+        "price_to": 20,
+        "catalog_ids": "3036,3039"
+      }
+    },
+    {
       "id": 9669898791,
       "title": "Deerhunter halcyon digest cd slowdive my bloody valentine indie shoegaze",
       "watch": "Indie CDs",
@@ -3688,141 +3823,6 @@
           "onesie",
           "funko"
         ]
-      }
-    },
-    {
-      "id": 9668553635,
-      "title": "Yeti T-shirt",
-      "watch": "Yeti",
-      "brand": "Yeti",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "16.45 GBP",
-      "photo": "https://images1.vinted.net/t/06_01bd2_HH2gMr82kCfUZHKDKyM1Hiuc/f800/1786800621.jpeg?s=9fe5f2fad44d7d8ebd7b1cb8aa7f138e15020e6d",
-      "url": "https://www.vinted.co.uk/items/9668553635",
-      "seller": {
-        "login": "mareko1982",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1786800621,
-      "condition_badge": "UNWORN",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "yeti",
-        "price_to": 60,
-        "catalog_ids": "",
-        "exclude": [
-          "toy",
-          "plush",
-          "costume",
-          "halloween",
-          "kids",
-          "book",
-          "dvd",
-          "onesie",
-          "funko"
-        ]
-      }
-    },
-    {
-      "id": 9672569464,
-      "title": "2 x Kodak ColorPlus ISO200 36exp films",
-      "watch": "Film Cameras",
-      "brand": "Kodak",
-      "size": "",
-      "condition": "New with tags",
-      "price": "21.7 GBP",
-      "photo": "https://images1.vinted.net/t/06_0247c_tXPGb82kou43pav954AEb2kr/f800/1786826515.jpeg?s=a72011603686ce279e62d69978f3fa5858c5225a",
-      "url": "https://www.vinted.co.uk/items/9672569464",
-      "seller": {
-        "login": "ditidi",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 35,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1786826515,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "film camera",
-        "price_to": 150,
-        "catalog_ids": "2994,3054"
-      }
-    },
-    {
-      "id": 9672512212,
-      "title": "Ilford Black&White Film Camera",
-      "watch": "Film Cameras",
-      "brand": "Ilford",
-      "size": "",
-      "condition": "New with tags",
-      "price": "32.2 GBP",
-      "photo": "https://images1.vinted.net/t/05_02002_mSf9NqD9ZiVHNtW4wvGKGKK8/f800/1786825933.jpeg?s=9c9de7a39585faf3a7df81f564ecc5e236c1d494",
-      "url": "https://www.vinted.co.uk/items/9672512212",
-      "seller": {
-        "login": "jojot98",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 35,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1786825933,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "film camera",
-        "price_to": 150,
-        "catalog_ids": "2994,3054"
-      }
-    },
-    {
-      "id": 9672331493,
-      "title": "Fuji film instax mini 12 Mint Green instant camera",
-      "watch": "Film Cameras",
-      "brand": "FUJIFILM",
-      "size": "",
-      "condition": "New with tags",
-      "price": "61.6 GBP",
-      "photo": "https://images1.vinted.net/t/04_02343_ytt4WGJvDvKwEYau4LFopfFn/f800/1786824203.jpeg?s=2e0e018fb1eb05d54f06e1a8ef7f567e2e88e1ec",
-      "url": "https://www.vinted.co.uk/items/9672331493",
-      "seller": {
-        "login": "neena_42",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 35,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1786824203,
-      "condition_badge": "BNWT",
-      "category": "electronics",
-      "source_config": {
-        "search_text": "film camera",
-        "price_to": 150,
-        "catalog_ids": "2994,3054"
       }
     }
   ]
