@@ -418,6 +418,17 @@ def main():
                 skipped_count += 1
                 print(f"  ! skipped one malformed item: {e}")
                 continue
+
+            # Hard size filter, not just a scoring nudge - this is a personal
+            # wardrobe feed, not a resale tool, so a listing in a size that
+            # isn't wearable shouldn't appear at all. Only applies when the
+            # watch has a size_category AND the listing actually states a
+            # size - blank/one-size items (accessories, caps) still pass
+            # through, since fit doesn't apply to them.
+            if watch.get("size_category") and card["size"] and not card["my_size"]:
+                price_history[item_id_str] = card["price_amount"]
+                continue
+
             all_cards.append(card)
             price_history[item_id_str] = card["price_amount"]
 
