@@ -130,5 +130,13 @@
     { "name": "Technics Turntable", "search_text": "technics turntable", "price_to": 150, "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
     { "name": "Marantz Amplifier", "search_text": "marantz amplifier", "price_to": 150, "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
     { "name": "Rega Turntable",   "search_text": "rega turntable",    "price_to": 150, "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology" }
+  ],
+
+  "ebay_watches": [
+    { "name": "eBay Film Cameras", "search_text": "film camera", "category_id": "625", "price_to": 150, "subcategory": "technology" },
+    { "name": "eBay Hi-Fi", "search_text": "hifi turntable amplifier", "category_id": "293", "price_to": 150, "subcategory": "technology" },
+    { "name": "eBay PS5 Games", "search_text": "ps5 game", "category_id": "1249", "price_to": 35, "subcategory": "games" },
+    { "name": "eBay Xbox Series X Games", "search_text": "xbox series x game", "category_id": "1249", "price_to": 35, "subcategory": "games" },
+    { "name": "eBay Vinyl", "search_text": "vinyl record", "category_id": "11233", "price_to": 30, "subcategory": "music" }
   ]
 }
