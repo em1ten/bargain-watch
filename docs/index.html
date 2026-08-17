@@ -157,6 +157,14 @@
     color:var(--cream-dim);
   }
   .price-tag{color:var(--brass-bright); font-weight:700; font-size:13px;}
+  .fee-note{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    color:var(--cream-dim);
+    opacity:0.75;
+    text-align:right;
+  }
   .compare-link{
     display:block;
     margin-top:8px;
@@ -231,6 +239,7 @@
   .badge.deal{color:var(--denim-950); background:var(--brass-bright);}
   .badge.rank{color:var(--denim-950); background:var(--cream);}
   .badge.condition{color:var(--denim-950); background:var(--teal);}
+  .badge.drop{color:var(--denim-950); background:var(--stitch);}
   .star-btn{
     position:absolute;
     top:8px; right:8px;
@@ -513,6 +522,12 @@ function buildCard(item, rank){
     b.textContent = item.condition_badge;
     badges.appendChild(b);
   }
+  if (item.price_dropped){
+    const b = document.createElement('span');
+    b.className = 'badge drop';
+    b.textContent = `↓ was ${item.previous_price.toFixed(2)}`;
+    badges.appendChild(b);
+  }
   if (item.bargain_reason){
     const b = document.createElement('span');
     b.className = 'badge deal';
@@ -594,6 +609,13 @@ function buildCard(item, rank){
   meta.appendChild(size);
   meta.appendChild(price);
   body.appendChild(meta);
+
+  if (item.estimated_total){
+    const feeNote = document.createElement('span');
+    feeNote.className = 'fee-note';
+    feeNote.textContent = `~${item.estimated_total.toFixed(2)} with buyer protection fee`;
+    body.appendChild(feeNote);
+  }
 
   const compareLink = document.createElement('a');
   compareLink.className = 'compare-link';
