@@ -347,7 +347,9 @@
     <button class="pill" data-filter="is_bargain">Bargains</button>
     <button class="pill" data-filter="discovery">Discovery</button>
     <button class="pill" data-filter="starred">Starred</button>
-    <button class="pill" data-filter="electronics">Other</button>
+    <button class="pill" data-filter="electronics">Technology</button>
+    <button class="pill" data-filter="games">Games</button>
+    <button class="pill" data-filter="music">Music</button>
   </div>
 
   <p class="pills-label">Sort</p>
@@ -454,7 +456,9 @@ let feedData = [];
 function cardMatches(item){
   if (hidden.has(item.id)) return false;
   const isElectronics = item.category === 'electronics';
-  if (activeFilter === 'electronics') return isElectronics;
+  if (activeFilter === 'electronics') return isElectronics && item.subcategory === 'technology';
+  if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
+  if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
   if (isElectronics) return false; // every other view is clothing-only
   switch (activeFilter) {
     case 'my_size':    return item.my_size;
