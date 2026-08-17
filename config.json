@@ -56,7 +56,6 @@
       "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
     { "name": "MKI Miyuki-Zoku",   "search_text": "mki miyuki zoku",     "price_to": 60, "rrp": 140, "size_category": "tops", "notify": "digest",
       "brand_match": ["MKI Miyuki-Zoku", "MKI"] },
-    { "name": "Peaceful Hooligan", "search_text": "peaceful hooligan",   "price_to": 40, "rrp": 90,  "size_category": "tops", "notify": "digest" },
     { "name": "orSlow",          "search_text": "orslow",          "price_to": 80,  "rrp": 180, "size_category": "tops",     "notify": "digest" },
     { "name": "Barbour",         "search_text": "barbour jacket",  "price_to": 100, "rrp": 250, "size_category": "tops",     "notify": "digest" },
     { "name": "Acne Studios",    "search_text": "acne studios",    "price_to": 100, "rrp": 250, "size_category": "tops",     "notify": "digest" },
