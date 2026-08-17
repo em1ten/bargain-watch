@@ -358,6 +358,27 @@ def notify_ntfy(topic, title, cards, priority="default", tags="shirt"):
         print(f"  ! ntfy push failed: {e}")
 
 
+def apply_watch_caps(cards, watch_caps):
+    """Cap how many listings from a single watch can appear in the final
+    feed, regardless of how well they score - keeps one prolific brand
+    (lots of listings, not necessarily lots of *quality*) from crowding
+    out everything else. Keeps the highest-scoring items from that watch
+    up to its cap; watches with no cap set are unaffected."""
+    if not watch_caps:
+        return cards
+    counts = {}
+    result = []
+    for c in sorted(cards, key=lambda c: c["score"], reverse=True):
+        cap = watch_caps.get(c["watch"])
+        if cap is None:
+            result.append(c)
+            continue
+        if counts.get(c["watch"], 0) < cap:
+            result.append(c)
+            counts[c["watch"]] = counts.get(c["watch"], 0) + 1
+    return result
+
+
 def main():
     config = load_config()
     domain = config.get("domain", "www.vinted.co.uk")
@@ -478,13 +499,17 @@ def main():
         if existing is None or c["score"] > existing["score"]:
             unique[c["id"]] = c
 
+    all_watches = config["watches"] + config.get("discovery_pool", [])
+    watch_caps = {w["name"]: w["max_in_feed"] for w in all_watches if "max_in_feed" in w}
+    capped_cards = apply_watch_caps(list(unique.values()), watch_caps)
+
     # Clothing and electronics are ranked and trimmed separately - electronics
     # items structurally can't score as high (no size-match bonus, often no
     # RRP set), so ranking them together let clothing silently squeeze every
     # electronics result out of the top N, even when the scan found genuine
     # matches.
-    clothing_cards = [c for c in unique.values() if c.get("category", "clothing") != "electronics"]
-    electronics_cards = [c for c in unique.values() if c.get("category") == "electronics"]
+    clothing_cards = [c for c in capped_cards if c.get("category", "clothing") != "electronics"]
+    electronics_cards = [c for c in capped_cards if c.get("category") == "electronics"]
     clothing_feed = sorted(clothing_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
     electronics_feed = sorted(electronics_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
     feed = clothing_feed + electronics_feed
