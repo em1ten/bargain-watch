@@ -75,6 +75,20 @@ def load_json_set(path):
     return set()
 
 
+def load_price_history(path):
+    """seen_ids.json used to be a flat list of item IDs. Now it's a dict of
+    {id: last_known_price} so price drops can be detected. Old-format files
+    are migrated on first load - prices are unknown for those, so no drop
+    gets (falsely) reported for anything already tracked pre-upgrade."""
+    if not path.exists():
+        return {}
+    with open(path) as f:
+        data = json.load(f)
+    if isinstance(data, list):
+        return {str(i): None for i in data}
+    return data
+
+
 def save_json(path, obj):
     with open(path, "w") as f:
         json.dump(obj, f, indent=2)
@@ -182,7 +196,7 @@ def size_matches(size_title, size_terms):
     return False
 
 
-def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new):
+def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price=None):
     photo = (item.get("photo") or {}).get("url", "")
     price_obj = item.get("total_item_price") or item.get("price") or {}
     amount = price_obj.get("amount")
@@ -225,6 +239,23 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     except (TypeError, ValueError):
         listed_at = None
 
+    # A genuine price drop since the last scan - not "new", but worth
+    # surfacing the same way. Ignore trivial rounding noise (<1% or <£0.50).
+    price_dropped = False
+    price_drop_pct = None
+    if previous_price is not None and price_amount is not None and previous_price > 0:
+        drop = previous_price - price_amount
+        if drop > 0.5 and drop / previous_price > 0.01:
+            price_dropped = True
+            price_drop_pct = round((drop / previous_price) * 100)
+
+    # Rough estimate of what a buyer actually pays at checkout - Vinted's
+    # Buyer Protection fee is ~5% of the item price plus a small fixed fee.
+    # Shown so the price badge isn't misleading about the real total cost.
+    estimated_total = None
+    if price_amount is not None:
+        estimated_total = round(price_amount * 1.05 + 0.7, 2)
+
     score = 0
     if discount_pct is not None and discount_pct > 0:
         score += min(discount_pct, 60)
@@ -238,6 +269,8 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         score += 20
     if is_new:
         score += 5
+    if price_dropped:
+        score += 15
 
     is_bargain = (discount_pct is not None and discount_pct >= threshold_pct) or (
         max_price is not None and price_amount is not None and price_amount <= max_price
@@ -257,6 +290,8 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "size": size_title,
         "condition": condition,
         "price": f"{amount} {currency}" if amount else "",
+        "price_amount": price_amount,
+        "estimated_total": estimated_total,
         "photo": photo,
         "url": f"https://{domain}/items/{item.get('id')}",
         "seller": seller,
@@ -270,6 +305,9 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "listed_at": listed_at,
         "condition_badge": CONDITION_BADGE.get(condition),
         "category": watch.get("category", "clothing"),
+        "price_dropped": price_dropped,
+        "price_drop_pct": price_drop_pct,
+        "previous_price": previous_price if price_dropped else None,
         "source_config": {
             k: watch[k]
             for k in ("search_text", "price_to", "price_from", "rrp", "size_category", "catalog_ids", "exclude")
@@ -278,10 +316,24 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     }
 
 
+def format_line(c):
+    tags = []
+    if c.get("price_dropped"):
+        tags.append(f"was {c['previous_price']:.2f}, -{c['price_drop_pct']}%")
+    if c.get("condition_badge"):
+        tags.append(c["condition_badge"])
+    if c.get("my_size"):
+        tags.append("your size")
+    if not c.get("price_dropped") and c.get("bargain_reason"):
+        tags.append(c["bargain_reason"])
+    tag_str = f" [{', '.join(tags)}]" if tags else ""
+    return f"{c['watch']} — {c['price']}: {c['title']}{tag_str} (score {c['score']})"
+
+
 def notify_ntfy(topic, title, cards, priority="default", tags="shirt"):
     if not topic or not cards:
         return
-    lines = [f"{c['watch']} — {c['price']}: {c['title']}" for c in cards[:5]]
+    lines = [format_line(c) for c in cards[:5]]
     message = "\n".join(lines)
     if len(cards) > 5:
         message += f"\n…and {len(cards) - 5} more"
@@ -314,7 +366,7 @@ def main():
     exceptional_threshold = config.get("exceptional_score_threshold", 90)
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
-    seen_ids = load_json_set(SEEN_PATH)
+    price_history = load_price_history(SEEN_PATH)
     digest_pending = {}
     if DIGEST_PATH.exists():
         with open(DIGEST_PATH) as f:
@@ -331,6 +383,7 @@ def main():
     for watch, source in scan_plan:
         name = watch["name"]
         exclude_terms = global_exclude + watch.get("exclude", [])
+        notify_mode = watch.get("notify", "instant")
         print(f"Checking ({source}): {name}")
         try:
             raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids)
@@ -340,7 +393,7 @@ def main():
             continue
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
 
-        new_watch_cards = []
+        notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
         for item in raw_items:
             try:
@@ -349,30 +402,45 @@ def main():
                 if not brand_matches(item, watch):
                     continue
                 item_id = item.get("id")
-                is_new = item_id not in seen_ids
-                card = build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new)
+                item_id_str = str(item_id)
+                is_new = item_id_str not in price_history
+                previous_price = price_history.get(item_id_str)
+                card = build_card(
+                    item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price
+                )
             except Exception as e:
                 skipped_count += 1
                 print(f"  ! skipped one malformed item: {e}")
                 continue
             all_cards.append(card)
-            if is_new:
-                seen_ids.add(item_id)
-                new_watch_cards.append(card)
-                if card["score"] >= exceptional_threshold:
+            price_history[item_id_str] = card["price_amount"]
+
+            if is_new or card["price_dropped"]:
+                notify_cards.append(card)
+                # Exceptional-score alert is a cross-brand safety net for
+                # anything that might get missed - skip it for "instant"
+                # watches since they already get pushed immediately below,
+                # so it doesn't fire twice for the same item.
+                if notify_mode != "instant" and card["score"] >= exceptional_threshold:
                     exceptional_finds.append(card)
         if skipped_count:
             print(f"  {skipped_count} item(s) skipped due to unexpected data")
 
-        if new_watch_cards and source == "core":
-            notify_mode = watch.get("notify", "instant")
-            print(f"  {len(new_watch_cards)} new")
+        if notify_cards and source == "core":
+            new_count = sum(1 for c in notify_cards if c["is_new"])
+            drop_count = sum(1 for c in notify_cards if c["price_dropped"])
+            label_bits = []
+            if new_count:
+                label_bits.append(f"{new_count} new")
+            if drop_count:
+                label_bits.append(f"{drop_count} price drop{'s' if drop_count != 1 else ''}")
+            print(f"  {', '.join(label_bits)}")
             if notify_mode == "instant":
-                notify_ntfy(ntfy_topic, f"Vinted: {len(new_watch_cards)} new — {name}", new_watch_cards)
+                notify_ntfy(ntfy_topic, f"Vinted: {', '.join(label_bits)} — {name}", notify_cards)
             elif notify_mode == "digest":
                 bucket = digest_pending.setdefault(name, [])
                 existing = {c["id"] for c in bucket}
-                bucket.extend(c for c in new_watch_cards if c["id"] not in existing)
+                bucket.extend(c for c in notify_cards if c["id"] not in existing)
 
         time.sleep(1)  # be polite between requests
 
@@ -413,7 +481,7 @@ def main():
 
     DOCS_DIR.mkdir(exist_ok=True)
     save_json(DATA_PATH, dashboard)
-    save_json(SEEN_PATH, sorted(seen_ids))
+    save_json(SEEN_PATH, price_history)
     save_json(DIGEST_PATH, digest_pending)
     print(f"Done. {len(feed)} listings in the feed.")
 
