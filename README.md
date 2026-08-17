@@ -13,8 +13,9 @@ Built to start with Vinted, with room to add other marketplaces later.
   searches plus a daily rotation of discovery brands, scores every listing,
   and writes one ranked feed to `docs/data.json`
 - `docs/index.html` (served via GitHub Pages) shows that feed with tap-only
-  filter pills: All / My size / New / Bargains / Discovery / Starred, plus
-  thumbs up/down on each card that nudge the whole feed's ranking
+  filter pills: All / My size / New / Bargains / Discovery / Starred /
+  Electronics / Other, plus thumbs up/down on each card that nudge the whole feed's
+  ranking
 - New finds push to your phone via ntfy.sh — instantly for priority brands,
   bundled into one daily digest for the rest (`digest_send.py`)
 
@@ -53,6 +54,15 @@ one bad match nudges that whole brand down a little rather than hiding just
 that item — a few taps in the same direction will move it more than one.
 If you'd rather it worked differently (e.g. per-listing only, or hiding
 downvoted items outright), that's a quick change — just say so.
+
+## Hiding a specific listing
+
+The ✕ button (bottom-left of each photo) permanently removes just that one
+listing — wrong brand tag, wrong category, or anything else off about it.
+Unlike thumbs up/down, this doesn't touch the brand's ranking at all; it's
+purely "don't show me this one again." Stored in your browser, same as
+everything else here. A "Reset hidden listings" link in the footer clears
+the list if you hide something by mistake.
 
 ## Deliberately read-only dashboard
 
@@ -116,3 +126,90 @@ Per watch (in `watches` or `discovery_pool`):
 - Domain set to `www.vinted.co.uk` — change in `config.json` for other
   countries.
 - For personal use finding items, not reselling automation.
+
+## Buyer protection fee estimate
+
+Every card shows a small "~£X with buyer protection fee" line under the
+price — Vinted charges buyers roughly 5% + £0.70 on top of the listed
+price at checkout, so the price badge alone slightly understates what
+you'd actually pay.
+
+## Price drops
+
+`seen_ids.json` now tracks each listing's last-known price, not just
+whether it's been seen. If a seller drops the price on something already
+in the feed, it gets a red "↓ was £X" badge, a scoring bonus, and is
+treated as notify-worthy the same as a brand-new listing — including
+through the exceptional-find alert if the new price pushes its score high
+enough. Trivial rounding changes (under 1% or 50p) don't count as a drop.
+
+## Notifications
+
+Actually need `NTFY_TOPIC` set as a repo secret to receive anything — see
+setup step 4 above. Push messages now include the score, condition badge,
+your-size flag, and (for price drops) the old price and % drop, not just
+brand/price/title. The exceptional-find alert no longer double-fires for
+`instant`-tier watches — it only covers `digest`/`off` watches now, since
+`instant` watches already get pushed immediately through their normal
+per-brand notification.
+
+## Hard condition filter (not just scoring)
+
+Most watches only use condition as a *scoring* signal — worn items can still
+appear, just ranked lower. Some watches (currently the music ones) set
+`"allowed_conditions"` instead, which is a hard filter: anything outside
+that list never makes it into the feed at all, not just deprioritized. Add
+this to any watch where "good condition only" needs to be a real rule, not
+a preference.
+
+## Games and music
+
+Video games (PS5/Xbox), vinyl, and CDs are tracked the same way as
+clothing — same scoring, same "Other" pill (which now covers all
+non-clothing categories, not just gadgets). Vinyl and CDs use the hard
+condition filter above, since worn media isn't worth the risk the way a
+worn jacket might still be fine. The discovery pool now also includes
+vinyl searches for your specific favourite artists, rotating in the same
+way as clothing brands.
+
+## Homeware and art
+
+Original Art & Prints, Vintage Homeware, and Mid Century Decor round out
+the "Other" pill — deliberately searched with terms like "original signed
+print" and "mid century" rather than generic "wall art" or "decor", since
+those broad terms mostly return mass-produced £2 Amazon posters on
+Vinted, not the kind of well-made, different pieces this was meant to
+surface.
+
+## Discovery rotation and adding more brands
+
+`discovery_per_day` controls how many discovery brands rotate in daily —
+raised to 5 for more variety per visit. The discovery pool itself has grown
+too; edit `discovery_pool` directly in `config.json` any time to add more.
+
+Each discovery-tagged card also has a **"+ Add to my watches"** button. It
+copies that brand's real search settings to your clipboard (no typing, no
+GitHub token stored in the page) — paste the copied line into `watches` in
+`config.json` on GitHub, then delete the matching entry from
+`discovery_pool` so it's not scanned twice.
+
+## Exceptional find alert
+
+Any new listing that scores 90+ (tune via `exceptional_score_threshold`)
+triggers an immediate high-priority push, regardless of that brand's own
+`notify` setting — even a brand set to `digest` or `off` will alert
+instantly for something this good. Runs as an extra check on top of your
+normal per-brand notification settings, so an `instant`-tier brand's
+exceptional find may briefly notify twice (once as its usual push, once as
+the flagged "exceptional" one) — a minor duplicate in exchange for never
+missing something genuinely excellent.
+
+## "Other" (games, music, homeware, etc.) — tracked separately, not mixed into the main feed
+
+Watches tagged `"category": "electronics"` in `config.json` (Film Cameras,
+Hi-Fi & Turntables, Yeti) never appear in the default feed or any of the
+other filters — they're only visible under the dedicated **"Other"**
+pill. Scoring, discovery rotation, and notifications all work the same way
+for them, they just don't get ranked alongside jackets and jeans. Any new
+non-clothing watch just needs that same `"category": "electronics"` field
+to stay out of the main feed.
