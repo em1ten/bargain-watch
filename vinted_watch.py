@@ -198,7 +198,12 @@ def size_matches(size_title, size_terms):
 
 def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price=None):
     photo = (item.get("photo") or {}).get("url", "")
-    price_obj = item.get("total_item_price") or item.get("price") or {}
+    # "price" is the seller's actual asking price. "total_item_price" is
+    # already inclusive of Vinted's buyer protection fee - using it here
+    # would double-count the fee once our own estimate is added below, and
+    # would also skew every RRP/discount comparison against an inflated
+    # number rather than the item's real asking price.
+    price_obj = item.get("price") or item.get("total_item_price") or {}
     amount = price_obj.get("amount")
     currency = price_obj.get("currency_code", "")
 
@@ -305,6 +310,7 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "listed_at": listed_at,
         "condition_badge": CONDITION_BADGE.get(condition),
         "category": watch.get("category", "clothing"),
+        "subcategory": watch.get("subcategory"),
         "price_dropped": price_dropped,
         "price_drop_pct": price_drop_pct,
         "previous_price": previous_price if price_dropped else None,
