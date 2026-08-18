@@ -78,10 +78,30 @@ def parse_price(value):
         return None
 
 
+WOMENS_TERMS = ["women", "women's", "womens", "ladies", "lady's", "female"]
+
+
+def is_womens_product(product):
+    """Shopify's product feed has no standard men/women field the way
+    Vinted's catalog_ids gave us - only title, product_type, and tags to
+    go on. Checking all three catches most cases, though it's inherently
+    less precise than Vinted's proper category filter."""
+    fields = [(product.get("title") or "").lower(), (product.get("product_type") or "").lower()]
+    tags = product.get("tags")
+    if isinstance(tags, str):
+        fields.append(tags.lower())
+    elif isinstance(tags, list):
+        fields.append(" ".join(str(t) for t in tags).lower())
+    combined = " ".join(fields)
+    return any(term in combined for term in WOMENS_TERMS)
+
+
 def build_cards(product, domain, shop_name, global_exclude, price_history):
     title = (product.get("title") or "").strip()
     title_lower = title.lower()
     if any(term.lower() in title_lower for term in global_exclude):
+        return []
+    if is_womens_product(product):
         return []
 
     vendor = (product.get("vendor") or "").strip()
