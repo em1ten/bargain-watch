@@ -74,6 +74,11 @@
     { "name": "Stan Ray",        "search_text": "stan ray",        "price_to": 40,  "rrp": 90,  "size_category": "tops",     "notify": "digest" },
     { "name": "Ten C",           "search_text": "ten c",           "price_to": 150, "rrp": 450, "size_category": "tops",     "notify": "digest" },
     { "name": "Aspesi",          "search_text": "aspesi",          "price_to": 120, "rrp": 300, "size_category": "tops",     "notify": "digest" },
+    { "name": "Fjallraven",      "search_text": "fjallraven",      "price_to": 60,  "rrp": 160, "size_category": "tops",     "notify": "digest" },
+    { "name": "John Smedley",    "search_text": "john smedley",    "price_to": 60,  "rrp": 180, "size_category": "tops",     "notify": "digest" },
+    { "name": "Bellroy",         "search_text": "bellroy",         "price_to": 30,  "rrp": 80,  "notify": "digest" },
+    { "name": "Harber London",   "search_text": "harber london",   "price_to": 40,  "rrp": 100, "notify": "digest" },
+    { "name": "Aer",             "search_text": "aer bag",         "price_to": 50,  "rrp": 140, "notify": "digest" },
     { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest", "require_brand_match": false },
     { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 25,              "size_category": "tops",     "notify": "off" }
   ],
