@@ -2,6 +2,7 @@ name: Vinted daily digest
 
 on:
   schedule:
+    # 08:00 UTC daily
     - cron: "0 8 * * *"
   workflow_dispatch: {}
 
