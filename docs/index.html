@@ -350,6 +350,7 @@
     <button class="pill" data-filter="electronics">Technology</button>
     <button class="pill" data-filter="games">Games</button>
     <button class="pill" data-filter="music">Music</button>
+    <button class="pill" data-filter="football">Football</button>
   </div>
 
   <p class="pills-label">Sort</p>
@@ -459,6 +460,7 @@ function cardMatches(item){
   if (activeFilter === 'electronics') return isElectronics && item.subcategory === 'technology';
   if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
   if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
+  if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
   if (isElectronics) return false; // every other view is clothing-only
   switch (activeFilter) {
     case 'my_size':    return item.my_size;
@@ -591,6 +593,12 @@ function buildCard(item, rank){
     tag.textContent = ' · discovery';
     label.appendChild(tag);
   }
+  if (item.marketplace === 'ebay'){
+    const tag = document.createElement('span');
+    tag.className = 'disc';
+    tag.textContent = ' · eBay';
+    label.appendChild(tag);
+  }
   body.appendChild(label);
 
   const title = document.createElement('p');
@@ -707,6 +715,17 @@ async function load(){
     }
 
     feedData = data.feed || [];
+
+    // eBay results are a separate, optional file - merge in if present,
+    // but never let a missing/broken file affect the main (Vinted) feed.
+    try {
+      const ebayRes = await fetch('ebay_data.json', { cache: 'no-store' });
+      if (ebayRes.ok) {
+        const ebayData = await ebayRes.json();
+        feedData = feedData.concat(ebayData.feed || []);
+      }
+    } catch {}
+
     updateHiddenCount();
     renderFeed();
   } catch (err){
