@@ -193,7 +193,10 @@ def brand_matches(item, watch):
 def size_matches(size_title, size_terms):
     """Match a size term as a distinct token within the listing's size string,
     not as a raw substring - otherwise 'L' wrongly matches inside 'XL', '38L',
-    or the '9' in 'UK 9' wrongly matches inside '39'."""
+    or the '9' in 'UK 9' wrongly matches inside '39'. The boundary classes
+    include '.' and ',' so decimal sizes count as one token - without that,
+    '9' wrongly matches inside '9.5' and '43' inside '43.5', which is worse
+    than cosmetic because my_size is a hard filter."""
     if not size_terms:
         return False
     size = (size_title or "").strip().lower()
@@ -203,7 +206,7 @@ def size_matches(size_title, size_terms):
         t = term.strip().lower()
         if not t:
             continue
-        pattern = r"(?<![a-z0-9])" + re.escape(t) + r"(?![a-z0-9])"
+        pattern = r"(?<![a-z0-9.,])" + re.escape(t) + r"(?![a-z0-9.,])"
         if re.search(pattern, size):
             return True
     return False
