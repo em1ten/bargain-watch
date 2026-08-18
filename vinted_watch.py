@@ -61,6 +61,19 @@ CONDITION_BADGE = {
     "New with tags": "BNWT",
     "New without tags": "UNWORN",
 }
+CONDITION_BADGE_ELECTRONICS = {
+    "New with tags": "NEW",
+    "New without tags": "NEW",
+}
+
+
+def get_condition_badge(condition, category):
+    """'BNWT'/'UNWORN' only make sense for wearable items - a game, record,
+    or camera can't be 'unworn'. Same underlying Vinted condition options,
+    different wording depending on what's actually being described."""
+    if category == "electronics":
+        return CONDITION_BADGE_ELECTRONICS.get(condition)
+    return CONDITION_BADGE.get(condition)
 
 
 def load_config():
@@ -308,7 +321,7 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "bargain_reason": bargain_reason,
         "source": source,
         "listed_at": listed_at,
-        "condition_badge": CONDITION_BADGE.get(condition),
+        "condition_badge": get_condition_badge(condition, watch.get("category", "clothing")),
         "category": watch.get("category", "clothing"),
         "subcategory": watch.get("subcategory"),
         "price_dropped": price_dropped,
