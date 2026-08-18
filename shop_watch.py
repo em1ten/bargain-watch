@@ -13,11 +13,12 @@ trade-off is it only works for shops actually on Shopify - not every
 retailer is, and this only covers whichever shops are listed in
 `shop_watches` in config.json.
 
-Separate script, separate data file (docs/shop_data.json), same reasoning
-as ebay_watch.py: a problem here can never affect the Vinted scan.
+Separate script, separate data file (docs/shop_data.json), deliberately
+decoupled: a problem here can never affect the Vinted scan.
 """
 
 import json
+import re
 import time
 from pathlib import Path
 
@@ -65,6 +66,12 @@ def fetch_products(domain, max_pages=5):
         products.extend(batch)
         if len(batch) < 250:
             break
+        if page == max_pages:
+            # A full final page means the catalogue continues past our cap -
+            # anything beyond it is invisible to the scan. Say so in the log
+            # rather than silently missing sale items; raise max_pages if
+            # this shows up for a shop that matters (costs ~1s per page).
+            print(f"  ! catalogue truncated at {max_pages} pages ({len(products)} products) - some items not scanned")
         time.sleep(1)
     return products
 
@@ -96,7 +103,43 @@ def is_womens_product(product):
     return any(term in combined for term in WOMENS_TERMS)
 
 
-def build_cards(product, domain, shop_name, global_exclude, price_history):
+# Shops often spell sizes out ("Medium") where Vinted uses letters ("M").
+# Matched only as a WHOLE segment of the variant title (split on '/' and
+# ','), never as a loose word - otherwise a colour like "Medium Blue"
+# would wrongly match a size term.
+WORD_SIZES = {
+    "s": "small",
+    "m": "medium",
+    "l": "large",
+    "xl": "x-large",
+}
+
+
+def size_matches(size_title, size_terms):
+    """Match a size term as a distinct token within the variant's size
+    string, not as a raw substring - same regex as vinted_watch.py, so
+    'L' doesn't wrongly match inside 'XL', and '.'/',' count as part of a
+    size token so '9' doesn't wrongly match inside '9.5'."""
+    if not size_terms:
+        return False
+    size = (size_title or "").strip().lower()
+    if not size:
+        return False
+    segments = [seg.strip() for seg in re.split(r"[/,]", size)]
+    for term in size_terms:
+        t = term.strip().lower()
+        if not t:
+            continue
+        pattern = r"(?<![a-z0-9.,])" + re.escape(t) + r"(?![a-z0-9.,])"
+        if re.search(pattern, size):
+            return True
+        word = WORD_SIZES.get(t)
+        if word and any(seg == word or seg == word.replace("-", " ") for seg in segments):
+            return True
+    return False
+
+
+def build_cards(product, domain, shop_name, global_exclude, price_history, size_terms=None):
     title = (product.get("title") or "").strip()
     title_lower = title.lower()
     if any(term.lower() in title_lower for term in global_exclude):
@@ -117,6 +160,13 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
     # sizes together - not one duplicate card per size.
     on_sale_variants = []
     for variant in product.get("variants", []):
+        # Sold-out variants stay in the feed with their old markdown, so
+        # without this check a card can list sizes that are actually
+        # greyed out / "notify me" on the shop. Only treat an explicit
+        # False as sold out - if a shop's feed ever omits the field,
+        # everything still shows rather than everything vanishing.
+        if variant.get("available") is False:
+            continue
         price = parse_price(variant.get("price"))
         compare_at = parse_price(variant.get("compare_at_price"))
         # Only a genuine markdown counts - Shopify sometimes sets
@@ -128,11 +178,25 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
     if not on_sale_variants:
         return []
 
-    best_variant, price, compare_at = min(on_sale_variants, key=lambda v: v[1])
+    # Prefer showing the sizes that are actually yours, not every on-sale
+    # variant (colour/size combos can otherwise list 5+ irrelevant sizes).
+    # Falls back to the full list if none match, so a genuine find never
+    # gets fully hidden just because we can't confirm it.
+    matched_variants = [
+        (v, p, c) for (v, p, c) in on_sale_variants
+        if size_matches(v.get("title", ""), size_terms)
+    ]
+    my_size = bool(matched_variants)
+
+    # Price the card from the cheapest variant YOU could actually buy -
+    # otherwise a cheaper non-matching colour/size sets the price badge
+    # and discount for an item that'd really cost you more.
+    pricing_basis = matched_variants if my_size else on_sale_variants
+    best_variant, price, compare_at = min(pricing_basis, key=lambda v: v[1])
     discount_pct = round((1 - price / compare_at) * 100)
 
     sizes = []
-    for variant, v_price, _ in on_sale_variants:
+    for variant, v_price, _ in (matched_variants if my_size else on_sale_variants):
         variant_title = variant.get("title", "")
         if variant_title and variant_title != "Default Title" and variant_title not in sizes:
             sizes.append(variant_title)
@@ -156,6 +220,8 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
         score += 15
     if is_new:
         score += 5
+    if my_size:
+        score += 20  # same size-match bonus as the Vinted scoring
 
     price_history[item_id] = price
 
@@ -174,7 +240,7 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
         "seller": {"login": shop_name, "feedback_count": 0, "reputation": None},
         "discount_pct": discount_pct,
         "score": score,
-        "my_size": False,
+        "my_size": my_size,
         "is_new": is_new,
         "is_bargain": discount_pct >= 30,
         "bargain_reason": f"-{discount_pct}%",
@@ -199,6 +265,8 @@ def main():
         return
 
     global_exclude = config.get("global_exclude", [])
+    my_sizes = config.get("my_sizes", {})
+    size_terms = [term for terms in my_sizes.values() for term in terms]
     price_history = load_price_history(SEEN_PATH)
     all_cards = []
     errors = []
@@ -219,7 +287,7 @@ def main():
         skipped = 0
         for product in products:
             try:
-                shop_cards.extend(build_cards(product, domain, name, global_exclude, price_history))
+                shop_cards.extend(build_cards(product, domain, name, global_exclude, price_history, size_terms))
             except Exception as e:
                 skipped += 1
                 print(f"  ! skipped one malformed product: {e}")
