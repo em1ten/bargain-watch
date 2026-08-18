@@ -127,6 +127,57 @@ Per watch (in `watches` or `discovery_pool`):
   countries.
 - For personal use finding items, not reselling automation.
 
+## eBay (Technology / Games / Music)
+
+`ebay_watch.py` is a separate, optional add-on — a different marketplace,
+different API, different auth, kept fully decoupled from the Vinted scan
+so a problem here can never break that. It writes its own file,
+`docs/ebay_data.json`, which the dashboard fetches and merges in
+alongside the main feed; if that file is missing or the fetch fails, the
+Vinted feed just carries on as normal.
+
+**Setup:**
+1. Create an eBay Developer account at developer.ebay.com
+2. Create a **Production** keyset (Your Account → Application Keys) —
+   you'll get an **App ID (Client ID)** and **Cert ID (Client Secret)**
+3. Add both as repo secrets: Settings → Secrets and variables → Actions →
+   `EBAY_CLIENT_ID` and `EBAY_CLIENT_SECRET`
+4. Run "Vinted scan" once manually — the eBay step runs alongside it
+
+If the secrets aren't set, `ebay_watch.py` exits quietly and the rest of
+the workflow (including the Vinted scan) runs completely unaffected.
+
+**Honest limitation:** eBay deprecated third-party access to sold-item
+price data in 2025 — the API used here (Browse API) only sees *active*
+listings, the same situation as Vinted. So this doesn't solve the
+RRP-estimate problem the way real sold-price data would have; `rrp`
+values for eBay watches are still rough estimates, same as everywhere
+else in this project.
+
+eBay cards are tagged "· eBay" next to the brand label so you can always
+tell which marketplace a listing came from, and use eBay's own
+`itemWebUrl` link straight through to the real listing.
+
+## Retail shops (Shopify) — genuine markdowns, no RRP guessing
+
+`shop_watch.py` is a third, similarly decoupled add-on — checks specific
+retailers directly for real sales, using Shopify's own `compare_at_price`
+field rather than an estimated RRP. This is the most reliable price
+signal in the whole project: Shopify tells you the actual "was" price
+straight from the retailer, no guessing needed.
+
+**The catch:** only works for shops that happen to run on Shopify. Not
+every retailer does. Currently configured for Universal Works and Yards
+Store (both confirmed Shopify) — add more to `shop_watches` in
+`config.json` if you find other shops you like that are also on Shopify
+(`{domain}/products.json` returning real product data is the quick way to
+check).
+
+No secrets or setup needed for this one — Shopify's product feed is
+public. It'll just start working once `shop_watch.py` is uploaded and the
+scan runs. Cards are tagged "· retail" and appear under the "Shops" pill,
+alongside Technology/Games/Music/Football.
+
 ## Buyer protection fee estimate
 
 Every card shows a small "~£X with buyer protection fee" line under the
