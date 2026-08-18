@@ -11,8 +11,8 @@
 
   "my_sizes": {
     "denim":    ["W34", "34", "W36", "36"],
-    "tops":     ["S", "M", "L"],
-    "footwear": ["9", "UK 9", "43"]
+    "tops":     ["M", "L"],
+    "footwear": ["9", "UK 9", "8.5", "UK 8.5", "43"]
   },
 
   "global_exclude": ["kids", "toy", "doll", "replica", "fake", "case", "phone", "figure", "sticker", "decal"],
@@ -25,6 +25,18 @@
       "exclude": ["necklace", "pendant", "earring", "bracelet", "valentine", "love heart", "heart print", "heart mug", "heart charm", "heart ring", "teddy"] },
     { "name": "Tellason",        "search_text": "tellason",        "price_to": 100, "rrp": 230, "size_category": "denim",    "notify": "instant" },
     { "name": "Roy Denim",       "search_text": "roy denim",       "price_to": 100, "rrp": 220, "size_category": "denim",    "notify": "instant" },
+    { "name": "Big John",        "search_text": "big john jeans",  "price_to": 100, "rrp": 200, "size_category": "denim",    "notify": "instant" },
+    { "name": "Samurai Jeans",   "search_text": "samurai jeans",   "price_to": 120, "rrp": 280, "size_category": "denim",    "notify": "instant" },
+    { "name": "Studio D'Artisan","search_text": "studio d'artisan","price_to": 110, "rrp": 250, "size_category": "denim",    "notify": "instant" },
+    { "name": "Sugar Cane",      "search_text": "sugar cane denim","price_to": 100, "rrp": 220, "size_category": "denim",    "notify": "instant" },
+    { "name": "Denime",          "search_text": "denime jeans",    "price_to": 120, "rrp": 280, "size_category": "denim",    "notify": "instant" },
+    { "name": "Fullcount",       "search_text": "fullcount jeans", "price_to": 130, "rrp": 300, "size_category": "denim",    "notify": "instant" },
+    { "name": "Oni Denim",       "search_text": "oni denim",       "price_to": 120, "rrp": 280, "size_category": "denim",    "notify": "instant" },
+    { "name": "Warehouse Co",    "search_text": "warehouse co denim", "price_to": 100, "rrp": 230, "size_category": "denim", "notify": "instant" },
+    { "name": "Naked Famous Denim", "search_text": "naked famous denim", "price_to": 90, "rrp": 200, "size_category": "denim", "notify": "instant" },
+    { "name": "Japan Blue Jeans", "search_text": "japan blue jeans", "price_to": 100, "rrp": 230, "size_category": "denim", "notify": "instant" },
+    { "name": "Unbranded Denim", "search_text": "unbranded selvedge", "price_to": 60,  "rrp": 145, "size_category": "denim", "notify": "instant", "require_brand_match": false },
+    { "name": "FOB Factory",     "search_text": "fob factory",     "price_to": 95,  "rrp": 215, "size_category": "denim",    "notify": "instant" },
     { "name": "Universal Works", "search_text": "universal works", "price_to": 60,  "rrp": 150, "size_category": "tops",     "notify": "instant",
       "exclude": ["plug", "adapter", "socket", "charger", "extension lead"] },
     { "name": "Folk Clothing",   "search_text": "folk clothing",   "price_to": 60,  "rrp": 140, "size_category": "tops",     "notify": "digest" },
@@ -58,6 +70,7 @@
     { "name": "MKI Miyuki-Zoku",   "search_text": "mki miyuki zoku",     "price_to": 60, "rrp": 140, "size_category": "tops", "notify": "digest",
       "brand_match": ["MKI Miyuki-Zoku", "MKI"] },
     { "name": "orSlow",          "search_text": "orslow",          "price_to": 80,  "rrp": 180, "size_category": "tops",     "notify": "digest" },
+    { "name": "orSlow Denim",    "search_text": "orslow denim",    "price_to": 120, "rrp": 280, "size_category": "denim",    "notify": "instant" },
     { "name": "Barbour",         "search_text": "barbour jacket",  "price_to": 100, "rrp": 250, "size_category": "tops",     "notify": "digest" },
     { "name": "Acne Studios",    "search_text": "acne studios",    "price_to": 100, "rrp": 250, "size_category": "tops",     "notify": "digest" },
     { "name": "NN07",            "search_text": "nn07",            "price_to": 50,  "rrp": 120, "size_category": "tops",     "notify": "digest" },
@@ -79,8 +92,15 @@
     { "name": "Bellroy",         "search_text": "bellroy",         "price_to": 30,  "rrp": 80,  "notify": "digest" },
     { "name": "Harber London",   "search_text": "harber london",   "price_to": 40,  "rrp": 100, "notify": "digest" },
     { "name": "Aer",             "search_text": "aer bag",         "price_to": 50,  "rrp": 140, "notify": "digest" },
+    { "name": "Tanner Goods",    "search_text": "tanner goods",    "price_to": 40,  "rrp": 100, "notify": "digest" },
+    { "name": "Il Bussetto",     "search_text": "il bussetto",     "price_to": 40,  "rrp": 100, "notify": "digest" },
+    { "name": "Tarnsjo Garveri", "search_text": "tarnsjo garveri", "price_to": 50,  "rrp": 130, "notify": "digest" },
+    { "name": "WANT Les Essentiels", "search_text": "want les essentiels", "price_to": 60,  "rrp": 180, "notify": "digest" },
+    { "name": "Sandqvist",       "search_text": "sandqvist",       "price_to": 40,  "rrp": 110, "notify": "digest" },
     { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest", "require_brand_match": false },
-    { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 25,              "size_category": "tops",     "notify": "off" }
+    { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 25,              "size_category": "tops",     "notify": "off" },
+    { "name": "Sheffield Wednesday", "search_text": "sheffield wednesday retro vintage shirt", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "instant" },
+    { "name": "Retro Football Shirts", "search_text": "retro football shirt vintage", "price_to": 35, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "digest" }
   ],
 
   "discovery_pool": [
