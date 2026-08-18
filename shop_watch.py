@@ -90,71 +90,84 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
     photo = images[0].get("src", "") if images else ""
     product_url = f"https://{domain}/products/{handle}"
 
-    cards = []
+    # A Shopify "product" is one item with size variants - unlike Vinted,
+    # where every listing genuinely is unique. Collect every variant with a
+    # real markdown, then emit ONE card for the whole product (using the
+    # cheapest marked-down price for scoring), listing all its on-sale
+    # sizes together - not one duplicate card per size.
+    on_sale_variants = []
     for variant in product.get("variants", []):
         price = parse_price(variant.get("price"))
         compare_at = parse_price(variant.get("compare_at_price"))
-
         # Only a genuine markdown counts - Shopify sometimes sets
         # compare_at_price equal to price, which isn't actually a sale.
         if price is None or compare_at is None or compare_at <= price:
             continue
+        on_sale_variants.append((variant, price, compare_at))
 
-        discount_pct = round((1 - price / compare_at) * 100)
-        variant_id = variant.get("id")
-        item_id = f"shop-{domain}-{variant_id}"
-        is_new = item_id not in price_history
-        previous_price = price_history.get(item_id)
+    if not on_sale_variants:
+        return []
 
-        price_dropped = False
-        price_drop_pct = None
-        if previous_price is not None and previous_price > 0:
-            drop = previous_price - price
-            if drop > 0.5 and drop / previous_price > 0.01:
-                price_dropped = True
-                price_drop_pct = round((drop / previous_price) * 100)
+    best_variant, price, compare_at = min(on_sale_variants, key=lambda v: v[1])
+    discount_pct = round((1 - price / compare_at) * 100)
 
+    sizes = []
+    for variant, v_price, _ in on_sale_variants:
         variant_title = variant.get("title", "")
-        size = "" if variant_title == "Default Title" else variant_title
+        if variant_title and variant_title != "Default Title" and variant_title not in sizes:
+            sizes.append(variant_title)
+    size = ", ".join(sizes)
 
-        score = min(discount_pct, 70)
-        if price_dropped:
-            score += 15
-        if is_new:
-            score += 5
+    product_id = product.get("id")
+    item_id = f"shop-{domain}-{product_id}"
+    is_new = item_id not in price_history
+    previous_price = price_history.get(item_id)
 
-        price_history[item_id] = price
+    price_dropped = False
+    price_drop_pct = None
+    if previous_price is not None and previous_price > 0:
+        drop = previous_price - price
+        if drop > 0.5 and drop / previous_price > 0.01:
+            price_dropped = True
+            price_drop_pct = round((drop / previous_price) * 100)
 
-        cards.append({
-            "id": item_id,
-            "title": title,
-            "watch": shop_name,
-            "brand": vendor,
-            "size": size,
-            "condition": "New",
-            "price": f"{price:.2f} GBP",
-            "price_amount": price,
-            "estimated_total": price,  # retail price, no marketplace fee to add
-            "photo": photo,
-            "url": product_url,
-            "seller": {"login": shop_name, "feedback_count": 0, "reputation": None},
-            "discount_pct": discount_pct,
-            "score": score,
-            "my_size": False,
-            "is_new": is_new,
-            "is_bargain": discount_pct >= 30,
-            "bargain_reason": f"-{discount_pct}%",
-            "source": "core",
-            "listed_at": None,
-            "condition_badge": "NEW",
-            "category": "electronics",
-            "subcategory": "shops",
-            "price_dropped": price_dropped,
-            "price_drop_pct": price_drop_pct,
-            "previous_price": previous_price if price_dropped else None,
-            "marketplace": "shop",
-        })
-    return cards
+    score = min(discount_pct, 70)
+    if price_dropped:
+        score += 15
+    if is_new:
+        score += 5
+
+    price_history[item_id] = price
+
+    return [{
+        "id": item_id,
+        "title": title,
+        "watch": shop_name,
+        "brand": vendor,
+        "size": size,
+        "condition": "New",
+        "price": f"{price:.2f} GBP",
+        "price_amount": price,
+        "estimated_total": price,  # retail price, no marketplace fee to add
+        "photo": photo,
+        "url": product_url,
+        "seller": {"login": shop_name, "feedback_count": 0, "reputation": None},
+        "discount_pct": discount_pct,
+        "score": score,
+        "my_size": False,
+        "is_new": is_new,
+        "is_bargain": discount_pct >= 30,
+        "bargain_reason": f"-{discount_pct}%",
+        "source": "core",
+        "listed_at": None,
+        "condition_badge": "NEW",
+        "category": "electronics",
+        "subcategory": "shops",
+        "price_dropped": price_dropped,
+        "price_drop_pct": price_drop_pct,
+        "previous_price": previous_price if price_dropped else None,
+        "marketplace": "shop",
+    }]
 
 
 def main():
