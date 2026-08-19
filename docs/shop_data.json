@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787158955,
+  "generated_at": 1787162482,
   "errors": [],
   "feed": [
     {
@@ -1422,39 +1422,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10412027347291",
-      "title": "Rockport Archive Knitwear Crew Sweater - White",
-      "watch": "Stuarts London",
-      "brand": "Rockport Archive",
-      "size": "WHITE / M",
-      "condition": "New",
-      "price": "69.00 GBP",
-      "price_amount": 69.0,
-      "estimated_total": 69.0,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/73316.jpg?v=1775727278",
-      "url": "https://www.stuartslondon.com/products/rockport-archive-knitwear-crew-sweater-white",
-      "seller": {
-        "login": "Stuarts London",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 54,
-      "score": 74,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-54%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10412027248987",
       "title": "Rockport Archive Knitwear Crew Sweater - Navy",
       "watch": "Stuarts London",
@@ -1961,6 +1928,39 @@
       "estimated_total": 39.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/7_091b6b98-94b7-41ee-9654-bf173e305646.jpg?v=1775131704",
       "url": "https://www.stuartslondon.com/products/aquascutum-reversible-cotton-bucket-hat-club-check",
+      "seller": {
+        "login": "Stuarts London",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 51,
+      "score": 71,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-51%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10220251316571",
+      "title": "United Athle Ma1 Jacket - Olive",
+      "watch": "Stuarts London",
+      "brand": "United Athle",
+      "size": "OLIVE / M",
+      "condition": "New",
+      "price": "59.00 GBP",
+      "price_amount": 59.0,
+      "estimated_total": 59.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1759504682-09408400.jpg?v=1764420296",
+      "url": "https://www.stuartslondon.com/products/united-athle-ma1-jacket-olive",
       "seller": {
         "login": "Stuarts London",
         "feedback_count": 0,
