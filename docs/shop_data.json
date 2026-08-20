@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787241631,
+  "generated_at": 1787246262,
   "errors": [],
   "feed": [
     {
@@ -1554,39 +1554,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10379568578907",
-      "title": "Belstaff Maritime Overshirt - Dark Ink",
-      "watch": "Stuarts London",
-      "brand": "Belstaff",
-      "size": "DARK INK / M",
-      "condition": "New",
-      "price": "119.00 GBP",
-      "price_amount": 119.0,
-      "estimated_total": 119.0,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/36_69261472-bcb0-4e3c-bc66-3b6dfcb31d49.jpg?v=1776939414",
-      "url": "https://www.stuartslondon.com/products/belstaff-maritime-overshirt-dark-ink",
-      "seller": {
-        "login": "Stuarts London",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 53,
-      "score": 73,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-53%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10379568513371",
       "title": "Belstaff Maritime Overshirt - Silver Birch",
       "watch": "Stuarts London",
@@ -1961,6 +1928,39 @@
       "estimated_total": 39.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1773229916-56731800.jpg?v=1773334738",
       "url": "https://www.stuartslondon.com/products/fila-vintage-gabriele-contrast-panel-track-top-fila-navy",
+      "seller": {
+        "login": "Stuarts London",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 51,
+      "score": 71,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-51%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10379562582363",
+      "title": "Polo Ralph Lauren Custom Fit Striped Poplin Shirt - Purple",
+      "watch": "Stuarts London",
+      "brand": "Polo Ralph Lauren",
+      "size": "PURPLE / M",
+      "condition": "New",
+      "price": "89.00 GBP",
+      "price_amount": 89.0,
+      "estimated_total": 89.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771850907-53004000.jpg?v=1773334382",
+      "url": "https://www.stuartslondon.com/products/polo-ralph-lauren-custom-fit-striped-poplin-shirt-purple",
       "seller": {
         "login": "Stuarts London",
         "feedback_count": 0,
