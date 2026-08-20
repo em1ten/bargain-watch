@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787235138,
+  "generated_at": 1787241631,
   "errors": [],
   "feed": [
     {
@@ -1620,39 +1620,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10379564417371",
-      "title": "Sergio Tacchini Brando Shorts - Desert",
-      "watch": "Stuarts London",
-      "brand": "Sergio Tacchini",
-      "size": "DESERT / L",
-      "condition": "New",
-      "price": "29.00 GBP",
-      "price_amount": 29.0,
-      "estimated_total": 29.0,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772725371-29425100.jpg?v=1773334478",
-      "url": "https://www.stuartslondon.com/products/sergio-tacchini-brando-shorts-desert",
-      "seller": {
-        "login": "Stuarts London",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 47,
-      "score": 72,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-47%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10396715090267",
       "title": "NN07 Paul Textured Stitch Polo - Ivory",
       "watch": "Stuarts London",
@@ -1961,6 +1928,39 @@
       "estimated_total": 29.0,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1773227866-12812700.jpg?v=1773334738",
       "url": "https://www.stuartslondon.com/products/fila-vintage-otello-contrast-panel-track-pants-cappucino",
+      "seller": {
+        "login": "Stuarts London",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 51,
+      "score": 71,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-51%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10379570053467",
+      "title": "Fila Vintage Gabriele Contrast Panel Track Top - Fila Navy",
+      "watch": "Stuarts London",
+      "brand": "Fila Vintage",
+      "size": "FILA NAVY / L",
+      "condition": "New",
+      "price": "39.00 GBP",
+      "price_amount": 39.0,
+      "estimated_total": 39.0,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1773229916-56731800.jpg?v=1773334738",
+      "url": "https://www.stuartslondon.com/products/fila-vintage-gabriele-contrast-panel-track-top-fila-navy",
       "seller": {
         "login": "Stuarts London",
         "feedback_count": 0,
