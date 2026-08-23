@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787523603,
+  "generated_at": 1787525078,
   "errors": [],
   "feed": [
     {
@@ -1884,39 +1884,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10401041908059",
-      "title": "Colorful Standard Organic Straight Leg Sweatpants - Coffee Brown",
-      "watch": "Stuarts London",
-      "brand": "Colorful Standard",
-      "size": "COFFEE BROWN / XL",
-      "condition": "New",
-      "price": "19.00 GBP",
-      "price_amount": 19.0,
-      "estimated_total": 19.0,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/2000x2000_52.png?v=1775053132",
-      "url": "https://www.stuartslondon.com/products/colorful-standard-organic-straight-leg-sweatpants-coffee-brown",
-      "seller": {
-        "login": "Stuarts London",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 75,
-      "score": 70,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-75%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10400692732251",
       "title": "FrizmWORKS Heritage Hunting Vest - Cream",
       "watch": "Stuarts London",
@@ -1961,6 +1928,39 @@
       "estimated_total": 28.5,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/products/112322224_CF1_3-jpg-lowres-digital.jpg?v=1658496356",
       "url": "https://jeanstore.co.uk/products/lee-daren-zip-fly-regular-fit-mens-jeans-asphalt-rocker",
+      "seller": {
+        "login": "Jeanstore",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 70,
+      "score": 70,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-70%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-jeanstore.co.uk-15019666211197",
+      "title": "Edwin Trembley Jacket - Whisper White",
+      "watch": "Jeanstore",
+      "brand": "Edwin",
+      "size": "XL",
+      "condition": "New",
+      "price": "38.70 GBP",
+      "price_amount": 38.7,
+      "estimated_total": 38.7,
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/i033402_whw_gd-st-01.jpg?v=1740393311",
+      "url": "https://jeanstore.co.uk/products/edwin-trembley-jacket-whisper-white",
       "seller": {
         "login": "Jeanstore",
         "feedback_count": 0,
