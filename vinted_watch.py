@@ -452,6 +452,25 @@ def main():
             continue
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
 
+        # ONE-TIME DIAGNOSTIC - remove once we know if a verification/
+        # authenticity field exists in Vinted's search response. Dumps
+        # every field Vinted actually returns for the very first item of
+        # the very first watch each scan, so we can check for real rather
+        # than guess field names blindly (same mistake made with catalog
+        # IDs earlier in this project - verify against real data, not
+        # assumption).
+        if raw_items and not globals().get("_dumped_item_keys"):
+            globals()["_dumped_item_keys"] = True
+            sample = raw_items[0]
+            print("  --- DIAGNOSTIC: full field list for one raw item ---")
+            print(f"  {sorted(sample.keys())}")
+            verification_like = [
+                k for k in sample.keys()
+                if any(term in k.lower() for term in ("verif", "authent", "certi"))
+            ]
+            print(f"  Fields that look verification-related: {verification_like or 'NONE FOUND'}")
+            print("  --- END DIAGNOSTIC ---")
+
         notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
         for item in raw_items:
