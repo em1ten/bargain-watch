@@ -240,6 +240,7 @@
   .badge.rank{color:var(--denim-950); background:var(--cream);}
   .badge.condition{color:var(--denim-950); background:var(--teal);}
   .badge.drop{color:var(--denim-950); background:var(--stitch);}
+  .badge.caution{color:var(--denim-950); background:#e0a83a; font-size:9px;}
   .star-btn{
     position:absolute;
     top:8px; right:8px;
@@ -350,6 +351,9 @@
     <button class="pill" data-filter="electronics">Technology</button>
     <button class="pill" data-filter="games">Games</button>
     <button class="pill" data-filter="music">Music</button>
+    <button class="pill" data-filter="football">Football</button>
+    <button class="pill" data-filter="designer">Designer</button>
+    <button class="pill" data-filter="shops">Shops</button>
   </div>
 
   <p class="pills-label">Sort</p>
@@ -459,6 +463,9 @@ function cardMatches(item){
   if (activeFilter === 'electronics') return isElectronics && item.subcategory === 'technology';
   if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
   if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
+  if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
+  if (activeFilter === 'designer') return isElectronics && item.subcategory === 'designer';
+  if (activeFilter === 'shops') return isElectronics && item.subcategory === 'shops';
   if (isElectronics) return false; // every other view is clothing-only
   switch (activeFilter) {
     case 'my_size':    return item.my_size;
@@ -538,6 +545,14 @@ function buildCard(item, rank){
     b.textContent = item.bargain_reason;
     badges.appendChild(b);
   }
+  if (item.caution_flags && item.caution_flags.length){
+    item.caution_flags.forEach(flag => {
+      const b = document.createElement('span');
+      b.className = 'badge caution';
+      b.textContent = '⚠ ' + flag;
+      badges.appendChild(b);
+    });
+  }
   if (badges.children.length) photoWrap.appendChild(badges);
 
   const starBtn = document.createElement('button');
@@ -591,10 +606,10 @@ function buildCard(item, rank){
     tag.textContent = ' · discovery';
     label.appendChild(tag);
   }
-  if (item.marketplace === 'ebay'){
+  if (item.marketplace === 'shop'){
     const tag = document.createElement('span');
     tag.className = 'disc';
-    tag.textContent = ' · eBay';
+    tag.textContent = ' · retail';
     label.appendChild(tag);
   }
   body.appendChild(label);
@@ -625,6 +640,13 @@ function buildCard(item, rank){
     feeNote.className = 'fee-note';
     feeNote.textContent = `~${item.estimated_total.toFixed(2)} with buyer protection fee`;
     body.appendChild(feeNote);
+  }
+
+  if (item.caution_flags && item.caution_flags.length){
+    const favNote = document.createElement('span');
+    favNote.className = 'fee-note';
+    favNote.textContent = `${item.favourite_count} favourite${item.favourite_count === 1 ? '' : 's'} — check seller history before buying`;
+    body.appendChild(favNote);
   }
 
   const compareLink = document.createElement('a');
@@ -714,13 +736,12 @@ async function load(){
 
     feedData = data.feed || [];
 
-    // eBay results are a separate, optional file - merge in if present,
-    // but never let a missing/broken file affect the main (Vinted) feed.
+    // Same pattern for Shopify retailer results (real markdowns).
     try {
-      const ebayRes = await fetch('ebay_data.json', { cache: 'no-store' });
-      if (ebayRes.ok) {
-        const ebayData = await ebayRes.json();
-        feedData = feedData.concat(ebayData.feed || []);
+      const shopRes = await fetch('shop_data.json', { cache: 'no-store' });
+      if (shopRes.ok) {
+        const shopData = await shopRes.json();
+        feedData = feedData.concat(shopData.feed || []);
       }
     } catch {}
 
