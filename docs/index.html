@@ -353,7 +353,7 @@
     <button class="pill" data-filter="games">Games</button>
     <button class="pill" data-filter="music">Music</button>
     <button class="pill" data-filter="football">Football</button>
-    <button class="pill" data-filter="designer">Designer</button>
+    <button class="pill" data-filter="caution">Caution</button>
     <button class="pill" data-filter="shops">Shops</button>
   </div>
 
@@ -464,7 +464,7 @@ function cardMatches(item){
   if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
   if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
   if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
-  if (activeFilter === 'designer') return isElectronics && item.subcategory === 'designer';
+  if (activeFilter === 'caution') return isElectronics && item.subcategory === 'caution';
   if (activeFilter === 'shops') return isElectronics && item.subcategory === 'shops';
   if (isElectronics) return false; // every other view is clothing-only
   switch (activeFilter) {
