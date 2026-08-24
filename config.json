@@ -60,6 +60,8 @@
     { "name": "orSlow Denim",    "search_text": "orslow denim",    "price_to": 120, "rrp": 280, "size_category": "denim",    "notify": "instant" },
     { "name": "Barbour",         "search_text": "barbour jacket",  "price_to": 100, "rrp": 250, "size_category": "tops",     "notify": "digest" },
     { "name": "Belstaff",        "search_text": "belstaff jacket", "price_to": 120, "rrp": 350, "size_category": "tops",     "notify": "digest" },
+    { "name": "CP Company",      "search_text": "cp company",      "price_to": 130, "rrp": 350, "size_category": "tops",     "notify": "digest", "authenticity_caution": true },
+    { "name": "Stone Island",    "search_text": "stone island",    "price_to": 130, "rrp": 350, "size_category": "tops",     "notify": "digest", "authenticity_caution": true },
     { "name": "Clarks Originals","search_text": "clarks originals","price_to": 40,  "rrp": 90,  "size_category": "footwear", "notify": "digest" },
     { "name": "Karhu",           "search_text": "karhu trainers",  "price_to": 40,  "rrp": 110, "size_category": "footwear", "notify": "digest" },
     { "name": "Novesta",         "search_text": "novesta",         "price_to": 30,  "rrp": 70,  "size_category": "footwear", "notify": "digest" },
