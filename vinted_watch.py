@@ -211,13 +211,16 @@ def brand_matches(item, watch):
 
 def authenticity_caution_check(item, watch):
     """For watches opted into 'authenticity_caution' (currently just Stone
-    Island / CP Company, brands with a real counterfeit problem where no
-    technical signal can actually detect a fake). This makes NO claim to
-    spot counterfeits - it only excludes the combination of weak signals
-    that make a listing especially low-effort to even consider (brand new
-    seller account, thin feedback history, and low genuine interest all
-    together), and flags other things worth a second look before you
-    scan the Certilogo tag or pay for Item Verification yourself.
+    Island / CP Company / Belstaff / Canada Goose / Moncler, brands with a
+    real counterfeit problem where no technical signal can actually detect
+    a fake). This makes NO claim to spot counterfeits - it only excludes
+    the combination of weak signals that make a listing especially
+    low-effort to even consider, plus an implausibly low price on its own
+    (a genuine seller essentially never gives away a real £350+ RRP item
+    for a few pounds - a price this far below plausible is itself a
+    stronger tell than seller history), and flags other things worth a
+    second look before you scan the Certilogo tag or pay for Item
+    Verification yourself.
 
     Returns (passes: bool, caution_flags: list[str])."""
     if not watch.get("authenticity_caution"):
@@ -233,6 +236,22 @@ def authenticity_caution_check(item, watch):
     high_favourites = watch.get("high_favourites_caution", 100)
     min_seller_feedback = watch.get("min_seller_feedback", 20)
     min_seller_reputation = watch.get("min_seller_reputation", 0.97)
+    min_price_ratio = watch.get("min_authenticity_price_ratio", 0.15)
+
+    # An implausibly low price relative to RRP is a hard exclude on its
+    # own - same sanity-floor logic already used to suppress misleading
+    # discount badges, but here it actually removes the listing rather
+    # than just hiding the badge, since for these specific brands a price
+    # this far below plausible is itself a strong red flag.
+    rrp = watch.get("rrp")
+    price_obj = item.get("price") or item.get("total_item_price") or {}
+    price_amount = None
+    try:
+        price_amount = float(price_obj.get("amount")) if price_obj.get("amount") is not None else None
+    except (TypeError, ValueError):
+        pass
+    if rrp and price_amount is not None and price_amount < rrp * min_price_ratio:
+        return False, []
 
     weak_seller = seller_feedback < min_seller_feedback or (
         isinstance(seller_reputation, (int, float)) and seller_reputation < min_seller_reputation
@@ -500,6 +519,18 @@ def main():
             errors.append(name)
             continue
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
+
+        # ONE-TIME DIAGNOSTIC - checking whether seller feedback data is
+        # actually present in bulk search results, or whether it's only
+        # populated on the individual item page (same class of gap as the
+        # verification-badge and description-text findings earlier).
+        if raw_items and not globals().get("_dumped_user_keys"):
+            globals()["_dumped_user_keys"] = True
+            sample_user = raw_items[0].get("user") or {}
+            print("  --- DIAGNOSTIC: full field list for one item's 'user' object ---")
+            print(f"  {sorted(sample_user.keys())}")
+            print(f"  Raw values: {sample_user}")
+            print("  --- END DIAGNOSTIC ---")
 
         notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
