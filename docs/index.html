@@ -240,6 +240,7 @@
   .badge.rank{color:var(--denim-950); background:var(--cream);}
   .badge.condition{color:var(--denim-950); background:var(--teal);}
   .badge.drop{color:var(--denim-950); background:var(--stitch);}
+  .badge.caution{color:var(--denim-950); background:#e0a83a; font-size:9px;}
   .star-btn{
     position:absolute;
     top:8px; right:8px;
@@ -457,25 +458,19 @@ let feedData = [];
 
 function cardMatches(item){
   if (hidden.has(item.id)) return false;
-  // Starring is a user action - a starred item must always show here,
-  // whatever category it is. Previously electronics/shop items were
-  // silently dropped from this view by the clothing-only gate below.
-  if (activeFilter === 'starred') return starred.has(item.id);
   const isElectronics = item.category === 'electronics';
   if (activeFilter === 'electronics') return isElectronics && item.subcategory === 'technology';
   if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
   if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
   if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
   if (activeFilter === 'shops') return isElectronics && item.subcategory === 'shops';
-  // Retail shop cards are clothing in all but plumbing - they carry real
-  // size matches now, so My size includes them alongside Vinted finds.
-  if (activeFilter === 'my_size' && isElectronics && item.subcategory === 'shops') return item.my_size;
   if (isElectronics) return false; // every other view is clothing-only
   switch (activeFilter) {
     case 'my_size':    return item.my_size;
     case 'is_new':     return item.is_new;
     case 'is_bargain': return item.is_bargain;
     case 'discovery':  return item.source === 'discovery';
+    case 'starred':    return starred.has(item.id);
     default:           return true;
   }
 }
@@ -547,6 +542,14 @@ function buildCard(item, rank){
     b.className = 'badge deal';
     b.textContent = item.bargain_reason;
     badges.appendChild(b);
+  }
+  if (item.caution_flags && item.caution_flags.length){
+    item.caution_flags.forEach(flag => {
+      const b = document.createElement('span');
+      b.className = 'badge caution';
+      b.textContent = '⚠ ' + flag;
+      badges.appendChild(b);
+    });
   }
   if (badges.children.length) photoWrap.appendChild(badges);
 
@@ -630,24 +633,29 @@ function buildCard(item, rank){
   meta.appendChild(price);
   body.appendChild(meta);
 
-  if (item.estimated_total && item.marketplace !== 'shop'){
+  if (item.estimated_total){
     const feeNote = document.createElement('span');
     feeNote.className = 'fee-note';
     feeNote.textContent = `~${item.estimated_total.toFixed(2)} with buyer protection fee`;
     body.appendChild(feeNote);
   }
 
-  if (item.marketplace !== 'shop'){
-    const compareLink = document.createElement('a');
-    compareLink.className = 'compare-link';
-    const queryBits = [item.brand || item.watch, item.title].filter(Boolean).join(' ').slice(0, 100);
-    compareLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(queryBits + ' new');
-    compareLink.target = '_blank';
-    compareLink.rel = 'noopener noreferrer';
-    compareLink.textContent = 'Find it new →';
-    compareLink.addEventListener('click', (e) => e.stopPropagation());
-    body.appendChild(compareLink);
+  if (item.caution_flags && item.caution_flags.length){
+    const favNote = document.createElement('span');
+    favNote.className = 'fee-note';
+    favNote.textContent = `${item.favourite_count} favourite${item.favourite_count === 1 ? '' : 's'} — check seller history before buying`;
+    body.appendChild(favNote);
   }
+
+  const compareLink = document.createElement('a');
+  compareLink.className = 'compare-link';
+  const queryBits = [item.brand || item.watch, item.title].filter(Boolean).join(' ').slice(0, 100);
+  compareLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(queryBits + ' new');
+  compareLink.target = '_blank';
+  compareLink.rel = 'noopener noreferrer';
+  compareLink.textContent = 'Find it new →';
+  compareLink.addEventListener('click', (e) => e.stopPropagation());
+  body.appendChild(compareLink);
 
   if (item.source === 'discovery'){
     const promoteBtn = document.createElement('button');
