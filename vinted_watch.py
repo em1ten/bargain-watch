@@ -209,6 +209,53 @@ def brand_matches(item, watch):
     return False
 
 
+def authenticity_caution_check(item, watch):
+    """For watches opted into 'authenticity_caution' (currently just Stone
+    Island / CP Company, brands with a real counterfeit problem where no
+    technical signal can actually detect a fake). This makes NO claim to
+    spot counterfeits - it only excludes the combination of weak signals
+    that make a listing especially low-effort to even consider (brand new
+    seller account, thin feedback history, and low genuine interest all
+    together), and flags other things worth a second look before you
+    scan the Certilogo tag or pay for Item Verification yourself.
+
+    Returns (passes: bool, caution_flags: list[str])."""
+    if not watch.get("authenticity_caution"):
+        return True, []
+
+    favourites = item.get("favourite_count") or 0
+    is_new_seller = bool(item.get("show_1st_time_seller_discount"))
+    user = item.get("user") or {}
+    seller_feedback = user.get("feedback_count") or user.get("positive_feedback_count") or 0
+    seller_reputation = user.get("feedback_reputation")
+
+    min_favourites = watch.get("min_favourites", 15)
+    high_favourites = watch.get("high_favourites_caution", 100)
+    min_seller_feedback = watch.get("min_seller_feedback", 20)
+    min_seller_reputation = watch.get("min_seller_reputation", 0.97)
+
+    weak_seller = seller_feedback < min_seller_feedback or (
+        isinstance(seller_reputation, (int, float)) and seller_reputation < min_seller_reputation
+    )
+    low_interest = favourites < min_favourites
+
+    # Hard exclude only the clearest combination: brand new account, thin
+    # feedback, and barely anyone interested. Everything else stays
+    # visible with a caution flag rather than being silently removed.
+    if is_new_seller and weak_seller and low_interest:
+        return False, []
+
+    caution_flags = []
+    if is_new_seller:
+        caution_flags.append("New seller")
+    if weak_seller:
+        caution_flags.append("Limited seller history")
+    if favourites > high_favourites:
+        caution_flags.append("High interest, unsold")
+
+    return True, caution_flags
+
+
 def size_matches(size_title, size_terms):
     """Match a size term as a distinct token within the listing's size string,
     not as a raw substring - otherwise 'L' wrongly matches inside 'XL', '38L',
@@ -228,7 +275,7 @@ def size_matches(size_title, size_terms):
     return False
 
 
-def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price=None):
+def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price=None, caution_flags=None):
     photo = (item.get("photo") or {}).get("url", "")
     # "price" is the seller's actual asking price. "total_item_price" is
     # already inclusive of Vinted's buyer protection fee - using it here
@@ -351,6 +398,8 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
             for k in ("search_text", "price_to", "price_from", "rrp", "size_category", "catalog_ids", "exclude")
             if k in watch
         },
+        "caution_flags": caution_flags or [],
+        "favourite_count": item.get("favourite_count") or 0,
     }
 
 
@@ -452,25 +501,6 @@ def main():
             continue
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
 
-        # ONE-TIME DIAGNOSTIC - remove once we know if a verification/
-        # authenticity field exists in Vinted's search response. Dumps
-        # every field Vinted actually returns for the very first item of
-        # the very first watch each scan, so we can check for real rather
-        # than guess field names blindly (same mistake made with catalog
-        # IDs earlier in this project - verify against real data, not
-        # assumption).
-        if raw_items and not globals().get("_dumped_item_keys"):
-            globals()["_dumped_item_keys"] = True
-            sample = raw_items[0]
-            print("  --- DIAGNOSTIC: full field list for one raw item ---")
-            print(f"  {sorted(sample.keys())}")
-            verification_like = [
-                k for k in sample.keys()
-                if any(term in k.lower() for term in ("verif", "authent", "certi"))
-            ]
-            print(f"  Fields that look verification-related: {verification_like or 'NONE FOUND'}")
-            print("  --- END DIAGNOSTIC ---")
-
         notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
         for item in raw_items:
@@ -479,12 +509,16 @@ def main():
                     continue
                 if not brand_matches(item, watch):
                     continue
+                passes_auth, caution_flags = authenticity_caution_check(item, watch)
+                if not passes_auth:
+                    continue
                 item_id = item.get("id")
                 item_id_str = str(item_id)
                 is_new = item_id_str not in price_history
                 previous_price = price_history.get(item_id_str)
                 card = build_card(
-                    item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price
+                    item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price,
+                    caution_flags,
                 )
             except Exception as e:
                 skipped_count += 1
