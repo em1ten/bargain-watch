@@ -210,17 +210,24 @@ def brand_matches(item, watch):
 
 
 def authenticity_caution_check(item, watch):
-    """For watches opted into 'authenticity_caution' (currently just Stone
+    """For watches opted into 'authenticity_caution' (currently Stone
     Island / CP Company / Belstaff / Canada Goose / Moncler, brands with a
     real counterfeit problem where no technical signal can actually detect
     a fake). This makes NO claim to spot counterfeits - it only excludes
-    the combination of weak signals that make a listing especially
-    low-effort to even consider, plus an implausibly low price on its own
-    (a genuine seller essentially never gives away a real £350+ RRP item
-    for a few pounds - a price this far below plausible is itself a
-    stronger tell than seller history), and flags other things worth a
-    second look before you scan the Certilogo tag or pay for Item
-    Verification yourself.
+    an implausibly low price on its own (a genuine seller essentially
+    never gives away a real £350+ RRP item for a few pounds), plus the
+    combination of a brand-new seller account and low genuine interest,
+    and flags other things worth a second look before you scan the
+    Certilogo tag or pay for Item Verification yourself.
+
+    IMPORTANT: Vinted's bulk search results do NOT include seller feedback
+    count or reputation - confirmed via diagnostic, the seller object only
+    has business/id/login/photo/profile_url. Earlier versions of this
+    function checked feedback/reputation fields that never actually
+    existed in this data, so every listing silently failed that check
+    regardless of the real seller's standing. Removed rather than left
+    pretending to work - only signals that are genuinely present are used
+    below.
 
     Returns (passes: bool, caution_flags: list[str])."""
     if not watch.get("authenticity_caution"):
@@ -228,14 +235,9 @@ def authenticity_caution_check(item, watch):
 
     favourites = item.get("favourite_count") or 0
     is_new_seller = bool(item.get("show_1st_time_seller_discount"))
-    user = item.get("user") or {}
-    seller_feedback = user.get("feedback_count") or user.get("positive_feedback_count") or 0
-    seller_reputation = user.get("feedback_reputation")
 
     min_favourites = watch.get("min_favourites", 15)
     high_favourites = watch.get("high_favourites_caution", 100)
-    min_seller_feedback = watch.get("min_seller_feedback", 20)
-    min_seller_reputation = watch.get("min_seller_reputation", 0.97)
     min_price_ratio = watch.get("min_authenticity_price_ratio", 0.15)
 
     # An implausibly low price relative to RRP is a hard exclude on its
@@ -253,22 +255,17 @@ def authenticity_caution_check(item, watch):
     if rrp and price_amount is not None and price_amount < rrp * min_price_ratio:
         return False, []
 
-    weak_seller = seller_feedback < min_seller_feedback or (
-        isinstance(seller_reputation, (int, float)) and seller_reputation < min_seller_reputation
-    )
     low_interest = favourites < min_favourites
 
-    # Hard exclude only the clearest combination: brand new account, thin
-    # feedback, and barely anyone interested. Everything else stays
-    # visible with a caution flag rather than being silently removed.
-    if is_new_seller and weak_seller and low_interest:
+    # Hard exclude: brand new account AND barely anyone interested,
+    # together. Everything else stays visible with a caution flag rather
+    # than being silently removed.
+    if is_new_seller and low_interest:
         return False, []
 
     caution_flags = []
     if is_new_seller:
         caution_flags.append("New seller")
-    if weak_seller:
-        caution_flags.append("Limited seller history")
     if favourites > high_favourites:
         caution_flags.append("High interest, unsold")
 
@@ -365,9 +362,13 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     if max_price is not None and price_amount is not None and price_amount <= max_price:
         score += 15
     score += CONDITION_SCORES.get(condition, 0)
-    rep = seller.get("reputation")
-    if isinstance(rep, (int, float)) and rep >= 0.95 and seller["feedback_count"] >= 10:
-        score += 5
+    # NOTE: no seller-reputation scoring bonus - Vinted's bulk search API
+    # doesn't return feedback count or reputation on the seller object
+    # (confirmed via diagnostic: only business/id/login/photo/profile_url
+    # are present), so this can't be computed from data actually available
+    # here without a separate per-item request. Previously there was a
+    # dead +5 bonus that could never fire since it checked fields that
+    # never existed in this response.
     if my_size:
         score += 20
     if is_new:
