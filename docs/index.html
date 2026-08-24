@@ -349,9 +349,7 @@
     <button class="pill" data-filter="my_size">My size</button>
     <button class="pill" data-filter="is_new">New</button>
     <button class="pill" data-filter="is_bargain">Bargains</button>
-    <button class="pill" data-filter="discovery">Discovery</button>
     <button class="pill" data-filter="starred">Starred</button>
-    <button class="pill" data-filter="electronics">Technology</button>
     <button class="pill" data-filter="games">Games</button>
     <button class="pill" data-filter="music">Music</button>
     <button class="pill" data-filter="football">Football</button>
@@ -463,7 +461,6 @@ let feedData = [];
 function cardMatches(item){
   if (hidden.has(item.id)) return false;
   const isElectronics = item.category === 'electronics';
-  if (activeFilter === 'electronics') return isElectronics && item.subcategory === 'technology';
   if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
   if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
   if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
@@ -474,7 +471,6 @@ function cardMatches(item){
     case 'my_size':    return item.my_size;
     case 'is_new':     return item.is_new;
     case 'is_bargain': return item.is_bargain;
-    case 'discovery':  return item.source === 'discovery';
     case 'starred':    return starred.has(item.id);
     default:           return true;
   }
