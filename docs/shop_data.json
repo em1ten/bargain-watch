@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787603340,
+  "generated_at": 1787605530,
   "errors": [
     "Common Cultured"
   ],
@@ -1688,39 +1688,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-universalworks.com-14979287155064",
-      "title": "Indigo Recycled Herringbone Bakers Overshirt",
-      "watch": "Universal Works",
-      "brand": "Universal Works",
-      "size": "M",
-      "condition": "New",
-      "price": "65.00 GBP",
-      "price_amount": 65.0,
-      "estimated_total": 65.0,
-      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/34628_Herringbone-Rec_Indigo_1.jpg?v=1773674041",
-      "url": "https://universalworks.com/products/indigo-recycled-herringbone-bakers-overshirt",
-      "seller": {
-        "login": "Universal Works",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 59,
-      "score": 79,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-59%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-universalworks.com-14867354648952",
       "title": "Navy/Mud Mitla Print Jersey Newlyn Polo",
       "watch": "Universal Works",
@@ -1963,6 +1930,39 @@
       "estimated_total": 85.0,
       "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/p32057_japanese-seersucker-yellow_1.jpg?v=1753712287",
       "url": "https://universalworks.com/products/universal-works-zip-uniform-jacket-in-yellow-japanese-seersucker",
+      "seller": {
+        "login": "Universal Works",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 59,
+      "score": 79,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-59%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-universalworks.com-14867352158584",
+      "title": "Navy Mitla Print Cotton Rose Bowl Jacket",
+      "watch": "Universal Works",
+      "brand": "Universal Works",
+      "size": "M, L",
+      "condition": "New",
+      "price": "79.00 GBP",
+      "price_amount": 79.0,
+      "estimated_total": 79.0,
+      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/p32003_milta-print-cotton_1.jpg?v=1753712308",
+      "url": "https://universalworks.com/products/universal-works-rose-bowl-jacket-in-navy-mitla-print-cotton",
       "seller": {
         "login": "Universal Works",
         "feedback_count": 0,
