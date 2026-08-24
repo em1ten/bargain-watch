@@ -36,9 +36,6 @@
       "exclude": ["safety toe", "steel toe", "composite toe", "cap toe safety", "hi-vis", "en iso"] },
     { "name": "Rab",             "search_text": "rab jacket",      "price_to": 60,  "rrp": 160, "size_category": "tops",     "notify": "digest" },
     { "name": "Uniqlo U",        "search_text": "uniqlo u",        "price_to": 30,  "rrp": 70,  "size_category": "tops",     "notify": "instant" },
-    { "name": "Hi-Fi & Turntables", "search_text": "hifi", "price_to": 150, "notify": "digest",
-      "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology",
-      "exclude": ["soundbar", "bluetooth speaker", "earbuds", "earphones", "charger", "cable"] },
     { "name": "PS5 Games", "search_text": "ps5 game", "price_to": 35, "notify": "digest",
       "catalog_ids": "2994,3002", "require_brand_match": false, "category": "electronics", "subcategory": "games" },
     { "name": "Xbox Series X Games", "search_text": "xbox series x game", "price_to": 35, "notify": "digest",
@@ -140,20 +137,15 @@
     { "name": "UK Rap Vinyl",        "search_text": "uk rap vinyl",        "price_to": 30, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
     { "name": "Britpop Vinyl",       "search_text": "britpop vinyl",       "price_to": 30, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
     { "name": "Post Punk Vinyl",     "search_text": "post punk vinyl",     "price_to": 30, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Alternative Rock Vinyl", "search_text": "alternative rock vinyl", "price_to": 30, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Leica Camera",     "search_text": "leica camera",      "price_to": 150, "catalog_ids": "2994,3054", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
-    { "name": "Contax Camera",    "search_text": "contax camera",     "price_to": 150, "catalog_ids": "2994,3054", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
-    { "name": "Pentax K1000",     "search_text": "pentax k1000",      "price_to": 100, "catalog_ids": "2994,3054", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
-    { "name": "Olympus OM",       "search_text": "olympus om",        "price_to": 100, "catalog_ids": "2994,3054", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
-    { "name": "Technics Turntable", "search_text": "technics turntable", "price_to": 150, "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
-    { "name": "Marantz Amplifier", "search_text": "marantz amplifier", "price_to": 150, "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology" },
-    { "name": "Rega Turntable",   "search_text": "rega turntable",    "price_to": 150, "catalog_ids": "2994,3566,3694", "require_brand_match": false, "category": "electronics", "subcategory": "technology" }
+    { "name": "Alternative Rock Vinyl", "search_text": "alternative rock vinyl", "price_to": 30, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] }
   ],
 
   "shop_watches": [
+    { "name": "Universal Works", "domain": "universalworks.com" },
     { "name": "Yards Store", "domain": "www.yardsstore.com" },
     { "name": "Stuarts London", "domain": "www.stuartslondon.com" },
     { "name": "Jeanstore", "domain": "jeanstore.co.uk" },
-    { "name": "Son of a Stag", "domain": "sonofastag.com" }
+    { "name": "Son of a Stag", "domain": "sonofastag.com" },
+    { "name": "AndSons", "domain": "andsons.co.uk" }
   ]
 }
