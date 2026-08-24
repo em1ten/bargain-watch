@@ -375,6 +375,14 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         score += 5
     if price_dropped:
         score += 15
+    # For authenticity_caution watches (Designer pill) specifically: a
+    # completely clean pass - no new-seller flag, no low/high favourite
+    # concern - ranks above an otherwise-identical listing that got a
+    # caution flag, so a quick scan of the top of the feed surfaces the
+    # cleanest-looking finds first rather than treating flagged and
+    # unflagged listings as equivalent.
+    if watch.get("authenticity_caution") and not caution_flags:
+        score += 10
 
     is_bargain = (discount_pct is not None and discount_pct >= threshold_pct) or (
         max_price is not None and price_amount is not None and price_amount <= max_price
