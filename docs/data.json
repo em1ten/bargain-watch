@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787572089,
+  "generated_at": 1787573703,
   "discovery_today": [
     "Battenwear",
     "Engineered Garments",
@@ -130,6 +130,46 @@
       "favourite_count": 1
     },
     {
+      "id": 9735855463,
+      "title": "Uniqlo T-Shirt",
+      "watch": "Uniqlo U",
+      "brand": "Uniqlo",
+      "size": "M",
+      "condition": "New without tags",
+      "price": "14.82 GBP",
+      "price_amount": 14.82,
+      "estimated_total": 16.26,
+      "photo": "https://images1.vinted.net/t/03_0239d_b4Jnr8Kau3HaqTe6PdRHPK2w/f800/1787373389.jpeg?s=5794a7773779603c2f88f6544f659531900be464",
+      "url": "https://www.vinted.co.uk/items/9735855463",
+      "seller": {
+        "login": "breezyy04",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 79,
+      "score": 119,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-79%",
+      "source": "core",
+      "listed_at": 1787373389,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "uniqlo u",
+        "price_to": 30,
+        "rrp": 70,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9752817098,
       "title": "Uniqlo U Cubano white shirt M",
       "watch": "Uniqlo U",
@@ -250,70 +290,30 @@
       "favourite_count": 0
     },
     {
-      "id": 9761936293,
-      "title": "Folk Fiver Overshirt Mens Large Stone BNWT Cotton Linen Shacket Chore Jacket",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "L",
-      "condition": "New with tags",
-      "price": "40.0 GBP",
-      "price_amount": 40.0,
-      "estimated_total": 42.7,
-      "photo": "https://images1.vinted.net/t/01_01cb7_aczD31jwtimecBXsEzkAeqWf/f800/1787570030.jpeg?s=11766667880215205acb9b7817a4b56f6e4f76e2",
-      "url": "https://www.vinted.co.uk/items/9761936293",
-      "seller": {
-        "login": "chewinthecud",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 71,
-      "score": 115,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "core",
-      "listed_at": 1787570030,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9761856292,
-      "title": "Folk Short-sleeved Blue Navy Summer Shirt",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
+      "id": 9762627608,
+      "title": "Men\u2019s black jacket",
+      "watch": "Barbour",
+      "brand": "Barbour",
       "size": "M",
       "condition": "New with tags",
-      "price": "39.0 GBP",
-      "price_amount": 39.0,
-      "estimated_total": 41.65,
-      "photo": "https://images1.vinted.net/t/02_02505_3AuU4ZeUCAX88WZkqbTNQW4P/f800/1787569595.jpeg?s=fe5725b3a78e791d130ab7be8e4d0199ca9f82e6",
-      "url": "https://www.vinted.co.uk/items/9761856292",
+      "price": "85.0 GBP",
+      "price_amount": 85.0,
+      "estimated_total": 89.95,
+      "photo": "https://images1.vinted.net/t/05_02382_MFZF7PozDZqH8xBGxFbxZNCH/f800/1787573616.jpeg?s=80a2a28f13c2bb4dcf409a57e48e60602c05173a",
+      "url": "https://www.vinted.co.uk/items/9762627608",
       "seller": {
-        "login": "jamesau",
+        "login": "niks702",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 72,
+      "discount_pct": 66,
       "score": 115,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-72%",
+      "bargain_reason": "-66%",
       "source": "core",
-      "listed_at": 1787569595,
+      "listed_at": 1787573616,
       "condition_badge": "BNWT",
       "category": "clothing",
       "subcategory": null,
@@ -321,9 +321,9 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
+        "search_text": "barbour jacket",
+        "price_to": 100,
+        "rrp": 250,
         "size_category": "tops"
       },
       "caution_flags": [],
@@ -377,6 +377,86 @@
       "favourite_count": 35
     },
     {
+      "id": 9761936293,
+      "title": "Folk Fiver Overshirt Mens Large Stone BNWT Cotton Linen Shacket Chore Jacket",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "L",
+      "condition": "New with tags",
+      "price": "40.0 GBP",
+      "price_amount": 40.0,
+      "estimated_total": 42.7,
+      "photo": "https://images1.vinted.net/t/01_01cb7_aczD31jwtimecBXsEzkAeqWf/f800/1787570030.jpeg?s=11766667880215205acb9b7817a4b56f6e4f76e2",
+      "url": "https://www.vinted.co.uk/items/9761936293",
+      "seller": {
+        "login": "chewinthecud",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 71,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-71%",
+      "source": "core",
+      "listed_at": 1787570030,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9761856292,
+      "title": "Folk Short-sleeved Blue Navy Summer Shirt",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "39.0 GBP",
+      "price_amount": 39.0,
+      "estimated_total": 41.65,
+      "photo": "https://images1.vinted.net/t/02_02505_3AuU4ZeUCAX88WZkqbTNQW4P/f800/1787569595.jpeg?s=fe5725b3a78e791d130ab7be8e4d0199ca9f82e6",
+      "url": "https://www.vinted.co.uk/items/9761856292",
+      "seller": {
+        "login": "jamesau",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 72,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-72%",
+      "source": "core",
+      "listed_at": 1787569595,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9761149990,
       "title": "Folk Black Soft-Touch Cotton Shirt Medium RRP \u00a3110",
       "watch": "Folk Clothing",
@@ -414,7 +494,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 0
+      "favourite_count": 1
     },
     {
       "id": 9757435626,
@@ -495,6 +575,46 @@
       },
       "caution_flags": [],
       "favourite_count": 62
+    },
+    {
+      "id": 9753823379,
+      "title": "Mki Design Studio Hoodie - Grey",
+      "watch": "MKI Miyuki-Zoku",
+      "brand": "MKI Miyuki Zoku",
+      "size": "L",
+      "condition": "New with tags",
+      "price": "35.0 GBP",
+      "price_amount": 35.0,
+      "estimated_total": 37.45,
+      "photo": "https://images1.vinted.net/t/05_01f95_1EWss6Qrq7paWYUqvBsuPDHV/f800/1787499375.jpeg?s=851627f7613067aeadaebbad02b8ee36961a9f83",
+      "url": "https://www.vinted.co.uk/items/9753823379",
+      "seller": {
+        "login": "miawardle",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 75,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-75%",
+      "source": "core",
+      "listed_at": 1787499375,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "mki miyuki zoku",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 10
     },
     {
       "id": 9757588885,
@@ -734,7 +854,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 3
+      "favourite_count": 4
     },
     {
       "id": 9678453564,
@@ -1097,46 +1217,6 @@
       "favourite_count": 2
     },
     {
-      "id": 9761888261,
-      "title": "Barbour jacket",
-      "watch": "Barbour",
-      "brand": "Barbour",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "40.0 GBP",
-      "price_amount": 40.0,
-      "estimated_total": 42.7,
-      "photo": "https://images1.vinted.net/t/05_005d5_SNB7wv83tXU8SQuzFiYHxu79/f800/1787569768.jpeg?s=0e0ca8ae193c2a9202dbfa80fe2dd03542546d8c",
-      "url": "https://www.vinted.co.uk/items/9761888261",
-      "seller": {
-        "login": "tarek92",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 84,
-      "score": 109,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-84%",
-      "source": "core",
-      "listed_at": 1787569768,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "barbour jacket",
-        "price_to": 100,
-        "rrp": 250,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
       "id": 9761491708,
       "title": "Folk men",
       "watch": "Folk Clothing",
@@ -1172,6 +1252,46 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9762475222,
+      "title": "Clark\u2019s Men\u2019s Smart Shoes",
+      "watch": "Clarks Originals",
+      "brand": "Clarks",
+      "size": "9.5",
+      "condition": "Very good",
+      "price": "14.0 GBP",
+      "price_amount": 14.0,
+      "estimated_total": 15.4,
+      "photo": "https://images1.vinted.net/t/02_01992_8Pg6cQspRjWmuPVPaHchYHVK/f800/1787572839.jpeg?s=662e8446df42b683e7090ad9b92e4b0f11fb814f",
+      "url": "https://www.vinted.co.uk/items/9762475222",
+      "seller": {
+        "login": "katsien1609",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 84,
+      "score": 108,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1787572839,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "clarks originals",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "footwear"
       },
       "caution_flags": [],
       "favourite_count": 0
@@ -1215,46 +1335,6 @@
       },
       "caution_flags": [],
       "favourite_count": 7
-    },
-    {
-      "id": 9761861173,
-      "title": "Uniqlo C baggy sweatpants in black colourway",
-      "watch": "Uniqlo U",
-      "brand": "Uniqlo",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "30.0 GBP",
-      "price_amount": 30.0,
-      "estimated_total": 32.2,
-      "photo": "https://images1.vinted.net/t/05_016ba_pTapaazRRRmv3cWz2nrB92Ht/f800/1787569622.jpeg?s=010e0651b371942931423cf271908f6f7bae62c8",
-      "url": "https://www.vinted.co.uk/items/9761861173",
-      "seller": {
-        "login": "goldrush24",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 57,
-      "score": 106,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-57%",
-      "source": "core",
-      "listed_at": 1787569622,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "uniqlo u",
-        "price_to": 30,
-        "rrp": 70,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
     },
     {
       "id": 9759546078,
@@ -1335,6 +1415,46 @@
       },
       "caution_flags": [],
       "favourite_count": 7
+    },
+    {
+      "id": 9751507837,
+      "title": "Rab lighweight windproof jacket",
+      "watch": "Rab",
+      "brand": "Rab",
+      "size": "L",
+      "condition": "New without tags",
+      "price": "55.0 GBP",
+      "price_amount": 55.0,
+      "estimated_total": 58.45,
+      "photo": "https://images1.vinted.net/t/02_01773_tYi5Dr36YCAe6DosFJvqrqC7/f800/1787491010.jpeg?s=c105db0f21a265c2106fce3b470e2238207602bb",
+      "url": "https://www.vinted.co.uk/items/9751507837",
+      "seller": {
+        "login": "alexp4109",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 66,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-66%",
+      "source": "core",
+      "listed_at": 1787491010,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "rab jacket",
+        "price_to": 60,
+        "rrp": 160,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9761059371,
@@ -1455,6 +1575,46 @@
       },
       "caution_flags": [],
       "favourite_count": 10
+    },
+    {
+      "id": 9761888261,
+      "title": "Barbour jacket",
+      "watch": "Barbour",
+      "brand": "Barbour",
+      "size": "M",
+      "condition": "New without tags",
+      "price": "40.0 GBP",
+      "price_amount": 40.0,
+      "estimated_total": 42.7,
+      "photo": "https://images1.vinted.net/t/05_005d5_SNB7wv83tXU8SQuzFiYHxu79/f800/1787569768.jpeg?s=0e0ca8ae193c2a9202dbfa80fe2dd03542546d8c",
+      "url": "https://www.vinted.co.uk/items/9761888261",
+      "seller": {
+        "login": "tarek92",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 84,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1787569768,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "barbour jacket",
+        "price_to": 100,
+        "rrp": 250,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9432014756,
@@ -1694,7 +1854,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 0
+      "favourite_count": 1
     },
     {
       "id": 9758031588,
@@ -1857,6 +2017,46 @@
       "favourite_count": 7
     },
     {
+      "id": 9762610262,
+      "title": "Clark\u2019s wallabees",
+      "watch": "Clarks Originals",
+      "brand": "Clarks Originals",
+      "size": "9",
+      "condition": "Good",
+      "price": "20.0 GBP",
+      "price_amount": 20.0,
+      "estimated_total": 21.7,
+      "photo": "https://images1.vinted.net/t/05_01329_RapXxXW6WQCho6S8gkk3347v/f800/1787573529.jpeg?s=c857ffc1d1ca6885885d0e84fff2db5864d03823",
+      "url": "https://www.vinted.co.uk/items/9762610262",
+      "seller": {
+        "login": "haaaarley",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 78,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-78%",
+      "source": "core",
+      "listed_at": 1787573529,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "clarks originals",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "footwear"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9761515462,
       "title": "Men\u2019s Clarks Originals canvas lace-up shoes",
       "watch": "Clarks Originals",
@@ -2014,7 +2214,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 6
+      "favourite_count": 7
     },
     {
       "id": 9754795430,
@@ -2054,7 +2254,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 6
+      "favourite_count": 7
     },
     {
       "id": 9754102544,
@@ -2094,7 +2294,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 11
+      "favourite_count": 12
     },
     {
       "id": 9753228043,
@@ -2215,206 +2415,6 @@
       },
       "caution_flags": [],
       "favourite_count": 14
-    },
-    {
-      "id": 9757520504,
-      "title": "Percival Zip Cardigan - 100% Cotton",
-      "watch": "Percival",
-      "brand": "Percival",
-      "size": "M",
-      "condition": "Very good",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/02_02230_TGSh61h86KR1qEJb15arVFB5/f800/1787514597.jpeg?s=6d112bfb01239d720396e0a2b7d3bbcf145632f5",
-      "url": "https://www.vinted.co.uk/items/9757520504",
-      "seller": {
-        "login": "paddyvan82",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "discovery",
-      "listed_at": 1787514597,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9755043447,
-      "title": "Percival jacquard knit jumper",
-      "watch": "Percival",
-      "brand": "Percival",
-      "size": "M",
-      "condition": "Very good",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/05_018e8_BXVAB1sRBRYgb5M2hxMRNrCx/f800/1787503711.jpeg?s=887856741747e1749604aed4d3af9c4fd75e22ea",
-      "url": "https://www.vinted.co.uk/items/9755043447",
-      "seller": {
-        "login": "rhysisvinting",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "discovery",
-      "listed_at": 1787503711,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 7
-    },
-    {
-      "id": 9755075970,
-      "title": "Percival Chinos",
-      "watch": "Percival",
-      "brand": "Percival",
-      "size": "M",
-      "condition": "Very good",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/06_010da_Zpgg8T5HBWByYRqcGU6PhF9C/f800/1787503830.jpeg?s=21da1380a0e29c3feeba2819eeda723109490111",
-      "url": "https://www.vinted.co.uk/items/9755075970",
-      "seller": {
-        "login": "rhysisvinting",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "discovery",
-      "listed_at": 1787503830,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 3
-    },
-    {
-      "id": 9734521797,
-      "title": "Karhu Mestari Control",
-      "watch": "Karhu",
-      "brand": "Karhu",
-      "size": "9",
-      "condition": "Good",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/01_00da2_zepsuNUhNHXrpv6XJ5cpsuRq/f800/1787343420.jpeg?s=0ebb046c00ca760fa680cdf3743bb1b10d5f4d49",
-      "url": "https://www.vinted.co.uk/items/9734521797",
-      "seller": {
-        "login": "jackhowee",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 82,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "core",
-      "listed_at": 1787343420,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "karhu trainers",
-        "price_to": 40,
-        "rrp": 110,
-        "size_category": "footwear"
-      },
-      "caution_flags": [],
-      "favourite_count": 32
-    },
-    {
-      "id": 9748191238,
-      "title": "Novesta Star Dribble UK Size 9",
-      "watch": "Novesta",
-      "brand": "Novesta",
-      "size": "9",
-      "condition": "Good",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/06_0091e_PQDgFPvpSgz5xvM9txXsCNac/f800/1787477517.jpeg?s=b05e286d90ca50a671f329fda6e0b27ed47e77ed",
-      "url": "https://www.vinted.co.uk/items/9748191238",
-      "seller": {
-        "login": "acidwoody",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 79,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-79%",
-      "source": "core",
-      "listed_at": 1787477517,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "novesta",
-        "price_to": 30,
-        "rrp": 70,
-        "size_category": "footwear"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
     },
     {
       "id": 9754483549,
@@ -2585,6 +2585,132 @@
       "favourite_count": 1
     },
     {
+      "id": 9565805396,
+      "title": "S/S 2014 Stone Island Shadow Project Knit / Jumper Pullover",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
+      "size": "M",
+      "condition": "Very good",
+      "price": "105.0 GBP",
+      "price_amount": 105.0,
+      "estimated_total": 110.95,
+      "photo": "https://images1.vinted.net/t/02_00af3_vgAD7ULXGr6Bh5T9zPdPuFup/f800/1787571240.jpeg?s=2c2ab983a625822c2ad323ae85d91ef0c9ca863c",
+      "url": "https://www.vinted.co.uk/items/9565805396",
+      "seller": {
+        "login": "tukkoi",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 70,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-70%",
+      "source": "core",
+      "listed_at": 1787571240,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "designer",
+      "price_dropped": true,
+      "price_drop_pct": 12,
+      "previous_price": 120.0,
+      "source_config": {
+        "search_text": "stone island",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [
+        "Limited seller history"
+      ],
+      "favourite_count": 4
+    },
+    {
+      "id": 9762569097,
+      "title": "Men\u2019s size medium CP company coat",
+      "watch": "CP Company",
+      "brand": "C.P. Company",
+      "size": "M",
+      "condition": "Very good",
+      "price": "61.0 GBP",
+      "price_amount": 61.0,
+      "estimated_total": 64.75,
+      "photo": "https://images1.vinted.net/t/05_00f21_GVQxhe6Um1WynkGnZmLMRfsr/f800/1787573319.jpeg?s=a71c1c6a1d574832f28048c2b6c5b820d8aaa709",
+      "url": "https://www.vinted.co.uk/items/9762569097",
+      "seller": {
+        "login": "bauerroo",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 83,
+      "score": 93,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787573319,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "designer",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "cp company",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [
+        "Limited seller history"
+      ],
+      "favourite_count": 0
+    },
+    {
+      "id": 9761833969,
+      "title": "Stone Island navy cargo style jogger shorts",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
+      "size": "M",
+      "condition": "Very good",
+      "price": "80.0 GBP",
+      "price_amount": 80.0,
+      "estimated_total": 84.7,
+      "photo": "https://images1.vinted.net/t/02_01528_JjYB4PAjmMN8ovUSiub66dxy/f800/1787569472.jpeg?s=447437d3ba15a6d472acc56349cea6115fe02f9b",
+      "url": "https://www.vinted.co.uk/items/9761833969",
+      "seller": {
+        "login": "jlb7385",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 77,
+      "score": 93,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-77%",
+      "source": "core",
+      "listed_at": 1787569472,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "designer",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "stone island",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [
+        "Limited seller history"
+      ],
+      "favourite_count": 0
+    },
+    {
       "id": 9762277112,
       "title": "Vintage White Silver Belstaff Biking Jacket",
       "watch": "Belstaff",
@@ -2602,9 +2728,9 @@
         "reputation": null
       },
       "discount_pct": 83,
-      "score": 93,
+      "score": 88,
       "my_size": true,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "-83%",
       "source": "core",
@@ -2625,90 +2751,6 @@
         "Limited seller history"
       ],
       "favourite_count": 1
-    },
-    {
-      "id": 9762307574,
-      "title": "CP company coat",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "L",
-      "condition": "Very good",
-      "price": "85.0 GBP",
-      "price_amount": 85.0,
-      "estimated_total": 89.95,
-      "photo": "https://images1.vinted.net/t/04_00233_hs2Xb1Yh2Z38kz3BpeJQqEp6/f800/1787571993.jpeg?s=d3a400d86b115a62570f969303f5384e995bd549",
-      "url": "https://www.vinted.co.uk/items/9762307574",
-      "seller": {
-        "login": "jackk7453",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 76,
-      "score": 93,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-76%",
-      "source": "core",
-      "listed_at": 1787571993,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 0
-    },
-    {
-      "id": 9565805396,
-      "title": "S/S 2014 Stone Island Shadow Project Knit / Jumper Pullover",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "L",
-      "condition": "Very good",
-      "price": "120.0 GBP",
-      "price_amount": 120.0,
-      "estimated_total": 126.7,
-      "photo": "https://images1.vinted.net/t/02_00af3_vgAD7ULXGr6Bh5T9zPdPuFup/f800/1787571240.jpeg?s=2c2ab983a625822c2ad323ae85d91ef0c9ca863c",
-      "url": "https://www.vinted.co.uk/items/9565805396",
-      "seller": {
-        "login": "tukkoi",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 66,
-      "score": 93,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-66%",
-      "source": "core",
-      "listed_at": 1787571240,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "stone island",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 2
     },
     {
       "id": 9760975931,
@@ -2750,7 +2792,7 @@
       "caution_flags": [
         "Limited seller history"
       ],
-      "favourite_count": 0
+      "favourite_count": 2
     },
     {
       "id": 9758918119,
@@ -3089,48 +3131,6 @@
       "favourite_count": 0
     },
     {
-      "id": 9752678291,
-      "title": "Mens Belstaff wayfare black jacket medium",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "M",
-      "condition": "Very good",
-      "price": "100.0 GBP",
-      "price_amount": 100.0,
-      "estimated_total": 105.7,
-      "photo": "https://images1.vinted.net/t/06_02278_zijPvuM8xhGWRtqKxhkA1fpf/f800/1787495273.jpeg?s=5cd3b619c6a560c75881b68121712a7680e0b8f9",
-      "url": "https://www.vinted.co.uk/items/9752678291",
-      "seller": {
-        "login": "bridgegate73",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 71,
-      "score": 88,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "core",
-      "listed_at": 1787495273,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 11
-    },
-    {
       "id": 9751080815,
       "title": "Belstaff Motorcycle Jacket \u2013 Twilight Bella Swan Style",
       "watch": "Belstaff",
@@ -3173,30 +3173,30 @@
       "favourite_count": 3
     },
     {
-      "id": 9751121334,
-      "title": "Vintage Belstaff Racer jacket black and grey. Size L",
+      "id": 9752678291,
+      "title": "Mens Belstaff wayfare black jacket medium",
       "watch": "Belstaff",
       "brand": "Belstaff",
-      "size": "L",
+      "size": "M",
       "condition": "Very good",
-      "price": "60.0 GBP",
-      "price_amount": 60.0,
-      "estimated_total": 63.7,
-      "photo": "https://images1.vinted.net/t/05_00404_QQ2t5Nz6wCSa9AftaKnBhU5R/f800/1787489549.jpeg?s=bed9c88cf0d324665d899b871f0de98b0728bb22",
-      "url": "https://www.vinted.co.uk/items/9751121334",
+      "price": "100.0 GBP",
+      "price_amount": 100.0,
+      "estimated_total": 105.7,
+      "photo": "https://images1.vinted.net/t/06_02278_zijPvuM8xhGWRtqKxhkA1fpf/f800/1787495273.jpeg?s=5cd3b619c6a560c75881b68121712a7680e0b8f9",
+      "url": "https://www.vinted.co.uk/items/9752678291",
       "seller": {
-        "login": "csayers234",
+        "login": "bridgegate73",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 83,
+      "discount_pct": 71,
       "score": 88,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-83%",
+      "bargain_reason": "-71%",
       "source": "core",
-      "listed_at": 1787489549,
+      "listed_at": 1787495273,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "designer",
@@ -3212,33 +3212,33 @@
       "caution_flags": [
         "Limited seller history"
       ],
-      "favourite_count": 2
+      "favourite_count": 11
     },
     {
-      "id": 9761535516,
-      "title": "Black CP company jumper",
+      "id": 9762307574,
+      "title": "CP company coat",
       "watch": "CP Company",
       "brand": "C.P. Company",
       "size": "L",
       "condition": "Very good",
-      "price": "80.0 GBP",
-      "price_amount": 80.0,
-      "estimated_total": 84.7,
-      "photo": "https://images1.vinted.net/t/02_02163_7YqStMmdzqfMYXfRXohd9yDq/f800/1787567805.jpeg?s=0185fa5d1e99fcdeec79fe228a595b6a3a0ccf8a",
-      "url": "https://www.vinted.co.uk/items/9761535516",
+      "price": "85.0 GBP",
+      "price_amount": 85.0,
+      "estimated_total": 89.95,
+      "photo": "https://images1.vinted.net/t/04_00233_hs2Xb1Yh2Z38kz3BpeJQqEp6/f800/1787571993.jpeg?s=d3a400d86b115a62570f969303f5384e995bd549",
+      "url": "https://www.vinted.co.uk/items/9762307574",
       "seller": {
-        "login": "lolagrace2507",
+        "login": "jackk7453",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 77,
+      "discount_pct": 76,
       "score": 88,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-77%",
+      "bargain_reason": "-76%",
       "source": "core",
-      "listed_at": 1787567805,
+      "listed_at": 1787571993,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "designer",
@@ -3254,49 +3254,7 @@
       "caution_flags": [
         "Limited seller history"
       ],
-      "favourite_count": 0
-    },
-    {
-      "id": 9761014055,
-      "title": "CP Company Shell R Jacket",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "L",
-      "condition": "Very good",
-      "price": "120.0 GBP",
-      "price_amount": 120.0,
-      "estimated_total": 126.7,
-      "photo": "https://images1.vinted.net/t/02_0032a_79R31bT36dEfr5mNeifBTtcD/f800/1787564909.jpeg?s=103474f476961dca8d00767f7b0298151ad8ad80",
-      "url": "https://www.vinted.co.uk/items/9761014055",
-      "seller": {
-        "login": "natmitch1991",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 66,
-      "score": 88,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-66%",
-      "source": "core",
-      "listed_at": 1787564909,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 0
+      "favourite_count": 1
     },
     {
       "id": 9761679609,
@@ -3383,48 +3341,6 @@
       "favourite_count": 0
     },
     {
-      "id": 9761543274,
-      "title": "Stone island jumper",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "M",
-      "condition": "Very good",
-      "price": "80.0 GBP",
-      "price_amount": 80.0,
-      "estimated_total": 84.7,
-      "photo": "https://images1.vinted.net/t/02_0202c_qMBBJXUofeCkDTYYPhz4yWYH/f800/1787567847.jpeg?s=566bc2e13786fc8a96824524ce8ecf4838f70d4d",
-      "url": "https://www.vinted.co.uk/items/9761543274",
-      "seller": {
-        "login": "kels1999x",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 77,
-      "score": 88,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-77%",
-      "source": "core",
-      "listed_at": 1787567847,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "stone island",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 1
-    },
-    {
       "id": 9755516408,
       "title": "Belstaff K Racer Men's Black Cotton Biker Jacket Size IT 52 Large",
       "watch": "Belstaff",
@@ -3465,90 +3381,6 @@
         "Limited seller history"
       ],
       "favourite_count": 6
-    },
-    {
-      "id": 9751019566,
-      "title": "Men\u2019s Belstaff biker leather jacket size 48",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "M",
-      "condition": "Good",
-      "price": "100.0 GBP",
-      "price_amount": 100.0,
-      "estimated_total": 105.7,
-      "photo": "https://images1.vinted.net/t/06_013e9_UV3YTf8szoo7jLgKriEkTr9t/f800/1787489164.jpeg?s=ad7c653d5158ed0eb7c88082598e1546bc7293d4",
-      "url": "https://www.vinted.co.uk/items/9751019566",
-      "seller": {
-        "login": "baileyx1x",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 71,
-      "score": 83,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "core",
-      "listed_at": 1787489164,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 1
-    },
-    {
-      "id": 9761146797,
-      "title": "C.P. Company MENS Jumper / Sweatshirt",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "L",
-      "condition": "Good",
-      "price": "70.0 GBP",
-      "price_amount": 70.0,
-      "estimated_total": 74.2,
-      "photo": "https://images1.vinted.net/t/05_0167a_uCmG2b4Jn7Y57kN3xWkfxFoV/f800/1787565645.jpeg?s=54b45f6dd3577302cccf655cb5bbb94ba5ec759c",
-      "url": "https://www.vinted.co.uk/items/9761146797",
-      "seller": {
-        "login": "benew333",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 80,
-      "score": 83,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-80%",
-      "source": "core",
-      "listed_at": 1787565645,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 0
     },
     {
       "id": 9761706713,
@@ -3593,85 +3425,129 @@
       "favourite_count": 3
     },
     {
-      "id": 9761554975,
-      "title": "Stone Island Garment Dyed Down Gilet Bronze",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "L",
-      "condition": "Satisfactory",
-      "price": "100.0 GBP",
-      "price_amount": 100.0,
-      "estimated_total": 105.7,
-      "photo": "https://images1.vinted.net/t/06_01d92_nXrFA16m9S8ZNG7BZpuhBikP/f800/1787567911.jpeg?s=8580d74e78a970957f90317c6d3913c4262065e8",
-      "url": "https://www.vinted.co.uk/items/9761554975",
+      "id": 9762473504,
+      "title": "Sing-e speaker hifi system 10W",
+      "watch": "Hi-Fi & Turntables",
+      "brand": "sing-e",
+      "size": "",
+      "condition": "New with tags",
+      "price": "20.0 GBP",
+      "price_amount": 20.0,
+      "estimated_total": 21.7,
+      "photo": "https://images1.vinted.net/t/05_02064_ZTeeFVXbKPoZmk8vTPeNT3cN/f800/1787572831.jpeg?s=84a431acbc07b38dee504eae6e82268e1d75e953",
+      "url": "https://www.vinted.co.uk/items/9762473504",
       "seller": {
-        "login": "bradleyhtparky",
+        "login": "sydisfabx",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 71,
-      "score": 80,
-      "my_size": true,
-      "is_new": false,
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-71%",
+      "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1787567911,
-      "condition_badge": null,
+      "listed_at": 1787572831,
+      "condition_badge": "NEW",
       "category": "electronics",
-      "subcategory": "designer",
+      "subcategory": "technology",
       "price_dropped": false,
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "stone island",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
+        "search_text": "hifi",
+        "price_to": 150,
+        "catalog_ids": "2994,3566,3694",
+        "exclude": [
+          "soundbar",
+          "bluetooth speaker",
+          "earbuds",
+          "earphones",
+          "charger",
+          "cable"
+        ]
       },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 3
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
-      "id": 9758090653,
-      "title": "Wallows - Model CD (Brand New & Sealed | hmv)",
-      "watch": "Indie CDs",
+      "id": 9762379534,
+      "title": "Ps5 game wreckfest car game",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "10.0 GBP",
+      "price_amount": 10.0,
+      "estimated_total": 11.2,
+      "photo": "https://images1.vinted.net/t/01_00c85_k7xTnVYqRLAuUTVCFx4FWQBt/f800/1787572357.jpeg?s=6d9f241c6383c5507fc45fa61effc13b88d3fe8a",
+      "url": "https://www.vinted.co.uk/items/9762379534",
+      "seller": {
+        "login": "jsjrjtj7",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787572357,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9762338673,
+      "title": "FIFA 22 Xbox Series X Game Brand New Sealed",
+      "watch": "Xbox Series X Games",
       "brand": "",
       "size": "",
       "condition": "New with tags",
       "price": "4.0 GBP",
       "price_amount": 4.0,
       "estimated_total": 4.9,
-      "photo": "https://images1.vinted.net/t/04_007f0_NZS3zrdtsEnF7kVfXNJpmq1E/f800/1787518373.jpeg?s=ed17ffc2d185fa51ff10829a4bd320bcce936477",
-      "url": "https://www.vinted.co.uk/items/9758090653",
+      "photo": "https://images1.vinted.net/t/04_02457_uenTngrLMBrut7gCTRRznrX8/f800/1787572151.jpeg?s=be1d037c7aa5566fd5b93e9efa9d98e73c7cf61f",
+      "url": "https://www.vinted.co.uk/items/9762338673",
       "seller": {
-        "login": "phoebe_mcf",
+        "login": "kingbob100",
         "feedback_count": 0,
         "reputation": null
       },
       "discount_pct": null,
-      "score": 60,
+      "score": 50,
       "my_size": false,
-      "is_new": false,
+      "is_new": true,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1787518373,
+      "listed_at": 1787572151,
       "condition_badge": "NEW",
       "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": true,
-      "price_drop_pct": 20,
-      "previous_price": 5.0,
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
       "source_config": {
-        "search_text": "indie cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 0
     },
     {
       "id": 9762206871,
@@ -3691,9 +3567,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 50,
+      "score": 45,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -3710,7 +3586,7 @@
         "catalog_ids": "2994,3002"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 3
     },
     {
       "id": 9762169101,
@@ -3730,9 +3606,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 50,
+      "score": 45,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -3749,211 +3625,7 @@
         "catalog_ids": "2994,3002"
       },
       "caution_flags": [],
-      "favourite_count": 4
-    },
-    {
-      "id": 9762281129,
-      "title": "Redfall Xbox disc brand new",
-      "watch": "Xbox Series X Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "10.0 GBP",
-      "price_amount": 10.0,
-      "estimated_total": 11.2,
-      "photo": "https://images1.vinted.net/t/02_0165f_RqN7uD1sgZfVusn3PY6tKm5q/f800/1787571856.jpeg?s=b78379de2e92512855204ca250a5d01da8f43412",
-      "url": "https://www.vinted.co.uk/items/9762281129",
-      "seller": {
-        "login": "warmpudding",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787571856,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "games",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
-    },
-    {
-      "id": 9735850951,
-      "title": "The Dream Syndicate \u2013 How Did I Find Myself Here? Vinyl LP",
-      "watch": "Indie Rock Vinyl",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "18.53 GBP",
-      "price_amount": 18.53,
-      "estimated_total": 20.16,
-      "photo": "https://images1.vinted.net/t/04_01a5c_1V7vgBD1bSmdxdm5EXCKmihD/f800/1787372922.jpeg?s=ba0b125dbd118c95cba465fa06c60e4a9622c03b",
-      "url": "https://www.vinted.co.uk/items/9735850951",
-      "seller": {
-        "login": "chopsshopresale",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787372922,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "indie rock vinyl",
-        "price_to": 40,
-        "catalog_ids": "3036,3041"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9760270984,
-      "title": "Men\u2019s jumper M",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "M",
-      "condition": "New with tags",
-      "price": "45.0 GBP",
-      "price_amount": 45.0,
-      "estimated_total": 47.95,
-      "photo": "https://images1.vinted.net/t/02_00805_o4Arg68fQfHHJuYfb9gr6MtE/f800/1787560313.jpeg?s=c962b8d5c57ea557f87dff6384d8efd13ccc4dbc",
-      "url": "https://www.vinted.co.uk/items/9760270984",
-      "seller": {
-        "login": "sharnaka",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": false,
-      "bargain_reason": null,
-      "source": "core",
-      "listed_at": 1787560313,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 16
-    },
-    {
-      "id": 9762237028,
-      "title": "CP jumper",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "L",
-      "condition": "Very good",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/05_01c86_PUN5DtC6sjf9QbH4rRjvF4Tt/f800/1787571630.jpeg?s=1b5d9dd3d36f929224de90ec0fe474200f5a941d",
-      "url": "https://www.vinted.co.uk/items/9762237028",
-      "seller": {
-        "login": "shopseller206",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 48,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787571630,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 0
-    },
-    {
-      "id": 9762149458,
-      "title": "Stone island",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "L",
-      "condition": "Very good",
-      "price": "18.0 GBP",
-      "price_amount": 18.0,
-      "estimated_total": 19.6,
-      "photo": "https://images1.vinted.net/t/05_015ba_MYJh9hyxF4jS31GFh6VUriSZ/f800/1787571173.jpeg?s=65243e1d6c14901a44bf0a5498f217b0510cc080",
-      "url": "https://www.vinted.co.uk/items/9762149458",
-      "seller": {
-        "login": "alex77888",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 48,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787571173,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "designer",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "stone island",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [
-        "Limited seller history"
-      ],
-      "favourite_count": 1
+      "favourite_count": 5
     },
     {
       "id": 9761638647,
@@ -3988,6 +3660,45 @@
       "previous_price": null,
       "source_config": {
         "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9762281129,
+      "title": "Redfall Xbox disc brand new",
+      "watch": "Xbox Series X Games",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "10.0 GBP",
+      "price_amount": 10.0,
+      "estimated_total": 11.2,
+      "photo": "https://images1.vinted.net/t/02_0165f_RqN7uD1sgZfVusn3PY6tKm5q/f800/1787571856.jpeg?s=b78379de2e92512855204ca250a5d01da8f43412",
+      "url": "https://www.vinted.co.uk/items/9762281129",
+      "seller": {
+        "login": "warmpudding",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787571856,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
       },
@@ -4385,6 +4096,45 @@
       "favourite_count": 6
     },
     {
+      "id": 9735850951,
+      "title": "The Dream Syndicate \u2013 How Did I Find Myself Here? Vinyl LP",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "18.53 GBP",
+      "price_amount": 18.53,
+      "estimated_total": 20.16,
+      "photo": "https://images1.vinted.net/t/04_01a5c_1V7vgBD1bSmdxdm5EXCKmihD/f800/1787372922.jpeg?s=ba0b125dbd118c95cba465fa06c60e4a9622c03b",
+      "url": "https://www.vinted.co.uk/items/9735850951",
+      "seller": {
+        "login": "chopsshopresale",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787372922,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9761084895,
       "title": "Bitch Prefect - Bird Nerds Vinyl LP (Factory Sealed)",
       "watch": "Indie Rock Vinyl",
@@ -4421,7 +4171,7 @@
         "catalog_ids": "3036,3041"
       },
       "caution_flags": [],
-      "favourite_count": 1
+      "favourite_count": 0
     },
     {
       "id": 9761080431,
@@ -4775,6 +4525,45 @@
       "favourite_count": 0
     },
     {
+      "id": 9743979777,
+      "title": "Buxton - Stay Out Late Vinyl LP (Brand New & Factory Sealed)",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "7.95 GBP",
+      "price_amount": 7.95,
+      "estimated_total": 9.05,
+      "photo": "https://images1.vinted.net/t/03_00c4c_DtRPfycoa8YrhgzdsGNWVUrh/f800/1787422574.jpeg?s=99b3dc77e5e02e745c9b4506daae9c554302c116",
+      "url": "https://www.vinted.co.uk/items/9743979777",
+      "seller": {
+        "login": "johns-good-stuff",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787422574,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9743198382,
       "title": "Downpilot This Is The Sound Vinyl LP + CD Indie Rock Alternative Sealed 2018",
       "watch": "Indie Rock Vinyl",
@@ -4814,19 +4603,19 @@
       "favourite_count": 0
     },
     {
-      "id": 9743979777,
-      "title": "Buxton - Stay Out Late Vinyl LP (Brand New & Factory Sealed)",
+      "id": 9743167849,
+      "title": "Stephen Malkmus Traditional Techniques Creamy White Vinyl LP Indie Folk Sealed",
       "watch": "Indie Rock Vinyl",
       "brand": "",
       "size": "",
       "condition": "New with tags",
-      "price": "7.95 GBP",
-      "price_amount": 7.95,
-      "estimated_total": 9.05,
-      "photo": "https://images1.vinted.net/t/03_00c4c_DtRPfycoa8YrhgzdsGNWVUrh/f800/1787422574.jpeg?s=99b3dc77e5e02e745c9b4506daae9c554302c116",
-      "url": "https://www.vinted.co.uk/items/9743979777",
+      "price": "17.99 GBP",
+      "price_amount": 17.99,
+      "estimated_total": 19.59,
+      "photo": "https://images1.vinted.net/t/02_009b1_3Ts5M7JavKE4BY8yj7NNNudE/f800/1787418184.jpeg?s=450032e5cbabe9f4df10eff21111396605bff285",
+      "url": "https://www.vinted.co.uk/items/9743167849",
       "seller": {
-        "login": "johns-good-stuff",
+        "login": "lamornabuys",
         "feedback_count": 0,
         "reputation": null
       },
@@ -4837,7 +4626,46 @@
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1787422574,
+      "listed_at": 1787418184,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
+    },
+    {
+      "id": 9738648143,
+      "title": "Tom Odell Monsters LP 12\" Album Vinyl Record Columbia - New And Sealed 2021",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "5.45 GBP",
+      "price_amount": 5.45,
+      "estimated_total": 6.42,
+      "photo": "https://images1.vinted.net/t/01_019f9_MHvcZ3evoTDVSvgQPsKvEKLj/f800/1787397276.jpeg?s=5c195891a47525539edf6f781a7ca41abaa9b5f3",
+      "url": "https://www.vinted.co.uk/items/9738648143",
+      "seller": {
+        "login": "andy86vinyl",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787397276,
       "condition_badge": "NEW",
       "category": "electronics",
       "subcategory": "music",
@@ -4851,6 +4679,162 @@
       },
       "caution_flags": [],
       "favourite_count": 0
+    },
+    {
+      "id": 9736511604,
+      "title": "Deathcrash Less  - LP Vinyl 12\" Record - New And Sealed 2023",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "11.95 GBP",
+      "price_amount": 11.95,
+      "estimated_total": 13.25,
+      "photo": "https://images1.vinted.net/t/01_0081f_gTHc5anp54rfxiDi3Vbn5kkE/f800/1787384948.jpeg?s=3f5322a927608361e6ae792de9c675a120fb51b7",
+      "url": "https://www.vinted.co.uk/items/9736511604",
+      "seller": {
+        "login": "andy86vinyl",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787384948,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9750355899,
+      "title": "Central Cee 23 CD + Cassette Tape Bundle 2022 UK Rap Drill Collectible",
+      "watch": "Rap CDs",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "15.0 GBP",
+      "price_amount": 15.0,
+      "estimated_total": 16.45,
+      "photo": "https://images1.vinted.net/t/02_017ce_HycVMXHtJm4SBRNXFoGu3ypn/f800/1787486588.jpeg?s=d1636599b1782eeced27b323666330195ec257f2",
+      "url": "https://www.vinted.co.uk/items/9750355899",
+      "seller": {
+        "login": "archivebyt",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787486588,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "rap cd",
+        "price_to": 20,
+        "catalog_ids": "3036,3039"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9749880281,
+      "title": "Madonna - Rebel Heart (2015)",
+      "watch": "Rap CDs",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "6.95 GBP",
+      "price_amount": 6.95,
+      "estimated_total": 8.0,
+      "photo": "https://images1.vinted.net/t/02_005f6_WnhLBx1BokJi7tr1bSaj9fsE/f800/1787484664.jpeg?s=5a1387fd2730e2f33b1b52734b053cbd69ba317d",
+      "url": "https://www.vinted.co.uk/items/9749880281",
+      "seller": {
+        "login": "cdnlp",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787484664,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "rap cd",
+        "price_to": 20,
+        "catalog_ids": "3036,3039"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9746299267,
+      "title": "RH - Life In The Making (CD)",
+      "watch": "Rap CDs",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "10.0 GBP",
+      "price_amount": 10.0,
+      "estimated_total": 11.2,
+      "photo": "https://images1.vinted.net/t/06_00e0a_h6pQCUrobwCqL5pRQbsow8BX/f800/1787451870.jpeg?s=0655bac91908774aaa11d38f90d58a66c210fecb",
+      "url": "https://www.vinted.co.uk/items/9746299267",
+      "seller": {
+        "login": "catgurlonme",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787451870,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "rap cd",
+        "price_to": 20,
+        "catalog_ids": "3036,3039"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     }
   ]
 }
