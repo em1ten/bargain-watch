@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787612406,
+  "generated_at": 1787614053,
   "discovery_today": [
     "Herno",
     "Rains",
@@ -468,7 +468,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 4
+      "favourite_count": 5
     },
     {
       "id": 9768240176,
@@ -509,6 +509,46 @@
       },
       "caution_flags": [],
       "favourite_count": 3
+    },
+    {
+      "id": 9767363992,
+      "title": "Folk Jack Jacquard Neck Crew Jumper",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "37.0 GBP",
+      "price_amount": 37.0,
+      "estimated_total": 39.55,
+      "photo": "https://images1.vinted.net/t/01_0139f_YqaoevjD8yAL6C1ZrLufghMj/f800/1787595066.jpeg?s=2dab9e79e39249b4c2ec2bbdcb78208cd71a2f2f",
+      "url": "https://www.vinted.co.uk/items/9767363992",
+      "seller": {
+        "login": "fallingdownn",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 74,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-74%",
+      "source": "core",
+      "listed_at": 1787595066,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 7
     },
     {
       "id": 9757435626,
@@ -1358,46 +1398,6 @@
       "favourite_count": 11
     },
     {
-      "id": 8587975186,
-      "title": "TEN C Mid Layer Overshirt Jacket",
-      "watch": "Ten C",
-      "brand": "Ten C",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "150.0 GBP",
-      "price_amount": 150.0,
-      "estimated_total": 158.2,
-      "photo": "https://images1.vinted.net/t/01_00431_k9NKUAxvLtomXJTadAakrYZP/f800/1787176434.jpeg?s=dcd80a8b64bead89f567e24053a11b3ad356f2db",
-      "url": "https://www.vinted.co.uk/items/8587975186",
-      "seller": {
-        "login": "nutsc",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 67,
-      "score": 104,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-67%",
-      "source": "core",
-      "listed_at": 1787176434,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ten c",
-        "price_to": 150,
-        "rrp": 450,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 26
-    },
-    {
       "id": 9734445767,
       "title": "NN07 No Nationality Navy 100% Linen Shirt Mens Size M Mandarin Collar Casual",
       "watch": "NN07",
@@ -2155,7 +2155,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 14
+      "favourite_count": 13
     },
     {
       "id": 9753228043,
@@ -2318,46 +2318,6 @@
       "favourite_count": 35
     },
     {
-      "id": 9720966655,
-      "title": "Rains waterproof rain coat",
-      "watch": "Rains",
-      "brand": "Rains",
-      "size": "M",
-      "condition": "Very good",
-      "price": "16.0 GBP",
-      "price_amount": 16.0,
-      "estimated_total": 17.5,
-      "photo": "https://images1.vinted.net/t/02_0178b_jc7mehsCV1PobQohBUyQeCuz/f800/1787237378.jpeg?s=c507bcce94acd56412b379297e2731eec4461116",
-      "url": "https://www.vinted.co.uk/items/9720966655",
-      "seller": {
-        "login": "markfranksam",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 82,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "discovery",
-      "listed_at": 1787237378,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "rains jacket",
-        "price_to": 35,
-        "rrp": 90,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 11
-    },
-    {
       "id": 9691597050,
       "title": "Rains Fleece Gilet black Sleeveless Flece Jacket Size M (Men's) Unisex",
       "watch": "Rains",
@@ -2436,6 +2396,46 @@
       },
       "caution_flags": [],
       "favourite_count": 8
+    },
+    {
+      "id": 9630635553,
+      "title": "Grey Rains mac",
+      "watch": "Rains",
+      "brand": "Rains",
+      "size": "M",
+      "condition": "Very good",
+      "price": "18.0 GBP",
+      "price_amount": 18.0,
+      "estimated_total": 19.6,
+      "photo": "https://images1.vinted.net/t/05_008bb_r4aq4PrBL7BUuwv5pfepA7qK/f800/1786403021.jpeg?s=9a747f4dfb3012dd476edca101cdb435daa576ba",
+      "url": "https://www.vinted.co.uk/items/9630635553",
+      "seller": {
+        "login": "jamie90hunter",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 80,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-80%",
+      "source": "discovery",
+      "listed_at": 1786403021,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "rains jacket",
+        "price_to": 35,
+        "rrp": 90,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 17
     },
     {
       "id": 9765881174,
@@ -2598,86 +2598,6 @@
       "favourite_count": 0
     },
     {
-      "id": 9758202751,
-      "title": "black Canada Goose gillet",
-      "watch": "Canada Goose",
-      "brand": "Canada Goose",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "250.0 GBP",
-      "price_amount": 250.0,
-      "estimated_total": 263.2,
-      "photo": "https://images1.vinted.net/t/02_01378_rGy39Xp3rPXC8dVTeGRUnZYo/f800/1787519314.jpeg?s=83f71a147caad1a6afde38984816287e8afaf5bf",
-      "url": "https://www.vinted.co.uk/items/9758202751",
-      "seller": {
-        "login": "emily.pinder",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 72,
-      "score": 114,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-72%",
-      "source": "core",
-      "listed_at": 1787519314,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "canada goose",
-        "price_to": 250,
-        "rrp": 900,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
-    },
-    {
-      "id": 9758081693,
-      "title": "Men\u2019s Canada Goose Navy Hoodie",
-      "watch": "Canada Goose",
-      "brand": "Canada Goose",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "150.0 GBP",
-      "price_amount": 150.0,
-      "estimated_total": 158.2,
-      "photo": "https://images1.vinted.net/t/02_0024b_Y3LegnReTgTsskoh2j9F6RV5/f800/1787518303.jpeg?s=0f62afe69d304c0089880f59598d158175ffbfeb",
-      "url": "https://www.vinted.co.uk/items/9758081693",
-      "seller": {
-        "login": "indyandy",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 114,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": 1787518303,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "canada goose",
-        "price_to": 250,
-        "rrp": 900,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 2
-    },
-    {
       "id": 9769270059,
       "title": "Stone Island polo shirt - M",
       "watch": "Stone Island",
@@ -2718,30 +2638,30 @@
       "favourite_count": 0
     },
     {
-      "id": 9769636326,
-      "title": "Grey marl/blue trim Patagonia Synchilla fleece (L)",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
+      "id": 9769685342,
+      "title": "Palm angles track top",
+      "watch": "Palm Angels",
+      "brand": "Palm Angels",
       "size": "L",
       "condition": "Very good",
-      "price": "35.0 GBP",
-      "price_amount": 35.0,
-      "estimated_total": 37.45,
-      "photo": "https://images1.vinted.net/t/04_02045_Nnzxcxy83Z8Aae5jBjGh9mR7/f800/1787612165.jpeg?s=20f681405f5328a5ca649ec52898e9158d5faf6e",
-      "url": "https://www.vinted.co.uk/items/9769636326",
+      "price": "70.0 GBP",
+      "price_amount": 70.0,
+      "estimated_total": 74.2,
+      "photo": "https://images1.vinted.net/t/05_0241a_SBfbZDVcWbsxgHps7o2c2PZ4/f800/1787613145.jpeg?s=22bc17e6d0d0ae3eeb8dfd9c803105e05a97d63f",
+      "url": "https://www.vinted.co.uk/items/9769685342",
       "seller": {
-        "login": "lolroach08",
+        "login": "alfiec693",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 78,
+      "discount_pct": 77,
       "score": 103,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-78%",
+      "bargain_reason": "-77%",
       "source": "core",
-      "listed_at": 1787612165,
+      "listed_at": 1787613145,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -2749,39 +2669,39 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "patagonia jacket",
-        "price_to": 60,
-        "rrp": 160,
+        "search_text": "palm angels",
+        "price_to": 100,
+        "rrp": 300,
         "size_category": "tops"
       },
       "caution_flags": [],
       "favourite_count": 0
     },
     {
-      "id": 8154713209,
-      "title": "Black stone island Jacket",
+      "id": 9769676829,
+      "title": "Stone island gradient reversible hoodie",
       "watch": "Stone Island",
       "brand": "Stone Island",
-      "size": "L",
+      "size": "M",
       "condition": "Very good",
-      "price": "60.0 GBP",
-      "price_amount": 60.0,
-      "estimated_total": 63.7,
-      "photo": "https://images1.vinted.net/t/06_012e9_Mkpeddu9SKNmfGVLMt6Zhtop/f800/1770835571.jpeg?s=e892915a4711a260546efe26bf9943bf19786063",
-      "url": "https://www.vinted.co.uk/items/8154713209",
+      "price": "90.0 GBP",
+      "price_amount": 90.0,
+      "estimated_total": 95.2,
+      "photo": "https://images1.vinted.net/t/05_00348_42t7d9t3BueW9hdeKVvFYs86/f800/1787612971.jpeg?s=d60ea5b5648517792bec7f640afb23ff32ff6d56",
+      "url": "https://www.vinted.co.uk/items/9769676829",
       "seller": {
-        "login": "joshua_1998",
+        "login": "manlikecb",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 83,
+      "discount_pct": 74,
       "score": 103,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-83%",
+      "bargain_reason": "-74%",
       "source": "core",
-      "listed_at": 1770835571,
+      "listed_at": 1787612971,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -2835,7 +2755,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 0
+      "favourite_count": 1
     },
     {
       "id": 9766779286,
@@ -3115,7 +3035,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 4
+      "favourite_count": 5
     },
     {
       "id": 9768242945,
@@ -3155,7 +3075,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 7
+      "favourite_count": 8
     },
     {
       "id": 9768150894,
@@ -3478,46 +3398,6 @@
       "favourite_count": 0
     },
     {
-      "id": 9762649392,
-      "title": "Belstaff jacket",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "M",
-      "condition": "Very good",
-      "price": "100.0 GBP",
-      "price_amount": 100.0,
-      "estimated_total": 105.7,
-      "photo": "https://images1.vinted.net/t/05_012bc_rqBmkTBRTvy56o9fcxCJubrL/f800/1787573726.jpeg?s=95b01246d46683156cee066c3c1bf491f06faec5",
-      "url": "https://www.vinted.co.uk/items/9762649392",
-      "seller": {
-        "login": "gracelily3",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 71,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "core",
-      "listed_at": 1787573726,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 5
-    },
-    {
       "id": 9761656276,
       "title": "Belstaff Fallgate Grey Corduroy Overshirt Men\u2019s Size L",
       "watch": "Belstaff",
@@ -3556,6 +3436,46 @@
       },
       "caution_flags": [],
       "favourite_count": 10
+    },
+    {
+      "id": 9762649392,
+      "title": "Belstaff jacket",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "M",
+      "condition": "Very good",
+      "price": "100.0 GBP",
+      "price_amount": 100.0,
+      "estimated_total": 105.7,
+      "photo": "https://images1.vinted.net/t/05_012bc_rqBmkTBRTvy56o9fcxCJubrL/f800/1787573726.jpeg?s=95b01246d46683156cee066c3c1bf491f06faec5",
+      "url": "https://www.vinted.co.uk/items/9762649392",
+      "seller": {
+        "login": "gracelily3",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 71,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-71%",
+      "source": "core",
+      "listed_at": 1787573726,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 5
     },
     {
       "id": 9762277112,
@@ -3598,6 +3518,46 @@
       "favourite_count": 4
     },
     {
+      "id": 9758918119,
+      "title": "Belstaff Rallymaster 350 Gold Label Jacket L",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "L",
+      "condition": "Very good",
+      "price": "60.0 GBP",
+      "price_amount": 60.0,
+      "estimated_total": 63.7,
+      "photo": "https://images1.vinted.net/t/05_0162e_GnzvCS3XYQZBVMF1Px1jeNh4/f800/1787530316.jpeg?s=f91e5cd20188f5a842f02094b00a540be7172cda",
+      "url": "https://www.vinted.co.uk/items/9758918119",
+      "seller": {
+        "login": "eddie38496",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 83,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787530316,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
+    },
+    {
       "id": 9760975931,
       "title": "Men\u2019s Belstaff Dunstall",
       "watch": "Belstaff",
@@ -3638,30 +3598,30 @@
       "favourite_count": 11
     },
     {
-      "id": 9758918119,
-      "title": "Belstaff Rallymaster 350 Gold Label Jacket L",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "L",
+      "id": 9769227564,
+      "title": "Canada goose Dunham jacket",
+      "watch": "Canada Goose",
+      "brand": "Canada Goose",
+      "size": "M",
       "condition": "Very good",
-      "price": "60.0 GBP",
-      "price_amount": 60.0,
-      "estimated_total": 63.7,
-      "photo": "https://images1.vinted.net/t/05_0162e_GnzvCS3XYQZBVMF1Px1jeNh4/f800/1787530316.jpeg?s=f91e5cd20188f5a842f02094b00a540be7172cda",
-      "url": "https://www.vinted.co.uk/items/9758918119",
+      "price": "220.0 GBP",
+      "price_amount": 220.0,
+      "estimated_total": 231.7,
+      "photo": "https://images1.vinted.net/t/05_02481_ST3GK2kJ8KqHwCBbSsfKPKn1/f800/1787606477.jpeg?s=51f04eb142d0fbdeb2ddc9e9b02a551cd2ec2738",
+      "url": "https://www.vinted.co.uk/items/9769227564",
       "seller": {
-        "login": "eddie38496",
+        "login": "liljohn2411",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 83,
+      "discount_pct": 76,
       "score": 98,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-83%",
+      "bargain_reason": "-76%",
       "source": "core",
-      "listed_at": 1787530316,
+      "listed_at": 1787606477,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -3669,13 +3629,53 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
+        "search_text": "canada goose",
+        "price_to": 250,
+        "rrp": 900,
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 0
+    },
+    {
+      "id": 9768843264,
+      "title": "Canada Goose Hoodie",
+      "watch": "Canada Goose",
+      "brand": "Canada Goose",
+      "size": "M",
+      "condition": "Very good",
+      "price": "209.99 GBP",
+      "price_amount": 209.99,
+      "estimated_total": 221.19,
+      "photo": "https://images1.vinted.net/t/06_00ac1_S3VHSBhHuo3woDduqiHKgzRM/f800/1787603270.jpeg?s=2c1e73bb45864ef6879ae360a407699606c6a043",
+      "url": "https://www.vinted.co.uk/items/9768843264",
+      "seller": {
+        "login": "agb123uk",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 77,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-77%",
+      "source": "core",
+      "listed_at": 1787603270,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "canada goose",
+        "price_to": 250,
+        "rrp": 900,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9762305636,
@@ -3918,46 +3918,6 @@
       "favourite_count": 0
     },
     {
-      "id": 9767719339,
-      "title": "Palm angels jumper",
-      "watch": "Palm Angels",
-      "brand": "Palm Angels",
-      "size": "M",
-      "condition": "Very good",
-      "price": "65.0 GBP",
-      "price_amount": 65.0,
-      "estimated_total": 68.95,
-      "photo": "https://images1.vinted.net/t/05_023ba_hmTUriuxGMmEd65JgSXqv9be/f800/1787596824.jpeg?s=767d10768f2dd78d47401300e03745fe694a1f1e",
-      "url": "https://www.vinted.co.uk/items/9767719339",
-      "seller": {
-        "login": "garryh563",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 78,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-78%",
-      "source": "core",
-      "listed_at": 1787596824,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "palm angels",
-        "price_to": 100,
-        "rrp": 300,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 2
-    },
-    {
       "id": 9761139397,
       "title": "Ami Paris Black Hoodie",
       "watch": "Ami Paris",
@@ -4035,7 +3995,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 3
+      "favourite_count": 4
     },
     {
       "id": 9734819067,
@@ -4238,6 +4198,46 @@
       "favourite_count": 9
     },
     {
+      "id": 9724959556,
+      "title": "Rare Ami Paris jumper",
+      "watch": "Ami Paris",
+      "brand": "Ami Paris",
+      "size": "M",
+      "condition": "Very good",
+      "price": "60.0 GBP",
+      "price_amount": 60.0,
+      "estimated_total": 63.7,
+      "photo": "https://images1.vinted.net/t/05_01c68_ootDJ4qH9soB5Yz6zKBAcm99/f800/1787259888.jpeg?s=f1dc2d05a79b7a17c9ac59b69e33338be750d186",
+      "url": "https://www.vinted.co.uk/items/9724959556",
+      "seller": {
+        "login": "sashagreen86",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 76,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-76%",
+      "source": "core",
+      "listed_at": 1787259888,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ami paris",
+        "price_to": 90,
+        "rrp": 250,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 28
+    },
+    {
       "id": 9724012282,
       "title": "Ami Paris Grey Knit Jumper - L",
       "watch": "Ami Paris",
@@ -4276,46 +4276,6 @@
       },
       "caution_flags": [],
       "favourite_count": 17
-    },
-    {
-      "id": 9724959556,
-      "title": "Rare Ami Paris jumper",
-      "watch": "Ami Paris",
-      "brand": "Ami Paris",
-      "size": "M",
-      "condition": "Very good",
-      "price": "60.0 GBP",
-      "price_amount": 60.0,
-      "estimated_total": 63.7,
-      "photo": "https://images1.vinted.net/t/05_01c68_ootDJ4qH9soB5Yz6zKBAcm99/f800/1787259888.jpeg?s=f1dc2d05a79b7a17c9ac59b69e33338be750d186",
-      "url": "https://www.vinted.co.uk/items/9724959556",
-      "seller": {
-        "login": "sashagreen86",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 76,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-76%",
-      "source": "core",
-      "listed_at": 1787259888,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ami paris",
-        "price_to": 90,
-        "rrp": 250,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 27
     },
     {
       "id": 9729814321,
@@ -4598,6 +4558,46 @@
       "favourite_count": 4
     },
     {
+      "id": 9769636326,
+      "title": "Grey marl/blue trim Patagonia Synchilla fleece (L)",
+      "watch": "Patagonia",
+      "brand": "Patagonia",
+      "size": "L",
+      "condition": "Very good",
+      "price": "35.0 GBP",
+      "price_amount": 35.0,
+      "estimated_total": 37.45,
+      "photo": "https://images1.vinted.net/t/06_0269e_KLUfL3hHmuATqgoyRZwxN93i/f800/1787612461.jpeg?s=a24b739a5d70d10bc2737d867ce55c6cb27d91fa",
+      "url": "https://www.vinted.co.uk/items/9769636326",
+      "seller": {
+        "login": "lolroach08",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 78,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-78%",
+      "source": "core",
+      "listed_at": 1787612461,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "patagonia jacket",
+        "price_to": 60,
+        "rrp": 160,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
       "id": 9741274962,
       "title": "Patagonia M's Better Sweater Jacket Black Full Zip Size Medium",
       "watch": "Patagonia",
@@ -4755,7 +4755,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 8
+      "favourite_count": 9
     },
     {
       "id": 9520699460,
