@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787562358,
+  "generated_at": 1787563778,
   "discovery_today": [
     "Battenwear",
     "Engineered Garments",
@@ -45,7 +45,9 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 12
     },
     {
       "id": 9758096496,
@@ -83,7 +85,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9758115602,
@@ -121,45 +125,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
-    },
-    {
-      "id": 9760262860,
-      "title": "Percival - T-Shirt - Navy",
-      "watch": "Percival",
-      "brand": "Percival",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "17.0 GBP",
-      "price_amount": 17.0,
-      "estimated_total": 18.55,
-      "photo": "https://images1.vinted.net/t/05_0131c_1Fjs4irEHiAi4kXUQ7hsioPz/f800/1787560253.jpeg?s=65d035abcf05c76a33f61c4abf2fc9c81a1dce74",
-      "url": "https://www.vinted.co.uk/items/9760262860",
-      "seller": {
-        "login": "lewisjf11",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 81,
-      "score": 124,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-81%",
-      "source": "discovery",
-      "listed_at": 1787560253,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "tops"
-      }
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9752817098,
@@ -197,83 +165,9 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "tops"
-      }
-    },
-    {
-      "id": 9758463886,
-      "title": "Clarks Contoured Comfort Brand New In Box Men's Shoes Size UK 9.5 / EU 44",
-      "watch": "Clarks Originals",
-      "brand": "Clarks",
-      "size": "9.5",
-      "condition": "New without tags",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/06_01ad5_7BP44ZEuu9ayNyz9WigwDCtJ/f800/1787522011.jpeg?s=2ef696f71f9393d204ad4475ebd5121aeaeb57ab",
-      "url": "https://www.vinted.co.uk/items/9758463886",
-      "seller": {
-        "login": "chrisd2412",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 78,
-      "score": 119,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-78%",
-      "source": "core",
-      "listed_at": 1787522011,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "clarks originals",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "footwear"
-      }
-    },
-    {
-      "id": 9758490762,
-      "title": "Clarks Men's Slip-On Shoes Size UK 9.5 / EU 44",
-      "watch": "Clarks Originals",
-      "brand": "Clarks",
-      "size": "9.5",
-      "condition": "New without tags",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/06_00e42_5EcGq7F4UgnD53DABGqfd73t/f800/1787522337.jpeg?s=9072c02fb3b313b2d1aaedfe427800922ad52866",
-      "url": "https://www.vinted.co.uk/items/9758490762",
-      "seller": {
-        "login": "chrisd2412",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 78,
-      "score": 119,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-78%",
-      "source": "core",
-      "listed_at": 1787522337,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "clarks originals",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "footwear"
-      }
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9752188003,
@@ -311,45 +205,49 @@
         "price_to": 35,
         "rrp": 80,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 3
     },
     {
-      "id": 9760220755,
-      "title": "Folk Men's, Cotton, Toweling, Short Sleeve Shirt,  Size M, BNWT,  \u00a3115 RRP",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
+      "id": 9760262860,
+      "title": "Percival - T-Shirt - Navy",
+      "watch": "Percival",
+      "brand": "Percival",
       "size": "M",
-      "condition": "New with tags",
-      "price": "54.99 GBP",
-      "price_amount": 54.99,
-      "estimated_total": 58.44,
-      "photo": "https://images1.vinted.net/t/06_01f32_UPBn1RjYtLGv8FWZUMfezutg/f800/1787559940.jpeg?s=26850f812f2af8a42b418f9435b2ff856869900b",
-      "url": "https://www.vinted.co.uk/items/9760220755",
+      "condition": "New without tags",
+      "price": "17.0 GBP",
+      "price_amount": 17.0,
+      "estimated_total": 18.55,
+      "photo": "https://images1.vinted.net/t/05_0131c_1Fjs4irEHiAi4kXUQ7hsioPz/f800/1787560253.jpeg?s=65d035abcf05c76a33f61c4abf2fc9c81a1dce74",
+      "url": "https://www.vinted.co.uk/items/9760262860",
       "seller": {
-        "login": "hollypitson",
+        "login": "lewisjf11",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 61,
-      "score": 115,
+      "discount_pct": 81,
+      "score": 119,
       "my_size": true,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-61%",
-      "source": "core",
-      "listed_at": 1787559940,
-      "condition_badge": "BNWT",
+      "bargain_reason": "-81%",
+      "source": "discovery",
+      "listed_at": 1787560253,
+      "condition_badge": "UNWORN",
       "category": "clothing",
       "subcategory": null,
       "price_dropped": false,
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
+        "search_text": "percival",
+        "price_to": 40,
+        "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9750887068,
@@ -394,7 +292,49 @@
           "charger",
           "extension lead"
         ]
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 32
+    },
+    {
+      "id": 9760220755,
+      "title": "Folk Men's, Cotton, Toweling, Short Sleeve Shirt,  Size M, BNWT,  \u00a3115 RRP",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "54.99 GBP",
+      "price_amount": 54.99,
+      "estimated_total": 58.44,
+      "photo": "https://images1.vinted.net/t/06_01f32_UPBn1RjYtLGv8FWZUMfezutg/f800/1787559940.jpeg?s=26850f812f2af8a42b418f9435b2ff856869900b",
+      "url": "https://www.vinted.co.uk/items/9760220755",
+      "seller": {
+        "login": "hollypitson",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 61,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-61%",
+      "source": "core",
+      "listed_at": 1787559940,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9759912155,
@@ -432,7 +372,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9759540890,
@@ -470,7 +412,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 13
     },
     {
       "id": 9759527957,
@@ -508,7 +452,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9759523070,
@@ -546,7 +492,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9734702031,
@@ -584,7 +532,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9757435626,
@@ -622,7 +572,9 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 4
     },
     {
       "id": 9757260433,
@@ -660,7 +612,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 57
     },
     {
       "id": 9753823379,
@@ -698,7 +652,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 10
     },
     {
       "id": 9759827062,
@@ -736,7 +692,9 @@
         "price_to": 100,
         "rrp": 250,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9759019655,
@@ -774,7 +732,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "footwear"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 7
     },
     {
       "id": 9757588885,
@@ -812,7 +772,9 @@
         "price_to": 35,
         "rrp": 80,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9752253000,
@@ -850,7 +812,9 @@
         "price_to": 35,
         "rrp": 80,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 14
     },
     {
       "id": 9753046848,
@@ -888,7 +852,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9753113997,
@@ -926,7 +892,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9711322663,
@@ -964,7 +932,9 @@
         "price_to": 120,
         "rrp": 300,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9678453564,
@@ -1002,7 +972,9 @@
         "price_to": 90,
         "rrp": 250,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 15
     },
     {
       "id": 9758788415,
@@ -1040,7 +1012,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9758196882,
@@ -1078,7 +1052,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 3
     },
     {
       "id": 9758181439,
@@ -1116,7 +1092,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 3
     },
     {
       "id": 9758173924,
@@ -1154,45 +1132,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
-    },
-    {
-      "id": 9758121174,
-      "title": "Percival Navy floral T-Shirt Men's Medium BNWT",
-      "watch": "Percival",
-      "brand": "Percival",
-      "size": "M",
-      "condition": "New with tags",
-      "price": "22.99 GBP",
-      "price_amount": 22.99,
-      "estimated_total": 24.84,
-      "photo": "https://images1.vinted.net/t/06_00acd_Q8DFuh1WAtoaZVYp6fwaqXaf/f800/1787518619.jpeg?s=7373dccd253c7bafd83dac6b05014d8250a1a079",
-      "url": "https://www.vinted.co.uk/items/9758121174",
-      "seller": {
-        "login": "paos29",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 74,
-      "score": 110,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-74%",
-      "source": "discovery",
-      "listed_at": 1787518619,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "tops"
-      }
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9757635188,
@@ -1230,7 +1172,49 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 4
+    },
+    {
+      "id": 9758121174,
+      "title": "Percival Navy floral T-Shirt Men's Medium BNWT",
+      "watch": "Percival",
+      "brand": "Percival",
+      "size": "M",
+      "condition": "New with tags",
+      "price": "22.99 GBP",
+      "price_amount": 22.99,
+      "estimated_total": 24.84,
+      "photo": "https://images1.vinted.net/t/06_00acd_Q8DFuh1WAtoaZVYp6fwaqXaf/f800/1787518619.jpeg?s=7373dccd253c7bafd83dac6b05014d8250a1a079",
+      "url": "https://www.vinted.co.uk/items/9758121174",
+      "seller": {
+        "login": "paos29",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 74,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-74%",
+      "source": "discovery",
+      "listed_at": 1787518619,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "percival",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9756983134,
@@ -1268,7 +1252,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9757245076,
@@ -1306,71 +1292,35 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
-    },
-    {
-      "id": 9760235950,
-      "title": "MKI Studio White Tshirt  - size large",
-      "watch": "MKI Miyuki-Zoku",
-      "brand": "MKI Miyuki Zoku",
-      "size": "L",
-      "condition": "New without tags",
-      "price": "25.0 GBP",
-      "price_amount": 25.0,
-      "estimated_total": 26.95,
-      "photo": "https://images1.vinted.net/t/03_0035a_z6GqjMXLpJLupLGoaztoAaBM/f800/1787560054.jpeg?s=f08fe0ed01a02cca3bad69869ccadba252315338",
-      "url": "https://www.vinted.co.uk/items/9760235950",
-      "seller": {
-        "login": "aniec1",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 82,
-      "score": 109,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "core",
-      "listed_at": 1787560054,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "mki miyuki zoku",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      }
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
-      "id": 9760242846,
-      "title": "Percival T-Shirt",
-      "watch": "Percival",
-      "brand": "Percival",
+      "id": 9759164922,
+      "title": "Stone island polo medium",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
       "size": "M",
       "condition": "New without tags",
-      "price": "28.0 GBP",
-      "price_amount": 28.0,
-      "estimated_total": 30.1,
-      "photo": "https://images1.vinted.net/t/02_00a7d_do176JfHTbkm4cD77ZJhmdt4/f800/1787560105.jpeg?s=b8a9e8c281b6f3ef20b943e9dfb6f5e3c701943b",
-      "url": "https://www.vinted.co.uk/items/9760242846",
+      "price": "60.0 GBP",
+      "price_amount": 60.0,
+      "estimated_total": 63.7,
+      "photo": "https://images1.vinted.net/t/01_0087c_ex2ojYBkF3YmxYaeSacjHwUz/f800/1787538117.jpeg?s=afd448d7f57e631caed3b75386eb146e76b8b257",
+      "url": "https://www.vinted.co.uk/items/9759164922",
       "seller": {
-        "login": "lewisjf11",
+        "login": "danxrogers",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 69,
+      "discount_pct": 83,
       "score": 109,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-69%",
-      "source": "discovery",
-      "listed_at": 1787560105,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787538117,
       "condition_badge": "UNWORN",
       "category": "clothing",
       "subcategory": null,
@@ -1378,11 +1328,15 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
+        "search_text": "stone island",
+        "price_to": 130,
+        "rrp": 350,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [
+        "Limited seller history"
+      ],
+      "favourite_count": 0
     },
     {
       "id": 9748303248,
@@ -1420,45 +1374,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
-    },
-    {
-      "id": 9760257396,
-      "title": "Percival Men\u2019s Short Sleeve Check Shirt Medium 100% Cotton Navy Cream",
-      "watch": "Percival",
-      "brand": "Percival",
-      "size": "M",
-      "condition": "Very good",
-      "price": "18.0 GBP",
-      "price_amount": 18.0,
-      "estimated_total": 19.6,
-      "photo": "https://images1.vinted.net/t/06_01f04_dW1LFox3j7cb52pTSaxU6MyG/f800/1787560213.jpeg?s=138c321f9ee2793dd4f210a691103dd196a8d8f0",
-      "url": "https://www.vinted.co.uk/items/9760257396",
-      "seller": {
-        "login": "limehause2004",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 80,
-      "score": 108,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-80%",
-      "source": "discovery",
-      "listed_at": 1787560213,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "percival",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "tops"
-      }
+      "caution_flags": [],
+      "favourite_count": 7
     },
     {
       "id": 9759546078,
@@ -1496,7 +1414,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9754578401,
@@ -1534,7 +1454,9 @@
         "price_to": 60,
         "rrp": 160,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 6
     },
     {
       "id": 9751507837,
@@ -1572,7 +1494,49 @@
         "price_to": 60,
         "rrp": 160,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9760235950,
+      "title": "MKI Studio White Tshirt  - size large",
+      "watch": "MKI Miyuki-Zoku",
+      "brand": "MKI Miyuki Zoku",
+      "size": "L",
+      "condition": "New without tags",
+      "price": "25.0 GBP",
+      "price_amount": 25.0,
+      "estimated_total": 26.95,
+      "photo": "https://images1.vinted.net/t/03_0035a_z6GqjMXLpJLupLGoaztoAaBM/f800/1787560054.jpeg?s=f08fe0ed01a02cca3bad69869ccadba252315338",
+      "url": "https://www.vinted.co.uk/items/9760235950",
+      "seller": {
+        "login": "aniec1",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 82,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-82%",
+      "source": "core",
+      "listed_at": 1787560054,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "mki miyuki zoku",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 4
     },
     {
       "id": 9757692542,
@@ -1610,7 +1574,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 10
     },
     {
       "id": 9759861220,
@@ -1648,7 +1614,9 @@
         "price_to": 100,
         "rrp": 250,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 5
     },
     {
       "id": 9758225804,
@@ -1686,7 +1654,9 @@
         "price_to": 100,
         "rrp": 250,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 4
     },
     {
       "id": 9754483549,
@@ -1724,7 +1694,9 @@
         "price_to": 120,
         "rrp": 350,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 9
     },
     {
       "id": 9754835247,
@@ -1762,7 +1734,9 @@
         "price_to": 120,
         "rrp": 350,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 7
     },
     {
       "id": 9750503957,
@@ -1800,7 +1774,9 @@
         "price_to": 120,
         "rrp": 350,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 3
     },
     {
       "id": 9432014756,
@@ -1838,7 +1814,9 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "footwear"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 7
     },
     {
       "id": 9745921341,
@@ -1876,7 +1854,9 @@
         "price_to": 60,
         "rrp": 140,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9759901485,
@@ -1914,7 +1894,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 10
     },
     {
       "id": 9752914188,
@@ -1952,45 +1934,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
-    },
-    {
-      "id": 8587975186,
-      "title": "TEN C Mid Layer Overshirt Jacket",
-      "watch": "Ten C",
-      "brand": "Ten C",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "150.0 GBP",
-      "price_amount": 150.0,
-      "estimated_total": 158.2,
-      "photo": "https://images1.vinted.net/t/01_00431_k9NKUAxvLtomXJTadAakrYZP/f800/1787176434.jpeg?s=dcd80a8b64bead89f567e24053a11b3ad356f2db",
-      "url": "https://www.vinted.co.uk/items/8587975186",
-      "seller": {
-        "login": "nutsc",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 67,
-      "score": 104,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-67%",
-      "source": "core",
-      "listed_at": 1787176434,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ten c",
-        "price_to": 150,
-        "rrp": 450,
-        "size_category": "tops"
-      }
+      "caution_flags": [],
+      "favourite_count": 7
     },
     {
       "id": 9563706735,
@@ -2028,7 +1974,49 @@
         "price_to": 70,
         "rrp": 180,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 19
+    },
+    {
+      "id": 9760242846,
+      "title": "Percival T-Shirt",
+      "watch": "Percival",
+      "brand": "Percival",
+      "size": "M",
+      "condition": "New without tags",
+      "price": "28.0 GBP",
+      "price_amount": 28.0,
+      "estimated_total": 30.1,
+      "photo": "https://images1.vinted.net/t/02_00a7d_do176JfHTbkm4cD77ZJhmdt4/f800/1787560105.jpeg?s=b8a9e8c281b6f3ef20b943e9dfb6f5e3c701943b",
+      "url": "https://www.vinted.co.uk/items/9760242846",
+      "seller": {
+        "login": "lewisjf11",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 69,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-69%",
+      "source": "discovery",
+      "listed_at": 1787560105,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "percival",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9758031588,
@@ -2066,7 +2054,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 10
     },
     {
       "id": 9751729702,
@@ -2104,7 +2094,9 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9747567961,
@@ -2142,7 +2134,49 @@
         "price_to": 30,
         "rrp": 70,
         "size_category": "tops"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 7
+    },
+    {
+      "id": 9760597369,
+      "title": "Clarks wallabees. Fudge suede. UK 9",
+      "watch": "Clarks Originals",
+      "brand": "Clarks Originals",
+      "size": "9",
+      "condition": "Good",
+      "price": "18.0 GBP",
+      "price_amount": 18.0,
+      "estimated_total": 19.6,
+      "photo": "https://images1.vinted.net/t/01_01d1f_ZffqdT7sz5opGmK9bPaa8PV6/f800/1787562493.jpeg?s=5e70622585b63d5ea579431a4a896943d281ed8f",
+      "url": "https://www.vinted.co.uk/items/9760597369",
+      "seller": {
+        "login": "liviallen",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 80,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-80%",
+      "source": "core",
+      "listed_at": 1787562493,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "clarks originals",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "footwear"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9757207364,
@@ -2180,7 +2214,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "footwear"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 5
     },
     {
       "id": 9755566344,
@@ -2218,45 +2254,9 @@
         "price_to": 40,
         "rrp": 90,
         "size_category": "footwear"
-      }
-    },
-    {
-      "id": 9758587386,
-      "title": "Clarks mens shoes leather uk8.5",
-      "watch": "Clarks Originals",
-      "brand": "Clarks",
-      "size": "8.5",
-      "condition": "Very good",
-      "price": "18.0 GBP",
-      "price_amount": 18.0,
-      "estimated_total": 19.6,
-      "photo": "https://images1.vinted.net/t/02_00a9d_ji7FsqNfpzs1kctxtFDunktq/f800/1787523663.jpeg?s=324a63b1198a19b8a0f1ee1aa50a39ccd1239604",
-      "url": "https://www.vinted.co.uk/items/9758587386",
-      "seller": {
-        "login": "simon82819",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": 80,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-80%",
-      "source": "core",
-      "listed_at": 1787523663,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "clarks originals",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "footwear"
-      }
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9674028776,
@@ -2294,7 +2294,168 @@
         "price_to": 40,
         "rrp": 110,
         "size_category": "footwear"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 9
+    },
+    {
+      "id": 9756253621,
+      "title": "Stan Ray Men\u2019s Rugby Shirt Top Striped Green and Brown",
+      "watch": "Stan Ray",
+      "brand": "Stan Ray",
+      "size": "M",
+      "condition": "Very good",
+      "price": "18.0 GBP",
+      "price_amount": 18.0,
+      "estimated_total": 19.6,
+      "photo": "https://images1.vinted.net/t/04_020ac_yTMReF1jwqse3gREJ3v5ucxB/f800/1787508497.jpeg?s=3e3f50c87872b554912a8cf696d57a97044f0942",
+      "url": "https://www.vinted.co.uk/items/9756253621",
+      "seller": {
+        "login": "endcreditsmedia",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 80,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-80%",
+      "source": "core",
+      "listed_at": 1787508497,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "stan ray",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 5
+    },
+    {
+      "id": 9754795430,
+      "title": "Stan Ray Tee",
+      "watch": "Stan Ray",
+      "brand": "Stan Ray",
+      "size": "M",
+      "condition": "Very good",
+      "price": "15.0 GBP",
+      "price_amount": 15.0,
+      "estimated_total": 16.45,
+      "photo": "https://images1.vinted.net/t/01_006c5_1SUDuGhyGMaxBNYQYce2puYo/f800/1787502813.jpeg?s=f1e3f7e2319d968fd2d6f34121b8fa999a4f3c36",
+      "url": "https://www.vinted.co.uk/items/9754795430",
+      "seller": {
+        "login": "potta19_90",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 83,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787502813,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "stan ray",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 5
+    },
+    {
+      "id": 9754102544,
+      "title": "Stan ray shirt",
+      "watch": "Stan Ray",
+      "brand": "Stan Ray",
+      "size": "L",
+      "condition": "Very good",
+      "price": "20.0 GBP",
+      "price_amount": 20.0,
+      "estimated_total": 21.7,
+      "photo": "https://images1.vinted.net/t/02_00647_aURVh48icKfNmQA2KNv5uQ8k/f800/1787500366.jpeg?s=64fb610ad95e995eee7582bf8b8c34dd268468a2",
+      "url": "https://www.vinted.co.uk/items/9754102544",
+      "seller": {
+        "login": "jsph12",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 78,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-78%",
+      "source": "core",
+      "listed_at": 1787500366,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "stan ray",
+        "price_to": 40,
+        "rrp": 90,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 12
+    },
+    {
+      "id": 9735687897,
+      "title": "Vintage NWT Seattle Seahawks Russell Okung Reebok jersey size 50",
+      "watch": "Retro Football Shirts",
+      "brand": "Reebok",
+      "size": "One size",
+      "condition": "New with tags",
+      "price": "18.53 GBP",
+      "price_amount": 18.53,
+      "estimated_total": 20.16,
+      "photo": "https://images1.vinted.net/t/06_00055_mXUW2gJ8dCnjkcxmC5DDbh9T/f800/1787365136.jpeg?s=c1cb26d49fbdcd49a7b635deb316f5c587252dcf",
+      "url": "https://www.vinted.co.uk/items/9735687897",
+      "seller": {
+        "login": "jameskibbe",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 50,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787365136,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "football",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "retro football shirt vintage",
+        "price_to": 35,
+        "catalog_ids": "5"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9760351284,
@@ -2314,9 +2475,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 50,
+      "score": 45,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -2331,118 +2492,9 @@
         "search_text": "ps5 game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9760331990,
-      "title": "Minecraft Legends Deluxe Edition PS5",
-      "watch": "PS5 Games",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "8.0 GBP",
-      "price_amount": 8.0,
-      "estimated_total": 9.1,
-      "photo": "https://images1.vinted.net/t/02_00e29_mtuPQ7uFxnGWjB2os839FQhg/f800/1787560748.jpeg?s=8fe654ecabe7a98617932b7e198a9bd11ef4bdf6",
-      "url": "https://www.vinted.co.uk/items/9760331990",
-      "seller": {
-        "login": "meeechy",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787560748,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "games",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ps5 game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9760303118,
-      "title": "Controller Stand for Xbox & PS5 Controllers Fluted Desk Display Holder Black UK",
-      "watch": "PS5 Games",
-      "brand": "Xbox",
-      "size": "",
-      "condition": "New with tags",
-      "price": "6.99 GBP",
-      "price_amount": 6.99,
-      "estimated_total": 8.04,
-      "photo": "https://images1.vinted.net/t/02_01f0b_FkCpaW8wVxrPm5yHQN9rshj1/f800/1787560545.jpeg?s=29f19b45e0d97d89ea71d0238f52b7107e313787",
-      "url": "https://www.vinted.co.uk/items/9760303118",
-      "seller": {
-        "login": "ralfjungling",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787560545,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "games",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ps5 game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9760228160,
-      "title": "Aero Modeller \u2013 First Flight (2010) *Vinyl LP, NEW Sealed*",
-      "watch": "Indie Rock Vinyl",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "18.0 GBP",
-      "price_amount": 18.0,
-      "estimated_total": 19.6,
-      "photo": "https://images1.vinted.net/t/06_011fe_hzJ1xNkiU6omTGHQmKEQ2HfW/f800/1787559995.jpeg?s=5258e11d2919ab740955f0cf4fbcb8e74be54626",
-      "url": "https://www.vinted.co.uk/items/9760228160",
-      "seller": {
-        "login": "trottersindietrades",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 50,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787559995,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "indie rock vinyl",
-        "price_to": 40,
-        "catalog_ids": "3036,3041"
-      }
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9759771449,
@@ -2479,44 +2531,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9759652069,
-      "title": "NEW\u2019C Pack Of 3 Tempered Glass Screen Protector - Google Pixel 7",
-      "watch": "Xbox Series X Games",
-      "brand": "Google",
-      "size": "",
-      "condition": "New with tags",
-      "price": "3.5 GBP",
-      "price_amount": 3.5,
-      "estimated_total": 4.38,
-      "photo": "https://images1.vinted.net/t/05_025e2_tsQobANA3atE3RwK442E52qZ/f800/1787554136.jpeg?s=bd59a36a5021b79e5994c0a69d6643478d3cbd54",
-      "url": "https://www.vinted.co.uk/items/9759652069",
-      "seller": {
-        "login": "tr1pha",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": null,
-      "score": 45,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787554136,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "games",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "xbox series x game",
-        "price_to": 35,
-        "catalog_ids": "2994,3002"
-      }
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9759569063,
@@ -2553,7 +2570,48 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9759652069,
+      "title": "NEW\u2019C Pack Of 3 Tempered Glass Screen Protector - Google Pixel 7",
+      "watch": "Xbox Series X Games",
+      "brand": "Google",
+      "size": "",
+      "condition": "New with tags",
+      "price": "3.5 GBP",
+      "price_amount": 3.5,
+      "estimated_total": 4.38,
+      "photo": "https://images1.vinted.net/t/05_025e2_tsQobANA3atE3RwK442E52qZ/f800/1787554136.jpeg?s=bd59a36a5021b79e5994c0a69d6643478d3cbd54",
+      "url": "https://www.vinted.co.uk/items/9759652069",
+      "seller": {
+        "login": "tr1pha",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787554136,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "xbox series x game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9751999248,
@@ -2590,7 +2648,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 3
     },
     {
       "id": 9757850633,
@@ -2627,7 +2687,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 3
     },
     {
       "id": 9757686787,
@@ -2664,7 +2726,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9757908710,
@@ -2701,7 +2765,9 @@
         "search_text": "hip hop vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9752262236,
@@ -2738,7 +2804,9 @@
         "search_text": "hip hop vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 10
     },
     {
       "id": 9751055020,
@@ -2775,7 +2843,9 @@
         "search_text": "hip hop vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9750947690,
@@ -2812,7 +2882,9 @@
         "search_text": "hip hop vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9746391522,
@@ -2849,7 +2921,48 @@
         "search_text": "hip hop vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 6
+    },
+    {
+      "id": 9760228160,
+      "title": "Aero Modeller \u2013 First Flight (2010) *Vinyl LP, NEW Sealed*",
+      "watch": "Indie Rock Vinyl",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "18.0 GBP",
+      "price_amount": 18.0,
+      "estimated_total": 19.6,
+      "photo": "https://images1.vinted.net/t/06_011fe_hzJ1xNkiU6omTGHQmKEQ2HfW/f800/1787559995.jpeg?s=5258e11d2919ab740955f0cf4fbcb8e74be54626",
+      "url": "https://www.vinted.co.uk/items/9760228160",
+      "seller": {
+        "login": "trottersindietrades",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787559995,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "indie rock vinyl",
+        "price_to": 40,
+        "catalog_ids": "3036,3041"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9758151404,
@@ -2886,7 +2999,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9757396642,
@@ -2923,7 +3038,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9757063720,
@@ -2960,7 +3077,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9750899004,
@@ -2997,7 +3116,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9744813197,
@@ -3034,7 +3155,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9744116397,
@@ -3071,7 +3194,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9743979777,
@@ -3108,7 +3233,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9743198382,
@@ -3145,7 +3272,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9743167849,
@@ -3182,7 +3311,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9738648143,
@@ -3219,7 +3350,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9736511604,
@@ -3256,7 +3389,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9736582225,
@@ -3293,7 +3428,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9750355899,
@@ -3330,7 +3467,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9749880281,
@@ -3367,7 +3506,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9746299267,
@@ -3404,44 +3545,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9746017130,
-      "title": "Wu Tang - Wu Tang Forever CD",
-      "watch": "Rap CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New with tags",
-      "price": "4.0 GBP",
-      "price_amount": 4.0,
-      "estimated_total": 4.9,
-      "photo": "https://images1.vinted.net/t/02_019c0_bght9LBgAZehYDqM86JkRR8X/f800/1787442644.jpeg?s=03988bf3b139dcce4752cb2a3231276c10f56a52",
-      "url": "https://www.vinted.co.uk/items/9746017130",
-      "seller": {
-        "login": "simba_texel",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": null,
-      "score": 45,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787442644,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "rap cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9740977918,
@@ -3478,7 +3584,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9707141489,
@@ -3515,7 +3623,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9758090653,
@@ -3552,7 +3662,48 @@
         "search_text": "indie cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
+    },
+    {
+      "id": 9752207256,
+      "title": "Black Honey A Fistful of Peaches sealed CD",
+      "watch": "Indie CDs",
+      "brand": "",
+      "size": "",
+      "condition": "New with tags",
+      "price": "4.0 GBP",
+      "price_amount": 4.0,
+      "estimated_total": 4.9,
+      "photo": "https://images1.vinted.net/t/05_016f3_AruRYDq6kV1RPftC2fDvDWNe/f800/1787493546.jpeg?s=cafa60ea6b57d2e21168592ad4ae68ca90adb0fd",
+      "url": "https://www.vinted.co.uk/items/9752207256",
+      "seller": {
+        "login": "thirteensbelova",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 45,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787493546,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "music",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "indie cd",
+        "price_to": 20,
+        "catalog_ids": "3036,3039"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9747423602,
@@ -3589,22 +3740,24 @@
         "search_text": "indie cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 5
     },
     {
-      "id": 9760558194,
-      "title": "Battlefield 6 PS5 Disc Edition Like New",
+      "id": 9760714276,
+      "title": "2K22\ud83c\udfc0",
       "watch": "PS5 Games",
       "brand": "",
       "size": "",
       "condition": "New without tags",
-      "price": "19.0 GBP",
-      "price_amount": 19.0,
-      "estimated_total": 20.65,
-      "photo": "https://images1.vinted.net/t/06_01816_jLW2sfo8TFoHUujX1DeG5V8f/f800/1787562246.jpeg?s=f4f24608bd69343b68520d54ca370bd0fc4b7c44",
-      "url": "https://www.vinted.co.uk/items/9760558194",
+      "price": "4.0 GBP",
+      "price_amount": 4.0,
+      "estimated_total": 4.9,
+      "photo": "https://images1.vinted.net/t/06_00d66_ZVPhKNGVA9iqbjrJEEKgA8Yd/f800/1787563201.jpeg?s=68e7fb8a7b80e899da3ae269f68a7f9246de0ddf",
+      "url": "https://www.vinted.co.uk/items/9760714276",
       "seller": {
-        "login": "dcampion22",
+        "login": "davidsellsforcheap",
         "feedback_count": 0,
         "reputation": null
       },
@@ -3615,7 +3768,7 @@
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1787562246,
+      "listed_at": 1787563201,
       "condition_badge": "NEW",
       "category": "electronics",
       "subcategory": "games",
@@ -3626,7 +3779,321 @@
         "search_text": "ps5 game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760697028,
+      "title": "2K23 WWE",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "4.0 GBP",
+      "price_amount": 4.0,
+      "estimated_total": 4.9,
+      "photo": "https://images1.vinted.net/t/06_01347_GKcvKgYmrqWJQPUD9Q2FwB4K/f800/1787563099.jpeg?s=a322550730d70eba316554576682a8ae6aa86ae9",
+      "url": "https://www.vinted.co.uk/items/9760697028",
+      "seller": {
+        "login": "davidsellsforcheap",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787563099,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760666046,
+      "title": "Fifa 21 and 23",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "8.5 GBP",
+      "price_amount": 8.5,
+      "estimated_total": 9.62,
+      "photo": "https://images1.vinted.net/t/05_02251_uYyBkcooDZuwNqbUtdqzMJuE/f800/1787562914.jpeg?s=dffd2801cbb82b23f938536aadc3f211cf8c5ca9",
+      "url": "https://www.vinted.co.uk/items/9760666046",
+      "seller": {
+        "login": "davidsellsforcheap",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562914,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760631026,
+      "title": "FC 24",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "5.0 GBP",
+      "price_amount": 5.0,
+      "estimated_total": 5.95,
+      "photo": "https://images1.vinted.net/t/02_001b2_tkMVXgdr25LcvYAEF456eAqZ/f800/1787562700.jpeg?s=6f3ab3c118239b90ebd0312c795280dfcdbf13d0",
+      "url": "https://www.vinted.co.uk/items/9760631026",
+      "seller": {
+        "login": "davidsellsforcheap",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562700,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760611184,
+      "title": "FC 25",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "6.0 GBP",
+      "price_amount": 6.0,
+      "estimated_total": 7.0,
+      "photo": "https://images1.vinted.net/t/05_0101f_CamoEEYSKyWmg2rQCV5uu771/f800/1787562579.jpeg?s=8f94ace08cef52fae897b6168233c6d9906ee0ec",
+      "url": "https://www.vinted.co.uk/items/9760611184",
+      "seller": {
+        "login": "davidsellsforcheap",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562579,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760608791,
+      "title": "Like a dragon",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "20.0 GBP",
+      "price_amount": 20.0,
+      "estimated_total": 21.7,
+      "photo": "https://images1.vinted.net/t/02_00afb_uuYTte2X2X3aNqPM8eq1TANR/f800/1787562564.jpeg?s=8cea85c6208b08670f97159007bf369b649afb93",
+      "url": "https://www.vinted.co.uk/items/9760608791",
+      "seller": {
+        "login": "maqsood_acz",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562564,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9760606902,
+      "title": "Call of Duty",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "6.5 GBP",
+      "price_amount": 6.5,
+      "estimated_total": 7.53,
+      "photo": "https://images1.vinted.net/t/01_003e2_9heNdnXHo7cqdSsqcpwhfisD/f800/1787562552.jpeg?s=a9a522f45a3ea9117f1d204c7cf2f46499d5577f",
+      "url": "https://www.vinted.co.uk/items/9760606902",
+      "seller": {
+        "login": "annaelizabethcandles",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562552,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760592380,
+      "title": "Call of Duty Black ops 6",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "8.0 GBP",
+      "price_amount": 8.0,
+      "estimated_total": 9.1,
+      "photo": "https://images1.vinted.net/t/05_026c9_dRsBSSbSyiAyAkvFxXWDg5ep/f800/1787562462.jpeg?s=c167ba133338671c09b381728e4daf2fd3b82c72",
+      "url": "https://www.vinted.co.uk/items/9760592380",
+      "seller": {
+        "login": "annaelizabethcandles",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562462,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9760573835,
+      "title": "Call of Duty PS5",
+      "watch": "PS5 Games",
+      "brand": "",
+      "size": "",
+      "condition": "New without tags",
+      "price": "8.0 GBP",
+      "price_amount": 8.0,
+      "estimated_total": 9.1,
+      "photo": "https://images1.vinted.net/t/05_009a8_oy95mRnA1DEXiz8S5p18xrgE/f800/1787562345.jpeg?s=347240edd3c6ee9e825ec508bfb8e69e62cf1b6b",
+      "url": "https://www.vinted.co.uk/items/9760573835",
+      "seller": {
+        "login": "annaelizabethcandles",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": null,
+      "score": 44,
+      "my_size": false,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "Under GBP 20",
+      "source": "core",
+      "listed_at": 1787562345,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "games",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ps5 game",
+        "price_to": 35,
+        "catalog_ids": "2994,3002"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9760556161,
@@ -3646,9 +4113,9 @@
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
@@ -3663,33 +4130,35 @@
         "search_text": "ps5 game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
-      "id": 9760272653,
-      "title": "Sspiderman morales",
+      "id": 9760558194,
+      "title": "Battlefield 6 PS5 Disc Edition Like New",
       "watch": "PS5 Games",
       "brand": "",
       "size": "",
       "condition": "New without tags",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/05_01271_7SNuBqDZGnaQEkGjNSiP3N3o/f800/1787560325.jpeg?s=2b0698b0038975cd27422b75399901b99a855ad2",
-      "url": "https://www.vinted.co.uk/items/9760272653",
+      "price": "19.0 GBP",
+      "price_amount": 19.0,
+      "estimated_total": 20.65,
+      "photo": "https://images1.vinted.net/t/06_01816_jLW2sfo8TFoHUujX1DeG5V8f/f800/1787562246.jpeg?s=f4f24608bd69343b68520d54ca370bd0fc4b7c44",
+      "url": "https://www.vinted.co.uk/items/9760558194",
       "seller": {
-        "login": "babysharkmods",
+        "login": "dcampion22",
         "feedback_count": 0,
         "reputation": null
       },
       "discount_pct": null,
-      "score": 44,
+      "score": 39,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "Under GBP 20",
       "source": "core",
-      "listed_at": 1787560325,
+      "listed_at": 1787562246,
       "condition_badge": "NEW",
       "category": "electronics",
       "subcategory": "games",
@@ -3700,44 +4169,9 @@
         "search_text": "ps5 game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
-    },
-    {
-      "id": 9735610940,
-      "title": "Vintage 100% Wisconsin Cheesehead Graphic T-Shirt",
-      "watch": "Retro Football Shirts",
-      "brand": "Gildan",
-      "size": "L",
-      "condition": "New without tags",
-      "price": "6.67 GBP",
-      "price_amount": 6.67,
-      "estimated_total": 7.7,
-      "photo": "https://images1.vinted.net/t/02_0225e_aBKubiTMFNQ1kgF13WmA9246/f800/1787362123.jpeg?s=991c9ed7b227ad49eb0713db7e547f6f8e282722",
-      "url": "https://www.vinted.co.uk/items/9735610940",
-      "seller": {
-        "login": "zoovtg",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": null,
-      "score": 44,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787362123,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "football",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "retro football shirt vintage",
-        "price_to": 35,
-        "catalog_ids": "5"
-      }
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9760101286,
@@ -3774,7 +4208,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9759389010,
@@ -3811,7 +4247,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9759069540,
@@ -3848,7 +4286,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9759075921,
@@ -3885,7 +4325,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9759072569,
@@ -3922,7 +4364,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9758514480,
@@ -3959,7 +4403,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9757429748,
@@ -3996,7 +4442,9 @@
         "search_text": "xbox series x game",
         "price_to": 35,
         "catalog_ids": "2994,3002"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9751932436,
@@ -4033,7 +4481,9 @@
         "search_text": "hip hop vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9756915543,
@@ -4070,7 +4520,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9756939328,
@@ -4107,7 +4559,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 4
     },
     {
       "id": 9751960311,
@@ -4144,7 +4598,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9715651604,
@@ -4181,7 +4637,9 @@
         "search_text": "indie rock vinyl",
         "price_to": 40,
         "catalog_ids": "3036,3041"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     },
     {
       "id": 9746286318,
@@ -4218,7 +4676,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9746278279,
@@ -4255,7 +4715,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
+      },
+      "caution_flags": [],
+      "favourite_count": 1
     },
     {
       "id": 9746262381,
@@ -4292,229 +4754,9 @@
         "search_text": "rap cd",
         "price_to": 20,
         "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9739208491,
-      "title": "Tyler, The Creator - Chromakopia CD",
-      "watch": "Rap CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "12.0 GBP",
-      "price_amount": 12.0,
-      "estimated_total": 13.3,
-      "photo": "https://images1.vinted.net/t/02_00bc3_pZNP36ouz5FHjwb35Nb754u4/f800/1787400066.jpeg?s=d0f423c5b0f56b53aa9b1e883bdb60731b42ed78",
-      "url": "https://www.vinted.co.uk/items/9739208491",
-      "seller": {
-        "login": "imogen1f",
-        "feedback_count": 0,
-        "reputation": null
       },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787400066,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "rap cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9757538900,
-      "title": "Tame Impala - Deadbeat CD Single (Columbia Records 2024)",
-      "watch": "Indie CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "10.0 GBP",
-      "price_amount": 10.0,
-      "estimated_total": 11.2,
-      "photo": "https://images1.vinted.net/t/02_00bde_3Bt6KJXGgtKd62qeNJqnVuyX/f800/1787514701.jpeg?s=6e0aa17180562b1beeeb6d91fe5adf0adddd3653",
-      "url": "https://www.vinted.co.uk/items/9757538900",
-      "seller": {
-        "login": "kellyb3535",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787514701,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "indie cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9756481788,
-      "title": "jon fratelli psycho jukebox indie rock",
-      "watch": "Indie CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "3.0 GBP",
-      "price_amount": 3.0,
-      "estimated_total": 3.85,
-      "photo": "https://images1.vinted.net/t/03_01402_QxAeuohFCNLxerpjUaDxpFPM/f800/1787509479.jpeg?s=905e87cf31334b34296a2c67a370a350d51b3fad",
-      "url": "https://www.vinted.co.uk/items/9756481788",
-      "seller": {
-        "login": "jorhodes711",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787509479,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "indie cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9735270449,
-      "title": "@ Shine 10 uK Indie Double Cd compilation album",
-      "watch": "Indie CDs",
-      "brand": "",
-      "size": "",
-      "condition": "New without tags",
-      "price": "2.5 GBP",
-      "price_amount": 2.5,
-      "estimated_total": 3.33,
-      "photo": "https://images1.vinted.net/t/01_01c6c_GYZWDTSZy8aSr8YXyMDnVohy/f800/1787352435.jpeg?s=cbe688961ce2e875d7cdded0913ff9ec2c19d423",
-      "url": "https://www.vinted.co.uk/items/9735270449",
-      "seller": {
-        "login": "djwizdom",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1787352435,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "music",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "indie cd",
-        "price_to": 20,
-        "catalog_ids": "3036,3039"
-      }
-    },
-    {
-      "id": 9436127876,
-      "title": "Sheffield Wednesday home strip",
-      "watch": "Sheffield Wednesday",
-      "brand": "Macron",
-      "size": "L",
-      "condition": "New without tags",
-      "price": "10.0 GBP",
-      "price_amount": 10.0,
-      "estimated_total": 11.2,
-      "photo": "https://images1.vinted.net/t/01_00819_dGUtooPAmrCgSWxh7kjEsSPN/f800/1784466375.jpeg?s=3c0891378a250ed0d3bdf37d1069a7bd362a402e",
-      "url": "https://www.vinted.co.uk/items/9436127876",
-      "seller": {
-        "login": "m43635",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1784466375,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "football",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "sheffield wednesday retro vintage shirt",
-        "price_to": 40,
-        "catalog_ids": "5"
-      }
-    },
-    {
-      "id": 9449124363,
-      "title": "Retro style football shirt / sports jersey - Cardiff City home 1983, size extra extra large",
-      "watch": "Sheffield Wednesday",
-      "brand": "KlassikFootballShirts",
-      "size": "XXL",
-      "condition": "New without tags",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/01_00a5a_LpBoxqsksrxV7AF7HJGeUbvE/f800/1784576079.jpeg?s=a440b1d43067db1007424bf01e3038e211a808bc",
-      "url": "https://www.vinted.co.uk/items/9449124363",
-      "seller": {
-        "login": "klassikfootballtops",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": null,
-      "score": 39,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "Under GBP 20",
-      "source": "core",
-      "listed_at": 1784576079,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "football",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "sheffield wednesday retro vintage shirt",
-        "price_to": 40,
-        "catalog_ids": "5"
-      }
+      "caution_flags": [],
+      "favourite_count": 0
     }
   ]
 }
