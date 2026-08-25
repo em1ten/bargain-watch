@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787697139,
+  "generated_at": 1787698868,
   "discovery_today": [
     "Rains",
     "And Wander",
@@ -247,7 +247,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 15
+      "favourite_count": 16
     },
     {
       "id": 9779400813,
@@ -290,6 +290,46 @@
       "favourite_count": 0
     },
     {
+      "id": 9777360468,
+      "title": "Uniqlo Utility Overshirt",
+      "watch": "Uniqlo U",
+      "brand": "Uniqlo",
+      "size": "L",
+      "condition": "Very good",
+      "price": "12.0 GBP",
+      "price_amount": 12.0,
+      "estimated_total": 13.3,
+      "photo": "https://images1.vinted.net/t/02_018e7_7sWk5pP4Xh2daEMzFJBvrAns/f800/1787676764.jpeg?s=b30133b570b8cced7787e83870e65a8be2c5a368",
+      "url": "https://www.vinted.co.uk/items/9777360468",
+      "seller": {
+        "login": "g_w_o",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 83,
+      "score": 118,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787676764,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": true,
+      "price_drop_pct": 20,
+      "previous_price": 15.0,
+      "source_config": {
+        "search_text": "uniqlo u",
+        "price_to": 30,
+        "rrp": 70,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 7
+    },
+    {
       "id": 9779055205,
       "title": "Edwin jeans",
       "watch": "Edwin",
@@ -327,7 +367,7 @@
         "size_category": "denim"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 3
     },
     {
       "id": 9774584982,
@@ -421,7 +461,7 @@
         ]
       },
       "caution_flags": [],
-      "favourite_count": 8
+      "favourite_count": 9
     },
     {
       "id": 9765742343,
@@ -788,7 +828,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 3
     },
     {
       "id": 9711322663,
@@ -1108,7 +1148,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 3
     },
     {
       "id": 9762829637,
@@ -1482,7 +1522,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 8
+      "favourite_count": 9
     },
     {
       "id": 9759901485,
@@ -1725,46 +1765,6 @@
       "favourite_count": 0
     },
     {
-      "id": 9776110588,
-      "title": "Uniqlo u bomber jacket",
-      "watch": "Uniqlo U",
-      "brand": "Uniqlo",
-      "size": "L",
-      "condition": "Very good",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/01_01dd5_nVgEfwQ2JRYQM5xc1yQodQbY/f800/1787671240.jpeg?s=8eff566081891459664915f695fa551149e4c081",
-      "url": "https://www.vinted.co.uk/items/9776110588",
-      "seller": {
-        "login": "samuelblue92",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 79,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-79%",
-      "source": "core",
-      "listed_at": 1787671240,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "uniqlo u",
-        "price_to": 30,
-        "rrp": 70,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 2
-    },
-    {
       "id": 9775763692,
       "title": "uniqlo u airsense ultra stretch black shirt jacket overshirt uk large",
       "watch": "Uniqlo U",
@@ -1803,6 +1803,46 @@
       },
       "caution_flags": [],
       "favourite_count": 12
+    },
+    {
+      "id": 9776110588,
+      "title": "Uniqlo u bomber jacket",
+      "watch": "Uniqlo U",
+      "brand": "Uniqlo",
+      "size": "L",
+      "condition": "Very good",
+      "price": "15.0 GBP",
+      "price_amount": 15.0,
+      "estimated_total": 16.45,
+      "photo": "https://images1.vinted.net/t/01_01dd5_nVgEfwQ2JRYQM5xc1yQodQbY/f800/1787671240.jpeg?s=8eff566081891459664915f695fa551149e4c081",
+      "url": "https://www.vinted.co.uk/items/9776110588",
+      "seller": {
+        "login": "samuelblue92",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 79,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-79%",
+      "source": "core",
+      "listed_at": 1787671240,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "uniqlo u",
+        "price_to": 30,
+        "rrp": 70,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9774646840,
@@ -2042,7 +2082,7 @@
         "size_category": "footwear"
       },
       "caution_flags": [],
-      "favourite_count": 7
+      "favourite_count": 8
     },
     {
       "id": 9779442942,
@@ -2123,6 +2163,46 @@
       },
       "caution_flags": [],
       "favourite_count": 3
+    },
+    {
+      "id": 9682800911,
+      "title": "Service Works chef trousers",
+      "watch": "Service Works",
+      "brand": "Service Works",
+      "size": "M",
+      "condition": "Very good",
+      "price": "20.0 GBP",
+      "price_amount": 20.0,
+      "estimated_total": 21.7,
+      "photo": "https://images1.vinted.net/t/02_0054a_mDw9uCkNi7N8UTwqH35uaPRJ/f800/1786907866.jpeg?s=1edcc6c10bd2ea76fbcf7500364af81b8d15a3ae",
+      "url": "https://www.vinted.co.uk/items/9682800911",
+      "seller": {
+        "login": "rhi_o",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 71,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-71%",
+      "source": "core",
+      "listed_at": 1786907866,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "service works",
+        "price_to": 30,
+        "rrp": 70,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 20
     },
     {
       "id": 9777578212,
@@ -2365,86 +2445,6 @@
       "favourite_count": 13
     },
     {
-      "id": 9779909645,
-      "title": "Sweatshirt",
-      "watch": "Daily Paper",
-      "brand": "Daily paper",
-      "size": "L",
-      "condition": "Very good",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/04_0073c_eiwSjwVzY2q6TqDwh5P2hwVS/f800/1787690699.jpeg?s=63e744b2b6c5dd2b4239797473934387ce3fb0e8",
-      "url": "https://www.vinted.co.uk/items/9779909645",
-      "seller": {
-        "login": "hass14",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": 1787690699,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "daily paper",
-        "price_to": 45,
-        "rrp": 120,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9752507792,
-      "title": "NN07 Green cotton shirt L",
-      "watch": "NN07",
-      "brand": "NN07",
-      "size": "L",
-      "condition": "Very good",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/05_014a0_aMUcnyoc3FczXjaStsdPSHUr/f800/1787494649.jpeg?s=c608739a4d7dc7d9ece70cb691aa71fe57d1c188",
-      "url": "https://www.vinted.co.uk/items/9752507792",
-      "seller": {
-        "login": "willspainy",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 103,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": 1787494649,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "nn07",
-        "price_to": 50,
-        "rrp": 120,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 12
-    },
-    {
       "id": 9778824641,
       "title": "Men's Retro Pile Fleece Jacket -  Patagonia - L",
       "watch": "Patagonia",
@@ -2482,47 +2482,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 9
-    },
-    {
-      "id": 9780434867,
-      "title": "Men\u2019s charcoal grey stone island knit jumper - size medium",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "70.0 GBP",
-      "price_amount": 70.0,
-      "estimated_total": 74.2,
-      "photo": "https://images1.vinted.net/t/01_00d42_nVjXn39n4KSaH2bjTcJeAf3k/f800/1787696243.jpeg?s=4ec28e3d0729ab665937cc39b5cf51c6d2351037",
-      "url": "https://www.vinted.co.uk/items/9780434867",
-      "seller": {
-        "login": "obnkss",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 80,
-      "score": 119,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-80%",
-      "source": "core",
-      "listed_at": 1787696243,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "stone island",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 6
+      "favourite_count": 10
     },
     {
       "id": 9776300232,
@@ -2602,7 +2562,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 18
+      "favourite_count": 20
     },
     {
       "id": 9771383240,
@@ -2682,7 +2642,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 6
+      "favourite_count": 7
     },
     {
       "id": 9772431948,
@@ -2749,46 +2709,6 @@
       "bargain_reason": "-70%",
       "source": "core",
       "listed_at": 1787685289,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "palm angels",
-        "price_to": 100,
-        "rrp": 300,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9779057845,
-      "title": "Palm angels T shirt",
-      "watch": "Palm Angels",
-      "brand": "Palm Angels",
-      "size": "L",
-      "condition": "New without tags",
-      "price": "90.0 GBP",
-      "price_amount": 90.0,
-      "estimated_total": 95.2,
-      "photo": "https://images1.vinted.net/t/04_010df_FfSBNp1PgPoZaHUQGZZWzsk3/f800/1787685218.jpeg?s=0bb4bb1fef3e6f9727e472ef11332e68cfcf6e37",
-      "url": "https://www.vinted.co.uk/items/9779057845",
-      "seller": {
-        "login": "liambell18",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 70,
-      "score": 114,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-70%",
-      "source": "core",
-      "listed_at": 1787685218,
       "condition_badge": "NEW",
       "category": "electronics",
       "subcategory": "caution",
@@ -2885,110 +2805,110 @@
       "favourite_count": 11
     },
     {
-      "id": 9780404430,
-      "title": "Belstaff Outline Overshirt Jacket Dark Ink Men\u2019s Large",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "L",
-      "condition": "Very good",
-      "price": "98.0 GBP",
-      "price_amount": 98.0,
-      "estimated_total": 103.6,
-      "photo": "https://images1.vinted.net/t/01_01e72_B1KnqGDsTeCj1u5zhQ4WCBAt/f800/1787695804.jpeg?s=58a2d82460e7d1ac1778e7dacf894092f7fe3830",
-      "url": "https://www.vinted.co.uk/items/9780404430",
+      "id": 9780434867,
+      "title": "Men\u2019s charcoal grey stone island knit jumper - size medium",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
+      "size": "M",
+      "condition": "New without tags",
+      "price": "70.0 GBP",
+      "price_amount": 70.0,
+      "estimated_total": 74.2,
+      "photo": "https://images1.vinted.net/t/01_00d42_nVjXn39n4KSaH2bjTcJeAf3k/f800/1787696243.jpeg?s=4ec28e3d0729ab665937cc39b5cf51c6d2351037",
+      "url": "https://www.vinted.co.uk/items/9780434867",
       "seller": {
-        "login": "esdenoutfitters",
+        "login": "obnkss",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 72,
-      "score": 103,
+      "discount_pct": 80,
+      "score": 114,
       "my_size": true,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-72%",
+      "bargain_reason": "-80%",
       "source": "core",
-      "listed_at": 1787695804,
-      "condition_badge": null,
+      "listed_at": 1787696243,
+      "condition_badge": "NEW",
       "category": "electronics",
       "subcategory": "caution",
       "price_dropped": false,
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
+        "search_text": "stone island",
+        "price_to": 130,
         "rrp": 350,
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 1
+      "favourite_count": 6
     },
     {
-      "id": 9753423273,
-      "title": "Patagonia fleece",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
+      "id": 9779893293,
+      "title": "Cp company goggle chrome jacket",
+      "watch": "CP Company",
+      "brand": "C.P. Company",
       "size": "L",
-      "condition": "Very good",
-      "price": "25.97 GBP",
-      "price_amount": 25.97,
-      "estimated_total": 27.97,
-      "photo": "https://images1.vinted.net/t/02_01b50_aVsqcAzD7o19eGu7UNwv61X2/f800/1787497946.jpeg?s=fd62cc5d2bc26e3f747925869288e3cd9721a459",
-      "url": "https://www.vinted.co.uk/items/9753423273",
-      "seller": {
-        "login": "bootscootn",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 84,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-84%",
-      "source": "core",
-      "listed_at": 1787497946,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "patagonia jacket",
-        "price_to": 60,
-        "rrp": 160,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 13
-    },
-    {
-      "id": 9780478845,
-      "title": "Lightweight stone island hooded sweatshirt",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "M",
       "condition": "Very good",
       "price": "120.0 GBP",
       "price_amount": 120.0,
       "estimated_total": 126.7,
-      "photo": "https://images1.vinted.net/t/06_006d0_oqZ46tkX9gynbRKkX9uCmWPa/f800/1787696915.jpeg?s=87004d8fbd0419a30bd46e2f5dea2f0afc92aaee",
-      "url": "https://www.vinted.co.uk/items/9780478845",
+      "photo": "https://images1.vinted.net/t/06_016b4_df8svzkqUhXhW4Zz6n87WE2v/f800/1787690572.jpeg?s=9659bcca59b989595253b5dbb05dba1f4d1031aa",
+      "url": "https://www.vinted.co.uk/items/9779893293",
       "seller": {
-        "login": "07593021344",
+        "login": "charlbeestin",
         "feedback_count": 0,
         "reputation": null
       },
       "discount_pct": 66,
+      "score": 113,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-66%",
+      "source": "core",
+      "listed_at": 1787690572,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": true,
+      "price_drop_pct": 8,
+      "previous_price": 130.0,
+      "source_config": {
+        "search_text": "cp company",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 8
+    },
+    {
+      "id": 9780519608,
+      "title": "Stone island jacket",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
+      "size": "M",
+      "condition": "Very good",
+      "price": "95.0 GBP",
+      "price_amount": 95.0,
+      "estimated_total": 100.45,
+      "photo": "https://images1.vinted.net/t/01_010a7_1Hashc59X8AJw5dkNKEoqJEK/f800/1787697589.jpeg?s=f1ddbe3f54b1f118cb51102192995de3a4d8260e",
+      "url": "https://www.vinted.co.uk/items/9780519608",
+      "seller": {
+        "login": "frehou46",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 73,
       "score": 103,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-66%",
+      "bargain_reason": "-73%",
       "source": "core",
-      "listed_at": 1787696915,
+      "listed_at": 1787697589,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -3243,6 +3163,46 @@
       },
       "caution_flags": [],
       "favourite_count": 8
+    },
+    {
+      "id": 9780404430,
+      "title": "Belstaff Outline Overshirt Jacket Dark Ink Men\u2019s Large",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "L",
+      "condition": "Very good",
+      "price": "98.0 GBP",
+      "price_amount": 98.0,
+      "estimated_total": 103.6,
+      "photo": "https://images1.vinted.net/t/01_01e72_B1KnqGDsTeCj1u5zhQ4WCBAt/f800/1787695804.jpeg?s=58a2d82460e7d1ac1778e7dacf894092f7fe3830",
+      "url": "https://www.vinted.co.uk/items/9780404430",
+      "seller": {
+        "login": "esdenoutfitters",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 72,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-72%",
+      "source": "core",
+      "listed_at": 1787695804,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9779697834,
@@ -3722,7 +3682,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 19
+      "favourite_count": 20
     },
     {
       "id": 9776352371,
@@ -3805,30 +3765,30 @@
       "favourite_count": 4
     },
     {
-      "id": 9772673816,
-      "title": "Moncler maya jacket",
+      "id": 9764976607,
+      "title": "Moncler coat",
       "watch": "Moncler",
       "brand": "Moncler",
       "size": "M",
       "condition": "Very good",
-      "price": "140.0 GBP",
-      "price_amount": 140.0,
-      "estimated_total": 147.7,
-      "photo": "https://images1.vinted.net/t/06_026a7_XiSUQJXahRW24ykXsERXpkJ7/f800/1787654685.jpeg?s=0a875456a379b02ff8516b6e590b4232db04eded",
-      "url": "https://www.vinted.co.uk/items/9772673816",
+      "price": "200.0 GBP",
+      "price_amount": 200.0,
+      "estimated_total": 210.7,
+      "photo": "https://images1.vinted.net/t/06_01ae6_NuZ5UvStcS9FmG4WWdAxqwgM/f800/1787584463.jpeg?s=ff5c5022474abc8b2b3fd3ce02c91eb59a1429dd",
+      "url": "https://www.vinted.co.uk/items/9764976607",
       "seller": {
-        "login": "dmasell",
+        "login": "cwattzx",
         "feedback_count": 0,
         "reputation": null
       },
-      "discount_pct": 84,
+      "discount_pct": 78,
       "score": 98,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-84%",
+      "bargain_reason": "-78%",
       "source": "core",
-      "listed_at": 1787654685,
+      "listed_at": 1787584463,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -3842,7 +3802,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 63
+      "favourite_count": 3
     },
     {
       "id": 9780196477,
@@ -4002,7 +3962,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 1
+      "favourite_count": 2
     },
     {
       "id": 9779898268,
@@ -4042,7 +4002,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 0
+      "favourite_count": 1
     },
     {
       "id": 9775926972,
@@ -4365,86 +4325,6 @@
       "favourite_count": 5
     },
     {
-      "id": 9776286213,
-      "title": "GG Superstar Sneak Sn00",
-      "watch": "Golden Goose",
-      "brand": "Golden Goose",
-      "size": "9",
-      "condition": "Good",
-      "price": "99.0 GBP",
-      "price_amount": 99.0,
-      "estimated_total": 104.65,
-      "photo": "https://images1.vinted.net/t/02_01a1f_dMDPJGqBp6RTZhTcML54Ly5R/f800/1787672019.jpeg?s=b78b4b5ae50cdf4b4a7d96a6ba2b3f50c4a54b39",
-      "url": "https://www.vinted.co.uk/items/9776286213",
-      "seller": {
-        "login": "gkennedy1",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 72,
-      "score": 98,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-72%",
-      "source": "core",
-      "listed_at": 1787672019,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "golden goose",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "footwear"
-      },
-      "caution_flags": [],
-      "favourite_count": 7
-    },
-    {
-      "id": 9728420889,
-      "title": "White and cream superstar golden goose",
-      "watch": "Golden Goose",
-      "brand": "Golden Goose",
-      "size": "9",
-      "condition": "Good",
-      "price": "120.0 GBP",
-      "price_amount": 120.0,
-      "estimated_total": 126.7,
-      "photo": "https://images1.vinted.net/t/06_01dd7_Mqci3NNEvhG4evxrZjPDWYMJ/f800/1787309827.jpeg?s=80908f3f4de0194e1cb0427376b9458bee975a96",
-      "url": "https://www.vinted.co.uk/items/9728420889",
-      "seller": {
-        "login": "stani2024",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 66,
-      "score": 98,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-66%",
-      "source": "core",
-      "listed_at": 1787309827,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "golden goose",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "footwear"
-      },
-      "caution_flags": [],
-      "favourite_count": 3
-    },
-    {
       "id": 9618179652,
       "title": "Golden Goose GGDB Slide Men\u2019s High-Top Lace-Up Zip EU43/UK9 Bordeaux Suede/Blue - Used/Excellent",
       "watch": "Golden Goose",
@@ -4725,6 +4605,46 @@
       "favourite_count": 5
     },
     {
+      "id": 9753423273,
+      "title": "Patagonia fleece",
+      "watch": "Patagonia",
+      "brand": "Patagonia",
+      "size": "L",
+      "condition": "Very good",
+      "price": "25.97 GBP",
+      "price_amount": 25.97,
+      "estimated_total": 27.97,
+      "photo": "https://images1.vinted.net/t/02_01b50_aVsqcAzD7o19eGu7UNwv61X2/f800/1787497946.jpeg?s=fd62cc5d2bc26e3f747925869288e3cd9721a459",
+      "url": "https://www.vinted.co.uk/items/9753423273",
+      "seller": {
+        "login": "bootscootn",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 84,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1787497946,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "patagonia jacket",
+        "price_to": 60,
+        "rrp": 160,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 13
+    },
+    {
       "id": 9780317980,
       "title": "Lightweight Patagonia Compact Pullover",
       "watch": "Patagonia",
@@ -4762,7 +4682,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 3
+      "favourite_count": 4
     },
     {
       "id": 9780211738,
@@ -4842,7 +4762,87 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 43
+      "favourite_count": 45
+    },
+    {
+      "id": 9779992991,
+      "title": "Two tone waterproof Patagonia jacket/coat",
+      "watch": "Patagonia",
+      "brand": "Patagonia",
+      "size": "M",
+      "condition": "Very good",
+      "price": "41.0 GBP",
+      "price_amount": 41.0,
+      "estimated_total": 43.75,
+      "photo": "https://images1.vinted.net/t/02_0230e_yKxkq8VDCLczFKVwKgDs7K1C/f800/1787691373.jpeg?s=828514eee818aaad80a65ede89087efdac5aa034",
+      "url": "https://www.vinted.co.uk/items/9779992991",
+      "seller": {
+        "login": "lanaclancy",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 74,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-74%",
+      "source": "core",
+      "listed_at": 1787691373,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "patagonia jacket",
+        "price_to": 60,
+        "rrp": 160,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9779828377,
+      "title": "Men\u2019s Patagonia dark grey & taupe colour block zip up lightweight fleece size large",
+      "watch": "Patagonia",
+      "brand": "Patagonia",
+      "size": "L",
+      "condition": "Very good",
+      "price": "30.0 GBP",
+      "price_amount": 30.0,
+      "estimated_total": 32.2,
+      "photo": "https://images1.vinted.net/t/02_02126_tJtFjWE9WMyWAnNgicTc3nLe/f800/1787690077.jpeg?s=a4dcedf4df0473bbff52c14cf14d1d5c1d9589a8",
+      "url": "https://www.vinted.co.uk/items/9779828377",
+      "seller": {
+        "login": "jemmah1592",
+        "feedback_count": 0,
+        "reputation": null
+      },
+      "discount_pct": 81,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-81%",
+      "source": "core",
+      "listed_at": 1787690077,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "patagonia jacket",
+        "price_to": 60,
+        "rrp": 160,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
     }
   ]
 }
