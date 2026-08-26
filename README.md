@@ -13,7 +13,7 @@ Built to start with Vinted, with room to add other marketplaces later.
   searches plus a daily rotation of discovery brands, scores every listing,
   and writes one ranked feed to `docs/data.json`
 - `docs/index.html` (served via GitHub Pages) shows that feed with tap-only
-  filter pills: All / My size / Just listed / Bargains / Starred / Games /
+  filter pills: All / My size / Just listed / Bargains / Starred / Games &
   Music / Football / Caution / Shops / Brands, plus a Sort row (Best match /
   Newest / Price) and, when the feed has sized items, a Size row underneath
   the main pills for narrowing to one exact size (e.g. just W34, not W36)
@@ -227,12 +227,21 @@ a preference.
 ## Games and music
 
 Video games (PS5/Xbox), vinyl, and CDs are tracked the same way as
-clothing — same scoring, same "Other" pill (which now covers all
-non-clothing categories, not just gadgets). Vinyl and CDs use the hard
-condition filter above, since worn media isn't worth the risk the way a
-worn jacket might still be fine. The discovery pool now also includes
-vinyl searches for your specific favourite artists, rotating in the same
-way as clothing brands.
+clothing — same scoring, shown together under the **Games & Music** pill
+(previously two separate pills; combined since both were sparse enough on
+their own that tabbing between two near-empty views wasn't worth it).
+Vinyl and CDs use the hard condition filter above, since worn media isn't
+worth the risk the way a worn jacket might still be fine.
+
+Price ceilings were raised across the board here — £35 for games, £40 for
+core vinyl, £30 for discovery vinyl, and £20 for CDs were likely cutting
+out a lot of what Vinted actually had listed. Now £45 for games, £55 for
+core vinyl, £45 for discovery vinyl, £30 for CDs. Worth checking the scan
+log after a run or two: if raw result counts for these watches are still
+low even at the new ceiling, the next thing to check is whether the
+`catalog_ids` values (`2994,3002` for games; `3036,3041`/`3036,3039` for
+vinyl/CDs) still match Vinted's current category structure — that's not
+something checkable without seeing a live scan's actual result counts.
 
 ## Homeware and art
 
