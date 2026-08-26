@@ -536,7 +536,17 @@ def main():
 
     for watch, source in scan_plan:
         name = watch["name"]
-        exclude_terms = global_exclude + watch.get("exclude", [])
+        # global_exclude was written with clothing/kids-junk in mind ('case'
+        # for phone cases, 'replica' for fake designer items) but those same
+        # words are completely ordinary in other categories - 'replica' is
+        # the standard term for a genuine retro football shirt, and 'case'
+        # shows up constantly in legitimate game/CD listings ('complete with
+        # case', 'no case'). Applied unconditionally, that was silently
+        # gutting exactly those searches. exclude_ignore lets a specific
+        # watch opt back in to a global term without weakening it everywhere
+        # else (caution watches still want 'replica' excluded, for instance).
+        ignore = set(watch.get("exclude_ignore", []))
+        exclude_terms = [t for t in global_exclude if t not in ignore] + watch.get("exclude", [])
         notify_mode = watch.get("notify", "instant")
         print(f"Checking ({source}): {name}")
         try:
