@@ -32,6 +32,7 @@ import random
 import re
 import time
 import unicodedata
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -275,20 +276,24 @@ def authenticity_caution_check(item, watch):
 def size_matches(size_title, size_terms):
     """Match a size term as a distinct token within the listing's size string,
     not as a raw substring - otherwise 'L' wrongly matches inside 'XL', '38L',
-    or the '9' in 'UK 9' wrongly matches inside '39'."""
+    or the '9' in 'UK 9' wrongly matches inside '39'.
+
+    Returns the specific configured term that matched (e.g. 'W34'), not just
+    True/False - the dashboard uses this to offer per-size filter pills
+    (show only W34, not W36) rather than one blanket "my size" toggle."""
     if not size_terms:
-        return False
+        return None
     size = (size_title or "").strip().lower()
     if not size:
-        return False
+        return None
     for term in size_terms:
         t = term.strip().lower()
         if not t:
             continue
         pattern = r"(?<![a-z0-9])" + re.escape(t) + r"(?![a-z0-9])"
         if re.search(pattern, size):
-            return True
-    return False
+            return term
+    return None
 
 
 def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price=None, caution_flags=None):
@@ -302,11 +307,17 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     amount = price_obj.get("amount")
     currency = price_obj.get("currency_code", "")
 
+    # Vinted's bulk search API only returns business/id/login/photo/
+    # profile_url on the seller - NO feedback count or reputation
+    # (confirmed via live diagnostic). Earlier versions stored those two
+    # fields anyway, so they silently held 0/None on every single listing.
+    # Only what's genuinely available is kept here; profile_url is useful
+    # for checking a seller's real history manually in the browser.
     user = item.get("user") or {}
     seller = {
         "login": user.get("login", ""),
-        "feedback_count": user.get("feedback_count") or user.get("positive_feedback_count") or 0,
-        "reputation": user.get("feedback_reputation"),
+        "profile_url": user.get("profile_url", ""),
+        "business": bool(user.get("business")),
     }
 
     price_amount = None
@@ -330,7 +341,8 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
     condition = (item.get("status") or "").strip()
     size_title = (item.get("size_title") or "").strip()
     size_terms = my_sizes.get(watch.get("size_category", ""), [])
-    my_size = size_matches(size_title, size_terms)
+    size_term_matched = size_matches(size_title, size_terms)
+    my_size = size_term_matched is not None
 
     photo_obj = item.get("photo") or {}
     listed_at = (photo_obj.get("high_resolution") or {}).get("timestamp") or item.get("created_at_ts")
@@ -375,14 +387,19 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         score += 5
     if price_dropped:
         score += 15
-    # For authenticity_caution watches (Designer pill) specifically: a
-    # completely clean pass - no new-seller flag, no low/high favourite
-    # concern - ranks above an otherwise-identical listing that got a
-    # caution flag, so a quick scan of the top of the feed surfaces the
-    # cleanest-looking finds first rather than treating flagged and
-    # unflagged listings as equivalent.
-    if watch.get("authenticity_caution") and not caution_flags:
-        score += 10
+    # For authenticity_caution watches (Caution pill): a completely clean
+    # pass gets a bonus, same as before. But a flagged listing used to just
+    # miss that bonus - which meant a high discount + "New with tags"
+    # condition (exactly the profile of a fake: too cheap, suspiciously
+    # mint) could still out-score everything else and land at the top.
+    # Flags now actively subtract, so a caution listing has to be both
+    # clean AND genuinely good to rank near the top - flagged items sink
+    # below the fold rather than merely missing a boost.
+    if watch.get("authenticity_caution"):
+        if caution_flags:
+            score -= 20 * len(caution_flags)
+        else:
+            score += 10
 
     is_bargain = (discount_pct is not None and discount_pct >= threshold_pct) or (
         max_price is not None and price_amount is not None and price_amount <= max_price
@@ -400,6 +417,7 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         "watch": watch["name"],
         "brand": (item.get("brand_title") or "").strip(),
         "size": size_title,
+        "size_term_matched": size_term_matched,
         "condition": condition,
         "price": f"{amount} {currency}" if amount else "",
         "price_amount": price_amount,
@@ -529,28 +547,20 @@ def main():
             continue
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
 
-        # ONE-TIME DIAGNOSTIC - checking whether seller feedback data is
-        # actually present in bulk search results, or whether it's only
-        # populated on the individual item page (same class of gap as the
-        # verification-badge and description-text findings earlier).
-        if raw_items and not globals().get("_dumped_user_keys"):
-            globals()["_dumped_user_keys"] = True
-            sample_user = raw_items[0].get("user") or {}
-            print("  --- DIAGNOSTIC: full field list for one item's 'user' object ---")
-            print(f"  {sorted(sample_user.keys())}")
-            print(f"  Raw values: {sample_user}")
-            print("  --- END DIAGNOSTIC ---")
-
         notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
+        rejections = Counter()  # why an item didn't make the feed, for diagnosing "missing" listings
         for item in raw_items:
             try:
                 if not passes_filters(item, exclude_terms, watch.get("allowed_conditions")):
+                    rejections["excluded keyword / wrong condition"] += 1
                     continue
                 if not brand_matches(item, watch):
+                    rejections["brand tag mismatch"] += 1
                     continue
                 passes_auth, caution_flags = authenticity_caution_check(item, watch)
                 if not passes_auth:
+                    rejections["caution hard-exclude"] += 1
                     continue
                 item_id = item.get("id")
                 item_id_str = str(item_id)
@@ -572,6 +582,7 @@ def main():
             # size - blank/one-size items (accessories, caps) still pass
             # through, since fit doesn't apply to them.
             if watch.get("size_category") and card["size"] and not card["my_size"]:
+                rejections["wrong size"] += 1
                 price_history[item_id_str] = card["price_amount"]
                 continue
 
@@ -588,6 +599,11 @@ def main():
                     exceptional_finds.append(card)
         if skipped_count:
             print(f"  {skipped_count} item(s) skipped due to unexpected data")
+        if rejections:
+            breakdown = ", ".join(f"{reason}: {n}" for reason, n in rejections.most_common())
+            print(f"  rejected — {breakdown}")
+        if len(raw_items) >= per_page:
+            print(f"  ! hit the {per_page}-result page cap - there may be more on Vinted than this scan saw")
 
         if notify_cards and source == "core":
             new_count = sum(1 for c in notify_cards if c["is_new"])

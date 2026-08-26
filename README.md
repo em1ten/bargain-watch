@@ -13,9 +13,13 @@ Built to start with Vinted, with room to add other marketplaces later.
   searches plus a daily rotation of discovery brands, scores every listing,
   and writes one ranked feed to `docs/data.json`
 - `docs/index.html` (served via GitHub Pages) shows that feed with tap-only
-  filter pills: All / My size / New / Bargains / Discovery / Starred /
-  Electronics / Other, plus thumbs up/down on each card that nudge the whole feed's
-  ranking
+  filter pills: All / My size / Just listed / Bargains / Starred / Games /
+  Music / Football / Caution / Shops / Brands, plus a Sort row (Best match /
+  Newest / Price) and, when the feed has sized items, a Size row underneath
+  the main pills for narrowing to one exact size (e.g. just W34, not W36)
+- Tapping **Brands** opens a panel of every brand currently in the feed —
+  tapping one filters to just that brand. No text entry anywhere, so
+  searching doesn't need a search box
 - New finds push to your phone via ntfy.sh — instantly for priority brands,
   bundled into one daily digest for the rest (`digest_send.py`)
 
@@ -27,42 +31,36 @@ Every listing gets a score. Higher = better find, feed is sorted best-first:
 |---|---|
 | Discount vs typical retail price (`rrp`) | up to 60 |
 | At/under the flat bargain price (default £20) | +15 |
-| Condition (new with tags → good) | +15 → +3 |
-| Established, well-rated seller | +5 |
+| Condition (new with tags → good) | +30 → +3 |
 | Matches your size | +20 |
 | New since the last scan | +5 |
+| Price drop since last scan | +15 |
+| Caution-tier brand, no flags raised | +10 |
+| Caution-tier brand, per flag raised | −20 each |
+
+There's no seller-reputation bonus — Vinted's bulk search API doesn't return
+feedback count or reputation on the seller object, only
+`business/id/login/photo/profile_url`, so it genuinely can't be scored from
+data available in a single request. An earlier version of this scoring had a
+dead +5 bonus checking fields that were never actually present; removed
+rather than left silently doing nothing.
+
+The caution penalty is the more important row: a flagged listing (new
+seller, or suspiciously high unsold interest) doesn't just miss the clean
+bonus, it's actively marked down enough that discount and condition alone
+can't carry it to the top. Before this fix, an item with a steep "discount"
+and "New with tags" condition — exactly the profile of a fake — could still
+outrank everything else even while flagged, because the flag only withheld
+a bonus rather than costing anything.
 
 ## Discovery
 
 `discovery_pool` in `config.json` holds adjacent brands worth knowing
 (Arpenteur, A.P.C., Our Legacy, Stan Ray, Margaret Howell, and more). Each
-day, 3 rotate in automatically and get scanned alongside your core watches —
+day, 5 rotate in automatically and get scanned alongside your core watches —
 their finds show up tagged "discovery" in the feed, so new brands surface
 without you doing anything. The rotation cycles through the whole pool over
 time.
-
-## Thumbs up/down — teaching the feed your taste
-
-▲/▼ on each card don't just mark that one listing — they nudge that
-**brand's** position in the whole feed, up or down, for you specifically.
-Tap the same one again to undo it. It's stored in your browser only (no
-server, no account), so it's a personal ranking layer sitting on top of the
-shared score everyone else's dashboard would show.
-
-Worth knowing: since it's brand-level rather than per-listing, downvoting
-one bad match nudges that whole brand down a little rather than hiding just
-that item — a few taps in the same direction will move it more than one.
-If you'd rather it worked differently (e.g. per-listing only, or hiding
-downvoted items outright), that's a quick change — just say so.
-
-## Hiding a specific listing
-
-The ✕ button (bottom-left of each photo) permanently removes just that one
-listing — wrong brand tag, wrong category, or anything else off about it.
-Unlike thumbs up/down, this doesn't touch the brand's ranking at all; it's
-purely "don't show me this one again." Stored in your browser, same as
-everything else here. A "Reset hidden listings" link in the footer clears
-the list if you hide something by mistake.
 
 ## Deliberately read-only dashboard
 
@@ -127,6 +125,37 @@ Per watch (in `watches` or `discovery_pool`):
   countries.
 - For personal use finding items, not reselling automation.
 
+## eBay (Technology / Games / Music)
+
+`ebay_watch.py` is a separate, optional add-on — a different marketplace,
+different API, different auth, kept fully decoupled from the Vinted scan
+so a problem here can never break that. It writes its own file,
+`docs/ebay_data.json`, which the dashboard fetches and merges in
+alongside the main feed; if that file is missing or the fetch fails, the
+Vinted feed just carries on as normal.
+
+**Setup:**
+1. Create an eBay Developer account at developer.ebay.com
+2. Create a **Production** keyset (Your Account → Application Keys) —
+   you'll get an **App ID (Client ID)** and **Cert ID (Client Secret)**
+3. Add both as repo secrets: Settings → Secrets and variables → Actions →
+   `EBAY_CLIENT_ID` and `EBAY_CLIENT_SECRET`
+4. Run "Vinted scan" once manually — the eBay step runs alongside it
+
+If the secrets aren't set, `ebay_watch.py` exits quietly and the rest of
+the workflow (including the Vinted scan) runs completely unaffected.
+
+**Honest limitation:** eBay deprecated third-party access to sold-item
+price data in 2025 — the API used here (Browse API) only sees *active*
+listings, the same situation as Vinted. So this doesn't solve the
+RRP-estimate problem the way real sold-price data would have; `rrp`
+values for eBay watches are still rough estimates, same as everywhere
+else in this project.
+
+eBay cards are tagged "· eBay" next to the brand label so you can always
+tell which marketplace a listing came from, and use eBay's own
+`itemWebUrl` link straight through to the real listing.
+
 ## Retail shops (Shopify) — genuine markdowns, no RRP guessing
 
 `shop_watch.py` is a third, similarly decoupled add-on — checks specific
@@ -136,38 +165,36 @@ signal in the whole project: Shopify tells you the actual "was" price
 straight from the retailer, no guessing needed.
 
 **The catch:** only works for shops that happen to run on Shopify. Not
-every retailer does. Currently configured for Yards Store, Stuarts
-London, Jeanstore, and Son of a Stag (all confirmed Shopify) — Universal
-Works, Edwin Europe, Norse Projects, and Belstaff were tried and cut for
-scan-time reasons, not because they didn't work. Add more to
-`shop_watches` in `config.json` if you find other shops you like that
-are also on Shopify (`{domain}/products.json` returning real product
-data is the quick way to check).
+every retailer does. Currently configured for Universal Works and Yards
+Store (both confirmed Shopify) — add more to `shop_watches` in
+`config.json` if you find other shops you like that are also on Shopify
+(`{domain}/products.json` returning real product data is the quick way to
+check).
 
 No secrets or setup needed for this one — Shopify's product feed is
 public. It'll just start working once `shop_watch.py` is uploaded and the
 scan runs. Cards are tagged "· retail" and appear under the "Shops" pill,
 alongside Technology/Games/Music/Football.
 
-Shop cards are size- and stock-aware: sold-out variants (greyed out /
-"notify me" on the shop) never appear, a product whose markdowns are all
-sold out drops off the feed entirely, and when an item is on sale in your
-size, the card shows only your sizes, prices from the cheapest variant
-*you could actually buy* (not a cheaper irrelevant colour/size), gets the
-same +20 size-match score bonus as Vinted finds, and shows up under the
-"My size" pill. Word sizes ("Medium", "Large") count as matches for M/L.
-If none of a product's sale sizes match, it still shows with the full
-size list rather than being hidden — shop size labels are free-form, so
-a non-match isn't proof it wouldn't fit.
-
 ## Buyer protection fee estimate
 
-Vinted cards show a small "~£X with buyer protection fee" line under the
-price — Vinted charges buyers roughly 5% + £0.70 on top of the listed
-price at checkout, so the price badge alone slightly understates what
-you'd actually pay. Retail shop cards (tagged "· retail") don't show
-this — there's no marketplace fee on a direct purchase from the shop
-itself, just the listed price.
+Vinted charges buyers roughly 5% + £0.70 on top of the listed price at
+checkout, so every Vinted card shows a compact "£X total w/ fee" line next
+to the price. Shop (retail) cards don't show this — there's no marketplace
+fee on a direct purchase from a retailer, so `estimated_total` is left
+unset for those rather than repeating the same number.
+
+## Diagnosing "missing" items
+
+Each watch's Action log now ends with a rejection tally — e.g.
+`rejected — wrong size: 12, brand tag mismatch: 3` — covering keyword
+exclusions, condition filtering, brand mismatches, caution hard-excludes,
+and wrong size, so it's possible to tell *why* something you saw browsing
+Vinted directly didn't make the feed instead of guessing. If a watch's raw
+result count hits `max_items_per_watch` (40 by default), the log also
+flags that the scan may have been cut off before it saw everything Vinted
+had — raise `max_items_per_watch` in `config.json` if that shows up often
+on a watch.
 
 ## Price drops
 
