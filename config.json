@@ -36,20 +36,20 @@
       "exclude": ["safety toe", "steel toe", "composite toe", "cap toe safety", "hi-vis", "en iso"] },
     { "name": "Rab",             "search_text": "rab jacket",      "price_to": 60,  "rrp": 160, "size_category": "tops",     "notify": "digest" },
     { "name": "Uniqlo U",        "search_text": "uniqlo u",        "price_to": 30,  "rrp": 70,  "size_category": "tops",     "notify": "instant" },
-    { "name": "PS5 Games", "search_text": "ps5 game", "price_to": 45, "notify": "digest",
+    { "name": "PS5 Games", "search_text": "ps5 game", "price_to": 45, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "2994,3002", "require_brand_match": false, "category": "electronics", "subcategory": "games" },
-    { "name": "Xbox Series X Games", "search_text": "xbox series x game", "price_to": 45, "notify": "digest",
+    { "name": "Xbox Series X Games", "search_text": "xbox series x game", "price_to": 45, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "2994,3002", "require_brand_match": false, "category": "electronics", "subcategory": "games" },
-    { "name": "Hip Hop Vinyl", "search_text": "hip hop vinyl", "price_to": 55, "notify": "digest",
+    { "name": "Hip Hop Vinyl", "search_text": "hip hop vinyl", "price_to": 55, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music",
       "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Indie Rock Vinyl", "search_text": "indie rock vinyl", "price_to": 55, "notify": "digest",
+    { "name": "Indie Rock Vinyl", "search_text": "indie rock vinyl", "price_to": 55, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music",
       "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Rap CDs", "search_text": "rap cd", "price_to": 30, "notify": "digest",
+    { "name": "Rap CDs", "search_text": "rap cd", "price_to": 30, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "3036,3039", "require_brand_match": false, "category": "electronics", "subcategory": "music",
       "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Indie CDs", "search_text": "indie cd", "price_to": 30, "notify": "digest",
+    { "name": "Indie CDs", "search_text": "indie cd", "price_to": 30, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "3036,3039", "require_brand_match": false, "category": "electronics", "subcategory": "music",
       "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
     { "name": "MKI Miyuki-Zoku",   "search_text": "mki miyuki zoku",     "price_to": 60, "rrp": 140, "size_category": "tops", "notify": "digest",
@@ -89,8 +89,8 @@
     { "name": "Palmes",          "search_text": "palmes",          "price_to": 45,  "rrp": 120, "size_category": "tops",     "notify": "digest" },
     { "name": "NN07",            "search_text": "nn07",            "price_to": 50,  "rrp": 120, "size_category": "tops",     "notify": "digest" },
     { "name": "Acne Studios",    "search_text": "acne studios",    "price_to": 90,  "rrp": 250, "size_category": "tops",     "notify": "digest" },
-    { "name": "Sheffield Wednesday", "search_text": "sheffield wednesday retro vintage shirt", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "instant" },
-    { "name": "Retro Football Shirts", "search_text": "retro football shirt vintage", "price_to": 35, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "digest" }
+    { "name": "Sheffield Wednesday", "search_text": "sheffield wednesday retro vintage shirt", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "instant", "exclude_ignore": ["replica"] },
+    { "name": "Retro Football Shirts", "search_text": "retro football shirt vintage", "price_to": 35, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "digest", "exclude_ignore": ["replica"] }
   ],
 
   "discovery_pool": [
@@ -132,12 +132,12 @@
     { "name": "Barena",          "search_text": "barena venezia",   "price_to": 90,  "rrp": 280, "size_category": "tops" },
     { "name": "Churchs",         "search_text": "churchs shoes",    "price_to": 90,  "rrp": 280, "size_category": "footwear" },
     { "name": "Crockett Jones",  "search_text": "crockett jones",   "price_to": 100, "rrp": 350, "size_category": "footwear" },
-    { "name": "90s Hip Hop Vinyl",   "search_text": "90s hip hop vinyl",   "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Boom Bap Vinyl",      "search_text": "boom bap vinyl",      "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "UK Rap Vinyl",        "search_text": "uk rap vinyl",        "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Britpop Vinyl",       "search_text": "britpop vinyl",       "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Post Punk Vinyl",     "search_text": "post punk vinyl",     "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Alternative Rock Vinyl", "search_text": "alternative rock vinyl", "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] }
+    { "name": "90s Hip Hop Vinyl",   "search_text": "90s hip hop vinyl",   "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
+    { "name": "Boom Bap Vinyl",      "search_text": "boom bap vinyl",      "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
+    { "name": "UK Rap Vinyl",        "search_text": "uk rap vinyl",        "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
+    { "name": "Britpop Vinyl",       "search_text": "britpop vinyl",       "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
+    { "name": "Post Punk Vinyl",     "search_text": "post punk vinyl",     "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
+    { "name": "Alternative Rock Vinyl", "search_text": "alternative rock vinyl", "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] }
   ],
 
   "shop_watches": [
