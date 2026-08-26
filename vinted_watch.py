@@ -296,7 +296,7 @@ def size_matches(size_title, size_terms):
     return None
 
 
-def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price=None, caution_flags=None):
+def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previous_price=None, caution_flags=None, bargain_ceiling_ratio=0.6):
     photo = (item.get("photo") or {}).get("url", "")
     # "price" is the seller's actual asking price. "total_item_price" is
     # already inclusive of Vinted's buyer protection fee - using it here
@@ -401,11 +401,28 @@ def build_card(item, domain, watch, source, my_sizes, threshold_pct, max_price, 
         else:
             score += 10
 
-    is_bargain = (discount_pct is not None and discount_pct >= threshold_pct) or (
+    # "Bargain" used to mean "discount vs RRP >= bargain_threshold_pct". But every
+    # watch's price_to ceiling was already set well below half of RRP -
+    # that's the point of a sensible ceiling - so any item that passed the
+    # search's own price cap had already cleared that threshold too.
+    # Checked across the config: 84 of 85 watches guaranteed this. The
+    # badge fired on effectively everything, making the Bargains pill
+    # indistinguishable from All. A genuine bargain here means priced well
+    # below what you already decided was your ceiling for this search -
+    # not "cheap vs a shop price nobody's actually charging".
+    price_to = watch.get("price_to")
+    under_ceiling = (
+        bargain_ceiling_ratio is not None
+        and price_to
+        and price_amount is not None
+        and price_amount <= price_to * bargain_ceiling_ratio
+    )
+    is_bargain = under_ceiling or (
         max_price is not None and price_amount is not None and price_amount <= max_price
     )
-    if discount_pct is not None and discount_pct >= threshold_pct:
-        bargain_reason = f"-{discount_pct}%"
+    if under_ceiling:
+        pct_under_ceiling = round((1 - price_amount / price_to) * 100)
+        bargain_reason = f"-{pct_under_ceiling}% of cap"
     elif is_bargain:
         bargain_reason = f"Under {currency} {int(max_price)}"
     else:
@@ -511,7 +528,7 @@ def main():
     domain = config.get("domain", "www.vinted.co.uk")
     currency = config.get("currency", "GBP")
     per_page = config.get("max_items_per_watch", 40)
-    threshold_pct = config.get("bargain_threshold_pct", 50)
+    bargain_ceiling_ratio = config.get("bargain_ceiling_ratio", 0.6)
     max_price = config.get("bargain_max_price")
     my_sizes = config.get("my_sizes", {})
     feed_size = config.get("feed_size", 60)
@@ -577,8 +594,8 @@ def main():
                 is_new = item_id_str not in price_history
                 previous_price = price_history.get(item_id_str)
                 card = build_card(
-                    item, domain, watch, source, my_sizes, threshold_pct, max_price, is_new, previous_price,
-                    caution_flags,
+                    item, domain, watch, source, my_sizes, max_price, is_new, previous_price,
+                    caution_flags, bargain_ceiling_ratio,
                 )
             except Exception as e:
                 skipped_count += 1
