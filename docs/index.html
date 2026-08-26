@@ -312,8 +312,7 @@
     <button class="pill" data-filter="is_new">Just listed</button>
     <button class="pill" data-filter="is_bargain">Bargains</button>
     <button class="pill" data-filter="starred">Starred</button>
-    <button class="pill" data-filter="games">Games</button>
-    <button class="pill" data-filter="music">Music</button>
+    <button class="pill" data-filter="games_music">Games &amp; Music</button>
     <button class="pill" data-filter="football">Football</button>
     <button class="pill" data-filter="caution">Caution</button>
     <button class="pill" data-filter="shops">Shops</button>
@@ -384,8 +383,7 @@ function cardMatches(item){
   if (activeFilter.startsWith('watch:')) return item.watch === activeFilter.slice(6);
   if (activeFilter.startsWith('size:')) return item.size_term_matched === activeFilter.slice(5);
   const isElectronics = item.category === 'electronics';
-  if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
-  if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
+  if (activeFilter === 'games_music') return isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
   if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
   if (activeFilter === 'caution') return isElectronics && item.subcategory === 'caution';
   if (activeFilter === 'shops') return isElectronics && item.subcategory === 'shops';
