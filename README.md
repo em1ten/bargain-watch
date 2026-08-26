@@ -61,6 +61,23 @@ trim all of electronics together, so Caution's 11 brand searches could
 silently crowd Games and Football (2 searches each) out of the feed
 entirely, even when the scan found genuine matches for them.
 
+## What "Bargain" actually means now
+
+The Bargains pill used to mean "discount vs `rrp` ≥ 50%". The problem:
+every watch's own `price_to` ceiling was already set well below half of
+`rrp` — that's the point of setting a sensible ceiling — so *any* item
+that passed the search's own price cap had already cleared that
+threshold too. Checked across the config: 84 of the 85 watches guaranteed
+this. The badge fired on effectively everything, which is why Bargains
+looked identical to All.
+
+A genuine bargain now means priced at or under `bargain_ceiling_ratio`
+(default 0.6, i.e. 60%) of that watch's own `price_to` — meaningfully
+cheaper than what you already decided was your ceiling for that search,
+not "cheap vs a shop price nobody's actually charging". The on-card badge
+changed from `-77%` (vs a guessed RRP) to `-58% of cap` (vs your own
+ceiling) to reflect what it's actually measuring.
+
 ## Discovery
 
 `discovery_pool` in `config.json` holds adjacent brands worth knowing
@@ -108,7 +125,9 @@ Top-level:
 - `my_sizes` — your sizes per category (`denim` / `tops` / `footwear`);
   powers the size flag and score bonus
 - `bargain_max_price` — flat "always a bargain" price cutoff
-- `bargain_threshold_pct` — % below `rrp` that counts as a bargain
+- `bargain_ceiling_ratio` — how far under a watch's own `price_to` a listing
+  must be to count as a "Bargain" (default 0.6, i.e. bottom 60% of the price
+  range you already said you'd consider)
 - `discovery_per_day` — how many discovery brands rotate in daily
 - `feed_size` — how many listings the ranked feed keeps
 - `global_exclude` — junk keywords filtered out of every search
