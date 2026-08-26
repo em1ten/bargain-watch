@@ -308,7 +308,6 @@
 
   <div class="pills" id="pills">
     <button class="pill active" data-filter="all">All</button>
-    <button class="pill" data-filter="my_size">My size</button>
     <button class="pill" data-filter="is_new">Just listed</button>
     <button class="pill" data-filter="is_bargain">Bargains</button>
     <button class="pill" data-filter="starred">Starred</button>
@@ -389,7 +388,6 @@ function cardMatches(item){
   if (activeFilter === 'shops') return isElectronics && item.subcategory === 'shops';
   if (isElectronics) return false; // every other view is clothing-only
   switch (activeFilter) {
-    case 'my_size':    return item.my_size;
     case 'is_new':     return item.is_new;
     case 'is_bargain': return item.is_bargain;
     case 'starred':    return starred.has(item.id);
