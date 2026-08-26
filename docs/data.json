@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787741744,
+  "generated_at": 1787743608,
   "discovery_today": [
     "And Wander",
     "Descente Allterrain",
@@ -15,6 +15,7 @@
       "watch": "Uniqlo U",
       "brand": "Uniqlo",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New with tags",
       "price": "12.5 GBP",
       "price_amount": 12.5,
@@ -23,8 +24,8 @@
       "url": "https://www.vinted.co.uk/items/9771275724",
       "seller": {
         "login": "mbennett97",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/62581050-mbennett97",
+        "business": false
       },
       "discount_pct": 82,
       "score": 125,
@@ -55,6 +56,7 @@
       "watch": "Daily Paper",
       "brand": "Daily paper",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New with tags",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -63,8 +65,8 @@
       "url": "https://www.vinted.co.uk/items/9764526491",
       "seller": {
         "login": "nickythebadger",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/154859567-nickythebadger",
+        "business": false
       },
       "discount_pct": 83,
       "score": 125,
@@ -95,6 +97,7 @@
       "watch": "Daily Paper",
       "brand": "Daily paper",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -103,8 +106,8 @@
       "url": "https://www.vinted.co.uk/items/9765601645",
       "seller": {
         "login": "key500",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/101480124-key500",
+        "business": false
       },
       "discount_pct": 83,
       "score": 125,
@@ -130,51 +133,12 @@
       "favourite_count": 1
     },
     {
-      "id": 9772556720,
-      "title": "Snow Peak Breathable Quick Dry Camo Shorts L BNWT",
-      "watch": "Snow Peak",
-      "brand": "Snow Peak",
-      "size": "L",
-      "condition": "New with tags",
-      "price": "38.0 GBP",
-      "price_amount": 38.0,
-      "estimated_total": 40.6,
-      "photo": "https://images1.vinted.net/t/06_00c31_aU6jpw5LsWN9LTvz84r8fGQg/f800/1787654042.jpeg?s=02988663cb370bfdb81f77cf7e2022165418acdc",
-      "url": "https://www.vinted.co.uk/items/9772556720",
-      "seller": {
-        "login": "reubenbjm",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 79,
-      "score": 125,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-79%",
-      "source": "discovery",
-      "listed_at": 1787654042,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": true,
-      "price_drop_pct": 7,
-      "previous_price": 41.0,
-      "source_config": {
-        "search_text": "snow peak",
-        "price_to": 70,
-        "rrp": 180,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 36
-    },
-    {
       "id": 9774336755,
       "title": "Parlez Quarter-zip Jumper",
       "watch": "Parlez",
       "brand": "Parlez",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "15.0 GBP",
       "price_amount": 15.0,
@@ -183,8 +147,8 @@
       "url": "https://www.vinted.co.uk/items/9774336755",
       "seller": {
         "login": "graceelizabethlily",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/153373701-graceelizabethlily",
+        "business": false
       },
       "discount_pct": 81,
       "score": 119,
@@ -207,7 +171,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 2
+      "favourite_count": 3
     },
     {
       "id": 9779400813,
@@ -215,6 +179,7 @@
       "watch": "Daily Paper",
       "brand": "Daily paper",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -223,8 +188,8 @@
       "url": "https://www.vinted.co.uk/items/9779400813",
       "seller": {
         "login": "hughie1409",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/139798734-hughie1409",
+        "business": false
       },
       "discount_pct": 83,
       "score": 119,
@@ -250,11 +215,94 @@
       "favourite_count": 0
     },
     {
+      "id": 9783789468,
+      "title": "FOLK Clothing. Men\u2019s Shirt. Dark Khaki. Button Collar. New with Tags",
+      "watch": "Folk Clothing",
+      "brand": "Folk",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "New with tags",
+      "price": "54.99 GBP",
+      "price_amount": 54.99,
+      "estimated_total": 58.44,
+      "photo": "https://images1.vinted.net/t/06_01e4d_cBbmuFVSF9kDQSXWksPGdC4v/f800/1787743315.jpeg?s=0a421925d613e27cdb61c6b3d7f498a65d8cbb5d",
+      "url": "https://www.vinted.co.uk/items/9783789468",
+      "seller": {
+        "login": "aphroditie",
+        "profile_url": "https://www.vinted.co.uk/member/188117508-aphroditie",
+        "business": false
+      },
+      "discount_pct": 61,
+      "score": 115,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-61%",
+      "source": "core",
+      "listed_at": 1787743315,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "folk clothing",
+        "price_to": 60,
+        "rrp": 140,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9734521797,
+      "title": "Karhu Mestari Control",
+      "watch": "Karhu",
+      "brand": "Karhu",
+      "size": "9",
+      "size_term_matched": "9",
+      "condition": "Good",
+      "price": "17.5 GBP",
+      "price_amount": 17.5,
+      "estimated_total": 19.07,
+      "photo": "https://images1.vinted.net/t/01_00da2_zepsuNUhNHXrpv6XJ5cpsuRq/f800/1787343420.jpeg?s=0ebb046c00ca760fa680cdf3743bb1b10d5f4d49",
+      "url": "https://www.vinted.co.uk/items/9734521797",
+      "seller": {
+        "login": "jackhowee",
+        "profile_url": "https://www.vinted.co.uk/member/174573412-jackhowee",
+        "business": false
+      },
+      "discount_pct": 84,
+      "score": 113,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1787343420,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": true,
+      "price_drop_pct": 12,
+      "previous_price": 20.0,
+      "source_config": {
+        "search_text": "karhu trainers",
+        "price_to": 40,
+        "rrp": 110,
+        "size_category": "footwear"
+      },
+      "caution_flags": [],
+      "favourite_count": 32
+    },
+    {
       "id": 9779055205,
       "title": "Edwin jeans",
       "watch": "Edwin",
       "brand": "Edwin",
       "size": "W36",
+      "size_term_matched": "W36",
       "condition": "New with tags",
       "price": "35.0 GBP",
       "price_amount": 35.0,
@@ -263,8 +311,8 @@
       "url": "https://www.vinted.co.uk/items/9779055205",
       "seller": {
         "login": "evieb696",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3138156608-evieb696",
+        "business": false
       },
       "discount_pct": 77,
       "score": 110,
@@ -290,51 +338,12 @@
       "favourite_count": 5
     },
     {
-      "id": 9781646768,
-      "title": "Folk Relaxed Short in Indigo Mix Checkerboard",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "M",
-      "condition": "New with tags",
-      "price": "28.0 GBP",
-      "price_amount": 28.0,
-      "estimated_total": 30.1,
-      "photo": "https://images1.vinted.net/t/06_0246c_xrsJYhTCA4CfgPaL5LUfUAFi/f800/1787727717.jpeg?s=fa9036f2bf003f4990c4a489bcd8648611e89f42",
-      "url": "https://www.vinted.co.uk/items/9781646768",
-      "seller": {
-        "login": "thefaz49",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 80,
-      "score": 110,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-80%",
-      "source": "core",
-      "listed_at": 1787727717,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 3
-    },
-    {
       "id": 9776398531,
       "title": "Deus Ex Machina Pub Nuisance Long Sleeve Tee Rhodo Medium",
       "watch": "Deus Ex Machina",
       "brand": "Deus Ex Machina",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "27.0 GBP",
       "price_amount": 27.0,
@@ -343,8 +352,8 @@
       "url": "https://www.vinted.co.uk/items/9776398531",
       "seller": {
         "login": "tp689",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/119859691-tp689",
+        "business": false
       },
       "discount_pct": 81,
       "score": 110,
@@ -375,6 +384,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "32.0 GBP",
       "price_amount": 32.0,
@@ -383,8 +393,8 @@
       "url": "https://www.vinted.co.uk/items/9753046848",
       "seller": {
         "login": "natzrec",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/274121558-natzrec",
+        "business": false
       },
       "discount_pct": 64,
       "score": 110,
@@ -415,6 +425,7 @@
       "watch": "Aspesi",
       "brand": "Aspesi",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "74.0 GBP",
       "price_amount": 74.0,
@@ -423,8 +434,8 @@
       "url": "https://www.vinted.co.uk/items/9711322663",
       "seller": {
         "login": "lilliayounis",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/287639701-lilliayounis",
+        "business": false
       },
       "discount_pct": 75,
       "score": 110,
@@ -450,51 +461,12 @@
       "favourite_count": 1
     },
     {
-      "id": 9783250590,
-      "title": "Fjallraven 1960 Logo Unisex Langtradarkeps Cap Black BNWT",
-      "watch": "Fjallraven",
-      "brand": "Fj\u00e4llr\u00e4ven",
-      "size": "L",
-      "condition": "New with tags",
-      "price": "27.5 GBP",
-      "price_amount": 27.5,
-      "estimated_total": 29.57,
-      "photo": "https://images1.vinted.net/t/06_01e2b_yDncUeh5HxRFoAHaY6MPPQBZ/f800/1787739002.jpeg?s=22dda599e16a4323baa9424f4ae46aa4cf4092eb",
-      "url": "https://www.vinted.co.uk/items/9783250590",
-      "seller": {
-        "login": "broncoskop109",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 110,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": 1787739002,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "fjallraven",
-        "price_to": 60,
-        "rrp": 160,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 2
-    },
-    {
       "id": 9645767960,
       "title": "Daily Paper Woodland Grey Kente Stripe Knit T-Shirt Large . Retails \u00a3110",
       "watch": "Daily Paper",
       "brand": "Daily paper",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New with tags",
       "price": "40.0 GBP",
       "price_amount": 40.0,
@@ -503,8 +475,8 @@
       "url": "https://www.vinted.co.uk/items/9645767960",
       "seller": {
         "login": "vicangelic",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/235183612-vicangelic",
+        "business": false
       },
       "discount_pct": 67,
       "score": 110,
@@ -530,51 +502,12 @@
       "favourite_count": 1
     },
     {
-      "id": 9774869443,
-      "title": "Long Sleeve T-Shirt: Acne Studios Extorr Stockholm 1996 \ud83d\udc55",
-      "watch": "Acne Studios",
-      "brand": "Acne Studios",
-      "size": "L",
-      "condition": "New with tags",
-      "price": "90.0 GBP",
-      "price_amount": 90.0,
-      "estimated_total": 95.2,
-      "photo": "https://images1.vinted.net/t/02_006d3_V2LRtk5WYa8WfZMp3B7yx9gs/f800/1787665685.jpeg?s=81b68c077efd5b44fbb8df2a5d5cb84a6020dce2",
-      "url": "https://www.vinted.co.uk/items/9774869443",
-      "seller": {
-        "login": "haydenv1832",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 64,
-      "score": 110,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-64%",
-      "source": "core",
-      "listed_at": 1787665685,
-      "condition_badge": "BNWT",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "acne studios",
-        "price_to": 90,
-        "rrp": 250,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 48
-    },
-    {
       "id": 9727534291,
       "title": "And Wand x End. Collaboration t-shirt size L",
       "watch": "And Wander",
       "brand": "And Wander x End.",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New with tags",
       "price": "30.0 GBP",
       "price_amount": 30.0,
@@ -583,8 +516,8 @@
       "url": "https://www.vinted.co.uk/items/9727534291",
       "seller": {
         "login": "17cf10",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/159919770-17cf10",
+        "business": false
       },
       "discount_pct": 85,
       "score": 110,
@@ -610,11 +543,53 @@
       "favourite_count": 20
     },
     {
+      "id": 9772556720,
+      "title": "Snow Peak Breathable Quick Dry Camo Shorts L BNWT",
+      "watch": "Snow Peak",
+      "brand": "Snow Peak",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "New with tags",
+      "price": "38.0 GBP",
+      "price_amount": 38.0,
+      "estimated_total": 40.6,
+      "photo": "https://images1.vinted.net/t/06_00c31_aU6jpw5LsWN9LTvz84r8fGQg/f800/1787654042.jpeg?s=02988663cb370bfdb81f77cf7e2022165418acdc",
+      "url": "https://www.vinted.co.uk/items/9772556720",
+      "seller": {
+        "login": "reubenbjm",
+        "profile_url": "https://www.vinted.co.uk/member/3138540103-reubenbjm",
+        "business": false
+      },
+      "discount_pct": 79,
+      "score": 110,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-79%",
+      "source": "discovery",
+      "listed_at": 1787654042,
+      "condition_badge": "BNWT",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "snow peak",
+        "price_to": 70,
+        "rrp": 180,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 36
+    },
+    {
       "id": 9771524465,
       "title": "Snow Peak water-repellent stretch trekking pants. Greige. M. Hiking. Urban. Outdoor.",
       "watch": "Snow Peak",
       "brand": "Snow Peak",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -623,8 +598,8 @@
       "url": "https://www.vinted.co.uk/items/9771524465",
       "seller": {
         "login": "gavpal",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/272870052-gavpal",
+        "business": false
       },
       "discount_pct": 67,
       "score": 110,
@@ -655,6 +630,7 @@
       "watch": "Snow Peak",
       "brand": "Snow Peak",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -663,8 +639,8 @@
       "url": "https://www.vinted.co.uk/items/9761472969",
       "seller": {
         "login": "jwrighty123",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/107830338-jwrighty123",
+        "business": false
       },
       "discount_pct": 67,
       "score": 110,
@@ -695,6 +671,7 @@
       "watch": "Snow Peak",
       "brand": "Snow Peak",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -703,8 +680,8 @@
       "url": "https://www.vinted.co.uk/items/9761557425",
       "seller": {
         "login": "jwrighty123",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/107830338-jwrighty123",
+        "business": false
       },
       "discount_pct": 67,
       "score": 110,
@@ -735,6 +712,7 @@
       "watch": "Klattermusen",
       "brand": "Kl\u00e4ttermusen",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New with tags",
       "price": "40.0 GBP",
       "price_amount": 40.0,
@@ -743,8 +721,8 @@
       "url": "https://www.vinted.co.uk/items/9767920799",
       "seller": {
         "login": "lesleyg235",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3132543160-lesleyg235",
+        "business": false
       },
       "discount_pct": 84,
       "score": 110,
@@ -770,30 +748,31 @@
       "favourite_count": 3
     },
     {
-      "id": 9783421288,
-      "title": "Navy blue edwin jeans",
-      "watch": "Edwin",
-      "brand": "Edwin",
-      "size": "W36",
+      "id": 9783920130,
+      "title": "Parlez ligt beige casual shirt, collarless with white trim",
+      "watch": "Parlez",
+      "brand": "Parlez",
+      "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
-      "price": "50.0 GBP",
-      "price_amount": 50.0,
-      "estimated_total": 53.2,
-      "photo": "https://images1.vinted.net/t/02_01cd4_ecn4YdBZzFKzMn2zQYTwDtuN/f800/1787739939.jpeg?s=aa6c8263dcc79ee07a9454d1830d09edfa54d956",
-      "url": "https://www.vinted.co.uk/items/9783421288",
+      "price": "30.0 GBP",
+      "price_amount": 30.0,
+      "estimated_total": 32.2,
+      "photo": "https://images1.vinted.net/t/05_00d5d_2cKXqdwUx2ybCo5KJpEbMCtM/f800/1787742681.jpeg?s=bdb7e03656ae3b453a7c4b3466bb3c8b70513967",
+      "url": "https://www.vinted.co.uk/items/9783920130",
       "seller": {
-        "login": "tor0_16",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "olivia.sengerjones",
+        "profile_url": "https://www.vinted.co.uk/member/279672924-oliviasengerjones",
+        "business": false
       },
-      "discount_pct": 67,
+      "discount_pct": 62,
       "score": 109,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-67%",
+      "bargain_reason": "-62%",
       "source": "core",
-      "listed_at": 1787739939,
+      "listed_at": 1787742681,
       "condition_badge": "UNWORN",
       "category": "clothing",
       "subcategory": null,
@@ -801,13 +780,54 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "edwin jeans",
-        "price_to": 60,
-        "rrp": 150,
-        "size_category": "denim"
+        "search_text": "parlez",
+        "price_to": 35,
+        "rrp": 80,
+        "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 1
+      "favourite_count": 0
+    },
+    {
+      "id": 9759204353,
+      "title": "Embroidered luxurious and stylish silhouette jacket - for couples",
+      "watch": "Acne Studios",
+      "brand": "Acne Studios",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "New without tags",
+      "price": "48.95 GBP",
+      "price_amount": 48.95,
+      "estimated_total": 52.1,
+      "photo": "https://images1.vinted.net/t/05_026b9_7qpjQhuySNxoTx2R28eER8wi/f800/1787539652.jpeg?s=9c683fb8c39f1d695db3abeb5eb584b59dabe0b4",
+      "url": "https://www.vinted.co.uk/items/9759204353",
+      "seller": {
+        "login": "micheald26",
+        "profile_url": "https://www.vinted.co.uk/member/3162680848-micheald26",
+        "business": false
+      },
+      "discount_pct": 80,
+      "score": 109,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-80%",
+      "source": "core",
+      "listed_at": 1787539652,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "acne studios",
+        "price_to": 90,
+        "rrp": 250,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9762829637,
@@ -815,6 +835,7 @@
       "watch": "Deus Ex Machina",
       "brand": "Deus Ex Machina",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New with tags",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -823,8 +844,8 @@
       "url": "https://www.vinted.co.uk/items/9762829637",
       "seller": {
         "login": "han9611",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/223136193-han9611",
+        "business": false
       },
       "discount_pct": 57,
       "score": 107,
@@ -855,6 +876,7 @@
       "watch": "Nudie Jeans",
       "brand": "Nudie Jeans",
       "size": "W34",
+      "size_term_matched": "W34",
       "condition": "New without tags",
       "price": "21.25 GBP",
       "price_amount": 21.25,
@@ -863,8 +885,8 @@
       "url": "https://www.vinted.co.uk/items/9771614500",
       "seller": {
         "login": "shanec341",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3168840450-shanec341",
+        "business": false
       },
       "discount_pct": 85,
       "score": 104,
@@ -895,6 +917,7 @@
       "watch": "Nudie Jeans",
       "brand": "Nudie Jeans",
       "size": "W34",
+      "size_term_matched": "W34",
       "condition": "New without tags",
       "price": "26.56 GBP",
       "price_amount": 26.56,
@@ -903,8 +926,8 @@
       "url": "https://www.vinted.co.uk/items/9771581223",
       "seller": {
         "login": "shanec341",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3168840450-shanec341",
+        "business": false
       },
       "discount_pct": 81,
       "score": 104,
@@ -930,11 +953,53 @@
       "favourite_count": 2
     },
     {
+      "id": 9783421288,
+      "title": "Navy blue edwin jeans",
+      "watch": "Edwin",
+      "brand": "Edwin",
+      "size": "W36",
+      "size_term_matched": "W36",
+      "condition": "New without tags",
+      "price": "50.0 GBP",
+      "price_amount": 50.0,
+      "estimated_total": 53.2,
+      "photo": "https://images1.vinted.net/t/02_01cd4_ecn4YdBZzFKzMn2zQYTwDtuN/f800/1787739939.jpeg?s=aa6c8263dcc79ee07a9454d1830d09edfa54d956",
+      "url": "https://www.vinted.co.uk/items/9783421288",
+      "seller": {
+        "login": "tor0_16",
+        "profile_url": "https://www.vinted.co.uk/member/278730118-tor016",
+        "business": false
+      },
+      "discount_pct": 67,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-67%",
+      "source": "core",
+      "listed_at": 1787739939,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "edwin jeans",
+        "price_to": 60,
+        "rrp": 150,
+        "size_category": "denim"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
       "id": 9779052142,
       "title": "Universal Works White Textured Camp Collar Shirt Size Large Unworn",
       "watch": "Universal Works",
       "brand": "Universal Works",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "55.0 GBP",
       "price_amount": 55.0,
@@ -943,8 +1008,8 @@
       "url": "https://www.vinted.co.uk/items/9779052142",
       "seller": {
         "login": "jemleslie",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/57047540-jemleslie",
+        "business": false
       },
       "discount_pct": 63,
       "score": 104,
@@ -982,6 +1047,7 @@
       "watch": "Universal Works",
       "brand": "Universal Works",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "39.0 GBP",
       "price_amount": 39.0,
@@ -990,8 +1056,8 @@
       "url": "https://www.vinted.co.uk/items/9773948584",
       "seller": {
         "login": "leonarduccio",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/70873973-leonarduccio",
+        "business": false
       },
       "discount_pct": 74,
       "score": 104,
@@ -1029,6 +1095,7 @@
       "watch": "Folk Clothing",
       "brand": "Folk",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "30.0 GBP",
       "price_amount": 30.0,
@@ -1037,8 +1104,8 @@
       "url": "https://www.vinted.co.uk/items/9782295266",
       "seller": {
         "login": "allvintagelondon71",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/57255430-allvintagelondon71",
+        "business": true
       },
       "discount_pct": 79,
       "score": 104,
@@ -1069,6 +1136,7 @@
       "watch": "Folk Clothing",
       "brand": "Folk",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "35.0 GBP",
       "price_amount": 35.0,
@@ -1077,8 +1145,8 @@
       "url": "https://www.vinted.co.uk/items/9782029054",
       "seller": {
         "login": "gemlout21",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/202036451-gemlout21",
+        "business": false
       },
       "discount_pct": 75,
       "score": 104,
@@ -1109,6 +1177,7 @@
       "watch": "Folk Clothing",
       "brand": "Folk",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "40.0 GBP",
       "price_amount": 40.0,
@@ -1117,8 +1186,8 @@
       "url": "https://www.vinted.co.uk/items/9781951903",
       "seller": {
         "login": "mollybentos",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/197103555-mollybentos",
+        "business": false
       },
       "discount_pct": 71,
       "score": 104,
@@ -1144,51 +1213,12 @@
       "favourite_count": 4
     },
     {
-      "id": 9779408933,
-      "title": "NWOT Folk Mens Pink Cotton Elasticated Drawstring Shorts Size Medium Chino Shorts",
-      "watch": "Folk Clothing",
-      "brand": "Folk",
-      "size": "M",
-      "condition": "New without tags",
-      "price": "45.0 GBP",
-      "price_amount": 45.0,
-      "estimated_total": 47.95,
-      "photo": "https://images1.vinted.net/t/01_010a2_5cr9E7kB3au5XTHFFMLgHZM9/f800/1787687261.jpeg?s=3b17299400aaf939f69c9e56274b3ce71ba32841",
-      "url": "https://www.vinted.co.uk/items/9779408933",
-      "seller": {
-        "login": "larny10",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 68,
-      "score": 104,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-68%",
-      "source": "core",
-      "listed_at": 1787687261,
-      "condition_badge": "UNWORN",
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "folk clothing",
-        "price_to": 60,
-        "rrp": 140,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 2
-    },
-    {
       "id": 9775742002,
       "title": "Leather Jacket // Mki Miyuki Zoku (S-M)",
       "watch": "MKI Miyuki-Zoku",
       "brand": "MKI Miyuki Zoku",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "35.0 GBP",
       "price_amount": 35.0,
@@ -1197,8 +1227,8 @@
       "url": "https://www.vinted.co.uk/items/9775742002",
       "seller": {
         "login": "alslaex",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/201803685-alslaex",
+        "business": false
       },
       "discount_pct": 75,
       "score": 104,
@@ -1229,6 +1259,7 @@
       "watch": "MKI Miyuki-Zoku",
       "brand": "MKI Miyuki Zoku",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "30.0 GBP",
       "price_amount": 30.0,
@@ -1237,8 +1268,8 @@
       "url": "https://www.vinted.co.uk/items/9773756354",
       "seller": {
         "login": "nattynotnice",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/65125583-nattynotnice",
+        "business": false
       },
       "discount_pct": 79,
       "score": 104,
@@ -1269,6 +1300,7 @@
       "watch": "MKI Miyuki-Zoku",
       "brand": "MKI Miyuki Zoku",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "25.0 GBP",
       "price_amount": 25.0,
@@ -1277,8 +1309,8 @@
       "url": "https://www.vinted.co.uk/items/9773520891",
       "seller": {
         "login": "gabyscanlon",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/82467126-gabyscanlon",
+        "business": false
       },
       "discount_pct": 82,
       "score": 104,
@@ -1309,6 +1341,7 @@
       "watch": "Novesta",
       "brand": "Novesta",
       "size": "9.5",
+      "size_term_matched": "9",
       "condition": "New without tags",
       "price": "24.0 GBP",
       "price_amount": 24.0,
@@ -1317,8 +1350,8 @@
       "url": "https://www.vinted.co.uk/items/9432014756",
       "seller": {
         "login": "o2jack1c",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/75546882-o2jack1c",
+        "business": false
       },
       "discount_pct": 66,
       "score": 104,
@@ -1344,11 +1377,53 @@
       "favourite_count": 7
     },
     {
+      "id": 9750122600,
+      "title": "New but without the box and price tag.",
+      "watch": "Hoka",
+      "brand": "Hoka",
+      "size": "8.5",
+      "size_term_matched": "8.5",
+      "condition": "New without tags",
+      "price": "46.72 GBP",
+      "price_amount": 46.72,
+      "estimated_total": 49.76,
+      "photo": "https://images1.vinted.net/t/03_00d4e_bEmdyY9GA3UtxAbvanaMiqnA/f800/1787485647.jpeg?s=41e7bbc4417f3fcd50d50befe032b279deeee3ff",
+      "url": "https://www.vinted.co.uk/items/9750122600",
+      "seller": {
+        "login": "favor2018",
+        "profile_url": "https://www.vinted.co.uk/member/3178671774-favor2018",
+        "business": false
+      },
+      "discount_pct": 67,
+      "score": 104,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-67%",
+      "source": "core",
+      "listed_at": 1787485647,
+      "condition_badge": "UNWORN",
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "hoka trainers",
+        "price_to": 50,
+        "rrp": 140,
+        "size_category": "footwear"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
+    },
+    {
       "id": 9775276233,
       "title": "Mens deus ex machina shirt/overshirt",
       "watch": "Deus Ex Machina",
       "brand": "Deus Ex Machina",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "30.0 GBP",
       "price_amount": 30.0,
@@ -1357,8 +1432,8 @@
       "url": "https://www.vinted.co.uk/items/9775276233",
       "seller": {
         "login": "matthewdavis",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/122946665-matthewdavis",
+        "business": false
       },
       "discount_pct": 79,
       "score": 104,
@@ -1389,6 +1464,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "35.0 GBP",
       "price_amount": 35.0,
@@ -1397,8 +1473,8 @@
       "url": "https://www.vinted.co.uk/items/9759901485",
       "seller": {
         "login": "bhutton",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/56954301-bhutton",
+        "business": false
       },
       "discount_pct": 61,
       "score": 104,
@@ -1429,6 +1505,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "34.0 GBP",
       "price_amount": 34.0,
@@ -1437,8 +1514,8 @@
       "url": "https://www.vinted.co.uk/items/9752914188",
       "seller": {
         "login": "natzrec",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/274121558-natzrec",
+        "business": false
       },
       "discount_pct": 62,
       "score": 104,
@@ -1469,6 +1546,7 @@
       "watch": "Descente Allterrain",
       "brand": "Descente Allterrain",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "50.0 GBP",
       "price_amount": 50.0,
@@ -1477,8 +1555,8 @@
       "url": "https://www.vinted.co.uk/items/8839167799",
       "seller": {
         "login": "loftstores",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/107476667-loftstores",
+        "business": true
       },
       "discount_pct": 80,
       "score": 104,
@@ -1509,6 +1587,7 @@
       "watch": "Snow Peak",
       "brand": "Snow Peak",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "40.0 GBP",
       "price_amount": 40.0,
@@ -1517,8 +1596,8 @@
       "url": "https://www.vinted.co.uk/items/9768157083",
       "seller": {
         "login": "dan1vic",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/170601358-dan1vic",
+        "business": false
       },
       "discount_pct": 78,
       "score": 104,
@@ -1544,11 +1623,53 @@
       "favourite_count": 9
     },
     {
+      "id": 9777890558,
+      "title": "Black Uniqlo Tee",
+      "watch": "Uniqlo U",
+      "brand": "Uniqlo",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "12.0 GBP",
+      "price_amount": 12.0,
+      "estimated_total": 13.3,
+      "photo": "https://images1.vinted.net/t/01_01489_GKrn736QcTnrikpbVXHsiK7j/f800/1787679244.jpeg?s=6367bb973ca9962dfaaf9b6b3ccfefe3ea7750bd",
+      "url": "https://www.vinted.co.uk/items/9777890558",
+      "seller": {
+        "login": "eds_wardrobe",
+        "profile_url": "https://www.vinted.co.uk/member/70161109-edswardrobe",
+        "business": false
+      },
+      "discount_pct": 83,
+      "score": 103,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787679244,
+      "condition_badge": null,
+      "category": "clothing",
+      "subcategory": null,
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "uniqlo u",
+        "price_to": 30,
+        "rrp": 70,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9775763692,
       "title": "uniqlo u airsense ultra stretch black shirt jacket overshirt uk large",
       "watch": "Uniqlo U",
       "brand": "Uniqlo",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "18.5 GBP",
       "price_amount": 18.5,
@@ -1557,8 +1678,8 @@
       "url": "https://www.vinted.co.uk/items/9775763692",
       "seller": {
         "login": "alibear63",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/96352098-alibear63",
+        "business": false
       },
       "discount_pct": 74,
       "score": 103,
@@ -1589,6 +1710,7 @@
       "watch": "Uniqlo U",
       "brand": "Uniqlo",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "15.0 GBP",
       "price_amount": 15.0,
@@ -1597,8 +1719,8 @@
       "url": "https://www.vinted.co.uk/items/9776110588",
       "seller": {
         "login": "samuelblue92",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/126368235-samuelblue92",
+        "business": false
       },
       "discount_pct": 79,
       "score": 103,
@@ -1629,6 +1751,7 @@
       "watch": "Uniqlo U",
       "brand": "Uniqlo",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "15.0 GBP",
       "price_amount": 15.0,
@@ -1637,8 +1760,8 @@
       "url": "https://www.vinted.co.uk/items/9763726459",
       "seller": {
         "login": "jensenbloot",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/214537774-jensenbloot",
+        "business": false
       },
       "discount_pct": 79,
       "score": 103,
@@ -1669,6 +1792,7 @@
       "watch": "Uniqlo U",
       "brand": "Uniqlo",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "18.0 GBP",
       "price_amount": 18.0,
@@ -1677,8 +1801,8 @@
       "url": "https://www.vinted.co.uk/items/9761448324",
       "seller": {
         "login": "forestofodea",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/125353577-forestofodea",
+        "business": false
       },
       "discount_pct": 74,
       "score": 103,
@@ -1709,6 +1833,7 @@
       "watch": "Karhu",
       "brand": "Karhu",
       "size": "9.5",
+      "size_term_matched": "9",
       "condition": "Very good",
       "price": "18.0 GBP",
       "price_amount": 18.0,
@@ -1717,8 +1842,8 @@
       "url": "https://www.vinted.co.uk/items/9674028776",
       "seller": {
         "login": "4rk4n",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/128963877-4rk4n",
+        "business": false
       },
       "discount_pct": 84,
       "score": 103,
@@ -1749,6 +1874,7 @@
       "watch": "Parlez",
       "brand": "Parlez",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "13.99 GBP",
       "price_amount": 13.99,
@@ -1757,8 +1883,8 @@
       "url": "https://www.vinted.co.uk/items/9774738967",
       "seller": {
         "login": "lt_95finds",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3161067435-lt95finds",
+        "business": false
       },
       "discount_pct": 83,
       "score": 103,
@@ -1784,30 +1910,31 @@
       "favourite_count": 3
     },
     {
-      "id": 9768278584,
-      "title": "Parlez Hoodie",
-      "watch": "Parlez",
-      "brand": "Parlez",
+      "id": 9682800911,
+      "title": "Service Works chef trousers",
+      "watch": "Service Works",
+      "brand": "Service Works",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
-      "price": "14.0 GBP",
-      "price_amount": 14.0,
-      "estimated_total": 15.4,
-      "photo": "https://images1.vinted.net/t/02_025c3_1tHgoXW2sRgiQe4xETKKjpMZ/f800/1787599779.jpeg?s=a65dc4f5c4046aaacb10c31b0e4bf3f5f38faee8",
-      "url": "https://www.vinted.co.uk/items/9768278584",
+      "price": "20.0 GBP",
+      "price_amount": 20.0,
+      "estimated_total": 21.7,
+      "photo": "https://images1.vinted.net/t/02_0054a_mDw9uCkNi7N8UTwqH35uaPRJ/f800/1786907866.jpeg?s=1edcc6c10bd2ea76fbcf7500364af81b8d15a3ae",
+      "url": "https://www.vinted.co.uk/items/9682800911",
       "seller": {
-        "login": "maddie131099",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "rhi_o",
+        "profile_url": "https://www.vinted.co.uk/member/86243116-rhio",
+        "business": false
       },
-      "discount_pct": 82,
+      "discount_pct": 71,
       "score": 103,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-82%",
+      "bargain_reason": "-71%",
       "source": "core",
-      "listed_at": 1787599779,
+      "listed_at": 1786907866,
       "condition_badge": null,
       "category": "clothing",
       "subcategory": null,
@@ -1815,13 +1942,13 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "parlez",
-        "price_to": 35,
-        "rrp": 80,
+        "search_text": "service works",
+        "price_to": 30,
+        "rrp": 70,
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 4
+      "favourite_count": 20
     },
     {
       "id": 9777578212,
@@ -1829,6 +1956,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -1837,8 +1965,8 @@
       "url": "https://www.vinted.co.uk/items/9777578212",
       "seller": {
         "login": "bennyblanco12",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/115473906-bennyblanco12",
+        "business": false
       },
       "discount_pct": 78,
       "score": 103,
@@ -1869,6 +1997,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -1877,8 +2006,8 @@
       "url": "https://www.vinted.co.uk/items/9763208935",
       "seller": {
         "login": "joshuarse",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/86947960-joshuarse",
+        "business": false
       },
       "discount_pct": 78,
       "score": 103,
@@ -1909,6 +2038,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -1917,8 +2047,8 @@
       "url": "https://www.vinted.co.uk/items/9762824939",
       "seller": {
         "login": "jamesshaddock",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/114947166-jamesshaddock",
+        "business": false
       },
       "discount_pct": 78,
       "score": 103,
@@ -1949,6 +2079,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "16.0 GBP",
       "price_amount": 16.0,
@@ -1957,8 +2088,8 @@
       "url": "https://www.vinted.co.uk/items/9756253621",
       "seller": {
         "login": "endcreditsmedia",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/271601412-endcreditsmedia",
+        "business": false
       },
       "discount_pct": 82,
       "score": 103,
@@ -1989,6 +2120,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "15.0 GBP",
       "price_amount": 15.0,
@@ -1997,8 +2129,8 @@
       "url": "https://www.vinted.co.uk/items/9754795430",
       "seller": {
         "login": "potta19_90",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/193379096-potta1990",
+        "business": false
       },
       "discount_pct": 83,
       "score": 103,
@@ -2029,6 +2161,7 @@
       "watch": "Stan Ray",
       "brand": "Stan Ray",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -2037,8 +2170,8 @@
       "url": "https://www.vinted.co.uk/items/9754102544",
       "seller": {
         "login": "jsph12",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/190683709-jsph12",
+        "business": false
       },
       "discount_pct": 78,
       "score": 103,
@@ -2069,6 +2202,7 @@
       "watch": "Daily Paper",
       "brand": "Daily paper",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -2077,8 +2211,8 @@
       "url": "https://www.vinted.co.uk/items/9779909645",
       "seller": {
         "login": "hass14",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/79195423-hass14",
+        "business": false
       },
       "discount_pct": 83,
       "score": 103,
@@ -2109,6 +2243,7 @@
       "watch": "NN07",
       "brand": "NN07",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "18.54 GBP",
       "price_amount": 18.54,
@@ -2117,8 +2252,8 @@
       "url": "https://www.vinted.co.uk/items/9758854058",
       "seller": {
         "login": "cad0524",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3169604232-cad0524",
+        "business": false
       },
       "discount_pct": 85,
       "score": 103,
@@ -2149,6 +2284,7 @@
       "watch": "NN07",
       "brand": "NN07",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -2157,8 +2293,8 @@
       "url": "https://www.vinted.co.uk/items/9752507792",
       "seller": {
         "login": "willspainy",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3178667398-willspainy",
+        "business": false
       },
       "discount_pct": 83,
       "score": 103,
@@ -2189,6 +2325,7 @@
       "watch": "NN07",
       "brand": "NN07",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "20.0 GBP",
       "price_amount": 20.0,
@@ -2197,8 +2334,8 @@
       "url": "https://www.vinted.co.uk/items/9746746181",
       "seller": {
         "login": "justin0657",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/179356901-justin0657",
+        "business": false
       },
       "discount_pct": 83,
       "score": 103,
@@ -2229,6 +2366,7 @@
       "watch": "Red Wing",
       "brand": "Red Wing Shoes",
       "size": "9.5",
+      "size_term_matched": "9",
       "condition": "New with tags",
       "price": "111.24 GBP",
       "price_amount": 111.24,
@@ -2237,8 +2375,8 @@
       "url": "https://www.vinted.co.uk/items/9758950795",
       "seller": {
         "login": "mamabare75",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3178913489-mamabare75",
+        "business": false
       },
       "discount_pct": 52,
       "score": 102,
@@ -2277,6 +2415,7 @@
       "watch": "Sandqvist",
       "brand": "Sandqvist",
       "size": "",
+      "size_term_matched": null,
       "condition": "New without tags",
       "price": "17.0 GBP",
       "price_amount": 17.0,
@@ -2285,8 +2424,8 @@
       "url": "https://www.vinted.co.uk/items/9518573694",
       "seller": {
         "login": "mellinam31",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3154824937-mellinam31",
+        "business": false
       },
       "discount_pct": 85,
       "score": 99,
@@ -2316,6 +2455,7 @@
       "watch": "Clarks Originals",
       "brand": "Clarks Originals",
       "size": "8.5",
+      "size_term_matched": "8.5",
       "condition": "Good",
       "price": "18.0 GBP",
       "price_amount": 18.0,
@@ -2324,8 +2464,8 @@
       "url": "https://www.vinted.co.uk/items/9779522929",
       "seller": {
         "login": "bailey__86",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3157716783-bailey86",
+        "business": false
       },
       "discount_pct": 80,
       "score": 98,
@@ -2351,84 +2491,45 @@
       "favourite_count": 9
     },
     {
-      "id": 9779765939,
-      "title": "Clark Original Boots",
-      "watch": "Clarks Originals",
-      "brand": "Clarks",
-      "size": "9",
-      "condition": "Good",
-      "price": "15.0 GBP",
-      "price_amount": 15.0,
-      "estimated_total": 16.45,
-      "photo": "https://images1.vinted.net/t/06_01e87_CCKAAFGD64A7NdtoLsfH28Pd/f800/1787689615.jpeg?s=23435397bd24058b3d3ecaf41b8d07d858829cde",
-      "url": "https://www.vinted.co.uk/items/9779765939",
+      "id": 9782706497,
+      "title": "Grey Stone Island Medium Set Shirt and Short",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "New with tags",
+      "price": "120.0 GBP",
+      "price_amount": 120.0,
+      "estimated_total": 126.7,
+      "photo": "https://images1.vinted.net/t/01_018ab_bh3QArzJE2vpG6zvvQhuYzx2/f800/1787735980.jpeg?s=a37b8bc141e8c789d4e61f187d3413ed39a04224",
+      "url": "https://www.vinted.co.uk/items/9782706497",
       "seller": {
-        "login": "elid461",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "amir1926",
+        "profile_url": "https://www.vinted.co.uk/member/3173796473-amir1926",
+        "business": false
       },
-      "discount_pct": 83,
-      "score": 98,
+      "discount_pct": 66,
+      "score": 125,
       "my_size": true,
-      "is_new": false,
+      "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-83%",
+      "bargain_reason": "-66%",
       "source": "core",
-      "listed_at": 1787689615,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
+      "listed_at": 1787735980,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "caution",
       "price_dropped": false,
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "clarks originals",
-        "price_to": 40,
-        "rrp": 90,
-        "size_category": "footwear"
+        "search_text": "stone island",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 3
-    },
-    {
-      "id": 9734521797,
-      "title": "Karhu Mestari Control",
-      "watch": "Karhu",
-      "brand": "Karhu",
-      "size": "9",
-      "condition": "Good",
-      "price": "20.0 GBP",
-      "price_amount": 20.0,
-      "estimated_total": 21.7,
-      "photo": "https://images1.vinted.net/t/01_00da2_zepsuNUhNHXrpv6XJ5cpsuRq/f800/1787343420.jpeg?s=0ebb046c00ca760fa680cdf3743bb1b10d5f4d49",
-      "url": "https://www.vinted.co.uk/items/9734521797",
-      "seller": {
-        "login": "jackhowee",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 82,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "core",
-      "listed_at": 1787343420,
-      "condition_badge": null,
-      "category": "clothing",
-      "subcategory": null,
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "karhu trainers",
-        "price_to": 40,
-        "rrp": 110,
-        "size_category": "footwear"
-      },
-      "caution_flags": [],
-      "favourite_count": 32
+      "favourite_count": 0
     },
     {
       "id": 9782992090,
@@ -2436,6 +2537,7 @@
       "watch": "Canada Goose",
       "brand": "Canada Goose",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New with tags",
       "price": "165.0 GBP",
       "price_amount": 165.0,
@@ -2444,8 +2546,8 @@
       "url": "https://www.vinted.co.uk/items/9782992090",
       "seller": {
         "login": "flipdistrict_uk",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/305137875-flipdistrictuk",
+        "business": false
       },
       "discount_pct": 82,
       "score": 120,
@@ -2471,30 +2573,31 @@
       "favourite_count": 0
     },
     {
-      "id": 9781901707,
-      "title": "Palm angels trousers",
-      "watch": "Palm Angels",
-      "brand": "Palm Angels",
-      "size": "L",
+      "id": 9783895293,
+      "title": "Canada Goose Wyndham",
+      "watch": "Canada Goose",
+      "brand": "Canada Goose",
+      "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
-      "price": "50.0 GBP",
-      "price_amount": 50.0,
-      "estimated_total": 53.2,
-      "photo": "https://images1.vinted.net/t/06_00723_7LfaptbMX7XY4sy8FwkqRcs5/f800/1787730338.jpeg?s=263b916df317df0e19b9694e2ca3a45246f2ff8d",
-      "url": "https://www.vinted.co.uk/items/9781901707",
+      "price": "178.0 GBP",
+      "price_amount": 178.0,
+      "estimated_total": 187.6,
+      "photo": "https://images1.vinted.net/t/02_007eb_5SdXAwtZQXVFsrxAzSWWECfk/f800/1787742544.jpeg?s=0ad21183158d3d65162d16261a0b72f8a69c7ab7",
+      "url": "https://www.vinted.co.uk/items/9783895293",
       "seller": {
-        "login": "branraydarling",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "jayd3n22",
+        "profile_url": "https://www.vinted.co.uk/member/248372056-jayd3n22",
+        "business": false
       },
-      "discount_pct": 83,
+      "discount_pct": 80,
       "score": 119,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-83%",
+      "bargain_reason": "-80%",
       "source": "core",
-      "listed_at": 1787730338,
+      "listed_at": 1787742544,
       "condition_badge": "NEW",
       "category": "electronics",
       "subcategory": "caution",
@@ -2502,9 +2605,50 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "palm angels",
-        "price_to": 100,
-        "rrp": 300,
+        "search_text": "canada goose",
+        "price_to": 250,
+        "rrp": 900,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9783613889,
+      "title": "Cp company jumper",
+      "watch": "CP Company",
+      "brand": "C.P. Company",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "New without tags",
+      "price": "90.0 GBP",
+      "price_amount": 90.0,
+      "estimated_total": 95.2,
+      "photo": "https://images1.vinted.net/t/04_00bca_vQ9ijNpAV7dcRXCu4pcm6TDJ/f800/1787741002.jpeg?s=49be45174cafb01f372f9986d8c12651b78837b7",
+      "url": "https://www.vinted.co.uk/items/9783613889",
+      "seller": {
+        "login": "jacobabbott1982",
+        "profile_url": "https://www.vinted.co.uk/member/245309562-jacobabbott1982",
+        "business": false
+      },
+      "discount_pct": 74,
+      "score": 119,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-74%",
+      "source": "core",
+      "listed_at": 1787741002,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "cp company",
+        "price_to": 130,
+        "rrp": 350,
         "size_category": "tops"
       },
       "caution_flags": [],
@@ -2516,6 +2660,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "120.0 GBP",
       "price_amount": 120.0,
@@ -2524,8 +2669,8 @@
       "url": "https://www.vinted.co.uk/items/9776300232",
       "seller": {
         "login": "walkersus3d",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/70157541-walkersus3d",
+        "business": false
       },
       "discount_pct": 66,
       "score": 114,
@@ -2551,11 +2696,53 @@
       "favourite_count": 1
     },
     {
+      "id": 9781901707,
+      "title": "Palm angels trousers",
+      "watch": "Palm Angels",
+      "brand": "Palm Angels",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "New without tags",
+      "price": "50.0 GBP",
+      "price_amount": 50.0,
+      "estimated_total": 53.2,
+      "photo": "https://images1.vinted.net/t/06_00723_7LfaptbMX7XY4sy8FwkqRcs5/f800/1787730338.jpeg?s=263b916df317df0e19b9694e2ca3a45246f2ff8d",
+      "url": "https://www.vinted.co.uk/items/9781901707",
+      "seller": {
+        "login": "branraydarling",
+        "profile_url": "https://www.vinted.co.uk/member/295990553-branraydarling",
+        "business": false
+      },
+      "discount_pct": 83,
+      "score": 114,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787730338,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "palm angels",
+        "price_to": 100,
+        "rrp": 300,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9758834727,
       "title": "Patagonia Better Sweater",
       "watch": "Patagonia",
       "brand": "Patagonia",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "New without tags",
       "price": "40.79 GBP",
       "price_amount": 40.79,
@@ -2564,8 +2751,8 @@
       "url": "https://www.vinted.co.uk/items/9758834727",
       "seller": {
         "login": "summitsstar",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3168036071-summitsstar",
+        "business": false
       },
       "discount_pct": 75,
       "score": 114,
@@ -2596,6 +2783,7 @@
       "watch": "Patagonia",
       "brand": "Patagonia",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "New without tags",
       "price": "29.66 GBP",
       "price_amount": 29.66,
@@ -2604,8 +2792,8 @@
       "url": "https://www.vinted.co.uk/items/9758247918",
       "seller": {
         "login": "thriftwithcat",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3145459701-thriftwithcat",
+        "business": false
       },
       "discount_pct": 81,
       "score": 114,
@@ -2631,141 +2819,63 @@
       "favourite_count": 3
     },
     {
-      "id": 9783732641,
-      "title": "Belstaff Hero size L",
+      "id": 9780124367,
+      "title": "ami paris t-shirt",
+      "watch": "Ami Paris",
+      "brand": "Ami Paris",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "40.0 GBP",
+      "price_amount": 40.0,
+      "estimated_total": 42.7,
+      "photo": "https://images1.vinted.net/t/06_018fc_rqNKNN2J3xJx2nSM3n19kyLs/f800/1787692544.jpeg?s=c7453468ddcab0b961c8c181161e1fc6f2038879",
+      "url": "https://www.vinted.co.uk/items/9780124367",
+      "seller": {
+        "login": "presleystewart1",
+        "profile_url": "https://www.vinted.co.uk/member/253786806-presleystewart1",
+        "business": false
+      },
+      "discount_pct": 84,
+      "score": 113,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1787692544,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": true,
+      "price_drop_pct": 11,
+      "previous_price": 45.0,
+      "source_config": {
+        "search_text": "ami paris",
+        "price_to": 90,
+        "rrp": 250,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 5
+    },
+    {
+      "id": 9783842272,
+      "title": "Belstaff Quilted Down Gilet / Snap-In Jacket Liner \u2013 Dark Grey/Taupe",
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
-      "price": "79.98 GBP",
-      "price_amount": 79.98,
-      "estimated_total": 84.68,
-      "photo": "https://images1.vinted.net/t/04_01d52_3u338nSNZLCAXt1jRjjG4KWi/f800/1787741649.jpeg?s=ff143f8637d32c5bb60f5bcbefa50adb02472c72",
-      "url": "https://www.vinted.co.uk/items/9783732641",
+      "price": "60.0 GBP",
+      "price_amount": 60.0,
+      "estimated_total": 63.7,
+      "photo": "https://images1.vinted.net/t/05_00275_1Hsw2hX3HHh3PihHEuVv4JCZ/f800/1787742252.jpeg?s=98970fac9010ac7357fe716534e05eb170ada5e8",
+      "url": "https://www.vinted.co.uk/items/9783842272",
       "seller": {
-        "login": "gbcfasdfvxvxc",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 77,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-77%",
-      "source": "core",
-      "listed_at": 1787741649,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9783508789,
-      "title": "Belstaff leather motorcycle jacket",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "L",
-      "condition": "Very good",
-      "price": "79.93 GBP",
-      "price_amount": 79.93,
-      "estimated_total": 84.63,
-      "photo": "https://images1.vinted.net/t/02_02620_HC3zCERViZwjgFGcDNkvC6uH/f800/1787740425.jpeg?s=d45ee15655d38fc3b87ead3661c06bf405c0df96",
-      "url": "https://www.vinted.co.uk/items/9783508789",
-      "seller": {
-        "login": "gbcvbdfdfbd",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 77,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-77%",
-      "source": "core",
-      "listed_at": 1787740425,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9783356164,
-      "title": "Belstaff Weybridge Lederjacke",
-      "watch": "Belstaff",
-      "brand": "Belstaff",
-      "size": "M",
-      "condition": "Very good",
-      "price": "79.95 GBP",
-      "price_amount": 79.95,
-      "estimated_total": 84.65,
-      "photo": "https://images1.vinted.net/t/05_001f1_FGF5u1bzHAkkd4hSXTRDV1Kc/f800/1787739578.jpeg?s=3abe89fa152b7f5615daa867e9247a60f3e25ec4",
-      "url": "https://www.vinted.co.uk/items/9783356164",
-      "seller": {
-        "login": "danieeeeees",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 77,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-77%",
-      "source": "core",
-      "listed_at": 1787739578,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "belstaff jacket",
-        "price_to": 120,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
-    },
-    {
-      "id": 9783603981,
-      "title": "Palm Angels White Cotton Hoodie - Size M",
-      "watch": "Palm Angels",
-      "brand": "Palm Angels",
-      "size": "M",
-      "condition": "Very good",
-      "price": "50.0 GBP",
-      "price_amount": 50.0,
-      "estimated_total": 53.2,
-      "photo": "https://images1.vinted.net/t/06_004ce_cnk3CWkauVpbPogCKG6sn4cc/f800/1787740947.jpeg?s=cffac6fa808aa8818e3d3df260244e833cf47b77",
-      "url": "https://www.vinted.co.uk/items/9783603981",
-      "seller": {
-        "login": "johnbndesigners",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "darranh2",
+        "profile_url": "https://www.vinted.co.uk/member/288330114-darranh2",
+        "business": false
       },
       "discount_pct": 83,
       "score": 103,
@@ -2774,7 +2884,7 @@
       "is_bargain": true,
       "bargain_reason": "-83%",
       "source": "core",
-      "listed_at": 1787740947,
+      "listed_at": 1787742252,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -2782,39 +2892,81 @@
       "price_drop_pct": null,
       "previous_price": null,
       "source_config": {
-        "search_text": "palm angels",
-        "price_to": 100,
-        "rrp": 300,
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
         "size_category": "tops"
       },
       "caution_flags": [],
       "favourite_count": 0
     },
     {
-      "id": 9783710096,
-      "title": "Patagonia Mens Fleece Medium",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
+      "id": 9783766504,
+      "title": "Leather and Kevlar jacket",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
-      "price": "40.0 GBP",
-      "price_amount": 40.0,
-      "estimated_total": 42.7,
-      "photo": "https://images1.vinted.net/t/04_0143b_EEdFUCXnDD2KM8dH3z9w3pE5/f800/1787741525.jpeg?s=0e927fb162e8aaa757c57d2553736ae8c877620d",
-      "url": "https://www.vinted.co.uk/items/9783710096",
+      "price": "79.99 GBP",
+      "price_amount": 79.99,
+      "estimated_total": 84.69,
+      "photo": "https://images1.vinted.net/t/02_0109f_UBKc4Tc9QpZFMdaHU9JpqpqD/f800/1787741833.jpeg?s=61ff088c9fcb3d88f7567b61b9e7c7249717e54a",
+      "url": "https://www.vinted.co.uk/items/9783766504",
       "seller": {
-        "login": "pmce1306",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "dustitttiiii",
+        "profile_url": "https://www.vinted.co.uk/member/3179245542-dustitttiiii",
+        "business": false
       },
-      "discount_pct": 75,
+      "discount_pct": 77,
       "score": 103,
       "my_size": true,
       "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-75%",
+      "bargain_reason": "-77%",
       "source": "core",
-      "listed_at": 1787741525,
+      "listed_at": 1787741833,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9759321601,
+      "title": "Patagonia Men's Special Guide Black Softshell Outdoor Full Zip Jacket Medium M",
+      "watch": "Patagonia",
+      "brand": "Patagonia",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "29.66 GBP",
+      "price_amount": 29.66,
+      "estimated_total": 31.84,
+      "photo": "https://images1.vinted.net/t/01_017bc_8LJYj2obUWWRXCZnDEposSTi/f800/1787545155.jpeg?s=56758cb6dc111b00c64b4cd8c1aa1f4dcaaf36ba",
+      "url": "https://www.vinted.co.uk/items/9759321601",
+      "seller": {
+        "login": "aghoulnextdoor",
+        "profile_url": "https://www.vinted.co.uk/member/3151829774-aghoulnextdoor",
+        "business": false
+      },
+      "discount_pct": 81,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-81%",
+      "source": "core",
+      "listed_at": 1787545155,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -2831,141 +2983,22 @@
       "favourite_count": 0
     },
     {
-      "id": 9783686083,
-      "title": "CP Company Zip Through Cardigan, Very Rare, Recolour, Large.",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "L",
-      "condition": "Very good",
-      "price": "60.0 GBP",
-      "price_amount": 60.0,
-      "estimated_total": 63.7,
-      "photo": "https://images1.vinted.net/t/01_00150_uEToGPAyybxoWBr3kaQmUujv/f800/1787741394.jpeg?s=9a2e1b91c473e76afa3d94330840c482671eb37f",
-      "url": "https://www.vinted.co.uk/items/9783686083",
-      "seller": {
-        "login": "rbram82",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": 1787741394,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9783516702,
-      "title": "Cp company jumper",
+      "id": 9783907268,
+      "title": "C.P. Company Cardigan",
       "watch": "CP Company",
       "brand": "C.P. Company",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
-      "price": "100.0 GBP",
-      "price_amount": 100.0,
-      "estimated_total": 105.7,
-      "photo": "https://images1.vinted.net/t/06_0016d_xnsXcxxXw6qYFF7YdphWct8M/f800/1787740468.jpeg?s=2de96280f3855be5dc19150ed5459470a0917fef",
-      "url": "https://www.vinted.co.uk/items/9783516702",
+      "price": "79.92 GBP",
+      "price_amount": 79.92,
+      "estimated_total": 84.62,
+      "photo": "https://images1.vinted.net/t/06_01c86_VQdQj1KWdQSUQFCPGJGYtmkq/f800/1787742609.jpeg?s=27dc99c825cc82a1781bd8228a16d9d047f61fa1",
+      "url": "https://www.vinted.co.uk/items/9783907268",
       "seller": {
-        "login": "sherman_ow",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 71,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "core",
-      "listed_at": 1787740468,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9783452785,
-      "title": "Cp company cargos",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "M",
-      "condition": "Very good",
-      "price": "110.0 GBP",
-      "price_amount": 110.0,
-      "estimated_total": 116.2,
-      "photo": "https://images1.vinted.net/t/06_02142_xdoHPJ4jtXXjDP21YiqARm2A/f800/1787740113.jpeg?s=9b92565c9eebdf0bd4712fc4b1b23d6e0aadf87e",
-      "url": "https://www.vinted.co.uk/items/9783452785",
-      "seller": {
-        "login": "sherman_ow",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 69,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-69%",
-      "source": "core",
-      "listed_at": 1787740113,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "cp company",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
-    },
-    {
-      "id": 9783446045,
-      "title": "CP Company down jacket",
-      "watch": "CP Company",
-      "brand": "C.P. Company",
-      "size": "M",
-      "condition": "Very good",
-      "price": "79.93 GBP",
-      "price_amount": 79.93,
-      "estimated_total": 84.63,
-      "photo": "https://images1.vinted.net/t/01_00cbc_Atz7KJ3T3R2HxpjpvJZsAuKZ/f800/1787740075.jpeg?s=86e557a78185ffb95dbeac7654d3faa531627361",
-      "url": "https://www.vinted.co.uk/items/9783446045",
-      "seller": {
-        "login": "ggbcfbdfbd",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "gdfbbcbbv",
+        "profile_url": "https://www.vinted.co.uk/member/3179598646-gdfbbcbbv",
+        "business": false
       },
       "discount_pct": 77,
       "score": 103,
@@ -2974,7 +3007,48 @@
       "is_bargain": true,
       "bargain_reason": "-77%",
       "source": "core",
-      "listed_at": 1787740075,
+      "listed_at": 1787742609,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "cp company",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
+    },
+    {
+      "id": 9783899500,
+      "title": "Baby Blue CP Company Jumper",
+      "watch": "CP Company",
+      "brand": "C.P. Company",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "Very good",
+      "price": "100.0 GBP",
+      "price_amount": 100.0,
+      "estimated_total": 105.7,
+      "photo": "https://images1.vinted.net/t/02_01a1e_2ioppZ3C7JxDnSXyjjUH9jeB/f800/1787742566.jpeg?s=770f56c7b334cbe530c655f0fc6ea03dfecdd84e",
+      "url": "https://www.vinted.co.uk/items/9783899500",
+      "seller": {
+        "login": "katrina765",
+        "profile_url": "https://www.vinted.co.uk/member/94801698-katrina765",
+        "business": false
+      },
+      "discount_pct": 71,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-71%",
+      "source": "core",
+      "listed_at": 1787742566,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -2991,61 +3065,22 @@
       "favourite_count": 0
     },
     {
-      "id": 9783644586,
-      "title": "Stone Island ghost jumper",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
+      "id": 9783887542,
+      "title": "C.P Company Shorts",
+      "watch": "CP Company",
+      "brand": "C.P. Company",
       "size": "M",
-      "condition": "Very good",
-      "price": "120.0 GBP",
-      "price_amount": 120.0,
-      "estimated_total": 126.7,
-      "photo": "https://images1.vinted.net/t/06_014be_Z7h9U43UaqozkPbJzqNbPJw9/f800/1787741168.jpeg?s=bd810223a4d10cc0b2149ae620a1b7ce9887b7d3",
-      "url": "https://www.vinted.co.uk/items/9783644586",
-      "seller": {
-        "login": "oliverclare1234",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 66,
-      "score": 103,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-66%",
-      "source": "core",
-      "listed_at": 1787741168,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "stone island",
-        "price_to": 130,
-        "rrp": 350,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 1
-    },
-    {
-      "id": 9783450770,
-      "title": "Jacket",
-      "watch": "Stone Island",
-      "brand": "Stone Island",
-      "size": "L",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "75.0 GBP",
       "price_amount": 75.0,
       "estimated_total": 79.45,
-      "photo": "https://images1.vinted.net/t/05_00f06_zXFDYADbVkrdGtXgpfGL8usj/f800/1787740101.jpeg?s=7b6e2dc4f31eeefc964edc4e966b89b047e95508",
-      "url": "https://www.vinted.co.uk/items/9783450770",
+      "photo": "https://images1.vinted.net/t/06_01d04_vN5C3fVqEJ32QBvTmfPMQuzB/f800/1787742501.jpeg?s=295819b47a48953ad8df59a135ad0efc4ab0b7fc",
+      "url": "https://www.vinted.co.uk/items/9783887542",
       "seller": {
-        "login": "chrislish91",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "lucaslinden",
+        "profile_url": "https://www.vinted.co.uk/member/246019709-lucaslinden",
+        "business": false
       },
       "discount_pct": 79,
       "score": 103,
@@ -3054,7 +3089,89 @@
       "is_bargain": true,
       "bargain_reason": "-79%",
       "source": "core",
-      "listed_at": 1787740101,
+      "listed_at": 1787742501,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "cp company",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9783757194,
+      "title": "Men\u2019s cp company jumper",
+      "watch": "CP Company",
+      "brand": "C.P. Company",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "Very good",
+      "price": "55.0 GBP",
+      "price_amount": 55.0,
+      "estimated_total": 58.45,
+      "photo": "https://images1.vinted.net/t/05_0045a_M8v5WsGDLkLsrZynSuNcyby2/f800/1787741783.jpeg?s=96d31fde85fa56f0afc0e1da0f9b5ed3bf43342c",
+      "url": "https://www.vinted.co.uk/items/9783757194",
+      "seller": {
+        "login": "colec25",
+        "profile_url": "https://www.vinted.co.uk/member/3152811395-colec25",
+        "business": false
+      },
+      "discount_pct": 84,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-84%",
+      "source": "core",
+      "listed_at": 1787741783,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "cp company",
+        "price_to": 130,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
+      "id": 9784030852,
+      "title": "Stone Island Polo Shirt",
+      "watch": "Stone Island",
+      "brand": "Stone Island",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "Very good",
+      "price": "58.4 GBP",
+      "price_amount": 58.4,
+      "estimated_total": 62.02,
+      "photo": "https://images1.vinted.net/t/06_007cc_sDfNXdSXnZYC8oNZUW1bQTKu/f800/1787743279.jpeg?s=f9c402dcaa873fdab4e761d8e5ec94f95299cef2",
+      "url": "https://www.vinted.co.uk/items/9784030852",
+      "seller": {
+        "login": "jav112",
+        "profile_url": "https://www.vinted.co.uk/member/186024117-jav112",
+        "business": false
+      },
+      "discount_pct": 83,
+      "score": 103,
+      "my_size": true,
+      "is_new": true,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787743279,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -3076,6 +3193,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "",
+      "size_term_matched": null,
       "condition": "New with tags",
       "price": "130.0 GBP",
       "price_amount": 130.0,
@@ -3084,8 +3202,8 @@
       "url": "https://www.vinted.co.uk/items/9769348638",
       "seller": {
         "login": "ses576",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/165293204-ses576",
+        "business": false
       },
       "discount_pct": 71,
       "score": 100,
@@ -3116,6 +3234,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "",
+      "size_term_matched": null,
       "condition": "New with tags",
       "price": "85.0 GBP",
       "price_amount": 85.0,
@@ -3124,8 +3243,8 @@
       "url": "https://www.vinted.co.uk/items/9766779286",
       "seller": {
         "login": "lisavickerage",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/141224902-lisavickerage",
+        "business": false
       },
       "discount_pct": 81,
       "score": 100,
@@ -3156,6 +3275,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "",
+      "size_term_matched": null,
       "condition": "New with tags",
       "price": "75.0 GBP",
       "price_amount": 75.0,
@@ -3164,8 +3284,8 @@
       "url": "https://www.vinted.co.uk/items/9739389344",
       "seller": {
         "login": "fashion_moo",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/154795717-fashionmoo",
+        "business": false
       },
       "discount_pct": 83,
       "score": 100,
@@ -3196,6 +3316,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "",
+      "size_term_matched": null,
       "condition": "New with tags",
       "price": "70.0 GBP",
       "price_amount": 70.0,
@@ -3204,8 +3325,8 @@
       "url": "https://www.vinted.co.uk/items/9736995832",
       "seller": {
         "login": "sadiyyakhan",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/115021220-sadiyyakhan",
+        "business": false
       },
       "discount_pct": 84,
       "score": 100,
@@ -3231,70 +3352,31 @@
       "favourite_count": 1
     },
     {
-      "id": 9688930182,
-      "title": "Loewe Esencia Elixir",
-      "watch": "Loewe",
-      "brand": "Loewe",
-      "size": "",
-      "condition": "New with tags",
-      "price": "95.0 GBP",
-      "price_amount": 95.0,
-      "estimated_total": 100.45,
-      "photo": "https://images1.vinted.net/t/02_01c65_jvt9FDyFurkwGWrkaJ65mMWS/f800/1786973909.jpeg?s=00fcb7e276174c8d6e1c4c1719ad8c4541b2d519",
-      "url": "https://www.vinted.co.uk/items/9688930182",
-      "seller": {
-        "login": "martynyork",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 79,
-      "score": 100,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-79%",
-      "source": "core",
-      "listed_at": 1786973909,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "loewe",
-        "price_to": 150,
-        "rrp": 450,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 8
-    },
-    {
-      "id": 9783080051,
-      "title": "Belstaff Trialmaster",
+      "id": 9784033701,
+      "title": "Belstaff Erwin Lightweight Nylon Crinkle Overshirt Jacket Blue - Medium",
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "M",
-      "condition": "Very good",
-      "price": "79.96 GBP",
-      "price_amount": 79.96,
-      "estimated_total": 84.66,
-      "photo": "https://images1.vinted.net/t/06_01704_AJpsx3XKhZ6PdKHCBHUoXNdL/f800/1787738071.jpeg?s=d2a880b6463d9276f10dd54ca97dedee66299f51",
-      "url": "https://www.vinted.co.uk/items/9783080051",
+      "size_term_matched": "M",
+      "condition": "Good",
+      "price": "70.0 GBP",
+      "price_amount": 70.0,
+      "estimated_total": 74.2,
+      "photo": "https://images1.vinted.net/t/02_019d8_z7eqt5sqaH1atVUeLuj3kHim/f800/1787743295.jpeg?s=afe80e0ae7f20fae889d8faabbb1ea52f87e3466",
+      "url": "https://www.vinted.co.uk/items/9784033701",
       "seller": {
-        "login": "ffbbvbcvbvb",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "8livesremaining",
+        "profile_url": "https://www.vinted.co.uk/member/3178148993-8livesremaining",
+        "business": false
       },
-      "discount_pct": 77,
+      "discount_pct": 80,
       "score": 98,
       "my_size": true,
-      "is_new": false,
+      "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-77%",
+      "bargain_reason": "-80%",
       "source": "core",
-      "listed_at": 1787738071,
+      "listed_at": 1787743295,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -3308,7 +3390,89 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 8
+      "favourite_count": 0
+    },
+    {
+      "id": 9783508789,
+      "title": "Belstaff leather motorcycle jacket",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "Very good",
+      "price": "79.93 GBP",
+      "price_amount": 79.93,
+      "estimated_total": 84.63,
+      "photo": "https://images1.vinted.net/t/02_02620_HC3zCERViZwjgFGcDNkvC6uH/f800/1787740425.jpeg?s=d45ee15655d38fc3b87ead3661c06bf405c0df96",
+      "url": "https://www.vinted.co.uk/items/9783508789",
+      "seller": {
+        "login": "gbcvbdfdfbd",
+        "profile_url": "https://www.vinted.co.uk/member/3179597583-gbcvbdfdfbd",
+        "business": false
+      },
+      "discount_pct": 77,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-77%",
+      "source": "core",
+      "listed_at": 1787740425,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 1
+    },
+    {
+      "id": 9783356164,
+      "title": "Belstaff Weybridge Lederjacke",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "79.95 GBP",
+      "price_amount": 79.95,
+      "estimated_total": 84.65,
+      "photo": "https://images1.vinted.net/t/05_001f1_FGF5u1bzHAkkd4hSXTRDV1Kc/f800/1787739578.jpeg?s=3abe89fa152b7f5615daa867e9247a60f3e25ec4",
+      "url": "https://www.vinted.co.uk/items/9783356164",
+      "seller": {
+        "login": "danieeeeees",
+        "profile_url": "https://www.vinted.co.uk/member/3179244702-danieeeeees",
+        "business": false
+      },
+      "discount_pct": 77,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-77%",
+      "source": "core",
+      "listed_at": 1787739578,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 2
     },
     {
       "id": 9782896261,
@@ -3316,6 +3480,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "79.86 GBP",
       "price_amount": 79.86,
@@ -3324,8 +3489,8 @@
       "url": "https://www.vinted.co.uk/items/9782896261",
       "seller": {
         "login": "matthhhhyyyy",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3179255713-matthhhhyyyy",
+        "business": false
       },
       "discount_pct": 77,
       "score": 98,
@@ -3356,6 +3521,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "79.96 GBP",
       "price_amount": 79.96,
@@ -3364,8 +3530,8 @@
       "url": "https://www.vinted.co.uk/items/9782732161",
       "seller": {
         "login": "dgfgdbdvbcv",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3179269526-dgfgdbdvbcv",
+        "business": false
       },
       "discount_pct": 77,
       "score": 98,
@@ -3388,7 +3554,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 6
+      "favourite_count": 11
     },
     {
       "id": 9782395357,
@@ -3396,6 +3562,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "79.96 GBP",
       "price_amount": 79.96,
@@ -3404,8 +3571,8 @@
       "url": "https://www.vinted.co.uk/items/9782395357",
       "seller": {
         "login": "johnn196",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3178671567-johnn196",
+        "business": false
       },
       "discount_pct": 77,
       "score": 98,
@@ -3436,6 +3603,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "80.0 GBP",
       "price_amount": 80.0,
@@ -3444,8 +3612,8 @@
       "url": "https://www.vinted.co.uk/items/9782266969",
       "seller": {
         "login": "benetchells017",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/80492516-benetchells017",
+        "business": false
       },
       "discount_pct": 77,
       "score": 98,
@@ -3476,6 +3644,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "98.0 GBP",
       "price_amount": 98.0,
@@ -3484,8 +3653,8 @@
       "url": "https://www.vinted.co.uk/items/9780404430",
       "seller": {
         "login": "esdenoutfitters",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/136058830-esdenoutfitters",
+        "business": false
       },
       "discount_pct": 72,
       "score": 98,
@@ -3511,11 +3680,53 @@
       "favourite_count": 10
     },
     {
+      "id": 9779697834,
+      "title": "Men's jacket",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "70.0 GBP",
+      "price_amount": 70.0,
+      "estimated_total": 74.2,
+      "photo": "https://images1.vinted.net/t/04_00780_WHhGK8rVPg9dHXbutE4aYhtE/f800/1787689132.jpeg?s=0b6f84563e33aa6eb5ac6c3b6d2651cd1bd3115d",
+      "url": "https://www.vinted.co.uk/items/9779697834",
+      "seller": {
+        "login": "lemonade1229",
+        "profile_url": "https://www.vinted.co.uk/member/276049855-lemonade1229",
+        "business": false
+      },
+      "discount_pct": 80,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-80%",
+      "source": "core",
+      "listed_at": 1787689132,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 3
+    },
+    {
       "id": 9777589931,
       "title": "Belstaff Weybridge Jacket (Dark Ink)",
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "120.0 GBP",
       "price_amount": 120.0,
@@ -3524,8 +3735,8 @@
       "url": "https://www.vinted.co.uk/items/9777589931",
       "seller": {
         "login": "tompids",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/275469047-tompids",
+        "business": false
       },
       "discount_pct": 66,
       "score": 98,
@@ -3551,11 +3762,94 @@
       "favourite_count": 5
     },
     {
+      "id": 9776785690,
+      "title": "Belstaff Overshirt/Jacket M",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "75.0 GBP",
+      "price_amount": 75.0,
+      "estimated_total": 79.45,
+      "photo": "https://images1.vinted.net/t/05_01b07_mog8fiX7VMpN5WXNS7pJBQyj/f800/1787674201.jpeg?s=30b8284131d305b184112f974ee15ad412c2504e",
+      "url": "https://www.vinted.co.uk/items/9776785690",
+      "seller": {
+        "login": "a9775",
+        "profile_url": "https://www.vinted.co.uk/member/266012556-a9775",
+        "business": false
+      },
+      "discount_pct": 79,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-79%",
+      "source": "core",
+      "listed_at": 1787674201,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 40
+    },
+    {
+      "id": 8760231322,
+      "title": "Men\u2019s Belstaff Anton shell trimmed wool jacket",
+      "watch": "Belstaff",
+      "brand": "Belstaff",
+      "size": "L",
+      "size_term_matched": "L",
+      "condition": "Very good",
+      "price": "110.0 GBP",
+      "price_amount": 110.0,
+      "estimated_total": 116.2,
+      "photo": "https://images1.vinted.net/t/05_0026f_M8zCmB4HmLBUBSKaJ9obginU/f800/1777454918.jpeg?s=d5d6e5257876f7c50e819ba0222bf8e2845ffd2f",
+      "url": "https://www.vinted.co.uk/items/8760231322",
+      "seller": {
+        "login": "johnboyyy92",
+        "profile_url": "https://www.vinted.co.uk/member/178930361-johnboyyy92",
+        "business": true
+      },
+      "discount_pct": 69,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-69%",
+      "source": "core",
+      "listed_at": 1777454918,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "belstaff jacket",
+        "price_to": 120,
+        "rrp": 350,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 11
+    },
+    {
       "id": 9777263222,
       "title": "Vintage Belstaff heavy duty leather motorbike jacket",
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "64.95 GBP",
       "price_amount": 64.95,
@@ -3564,8 +3858,8 @@
       "url": "https://www.vinted.co.uk/items/9777263222",
       "seller": {
         "login": "authenticpieces1",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/246638544-authenticpieces1",
+        "business": true
       },
       "discount_pct": 81,
       "score": 98,
@@ -3596,6 +3890,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "120.0 GBP",
       "price_amount": 120.0,
@@ -3604,8 +3899,8 @@
       "url": "https://www.vinted.co.uk/items/9774283461",
       "seller": {
         "login": "straysaints",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/128683907-straysaints",
+        "business": true
       },
       "discount_pct": 66,
       "score": 98,
@@ -3636,6 +3931,7 @@
       "watch": "Belstaff",
       "brand": "Belstaff",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "70.0 GBP",
       "price_amount": 70.0,
@@ -3644,8 +3940,8 @@
       "url": "https://www.vinted.co.uk/items/9776222999",
       "seller": {
         "login": "walkersus3d",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/70157541-walkersus3d",
+        "business": false
       },
       "discount_pct": 80,
       "score": 98,
@@ -3668,33 +3964,34 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 28
+      "favourite_count": 29
     },
     {
-      "id": 9783429179,
-      "title": "Men\u2019s Coat",
+      "id": 9779700210,
+      "title": "Canada Goose Gilet Black",
       "watch": "Canada Goose",
       "brand": "Canada Goose",
-      "size": "L",
-      "condition": "Good",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
       "price": "150.0 GBP",
       "price_amount": 150.0,
       "estimated_total": 158.2,
-      "photo": "https://images1.vinted.net/t/04_01ee6_eevpmKF2phnBAG21QcP21k2b/f800/1787739982.jpeg?s=f3b314bde8cf012933df8e49441b5a14969d0795",
-      "url": "https://www.vinted.co.uk/items/9783429179",
+      "photo": "https://images1.vinted.net/t/06_00c77_CyigSfLQopDH1coN1HNEH3mE/f800/1787689148.jpeg?s=1f392376012e4d0cb445190c6a44b1cfbcea8bbf",
+      "url": "https://www.vinted.co.uk/items/9779700210",
       "seller": {
-        "login": "connieblakee",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "tchandler97",
+        "profile_url": "https://www.vinted.co.uk/member/170636787-tchandler97",
+        "business": false
       },
       "discount_pct": 83,
       "score": 98,
       "my_size": true,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "-83%",
       "source": "core",
-      "listed_at": 1787739982,
+      "listed_at": 1787689148,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -3708,47 +4005,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9783444055,
-      "title": "Men\u2019s Canada Goose Coat",
-      "watch": "Canada Goose",
-      "brand": "Canada",
-      "size": "L",
-      "condition": "Good",
-      "price": "155.0 GBP",
-      "price_amount": 155.0,
-      "estimated_total": 163.45,
-      "photo": "https://images1.vinted.net/t/02_01226_FnDiTQxDSfXbWd5JNCLWEmxr/f800/1787740065.jpeg?s=5405364aa506c8d521f316d3a56ef5e733311acb",
-      "url": "https://www.vinted.co.uk/items/9783444055",
-      "seller": {
-        "login": "connieblakee",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 83,
-      "score": 98,
-      "my_size": true,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": 1787740065,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "canada goose",
-        "price_to": 250,
-        "rrp": 900,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
+      "favourite_count": 3
     },
     {
       "id": 9782997165,
@@ -3756,6 +4013,7 @@
       "watch": "Moncler",
       "brand": "Moncler",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "170.0 GBP",
       "price_amount": 170.0,
@@ -3764,8 +4022,8 @@
       "url": "https://www.vinted.co.uk/items/9782997165",
       "seller": {
         "login": "ionac1",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/97734657-ionac1",
+        "business": false
       },
       "discount_pct": 81,
       "score": 98,
@@ -3796,6 +4054,7 @@
       "watch": "Moncler",
       "brand": "Moncler",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "180.0 GBP",
       "price_amount": 180.0,
@@ -3804,8 +4063,8 @@
       "url": "https://www.vinted.co.uk/items/9776836134",
       "seller": {
         "login": "gar996",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/225079041-gar996",
+        "business": false
       },
       "discount_pct": 80,
       "score": 98,
@@ -3836,6 +4095,7 @@
       "watch": "Moncler",
       "brand": "Moncler",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "160.0 GBP",
       "price_amount": 160.0,
@@ -3844,8 +4104,8 @@
       "url": "https://www.vinted.co.uk/items/9779704250",
       "seller": {
         "login": "jackgilly",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/110170106-jackgilly",
+        "business": false
       },
       "discount_pct": 82,
       "score": 98,
@@ -3871,11 +4131,53 @@
       "favourite_count": 8
     },
     {
+      "id": 9783603981,
+      "title": "Palm Angels White Cotton Hoodie - Size M",
+      "watch": "Palm Angels",
+      "brand": "Palm Angels",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "50.0 GBP",
+      "price_amount": 50.0,
+      "estimated_total": 53.2,
+      "photo": "https://images1.vinted.net/t/06_004ce_cnk3CWkauVpbPogCKG6sn4cc/f800/1787740947.jpeg?s=cffac6fa808aa8818e3d3df260244e833cf47b77",
+      "url": "https://www.vinted.co.uk/items/9783603981",
+      "seller": {
+        "login": "johnbndesigners",
+        "profile_url": "https://www.vinted.co.uk/member/3133689607-johnbndesigners",
+        "business": false
+      },
+      "discount_pct": 83,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-83%",
+      "source": "core",
+      "listed_at": 1787740947,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "palm angels",
+        "price_to": 100,
+        "rrp": 300,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 0
+    },
+    {
       "id": 9780190117,
       "title": "Palm Angels T-shirt",
       "watch": "Palm Angels",
       "brand": "Palm Angels",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "50.0 GBP",
       "price_amount": 50.0,
@@ -3884,8 +4186,8 @@
       "url": "https://www.vinted.co.uk/items/9780190117",
       "seller": {
         "login": "kate_jones1",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/307258135-katejones1",
+        "business": false
       },
       "discount_pct": 83,
       "score": 98,
@@ -3916,6 +4218,7 @@
       "watch": "Palm Angels",
       "brand": "Palm Angels",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "45.0 GBP",
       "price_amount": 45.0,
@@ -3924,8 +4227,8 @@
       "url": "https://www.vinted.co.uk/items/9780170328",
       "seller": {
         "login": "luxury8998",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/80396210-luxury8998",
+        "business": false
       },
       "discount_pct": 85,
       "score": 98,
@@ -3956,6 +4259,7 @@
       "watch": "Palm Angels",
       "brand": "Palm Angels",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -3964,8 +4268,8 @@
       "url": "https://www.vinted.co.uk/items/9780196477",
       "seller": {
         "login": "beth12328384",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/101857942-beth12328384",
+        "business": false
       },
       "discount_pct": 80,
       "score": 98,
@@ -3991,51 +4295,12 @@
       "favourite_count": 0
     },
     {
-      "id": 9780124367,
-      "title": "ami paris t-shirt",
-      "watch": "Ami Paris",
-      "brand": "Ami Paris",
-      "size": "M",
-      "condition": "Very good",
-      "price": "45.0 GBP",
-      "price_amount": 45.0,
-      "estimated_total": 47.95,
-      "photo": "https://images1.vinted.net/t/06_018fc_rqNKNN2J3xJx2nSM3n19kyLs/f800/1787692544.jpeg?s=c7453468ddcab0b961c8c181161e1fc6f2038879",
-      "url": "https://www.vinted.co.uk/items/9780124367",
-      "seller": {
-        "login": "presleystewart1",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 82,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-82%",
-      "source": "core",
-      "listed_at": 1787692544,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ami paris",
-        "price_to": 90,
-        "rrp": 250,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 5
-    },
-    {
       "id": 9779898268,
       "title": "Ami White T Shirt",
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -4044,8 +4309,8 @@
       "url": "https://www.vinted.co.uk/items/9779898268",
       "seller": {
         "login": "mo.ali93",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/235404872-moali93",
+        "business": false
       },
       "discount_pct": 76,
       "score": 98,
@@ -4076,6 +4341,7 @@
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "46.0 GBP",
       "price_amount": 46.0,
@@ -4084,8 +4350,8 @@
       "url": "https://www.vinted.co.uk/items/9775926972",
       "seller": {
         "login": "danielthomas82",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3179419636-danielthomas82",
+        "business": false
       },
       "discount_pct": 82,
       "score": 98,
@@ -4116,6 +4382,7 @@
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "40.0 GBP",
       "price_amount": 40.0,
@@ -4124,8 +4391,8 @@
       "url": "https://www.vinted.co.uk/items/9761139397",
       "seller": {
         "login": "charlie.dev",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/134789459-charliedev",
+        "business": false
       },
       "discount_pct": 84,
       "score": 98,
@@ -4156,6 +4423,7 @@
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "44.5 GBP",
       "price_amount": 44.5,
@@ -4164,8 +4432,8 @@
       "url": "https://www.vinted.co.uk/items/9734819067",
       "seller": {
         "login": "joremus86",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3158548793-joremus86",
+        "business": false
       },
       "discount_pct": 82,
       "score": 98,
@@ -4191,11 +4459,53 @@
       "favourite_count": 3
     },
     {
+      "id": 9730950702,
+      "title": "Ami blue t shirt size medium",
+      "watch": "Ami Paris",
+      "brand": "AMI",
+      "size": "M",
+      "size_term_matched": "M",
+      "condition": "Very good",
+      "price": "65.0 GBP",
+      "price_amount": 65.0,
+      "estimated_total": 68.95,
+      "photo": "https://images1.vinted.net/t/02_0240c_BhSahoKU5uQsqCDaBHnFSXLb/f800/1787323074.jpeg?s=97542454d4d5cb47648427277ded754f3cc76ef0",
+      "url": "https://www.vinted.co.uk/items/9730950702",
+      "seller": {
+        "login": "spenders89",
+        "profile_url": "https://www.vinted.co.uk/member/3156203377-spenders89",
+        "business": false
+      },
+      "discount_pct": 74,
+      "score": 98,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-74%",
+      "source": "core",
+      "listed_at": 1787323074,
+      "condition_badge": null,
+      "category": "electronics",
+      "subcategory": "caution",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "source_config": {
+        "search_text": "ami paris",
+        "price_to": 90,
+        "rrp": 250,
+        "size_category": "tops"
+      },
+      "caution_flags": [],
+      "favourite_count": 4
+    },
+    {
       "id": 9753646421,
       "title": "AMI Paris t shirt medium",
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "75.0 GBP",
       "price_amount": 75.0,
@@ -4204,8 +4514,8 @@
       "url": "https://www.vinted.co.uk/items/9753646421",
       "seller": {
         "login": "kishywishywoo",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/262793984-kishywishywoo",
+        "business": false
       },
       "discount_pct": 70,
       "score": 98,
@@ -4236,6 +4546,7 @@
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "50.0 GBP",
       "price_amount": 50.0,
@@ -4244,8 +4555,8 @@
       "url": "https://www.vinted.co.uk/items/9751889282",
       "seller": {
         "login": "hannahnicholas3",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/130139849-hannahnicholas3",
+        "business": false
       },
       "discount_pct": 80,
       "score": 98,
@@ -4276,6 +4587,7 @@
       "watch": "Ami Paris",
       "brand": "Ami Paris",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "40.0 GBP",
       "price_amount": 40.0,
@@ -4284,8 +4596,8 @@
       "url": "https://www.vinted.co.uk/items/9745918797",
       "seller": {
         "login": "dorn687",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3153966469-dorn687",
+        "business": false
       },
       "discount_pct": 84,
       "score": 98,
@@ -4311,51 +4623,12 @@
       "favourite_count": 5
     },
     {
-      "id": 9729803959,
-      "title": "AMI Paris Pink Heart-Print Button Up Shirt Mens size 40 USM",
-      "watch": "Ami Paris",
-      "brand": "AMI",
-      "size": "M",
-      "condition": "Very good",
-      "price": "88.99 GBP",
-      "price_amount": 88.99,
-      "estimated_total": 94.14,
-      "photo": "https://images1.vinted.net/t/05_00cce_i6JsZC4WURM8noMnu3MySeAw/f800/1787317406.jpeg?s=0206ea753fa8e06c079169973b43ec49424d926f",
-      "url": "https://www.vinted.co.uk/items/9729803959",
-      "seller": {
-        "login": "moonraker43",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 64,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-64%",
-      "source": "core",
-      "listed_at": 1787317406,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "ami paris",
-        "price_to": 90,
-        "rrp": 250,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 9
-    },
-    {
       "id": 9618179652,
       "title": "Golden Goose GGDB Slide Men\u2019s High-Top Lace-Up Zip EU43/UK9 Bordeaux Suede/Blue - Used/Excellent",
       "watch": "Golden Goose",
       "brand": "Golden Goose",
       "size": "9",
+      "size_term_matched": "9",
       "condition": "Very good",
       "price": "125.0 GBP",
       "price_amount": 125.0,
@@ -4364,8 +4637,8 @@
       "url": "https://www.vinted.co.uk/items/9618179652",
       "seller": {
         "login": "robert_holder_22",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3171394874-robertholder22",
+        "business": false
       },
       "discount_pct": 64,
       "score": 98,
@@ -4396,6 +4669,7 @@
       "watch": "Golden Goose",
       "brand": "Golden Goose",
       "size": "9",
+      "size_term_matched": "9",
       "condition": "Very good",
       "price": "60.0 GBP",
       "price_amount": 60.0,
@@ -4404,8 +4678,8 @@
       "url": "https://www.vinted.co.uk/items/9568264861",
       "seller": {
         "login": "sienaedwards8",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3158673038-sienaedwards8",
+        "business": false
       },
       "discount_pct": 83,
       "score": 98,
@@ -4436,6 +4710,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "150.0 GBP",
       "price_amount": 150.0,
@@ -4444,8 +4719,8 @@
       "url": "https://www.vinted.co.uk/items/9768157825",
       "seller": {
         "login": "theb882",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3172546987-theb882",
+        "business": false
       },
       "discount_pct": 67,
       "score": 98,
@@ -4476,6 +4751,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "100.0 GBP",
       "price_amount": 100.0,
@@ -4484,8 +4760,8 @@
       "url": "https://www.vinted.co.uk/items/9753161664",
       "seller": {
         "login": "amandamoo1981",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/183153222-amandamoo1981",
+        "business": false
       },
       "discount_pct": 78,
       "score": 98,
@@ -4516,6 +4792,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "M",
+      "size_term_matched": "M",
       "condition": "Very good",
       "price": "150.0 GBP",
       "price_amount": 150.0,
@@ -4524,8 +4801,8 @@
       "url": "https://www.vinted.co.uk/items/9734093123",
       "seller": {
         "login": "ejacks7",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/111691335-ejacks7",
+        "business": false
       },
       "discount_pct": 67,
       "score": 98,
@@ -4556,6 +4833,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "150.0 GBP",
       "price_amount": 150.0,
@@ -4564,8 +4842,8 @@
       "url": "https://www.vinted.co.uk/items/9723146263",
       "seller": {
         "login": "tomhuxxa",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/3140811933-tomhuxxa",
+        "business": false
       },
       "discount_pct": 67,
       "score": 98,
@@ -4596,6 +4874,7 @@
       "watch": "Loewe",
       "brand": "Loewe",
       "size": "L",
+      "size_term_matched": "L",
       "condition": "Very good",
       "price": "120.0 GBP",
       "price_amount": 120.0,
@@ -4604,8 +4883,8 @@
       "url": "https://www.vinted.co.uk/items/9709684315",
       "seller": {
         "login": "tnissen",
-        "feedback_count": 0,
-        "reputation": null
+        "profile_url": "https://www.vinted.co.uk/member/154508677-tnissen",
+        "business": false
       },
       "discount_pct": 73,
       "score": 98,
@@ -4631,70 +4910,31 @@
       "favourite_count": 5
     },
     {
-      "id": 9783289432,
-      "title": "Patagonia retro pile fleece Patagonia Men's Retro Pile Jacket Obsidian Plum",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
-      "size": "L",
-      "condition": "Very good",
-      "price": "50.0 GBP",
-      "price_amount": 50.0,
-      "estimated_total": 53.2,
-      "photo": "https://images1.vinted.net/t/05_00eb2_Uq12Pg4P3uns1J9c9Y1fCoce/f800/1787739215.jpeg?s=6b8d1a8f7269dd9318f111a7b778924ae409aa54",
-      "url": "https://www.vinted.co.uk/items/9783289432",
-      "seller": {
-        "login": "nicnoo8282",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 69,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-69%",
-      "source": "core",
-      "listed_at": 1787739215,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "patagonia jacket",
-        "price_to": 60,
-        "rrp": 160,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 0
-    },
-    {
-      "id": 9782986009,
-      "title": "Patagonia jacket",
+      "id": 9759318088,
+      "title": "M - Patagonia fleece jacket",
       "watch": "Patagonia",
       "brand": "Patagonia",
       "size": "M",
-      "condition": "Very good",
-      "price": "40.0 GBP",
-      "price_amount": 40.0,
-      "estimated_total": 42.7,
-      "photo": "https://images1.vinted.net/t/06_00a22_627iWS79q4o3XWCEnVxvqP9R/f800/1787737557.jpeg?s=c6078ea737093c6df503bd514981e4066f183d12",
-      "url": "https://www.vinted.co.uk/items/9782986009",
+      "size_term_matched": "M",
+      "condition": "Good",
+      "price": "31.89 GBP",
+      "price_amount": 31.89,
+      "estimated_total": 34.18,
+      "photo": "https://images1.vinted.net/t/05_00399_qqJtW9gCx7D8TdEHUVnK7vZy/f800/1787544980.jpeg?s=b6dd8a8303dc8331a596b39e13a54af871cf3a50",
+      "url": "https://www.vinted.co.uk/items/9759318088",
       "seller": {
-        "login": "pixiexo2121",
-        "feedback_count": 0,
-        "reputation": null
+        "login": "amynoreen53",
+        "profile_url": "https://www.vinted.co.uk/member/3171031942-amynoreen53",
+        "business": false
       },
-      "discount_pct": 75,
+      "discount_pct": 80,
       "score": 98,
       "my_size": true,
-      "is_new": false,
+      "is_new": true,
       "is_bargain": true,
-      "bargain_reason": "-75%",
+      "bargain_reason": "-80%",
       "source": "core",
-      "listed_at": 1787737557,
+      "listed_at": 1787544980,
       "condition_badge": null,
       "category": "electronics",
       "subcategory": "caution",
@@ -4708,127 +4948,7 @@
         "size_category": "tops"
       },
       "caution_flags": [],
-      "favourite_count": 9
-    },
-    {
-      "id": 9782395853,
-      "title": "Patagonia - Cream Jacket",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
-      "size": "M",
-      "condition": "Very good",
-      "price": "30.0 GBP",
-      "price_amount": 30.0,
-      "estimated_total": 32.2,
-      "photo": "https://images1.vinted.net/t/01_0154b_anh41CyTCDmvK3DSTYZudSQe/f800/1787734076.jpeg?s=bf7f5b8a9efcf9237132ff7f2d72f0308e765c3b",
-      "url": "https://www.vinted.co.uk/items/9782395853",
-      "seller": {
-        "login": "callum2904",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 81,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-81%",
-      "source": "core",
-      "listed_at": 1787734076,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "patagonia jacket",
-        "price_to": 60,
-        "rrp": 160,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 5
-    },
-    {
-      "id": 9758946408,
-      "title": "Men\u2019s jacket",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
-      "size": "L",
-      "condition": "Very good",
-      "price": "25.96 GBP",
-      "price_amount": 25.96,
-      "estimated_total": 27.96,
-      "photo": "https://images1.vinted.net/t/02_00d45_HgUWNa9DTsFAd8zcPA3FXatD/f800/1787613928.jpeg?s=765544d00a6bf36c9405a961a7bfdff538930b11",
-      "url": "https://www.vinted.co.uk/items/9758946408",
-      "seller": {
-        "login": "vladimird87",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 84,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-84%",
-      "source": "core",
-      "listed_at": 1787613928,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "patagonia jacket",
-        "price_to": 60,
-        "rrp": 160,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 4
-    },
-    {
-      "id": 9781635249,
-      "title": "Patagonia hooded grid fleece jacket grey/black M",
-      "watch": "Patagonia",
-      "brand": "Patagonia",
-      "size": "M",
-      "condition": "Very good",
-      "price": "53.0 GBP",
-      "price_amount": 53.0,
-      "estimated_total": 56.35,
-      "photo": "https://images1.vinted.net/t/06_00bce_r3qzLnXeTRtMymQtViPruqAH/f800/1787727578.jpeg?s=5ab1cb43e4d785772b2a1cd39fe5b2e4ac9a727f",
-      "url": "https://www.vinted.co.uk/items/9781635249",
-      "seller": {
-        "login": "dianeb141",
-        "feedback_count": 0,
-        "reputation": null
-      },
-      "discount_pct": 67,
-      "score": 98,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-67%",
-      "source": "core",
-      "listed_at": 1787727578,
-      "condition_badge": null,
-      "category": "electronics",
-      "subcategory": "caution",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "source_config": {
-        "search_text": "patagonia jacket",
-        "price_to": 60,
-        "rrp": 160,
-        "size_category": "tops"
-      },
-      "caution_flags": [],
-      "favourite_count": 6
+      "favourite_count": 2
     }
   ]
 }
