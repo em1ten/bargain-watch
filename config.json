@@ -4,7 +4,7 @@
   "currency": "GBP",
   "catalog_ids": "5",
   "max_items_per_watch": 40,
-  "bargain_threshold_pct": 50,
+  "bargain_ceiling_ratio": 0.6,
   "bargain_max_price": 20,
   "discovery_per_day": 5,
   "feed_size": 60,
