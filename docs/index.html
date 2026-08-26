@@ -377,22 +377,31 @@ async function promoteToCore(item, btn){
 let activeFilter = 'all';
 let sortMode = 'rank';
 let feedData = [];
+let selectedSizes = new Set();
 
 function cardMatches(item){
-  if (activeFilter.startsWith('watch:')) return item.watch === activeFilter.slice(6);
-  if (activeFilter.startsWith('size:')) return item.size_term_matched === activeFilter.slice(5);
-  const isElectronics = item.category === 'electronics';
-  if (activeFilter === 'games_music') return isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
-  if (activeFilter === 'football') return isElectronics && item.subcategory === 'football';
-  if (activeFilter === 'caution') return isElectronics && item.subcategory === 'caution';
-  if (activeFilter === 'shops') return isElectronics && item.subcategory === 'shops';
-  if (isElectronics) return false; // every other view is clothing-only
-  switch (activeFilter) {
-    case 'is_new':     return item.is_new;
-    case 'is_bargain': return item.is_bargain;
-    case 'starred':    return starred.has(item.id);
-    default:           return true;
+  let categoryMatch;
+  if (activeFilter.startsWith('watch:')){
+    categoryMatch = item.watch === activeFilter.slice(6);
+  } else {
+    const isElectronics = item.category === 'electronics';
+    if (activeFilter === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
+    else if (activeFilter === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
+    else if (activeFilter === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
+    else if (activeFilter === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
+    else if (isElectronics) categoryMatch = false; // every other view is clothing-only
+    else {
+      switch (activeFilter) {
+        case 'is_new':     categoryMatch = item.is_new; break;
+        case 'is_bargain': categoryMatch = item.is_bargain; break;
+        case 'starred':    categoryMatch = starred.has(item.id); break;
+        default:           categoryMatch = true;
+      }
+    }
   }
+  if (!categoryMatch) return false;
+  if (selectedSizes.size && !selectedSizes.has(item.size_term_matched)) return false;
+  return true;
 }
 
 function sortItems(items){
@@ -586,7 +595,7 @@ function renderFeed(){
 }
 
 function clearOtherFilterPills(except){
-  document.querySelectorAll('#pills .pill, #brand-panel .pill, #size-pills .pill')
+  document.querySelectorAll('#pills .pill, #brand-panel .pill')
     .forEach(p => { if (p !== except) p.classList.remove('active'); });
 }
 
@@ -615,9 +624,14 @@ document.getElementById('brand-panel').addEventListener('click', (e) => {
 document.getElementById('size-pills').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
   if (!btn) return;
-  activeFilter = 'size:' + btn.dataset.size;
-  clearOtherFilterPills(btn);
-  btn.classList.add('active');
+  const term = btn.dataset.size;
+  if (selectedSizes.has(term)){
+    selectedSizes.delete(term);
+    btn.classList.remove('active');
+  } else {
+    selectedSizes.add(term);
+    btn.classList.add('active');
+  }
   renderFeed();
 });
 
@@ -639,7 +653,7 @@ function populateBrandAndSizePills(){
   if (sizes.length){
     sizes.forEach(term => {
       const b = document.createElement('button');
-      b.className = 'pill';
+      b.className = 'pill' + (selectedSizes.has(term) ? ' active' : '');
       b.dataset.size = term;
       b.textContent = term;
       sizePills.appendChild(b);
