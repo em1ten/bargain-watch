@@ -261,56 +261,18 @@
   }
   .star-btn.starred{color:var(--brass-bright); border-color:var(--brass-bright); background:rgba(31,36,33,0.85);}
 
-  .thumb-row{
-    position:absolute;
-    bottom:8px; right:8px;
-    z-index:3;
-    display:flex;
-    gap:5px;
+  .brand-panel{
+    display:none;
+    flex-wrap:wrap;
+    gap:6px;
+    margin:-4px 0 14px;
+    padding:12px;
+    background:rgba(31,36,33,0.04);
+    border:1px solid var(--line);
+    border-radius:8px;
   }
-  .thumb-btn{
-    width:26px; height:26px;
-    border-radius:50%;
-    border:1px solid rgba(247,244,236,0.3);
-    background:rgba(31,36,33,0.72);
-    color:#D9CDBA;
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    font-size:11px;
-    line-height:1;
-    padding:0;
-    font-family:'JetBrains Mono', monospace;
-  }
-  .thumb-btn.up.active{color:var(--teal); border-color:var(--teal);}
-  .thumb-btn.down.active{color:var(--stitch); border-color:var(--stitch);}
-
-  .hide-btn{
-    position:absolute;
-    bottom:8px; left:8px;
-    z-index:3;
-    width:26px; height:26px;
-    border-radius:50%;
-    border:1px solid rgba(247,244,236,0.3);
-    background:rgba(31,36,33,0.72);
-    color:#D9CDBA;
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    font-size:13px;
-    line-height:1;
-    padding:0;
-  }
-  .hide-btn:hover{color:var(--stitch); border-color:var(--stitch);}
-
-  .reset-link{
-    background:none;
-    border:none;
-    color:var(--brass-bright);
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    text-decoration:underline;
-    cursor:pointer;
-    padding:0;
-  }
+  .brand-panel.open{display:flex;}
+  .brand-panel .pill{font-size:11px; padding:6px 12px;}
 
   #loading, #error, #empty{
     font-family:'JetBrains Mono', monospace;
@@ -347,7 +309,7 @@
   <div class="pills" id="pills">
     <button class="pill active" data-filter="all">All</button>
     <button class="pill" data-filter="my_size">My size</button>
-    <button class="pill" data-filter="is_new">New</button>
+    <button class="pill" data-filter="is_new">Just listed</button>
     <button class="pill" data-filter="is_bargain">Bargains</button>
     <button class="pill" data-filter="starred">Starred</button>
     <button class="pill" data-filter="games">Games</button>
@@ -355,7 +317,12 @@
     <button class="pill" data-filter="football">Football</button>
     <button class="pill" data-filter="caution">Caution</button>
     <button class="pill" data-filter="shops">Shops</button>
+    <button class="pill" id="brands-toggle">Brands ▾</button>
   </div>
+
+  <div class="brand-panel" id="brand-panel"></div>
+
+  <div class="pills" id="size-pills" style="display:none;"></div>
 
   <p class="pills-label">Sort</p>
   <div class="pills" id="sort-pills">
@@ -376,7 +343,6 @@
     Refreshes automatically every 20 minutes via GitHub Actions, ranked by discount, price, condition, seller,
     and your size. Discovery brands rotate daily. Sourced from Vinted's public search results — not affiliated
     with or endorsed by Vinted. Stars are saved in this browser only.
-    <br><span id="hidden-count"></span> <button class="reset-link" id="reset-hidden">Reset hidden listings</button>
   </footer>
 </div>
 
@@ -384,37 +350,10 @@
 
 <script>
 const STAR_KEY = 'bargain-watch-starred';
-const FEEDBACK_KEY = 'bargain-watch-feedback';
-const AFFINITY_KEY = 'bargain-watch-affinity';
-const AFFINITY_WEIGHT = 12;
 
 let starred = new Set();
 try { starred = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } catch {}
 function saveStarred(){ localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); }
-
-let feedback = {};
-try { feedback = JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '{}'); } catch {}
-function saveFeedback(){ localStorage.setItem(FEEDBACK_KEY, JSON.stringify(feedback)); }
-
-let affinity = {};
-try { affinity = JSON.parse(localStorage.getItem(AFFINITY_KEY) || '{}'); } catch {}
-function saveAffinity(){ localStorage.setItem(AFFINITY_KEY, JSON.stringify(affinity)); }
-
-const HIDDEN_KEY = 'bargain-watch-hidden';
-let hidden = new Set();
-try { hidden = new Set(JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]')); } catch {}
-function saveHidden(){ localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hidden])); }
-function hideItem(id){
-  hidden.add(id);
-  saveHidden();
-  updateHiddenCount();
-  renderFeed();
-}
-function updateHiddenCount(){
-  const el = document.getElementById('hidden-count');
-  if (!el) return;
-  el.textContent = hidden.size ? `${hidden.size} listing${hidden.size === 1 ? '' : 's'} hidden.` : '';
-}
 
 let toastTimer = null;
 function showToast(message, isError){
@@ -437,29 +376,13 @@ async function promoteToCore(item, btn){
   }
 }
 
-function stateValue(state){ return state === 'up' ? 1 : state === 'down' ? -1 : 0; }
-
-function setFeedback(id, watchName, requested){
-  const current = feedback[id] || null;
-  const next = current === requested ? null : requested; // tap same again to undo
-  affinity[watchName] = (affinity[watchName] || 0) - stateValue(current) + stateValue(next);
-  if (affinity[watchName] === 0) delete affinity[watchName];
-  if (next) feedback[id] = next; else delete feedback[id];
-  saveFeedback();
-  saveAffinity();
-  renderFeed();
-}
-
-function displayScore(item){
-  return item.score + (affinity[item.watch] || 0) * AFFINITY_WEIGHT;
-}
-
 let activeFilter = 'all';
 let sortMode = 'rank';
 let feedData = [];
 
 function cardMatches(item){
-  if (hidden.has(item.id)) return false;
+  if (activeFilter.startsWith('watch:')) return item.watch === activeFilter.slice(6);
+  if (activeFilter.startsWith('size:')) return item.size_term_matched === activeFilter.slice(5);
   const isElectronics = item.category === 'electronics';
   if (activeFilter === 'games') return isElectronics && item.subcategory === 'games';
   if (activeFilter === 'music') return isElectronics && item.subcategory === 'music';
@@ -492,7 +415,7 @@ function sortItems(items){
       return sortMode === 'price-low' ? pa - pb : pb - pa;
     });
   } else {
-    arr.sort((a, b) => displayScore(b) - displayScore(a));
+    arr.sort((a, b) => b.score - a.score);
   }
   return arr;
 }
@@ -567,32 +490,6 @@ function buildCard(item, rank){
   });
   photoWrap.appendChild(starBtn);
 
-  const thumbRow = document.createElement('div');
-  thumbRow.className = 'thumb-row';
-
-  const upBtn = document.createElement('button');
-  upBtn.className = 'thumb-btn up' + (feedback[item.id] === 'up' ? ' active' : '');
-  upBtn.setAttribute('aria-label', 'More like this');
-  upBtn.textContent = '▲';
-  upBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setFeedback(item.id, item.watch, 'up'); });
-  thumbRow.appendChild(upBtn);
-
-  const downBtn = document.createElement('button');
-  downBtn.className = 'thumb-btn down' + (feedback[item.id] === 'down' ? ' active' : '');
-  downBtn.setAttribute('aria-label', 'Less like this');
-  downBtn.textContent = '▼';
-  downBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); setFeedback(item.id, item.watch, 'down'); });
-  thumbRow.appendChild(downBtn);
-
-  photoWrap.appendChild(thumbRow);
-
-  const hideBtn = document.createElement('button');
-  hideBtn.className = 'hide-btn';
-  hideBtn.setAttribute('aria-label', 'Hide this listing - wrong brand, wrong category, or anything else off');
-  hideBtn.textContent = '✕';
-  hideBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); hideItem(item.id); });
-  photoWrap.appendChild(hideBtn);
-
   const body = document.createElement('div');
   body.className = 'card-body';
 
@@ -634,10 +531,10 @@ function buildCard(item, rank){
   meta.appendChild(price);
   body.appendChild(meta);
 
-  if (item.estimated_total){
+  if (item.estimated_total != null && item.marketplace !== 'shop'){
     const feeNote = document.createElement('span');
     feeNote.className = 'fee-note';
-    feeNote.textContent = `~${item.estimated_total.toFixed(2)} with buyer protection fee`;
+    feeNote.textContent = `£${item.estimated_total.toFixed(2)} total w/ fee`;
     body.appendChild(feeNote);
   }
 
@@ -692,26 +589,76 @@ function renderFeed(){
   feedEl.appendChild(frag);
 }
 
+function clearOtherFilterPills(except){
+  document.querySelectorAll('#pills .pill, #brand-panel .pill, #size-pills .pill')
+    .forEach(p => { if (p !== except) p.classList.remove('active'); });
+}
+
 document.getElementById('pills').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
-  if (!btn) return;
+  if (!btn || btn.id === 'brands-toggle') return;
   activeFilter = btn.dataset.filter;
-  document.querySelectorAll('#pills .pill').forEach(p => p.classList.toggle('active', p === btn));
+  clearOtherFilterPills(btn);
+  btn.classList.add('active');
   renderFeed();
 });
+
+document.getElementById('brands-toggle').addEventListener('click', () => {
+  document.getElementById('brand-panel').classList.toggle('open');
+});
+
+document.getElementById('brand-panel').addEventListener('click', (e) => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  activeFilter = 'watch:' + btn.dataset.watch;
+  clearOtherFilterPills(btn);
+  btn.classList.add('active');
+  renderFeed();
+});
+
+document.getElementById('size-pills').addEventListener('click', (e) => {
+  const btn = e.target.closest('.pill');
+  if (!btn) return;
+  activeFilter = 'size:' + btn.dataset.size;
+  clearOtherFilterPills(btn);
+  btn.classList.add('active');
+  renderFeed();
+});
+
+function populateBrandAndSizePills(){
+  const brandPanel = document.getElementById('brand-panel');
+  const brands = [...new Set(feedData.map(i => i.watch))].sort();
+  brandPanel.innerHTML = '';
+  brands.forEach(name => {
+    const b = document.createElement('button');
+    b.className = 'pill';
+    b.dataset.watch = name;
+    b.textContent = name;
+    brandPanel.appendChild(b);
+  });
+
+  const sizePills = document.getElementById('size-pills');
+  const sizes = [...new Set(feedData.map(i => i.size_term_matched).filter(Boolean))].sort();
+  sizePills.innerHTML = '';
+  if (sizes.length){
+    sizes.forEach(term => {
+      const b = document.createElement('button');
+      b.className = 'pill';
+      b.dataset.size = term;
+      b.textContent = term;
+      sizePills.appendChild(b);
+    });
+    sizePills.style.display = 'flex';
+  } else {
+    sizePills.style.display = 'none';
+  }
+}
 
 document.getElementById('sort-pills').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
   if (!btn) return;
   sortMode = btn.dataset.sort;
   document.querySelectorAll('#sort-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
-  renderFeed();
-});
-
-document.getElementById('reset-hidden').addEventListener('click', () => {
-  hidden.clear();
-  saveHidden();
-  updateHiddenCount();
   renderFeed();
 });
 
@@ -744,7 +691,7 @@ async function load(){
       }
     } catch {}
 
-    updateHiddenCount();
+    populateBrandAndSizePills();
     renderFeed();
   } catch (err){
     loadingEl.style.display = 'none';
