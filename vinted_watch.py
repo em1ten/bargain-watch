@@ -649,10 +649,26 @@ def main():
     # RRP set), so ranking them together let clothing silently squeeze every
     # electronics result out of the top N, even when the scan found genuine
     # matches.
+    #
+    # The same crowding bug existed *within* electronics too, just less
+    # obviously: every dashboard tab (Games & Music, Football, Caution) only
+    # ever shows its own subcategory - they never compete with each other on
+    # screen - but this used to rank and trim all of electronics as one
+    # shared pool. Caution alone covers 11 brand searches; Games and Football
+    # cover two each. A prolific, higher-scoring subcategory could silently
+    # push a quieter one off the edge of the feed entirely, even when the
+    # scan found genuine matches for it. Trimming each subcategory to its own
+    # feed_size budget fixes that - a subcategory can only ever be crowded
+    # out by more of itself, never by a different one.
     clothing_cards = [c for c in capped_cards if c.get("category", "clothing") != "electronics"]
     electronics_cards = [c for c in capped_cards if c.get("category") == "electronics"]
     clothing_feed = sorted(clothing_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
-    electronics_feed = sorted(electronics_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
+    electronics_by_subcat = {}
+    for c in electronics_cards:
+        electronics_by_subcat.setdefault(c.get("subcategory") or "other", []).append(c)
+    electronics_feed = []
+    for subcat_cards in electronics_by_subcat.values():
+        electronics_feed.extend(sorted(subcat_cards, key=lambda c: c["score"], reverse=True)[:feed_size])
     feed = clothing_feed + electronics_feed
 
     dashboard = {
