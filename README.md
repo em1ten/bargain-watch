@@ -53,6 +53,14 @@ and "New with tags" condition — exactly the profile of a fake — could still
 outrank everything else even while flagged, because the flag only withheld
 a bonus rather than costing anything.
 
+Separately: every electronics subcategory (Games & Music, Football,
+Caution) is now trimmed to its own `feed_size` budget rather than one
+shared pool. They never compete with each other on the dashboard — each
+tab only ever shows its own subcategory — but the feed used to rank and
+trim all of electronics together, so Caution's 11 brand searches could
+silently crowd Games and Football (2 searches each) out of the feed
+entirely, even when the scan found genuine matches for them.
+
 ## Discovery
 
 `discovery_pool` in `config.json` holds adjacent brands worth knowing
