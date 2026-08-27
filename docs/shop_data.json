@@ -1,5 +1,5 @@
 {
-  "generated_at": 1787787852,
+  "generated_at": 1787813696,
   "errors": [
     "Common Cultured"
   ],
@@ -445,39 +445,6 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/18_a1a8d1d2-f731-4687-97f1-fafdc752c564.jpg?v=1774366602",
       "url": "https://www.stuartslondon.com/products/aquascutum-shell-sp-overshirt-navy",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 63,
-      "score": 63,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-63%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
-      "id": "shop-www.stuartslondon.com-10396597191003",
-      "title": "Aquascutum Shell SP Overshirt - Club Check",
-      "watch": "Stuarts London",
-      "brand": "Aquascutum",
-      "size": "CLUB CHECK / S, CLUB CHECK / M, CLUB CHECK / L, CLUB CHECK / XL, CLUB CHECK / XXL",
-      "condition": "New",
-      "price": "109.00 GBP",
-      "price_amount": 109.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/12_8cfa3e66-a997-40bc-b6a8-e7b38f621b0e.jpg?v=1774366026",
-      "url": "https://www.stuartslondon.com/products/aquascutum-shell-sp-overshirt-club-check",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
@@ -1437,6 +1404,39 @@
       "url": "https://universalworks.com/products/navy-texture-plaid-cancun-jacket",
       "seller": {
         "login": "Universal Works",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 61,
+      "score": 61,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-61%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10470175441243",
+      "title": "Real Hoxton M-65 Field Jacket - Beige",
+      "watch": "Stuarts London",
+      "brand": "Real Hoxton",
+      "size": "BEIGE / S, BEIGE / M, BEIGE / L, BEIGE / XL, BEIGE / XXL",
+      "condition": "New",
+      "price": "49.00 GBP",
+      "price_amount": 49.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/73644.jpg?v=1778230196",
+      "url": "https://www.stuartslondon.com/products/real-hoxton-m-65-field-jacket-beige",
+      "seller": {
+        "login": "Stuarts London",
         "profile_url": "",
         "business": true
       },
