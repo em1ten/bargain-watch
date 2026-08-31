@@ -1,5 +1,5 @@
 {
-  "generated_at": 1788189194,
+  "generated_at": 1788209716,
   "errors": [
     "Common Cultured"
   ],
@@ -1589,39 +1589,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-andsons.co.uk-7354969391209",
-      "title": "&SONS Coach Drill Top Navy",
-      "watch": "AndSons",
-      "brand": "&SONS",
-      "size": "S, M, L, XL, XXL",
-      "condition": "New",
-      "price": "55.00 GBP",
-      "price_amount": 55.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/Top_Coach_Drill_Navy_LS_MOBILE_1.jpg?v=1729260060",
-      "url": "https://andsons.co.uk/products/sons-coach-drill-top-navy",
-      "seller": {
-        "login": "AndSons",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 59,
-      "score": 59,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-59%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.yardsstore.com-15515582103933",
       "title": "Hikerdelic x MessyWeekend Anthony Sunglasses Tortoise Brown",
       "watch": "Yards Store",
@@ -1963,6 +1930,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1_Short_Orta_Bermuda_Sky_Blue_LS_MOBILE.jpg?v=1780501278",
       "url": "https://andsons.co.uk/products/orta-bermuda-shorts-blue",
+      "seller": {
+        "login": "AndSons",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 50,
+      "score": 50,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-50%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-andsons.co.uk-15473065066883",
+      "title": "Cedar Knitted Polo Green",
+      "watch": "AndSons",
+      "brand": "&SONS",
+      "size": "S, M, L, XL, XXL",
+      "condition": "New",
+      "price": "70.00 GBP",
+      "price_amount": 70.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1PoloCedarKnittedGreenLSMOBILE.jpg?v=1770372117",
+      "url": "https://andsons.co.uk/products/cedar-knitted-polo-green",
       "seller": {
         "login": "AndSons",
         "profile_url": "",
