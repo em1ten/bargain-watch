@@ -1,9 +1,42 @@
 {
-  "generated_at": 1788275590,
+  "generated_at": 1788287941,
   "errors": [
     "Common Cultured"
   ],
   "feed": [
+    {
+      "id": "shop-www.stuartslondon.com-10391589585243",
+      "title": "Schott NYC M1941X Field Jacket - Navy",
+      "watch": "Stuarts London",
+      "brand": "Schott NYC",
+      "size": "NAVY / S, NAVY / M, NAVY / L, NAVY / XL, NAVY / XXL",
+      "condition": "New",
+      "price": "79.00 GBP",
+      "price_amount": 79.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/73085.jpg?v=1774625132",
+      "url": "https://www.stuartslondon.com/products/schott-nyc-m1941x-field-jacket-navy",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 57,
+      "score": 72,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-57%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": true,
+      "price_drop_pct": 7,
+      "previous_price": 85.0,
+      "marketplace": "shop"
+    },
     {
       "id": "shop-www.stuartslondon.com-10220234834267",
       "title": "Dents Corduroy Flat Cap - Brown",
@@ -1369,39 +1402,6 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1765372159-30518000.jpg?v=1773334808",
       "url": "https://www.stuartslondon.com/products/pringle-of-scotland-v-neck-cashmere-argyle-jumper-camel",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 60,
-      "score": 60,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-60%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
-      "id": "shop-www.stuartslondon.com-10379590730075",
-      "title": "Pringle of Scotland V-neck Cashmere Argyle Jumper - Blue",
-      "watch": "Stuarts London",
-      "brand": "Pringle of Scotland",
-      "size": "BLUE / S, BLUE / M, BLUE / L, BLUE / XL, BLUE / XXL",
-      "condition": "New",
-      "price": "129.00 GBP",
-      "price_amount": 129.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1765367435-62319200.jpg?v=1773334808",
-      "url": "https://www.stuartslondon.com/products/pringle-of-scotland-v-neck-cashmere-argyle-jumper-blue",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
