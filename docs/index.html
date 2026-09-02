@@ -379,29 +379,27 @@ let activeFilter = 'all';
 let sortMode = 'rank';
 let feedData = [];
 let selectedSizes = new Set();
+let selectedBrand = null;
 
 function cardMatches(item){
+  const isElectronics = item.category === 'electronics';
   let categoryMatch;
-  if (activeFilter.startsWith('watch:')){
-    categoryMatch = item.watch === activeFilter.slice(6);
-  } else {
-    const isElectronics = item.category === 'electronics';
-    if (activeFilter === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
-    else if (activeFilter === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
-    else if (activeFilter === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
-    else if (activeFilter === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
-    else if (isElectronics) categoryMatch = false; // every other view is clothing-only
-    else {
-      switch (activeFilter) {
-        case 'is_new':     categoryMatch = item.is_new; break;
-        case 'bnwt':       categoryMatch = item.condition === 'New with tags'; break;
-        case 'is_bargain': categoryMatch = item.is_bargain; break;
-        case 'starred':    categoryMatch = starred.has(item.id); break;
-        default:           categoryMatch = true;
-      }
+  if (activeFilter === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
+  else if (activeFilter === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
+  else if (activeFilter === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
+  else if (activeFilter === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
+  else if (isElectronics) categoryMatch = false; // every other view is clothing-only
+  else {
+    switch (activeFilter) {
+      case 'is_new':     categoryMatch = item.is_new; break;
+      case 'bnwt':       categoryMatch = item.condition === 'New with tags'; break;
+      case 'is_bargain': categoryMatch = item.is_bargain; break;
+      case 'starred':    categoryMatch = starred.has(item.id); break;
+      default:           categoryMatch = true;
     }
   }
   if (!categoryMatch) return false;
+  if (selectedBrand && item.watch !== selectedBrand) return false;
   if (selectedSizes.size && !selectedSizes.has(item.size_term_matched)) return false;
   return true;
 }
@@ -597,7 +595,7 @@ function renderFeed(){
 }
 
 function clearOtherFilterPills(except){
-  document.querySelectorAll('#pills .pill, #brand-panel .pill')
+  document.querySelectorAll('#pills .pill')
     .forEach(p => { if (p !== except) p.classList.remove('active'); });
 }
 
@@ -617,9 +615,15 @@ document.getElementById('brands-toggle').addEventListener('click', () => {
 document.getElementById('brand-panel').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
   if (!btn) return;
-  activeFilter = 'watch:' + btn.dataset.watch;
-  clearOtherFilterPills(btn);
-  btn.classList.add('active');
+  const name = btn.dataset.watch;
+  const wasActive = btn.classList.contains('active');
+  document.querySelectorAll('#brand-panel .pill').forEach(p => p.classList.remove('active'));
+  if (wasActive){
+    selectedBrand = null; // tap the same brand again to clear it
+  } else {
+    selectedBrand = name;
+    btn.classList.add('active');
+  }
   renderFeed();
 });
 
@@ -643,7 +647,7 @@ function populateBrandAndSizePills(){
   brandPanel.innerHTML = '';
   brands.forEach(name => {
     const b = document.createElement('button');
-    b.className = 'pill';
+    b.className = 'pill' + (selectedBrand === name ? ' active' : '');
     b.dataset.watch = name;
     b.textContent = name;
     brandPanel.appendChild(b);
