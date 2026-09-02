@@ -35,7 +35,7 @@
       "exclude": ["safety toe", "steel toe", "composite toe", "cap toe safety", "hi-vis", "en iso"],
       "allowed_conditions": ["New with tags", "New without tags"] },
     { "name": "Rab",             "search_text": "rab jacket",      "price_to": 60,  "rrp": 160, "size_category": "tops",     "notify": "digest", "exclude_ignore": ["polyester"] },
-    { "name": "Uniqlo U",        "search_text": "uniqlo u",        "price_to": 20,  "rrp": 70,  "size_category": "tops",     "notify": "instant" },
+    { "name": "Uniqlo U",        "search_text": "uniqlo u",        "price_to": 20,  "rrp": 70,  "size_category": "tops",     "notify": "instant", "max_in_feed": 5 },
     { "name": "Uniqlo Collabs",  "search_text": "uniqlo x",        "price_to": 40,  "rrp": 90,  "size_category": "tops",     "notify": "instant" },
     { "name": "PS5 Games", "search_text": "ps5 game", "price_to": 45, "notify": "digest", "exclude_ignore": ["case"],
       "catalog_ids": "2994,3002", "require_brand_match": false, "category": "electronics", "subcategory": "games" },
