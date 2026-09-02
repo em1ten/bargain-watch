@@ -92,9 +92,10 @@
     { "name": "Palmes",          "search_text": "palmes",          "price_to": 45,  "rrp": 120, "size_category": "tops",     "notify": "digest" },
     { "name": "NN07",            "search_text": "nn07",            "price_to": 50,  "rrp": 120, "size_category": "tops",     "notify": "digest" },
     { "name": "Acne Studios",    "search_text": "acne studios",    "price_to": 90,  "rrp": 250, "size_category": "tops",     "notify": "digest" },
-    { "name": "Sheffield Wednesday", "search_text": "sheffield wednesday retro vintage shirt", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "instant", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "super bowl", "rugby"] },
-    { "name": "Retro Football Shirts", "search_text": "retro football shirt vintage", "price_to": 35, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "digest", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "super bowl", "rugby"] },
-    { "name": "Retro Basketball Jerseys", "search_text": "vintage basketball jersey", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "notify": "digest", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "rugby"] }
+    { "name": "Sheffield Wednesday", "search_text": "sheffield wednesday retro vintage shirt", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "size_category": "tops", "notify": "instant", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "super bowl", "rugby"] },
+    { "name": "Retro Football Shirts", "search_text": "retro football shirt vintage", "price_to": 35, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "size_category": "tops", "notify": "digest", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "super bowl", "rugby"] },
+    { "name": "Retro Sports Jerseys", "search_text": "mitchell & ness", "price_to": 45, "rrp": 120, "catalog_ids": "5", "require_brand_match": true, "brand_match": ["Mitchell & Ness"], "category": "electronics", "subcategory": "football", "size_category": "tops", "notify": "digest", "exclude_ignore": ["replica"], "exclude": ["rugby"] },
+    { "name": "Retro Sports Caps", "search_text": "new era cap", "price_to": 18, "rrp": 30, "catalog_ids": "5", "require_brand_match": true, "brand_match": ["New Era"], "category": "electronics", "subcategory": "football", "notify": "digest", "exclude_ignore": ["replica"] }
   ],
 
   "discovery_pool": [
