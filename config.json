@@ -58,7 +58,7 @@
     { "name": "orSlow Denim",    "search_text": "orslow denim",    "price_to": 120, "rrp": 280, "size_category": "denim",    "notify": "instant" },
     { "name": "Barbour",         "search_text": "barbour jacket",  "price_to": 100, "rrp": 250, "size_category": "tops",     "notify": "digest" },
     { "name": "M&S Autograph",   "search_text": "m&s autograph",   "price_to": 15,  "rrp": 120, "size_category": "tops",     "notify": "digest", "require_brand_match": false },
-    { "name": "Reiss",           "search_text": "reiss",           "price_to": 75,  "rrp": 200, "size_category": "tops",     "notify": "digest" },
+    { "name": "Reiss",           "search_text": "reiss",           "price_to": 40,  "rrp": 200, "size_category": "tops",     "notify": "digest" },
     { "name": "Belstaff",        "search_text": "belstaff jacket", "price_to": 120, "rrp": 350, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution" },
     { "name": "Palm Angels",     "search_text": "palm angels",     "price_to": 100, "rrp": 300, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution" },
     { "name": "Off-White",       "search_text": "off-white",       "price_to": 120, "rrp": 350, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution" },
