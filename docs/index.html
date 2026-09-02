@@ -309,6 +309,7 @@
   <div class="pills" id="pills">
     <button class="pill active" data-filter="all">All</button>
     <button class="pill" data-filter="is_new">Just listed</button>
+    <button class="pill" data-filter="bnwt">BNWT</button>
     <button class="pill" data-filter="is_bargain">Bargains</button>
     <button class="pill" data-filter="starred">Starred</button>
     <button class="pill" data-filter="games_music">Games &amp; Music</button>
@@ -393,6 +394,7 @@ function cardMatches(item){
     else {
       switch (activeFilter) {
         case 'is_new':     categoryMatch = item.is_new; break;
+        case 'bnwt':       categoryMatch = item.condition === 'New with tags'; break;
         case 'is_bargain': categoryMatch = item.is_bargain; break;
         case 'starred':    categoryMatch = starred.has(item.id); break;
         default:           categoryMatch = true;
