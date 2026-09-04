@@ -61,6 +61,46 @@ trim all of electronics together, so Caution's 11 brand searches could
 silently crowd Games and Football (2 searches each) out of the feed
 entirely, even when the scan found genuine matches for them.
 
+## Every clothing watch gets a guaranteed slot
+
+63 clothing watches now share one feed, with huge result-volume
+differences between them (a common brand like Uniqlo vs a rare find like
+Kiton or Auralee). Simply ranking and trimming that shared pool to
+`feed_size` had the same crowding problem the electronics subcategories
+had - tested against a plausible scenario (one high-volume watch, 62
+quiet ones) and the old logic showed exactly **1** of 63 watches in the
+feed. Every quiet watch was invisible even with genuine matches.
+
+Fixed the same way as electronics: reserve one slot per watch first, then
+fill whatever's left with the best remaining cards regardless of watch.
+`feed_size` was raised from 60 to 150 to leave real room for that "best of
+the rest" fill on top of the guaranteed reservations - with 63+ watches,
+60 slots left no headroom once everyone's minimum was accounted for.
+
+## BNWT is not automatically reassuring for caution-tier brands
+
+A £67 "New with tags" Palm Angels listing (actually an unlabelled Palm
+Angels x Moncler collab, sold as three identical units, "1 for 25, all 3
+for 67") ranked #1 in Caution with zero flags. It cleared the 15%
+hard-exclude floor comfortably (67 vs a £45 floor on a £300 RRP), and
+"New with tags" was previously a pure positive for every brand alike -
+no downside, regardless of price.
+
+Checked rather than assumed: fraud-prevention guides on Vinted fakes
+specifically call out "multiple identical new-with-tags designer items
+from one seller" as a counterfeit-sourcing pattern, and note fake BNWT
+listings often reuse catalogue-style photos rather than genuine ones.
+BNWT isn't reassuring for these brands - if anything it's the condition
+most associated with freshly-produced fakes, since a counterfeiter is
+never selling something worn.
+
+`authenticity_caution_check` now flags "Cheap for BNWT" - condition is
+"New with tags" and price is under `bnwt_suspicious_ratio` (default 0.4,
+i.e. 40%) of RRP but still above the 15% hard-exclude floor. That middle
+band used to pass completely clean; now it costs the same -20 caution
+penalty as any other flag. A genuinely reasonable BNWT price (checked:
+50% of RRP) still passes flag-free.
+
 ## What "Bargain" actually means now
 
 The Bargains pill used to mean "discount vs `rrp` ≥ 50%". The problem:
@@ -118,6 +158,23 @@ which listings you've starred, and that never leaves the browser.
    Actions tab → "Vinted scan" → Run workflow. Refresh the dashboard after.
 
 Then it runs itself.
+
+## Adding a new watch without picking a price_to by hand
+
+Every existing watch's `price_to` was set manually, brand by brand. Looking
+at all 84 of those decisions together shows a real pattern, not noise: the
+ratio of `price_to` to `rrp` drops smoothly from about 0.44 on cheap brands
+down to about 0.28 on £900 ones (a smaller *percentage* ceiling for pricier
+things - a sensible instinct, just never written down as a rule).
+
+That pattern is now fitted as `price_to = 0.755 * rrp^0.873` (R² = 0.92,
+mean error ~£8 against your own historical choices). Any new watch added
+with just an `rrp` and no `price_to` gets one computed from this formula
+automatically at scan time - the log shows `no price_to set for X - using
+computed cap £Y`. Nothing with an explicit `price_to` is ever touched by
+this; it only fills genuine gaps. If a computed cap looks wrong once you
+see real results against it, just add an explicit `price_to` for that
+watch and it takes over completely.
 
 ## config.json reference
 
