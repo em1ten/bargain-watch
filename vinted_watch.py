@@ -297,6 +297,19 @@ def authenticity_caution_check(item, watch):
     if favourites > high_favourites:
         caution_flags.append("High interest, unsold")
 
+    # BNWT at a steep discount is its own documented red flag for these
+    # brands, separate from the hard-exclude floor above - fraud-prevention
+    # guides specifically call out sellers with identical "new with tags"
+    # designer stock as a counterfeit-sourcing pattern, not just implausibly
+    # cheap pricing on its own. A listing can clear the 15% hard-exclude
+    # floor comfortably (nowhere near "giving it away") and still fit this
+    # profile - condition alone was previously a pure positive for these
+    # brands with no downside, which is backwards for exactly this category.
+    condition = (item.get("status") or "").strip()
+    bnwt_suspicious_ratio = watch.get("bnwt_suspicious_ratio", 0.4)
+    if condition == "New with tags" and rrp and price_amount is not None and price_amount < rrp * bnwt_suspicious_ratio:
+        caution_flags.append("Cheap for BNWT")
+
     return True, caution_flags
 
 
@@ -718,7 +731,37 @@ def main():
     # out by more of itself, never by a different one.
     clothing_cards = [c for c in capped_cards if c.get("category", "clothing") != "electronics"]
     electronics_cards = [c for c in capped_cards if c.get("category") == "electronics"]
-    clothing_feed = sorted(clothing_cards, key=lambda c: c["score"], reverse=True)[:feed_size]
+
+    # 60+ clothing watches now share one feed budget, with huge
+    # result-volume differences between them (a common brand like Uniqlo
+    # vs a rare find like Kiton or Auralee). Same crowding risk as the
+    # electronics case above, just across every clothing watch instead of
+    # just Caution - simply sorting and trimming the shared pool would let
+    # a high-volume watch silently fill every slot, starving quieter ones
+    # even when the scan found genuine matches for them. Reserve a minimum
+    # slot per watch first (same pattern as shop_watch.py's min_per_shop),
+    # so a watch can only ever be crowded out by more of itself, then fill
+    # whatever's left with the best remaining cards regardless of watch.
+    clothing_by_watch = {}
+    for c in clothing_cards:
+        clothing_by_watch.setdefault(c["watch"], []).append(c)
+    for watch_cards in clothing_by_watch.values():
+        watch_cards.sort(key=lambda c: c["score"], reverse=True)
+
+    clothing_feed = []
+    reserved_ids = set()
+    min_per_watch = 1
+    for watch_cards in clothing_by_watch.values():
+        for c in watch_cards[:min_per_watch]:
+            clothing_feed.append(c)
+            reserved_ids.add(c["id"])
+
+    remaining = [c for c in clothing_cards if c["id"] not in reserved_ids]
+    remaining.sort(key=lambda c: c["score"], reverse=True)
+    clothing_feed.extend(remaining[: max(0, feed_size - len(clothing_feed))])
+    clothing_feed.sort(key=lambda c: c["score"], reverse=True)
+    clothing_feed = clothing_feed[:feed_size]
+
     electronics_by_subcat = {}
     for c in electronics_cards:
         electronics_by_subcat.setdefault(c.get("subcategory") or "other", []).append(c)
