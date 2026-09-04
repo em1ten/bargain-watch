@@ -766,8 +766,19 @@ def main():
     for c in electronics_cards:
         electronics_by_subcat.setdefault(c.get("subcategory") or "other", []).append(c)
     electronics_feed = []
-    for subcat_cards in electronics_by_subcat.values():
-        electronics_feed.extend(sorted(subcat_cards, key=lambda c: c["score"], reverse=True)[:feed_size])
+    for subcat, subcat_cards in electronics_by_subcat.items():
+        if subcat == "caution":
+            # For caution-tier brands, being clean matters more than being
+            # cheap - a big enough discount could still outscore a flagged
+            # listing under plain score sorting (discount alone swings up
+            # to 60 points; the caution penalty only swings 30). Sort by
+            # flag count first so a listing with fewer red flags always
+            # ranks above one with more, regardless of price - score only
+            # breaks ties within the same flag count.
+            sorted_cards = sorted(subcat_cards, key=lambda c: (len(c.get("caution_flags") or []), -c["score"]))
+        else:
+            sorted_cards = sorted(subcat_cards, key=lambda c: c["score"], reverse=True)
+        electronics_feed.extend(sorted_cards[:feed_size])
     feed = clothing_feed + electronics_feed
 
     dashboard = {
