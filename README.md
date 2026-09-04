@@ -77,6 +77,21 @@ fill whatever's left with the best remaining cards regardless of watch.
 the rest" fill on top of the guaranteed reservations - with 63+ watches,
 60 slots left no headroom once everyone's minimum was accounted for.
 
+## Being clean matters more than being cheap, for caution-tier brands
+
+Even with the "Cheap for BNWT" flag above, a flagged listing could still
+theoretically outrank a clean one if its discount was big enough - the
+caution penalty swings 30 points (−20 flagged vs +10 clean), but the
+discount score alone can swing 60. Price could still occasionally beat
+legitimacy under plain score sorting.
+
+Caution-tier items are now sorted by flag count first, score only as a
+tiebreaker - a listing with fewer red flags always ranks above one with
+more, full stop, regardless of how good its price or condition looks.
+This is enforced on both sides: the backend orders the feed this way, and
+the dashboard's default "Best match" sort mirrors it, so switching sort
+modes can't silently undo it by re-sorting on score alone.
+
 ## BNWT is not automatically reassuring for caution-tier brands
 
 A £67 "New with tags" Palm Angels listing (actually an unlabelled Palm
