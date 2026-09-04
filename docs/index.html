@@ -420,7 +420,18 @@ function sortItems(items){
       return sortMode === 'price-low' ? pa - pb : pb - pa;
     });
   } else {
-    arr.sort((a, b) => b.score - a.score);
+    arr.sort((a, b) => {
+      // Caution-tier items: fewer red flags always ranks above more,
+      // regardless of score - mirrors the backend's ordering so switching
+      // to "Best match" doesn't silently undo it by re-sorting on score
+      // alone.
+      if (a.subcategory === 'caution' && b.subcategory === 'caution'){
+        const aFlags = (a.caution_flags || []).length;
+        const bFlags = (b.caution_flags || []).length;
+        if (aFlags !== bFlags) return aFlags - bFlags;
+      }
+      return b.score - a.score;
+    });
   }
   return arr;
 }
