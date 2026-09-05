@@ -1,5 +1,5 @@
 {
-  "generated_at": 1788614224,
+  "generated_at": 1788624615,
   "errors": [
     "Common Cultured"
   ],
@@ -22,9 +22,9 @@
         "business": true
       },
       "discount_pct": 77,
-      "score": 75,
+      "score": 70,
       "my_size": false,
-      "is_new": true,
+      "is_new": false,
       "is_bargain": true,
       "bargain_reason": "-77%",
       "source": "core",
@@ -830,39 +830,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10379553472859",
-      "title": "Polo Ralph Lauren Crewneck Short-Sleeve Knit - Brown",
-      "watch": "Stuarts London",
-      "brand": "Polo Ralph Lauren",
-      "size": "Brown / S, Brown / M, Brown / L, Brown / XL, Brown / XXL",
-      "condition": "New",
-      "price": "49.00 GBP",
-      "price_amount": 49.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1769774202-91596400.jpg?v=1773333962",
-      "url": "https://www.stuartslondon.com/products/polo-ralph-lauren-crewneck-short-sleeve-knit-brown",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 69,
-      "score": 69,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-69%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10401043022171",
       "title": "Colorful Standard Organic Cotton Cap - Soft Yellow",
       "watch": "Stuarts London",
@@ -1138,6 +1105,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1768566396-40348000.jpg?v=1773333795",
       "url": "https://www.stuartslondon.com/products/polo-ralph-lauren-manhasset-chino-trouser-brown",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 69,
+      "score": 69,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-69%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10379546001755",
+      "title": "Novesta Trampky Suede Trainer - Khaki Green",
+      "watch": "Stuarts London",
+      "brand": "Novesta",
+      "size": "KHAKI GREEN / UK 7, KHAKI GREEN / UK 8, KHAKI GREEN / UK 9, KHAKI GREEN / UK 9.5, KHAKI GREEN / UK 10, KHAKI GREEN / UK 11",
+      "condition": "New",
+      "price": "39.00 GBP",
+      "price_amount": 39.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1766487745-63178400.jpg?v=1773333670",
+      "url": "https://www.stuartslondon.com/products/novesta-shoes-trampky-suede-trainer-khaki-green",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
