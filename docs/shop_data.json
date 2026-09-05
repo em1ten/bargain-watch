@@ -1,5 +1,5 @@
 {
-  "generated_at": 1788624615,
+  "generated_at": 1788632684,
   "errors": [
     "Common Cultured"
   ],
@@ -1127,28 +1127,28 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10379546001755",
-      "title": "Novesta Trampky Suede Trainer - Khaki Green",
+      "id": "shop-www.stuartslondon.com-10379562189147",
+      "title": "NN07 Enzo Classic Collar Linen Shirt - Clay",
       "watch": "Stuarts London",
-      "brand": "Novesta",
-      "size": "KHAKI GREEN / UK 7, KHAKI GREEN / UK 8, KHAKI GREEN / UK 9, KHAKI GREEN / UK 9.5, KHAKI GREEN / UK 10, KHAKI GREEN / UK 11",
+      "brand": "NN07",
+      "size": "CLAY / S, CLAY / M, CLAY / L, CLAY / XL, CLAY / XXL",
       "condition": "New",
-      "price": "39.00 GBP",
-      "price_amount": 39.0,
+      "price": "49.00 GBP",
+      "price_amount": 49.0,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1766487745-63178400.jpg?v=1773333670",
-      "url": "https://www.stuartslondon.com/products/novesta-shoes-trampky-suede-trainer-khaki-green",
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771845086-26223200.jpg?v=1773334364",
+      "url": "https://www.stuartslondon.com/products/nn07-enzo-classic-collar-linen-shirt-clay",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
         "business": true
       },
-      "discount_pct": 69,
-      "score": 69,
+      "discount_pct": 68,
+      "score": 68,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
-      "bargain_reason": "-69%",
+      "bargain_reason": "-68%",
       "source": "core",
       "listed_at": null,
       "condition_badge": "NEW",
