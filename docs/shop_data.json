@@ -1,5 +1,5 @@
 {
-  "generated_at": 1788587559,
+  "generated_at": 1788602301,
   "errors": [
     "Common Cultured"
   ],
@@ -665,39 +665,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10395463123291",
-      "title": "Barbour Fife Checked Overshirt - Neutral",
-      "watch": "Stuarts London",
-      "brand": "Barbour",
-      "size": "NEUTRAL / S, NEUTRAL / M, NEUTRAL / L, NEUTRAL / XL, NEUTRAL / XXL",
-      "condition": "New",
-      "price": "49.00 GBP",
-      "price_amount": 49.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/6_9ba8d0be-e89d-4e5f-b2e4-e9c7b9be29a6.jpg?v=1774353523",
-      "url": "https://www.stuartslondon.com/products/barbour-fife-checked-overshirt-neutral",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 71,
-      "score": 70,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-71%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10379566448987",
       "title": "YMC Military Shirt - White",
       "watch": "Stuarts London",
@@ -1138,6 +1105,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771510198-91652300.jpg?v=1773334305",
       "url": "https://www.stuartslondon.com/products/colorful-standard-linen-short-sleeve-shirt-optical-white",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 69,
+      "score": 69,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-69%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10379560911195",
+      "title": "Colorful Standard Linen Short Sleeve Shirt - Dusty Olive",
+      "watch": "Stuarts London",
+      "brand": "Colorful Standard",
+      "size": "DUSTY OLIVE / S, DUSTY OLIVE / M, DUSTY OLIVE / L, DUSTY OLIVE / XL, DUSTY OLIVE / XXL",
+      "condition": "New",
+      "price": "29.00 GBP",
+      "price_amount": 29.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771509975-02897600.jpg?v=1773334306",
+      "url": "https://www.stuartslondon.com/products/colorful-standard-linen-short-sleeve-shirt-dusty-olive",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
