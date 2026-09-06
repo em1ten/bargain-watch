@@ -1,5 +1,5 @@
 {
-  "generated_at": 1788699478,
+  "generated_at": 1788710480,
   "errors": [
     "Common Cultured"
   ],
@@ -566,39 +566,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10395462009179",
-      "title": "Barbour Murtun Moccasin Shoes - Moss Green",
-      "watch": "Stuarts London",
-      "brand": "Barbour",
-      "size": "MOSS GREEN / 10, MOSS GREEN / 11, MOSS GREEN / 12, MOSS GREEN / 7, MOSS GREEN / 8, MOSS GREEN / 9, MOSS GREEN / 6",
-      "condition": "New",
-      "price": "39.00 GBP",
-      "price_amount": 39.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/8_0810df0c-2df2-40aa-a85f-2b3fc7cbacb4.jpg?v=1774528588",
-      "url": "https://www.stuartslondon.com/products/barbour-murtun-moccasin-shoes-moss-green",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 83,
-      "score": 70,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-83%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10379566448987",
       "title": "YMC Military Shirt - White",
       "watch": "Stuarts London",
@@ -1138,6 +1105,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_5009f9d5-bcd5-418a-b02c-3ef3626dc4d3.jpg?v=1774965480",
       "url": "https://www.stuartslondon.com/products/nn07-paul-textured-stitch-polo-navy-blue",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 66,
+      "score": 66,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-66%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10396724068699",
+      "title": "NN07 Aden Straight Leg Regular Fit Chino - Navy Blue",
+      "watch": "Stuarts London",
+      "brand": "NN07",
+      "size": "NAVY BLUE / 30S, NAVY BLUE / 30R, NAVY BLUE / 30L, NAVY BLUE / 31S, NAVY BLUE / 31R, NAVY BLUE / 31L, NAVY BLUE / 32S, NAVY BLUE / 32R, NAVY BLUE / 32L, NAVY BLUE / 33S, NAVY BLUE / 33R, NAVY BLUE / 33L, NAVY BLUE / 34S, NAVY BLUE / 34R, NAVY BLUE / 34L, NAVY BLUE / 36S, NAVY BLUE / 36R, NAVY BLUE / 36L, NAVY BLUE / 38S, NAVY BLUE / 38R, NAVY BLUE / 38L, NAVY BLUE / 40S, NAVY BLUE / 40R, NAVY BLUE / 40L",
+      "condition": "New",
+      "price": "49.00 GBP",
+      "price_amount": 49.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/6_d69c0bda-62f6-4234-a08d-99db72781111.jpg?v=1774971270",
+      "url": "https://www.stuartslondon.com/products/nn07-aden-straight-leg-regular-fit-chino-navy-blue",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
