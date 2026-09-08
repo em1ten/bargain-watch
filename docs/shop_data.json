@@ -1,5 +1,5 @@
 {
-  "generated_at": 1788890416,
+  "generated_at": 1788900805,
   "errors": [
     "Common Cultured"
   ],
@@ -1490,39 +1490,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-jeanstore.co.uk-7995310145730",
-      "title": "Trickers Simon Longwing Brogue Boot - Snuff Waxed Suede / Dainite Sole",
-      "watch": "Jeanstore",
-      "brand": "Trickers",
-      "size": "UK 7, UK 8, UK 9, UK 10, UK 11",
-      "condition": "New",
-      "price": "292.50 GBP",
-      "price_amount": 292.5,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I034118HZXXJJ11.jpg?v=1730810821",
-      "url": "https://jeanstore.co.uk/products/trickers-simon-longwing-brogue-boot-snuff-waxed-suede",
-      "seller": {
-        "login": "Jeanstore",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 50,
-      "score": 55,
-      "my_size": false,
-      "is_new": true,
-      "is_bargain": true,
-      "bargain_reason": "-50%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.yardsstore.com-15515582103933",
       "title": "Hikerdelic x MessyWeekend Anthony Sunglasses Tortoise Brown",
       "watch": "Yards Store",
@@ -1734,6 +1701,39 @@
       "url": "https://www.yardsstore.com/products/umbro-scotland-jersey-number-7-patriot-blue",
       "seller": {
         "login": "Yards Store",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 50,
+      "score": 50,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-50%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-jeanstore.co.uk-7995310145730",
+      "title": "Trickers Simon Longwing Brogue Boot - Snuff Waxed Suede / Dainite Sole",
+      "watch": "Jeanstore",
+      "brand": "Trickers",
+      "size": "UK 7, UK 8, UK 9, UK 10, UK 11",
+      "condition": "New",
+      "price": "292.50 GBP",
+      "price_amount": 292.5,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I034118HZXXJJ11.jpg?v=1730810821",
+      "url": "https://jeanstore.co.uk/products/trickers-simon-longwing-brogue-boot-snuff-waxed-suede",
+      "seller": {
+        "login": "Jeanstore",
         "profile_url": "",
         "business": true
       },
