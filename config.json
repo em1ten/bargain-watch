@@ -67,6 +67,8 @@
     { "name": "Loewe",           "search_text": "loewe",           "price_to": 150, "rrp": 450, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution" },
     { "name": "Patagonia",       "search_text": "patagonia jacket", "price_to": 60,  "rrp": 160, "size_category": "tops",    "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution", "exclude_ignore": ["polyester"] },
     { "name": "CP Company",      "search_text": "cp company",      "price_to": 130, "rrp": 350, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution" },
+    { "name": "Arc'teryx",       "search_text": "arcteryx",         "price_to": 150, "rrp": 450, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution", "exclude_ignore": ["polyester"] },
+    { "name": "The North Face",  "search_text": "the north face",   "price_to": 100, "rrp": 300, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution", "exclude_ignore": ["polyester"] },
     { "name": "Stone Island",    "search_text": "stone island",    "price_to": 130, "rrp": 350, "size_category": "tops",     "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution" },
     { "name": "Brunello Cucinelli", "search_text": "brunello cucinelli", "price_to": 250, "rrp": 900, "size_category": "tops", "notify": "digest", "authenticity_caution": true, "category": "electronics", "subcategory": "caution", "max_in_feed": 3,
       "min_favourites": 25 },
@@ -154,6 +156,7 @@
     { "name": "Common Cultured", "domain": "commoncultured.com" },
     { "name": "Clutch Cafe", "domain": "clutch-cafe.com", "currency": "USD" },
     { "name": "Label Menswear", "domain": "label-menswear.com" },
-    { "name": "AndSons", "domain": "andsons.co.uk" }
+    { "name": "AndSons", "domain": "andsons.co.uk" },
+    { "name": "Blacksmith Store", "domain": "blacksmith-store.com" }
   ]
 }
