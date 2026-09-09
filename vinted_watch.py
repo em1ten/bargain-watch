@@ -316,7 +316,12 @@ def authenticity_caution_check(item, watch):
 def size_matches(size_title, size_terms):
     """Match a size term as a distinct token within the listing's size string,
     not as a raw substring - otherwise 'L' wrongly matches inside 'XL', '38L',
-    or the '9' in 'UK 9' wrongly matches inside '39'.
+    the '9' in 'UK 9' wrongly matches inside '39', or (critically) '9' wrongly
+    matches inside '9.5' since a decimal point isn't alphanumeric and wasn't
+    originally excluded as a boundary character. A trailing/leading '.'
+    specifically means "this is part of a larger decimal number", so it's
+    excluded from the boundary alongside letters and digits - a comma isn't,
+    since '8.5, 9, 10' should still correctly match a standalone '9'.
 
     Returns the specific configured term that matched (e.g. 'W34'), not just
     True/False - the dashboard uses this to offer per-size filter pills
@@ -330,7 +335,7 @@ def size_matches(size_title, size_terms):
         t = term.strip().lower()
         if not t:
             continue
-        pattern = r"(?<![a-z0-9])" + re.escape(t) + r"(?![a-z0-9])"
+        pattern = r"(?<![a-z0-9.])" + re.escape(t) + r"(?![a-z0-9.])"
         if re.search(pattern, size):
             return term
     return None
