@@ -564,10 +564,15 @@ function buildCard(item, rank){
   const compareLink = document.createElement('a');
   compareLink.className = 'compare-link';
   const queryBits = [item.brand || item.watch, item.title].filter(Boolean).join(' ').slice(0, 100);
-  compareLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(queryBits + ' new');
+  if (item.subcategory === 'games' || item.subcategory === 'music'){
+    compareLink.href = 'https://www.google.com/search?tbm=shop&q=' + encodeURIComponent(queryBits);
+    compareLink.textContent = 'Compare prices →';
+  } else {
+    compareLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(queryBits + ' new');
+    compareLink.textContent = 'Find it new →';
+  }
   compareLink.target = '_blank';
   compareLink.rel = 'noopener noreferrer';
-  compareLink.textContent = 'Find it new →';
   compareLink.addEventListener('click', (e) => e.stopPropagation());
   body.appendChild(compareLink);
 
