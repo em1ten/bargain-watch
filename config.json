@@ -105,7 +105,7 @@
     { "name": "Sheffield Wednesday", "search_text": "sheffield wednesday retro vintage shirt", "price_to": 40, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "size_category": "tops", "notify": "instant", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "super bowl", "rugby"] },
     { "name": "Retro Football Shirts", "search_text": "retro football shirt vintage", "price_to": 35, "catalog_ids": "5", "require_brand_match": false, "category": "electronics", "subcategory": "football", "size_category": "tops", "notify": "digest", "exclude_ignore": ["replica"], "exclude": ["nfl", "american football", "super bowl", "rugby"] },
     { "name": "Retro Sports Jerseys", "search_text": "mitchell & ness", "price_to": 45, "rrp": 120, "catalog_ids": "5", "require_brand_match": true, "brand_match": ["Mitchell & Ness"], "category": "electronics", "subcategory": "football", "size_category": "tops", "notify": "digest", "exclude_ignore": ["replica"], "exclude": ["rugby"] },
-    { "name": "Retro Sports Caps", "search_text": "new era cap", "price_to": 10, "rrp": 30, "catalog_ids": "5", "require_brand_match": true, "brand_match": ["New Era"], "category": "electronics", "subcategory": "football", "notify": "digest", "exclude_ignore": ["replica"], "allowed_conditions": ["New with tags", "New without tags"] }
+    { "name": "Retro Sports Caps", "search_text": "new era cap", "price_to": 8, "rrp": 30, "catalog_ids": "5", "require_brand_match": true, "brand_match": ["New Era"], "category": "electronics", "subcategory": "football", "notify": "digest", "exclude_ignore": ["replica"], "allowed_conditions": ["New with tags", "New without tags"] }
   ],
 
   "discovery_pool": [
@@ -145,13 +145,7 @@
     { "name": "Private White VC","search_text": "private white",    "price_to": 100, "rrp": 350, "size_category": "tops" },
     { "name": "Barena",          "search_text": "barena venezia",   "price_to": 90,  "rrp": 280, "size_category": "tops" },
     { "name": "Churchs",         "search_text": "churchs shoes",    "price_to": 90,  "rrp": 280, "size_category": "footwear" },
-    { "name": "Crockett Jones",  "search_text": "crockett jones",   "price_to": 100, "rrp": 350, "size_category": "footwear" },
-    { "name": "90s Hip Hop Vinyl",   "search_text": "90s hip hop vinyl",   "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Boom Bap Vinyl",      "search_text": "boom bap vinyl",      "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "UK Rap Vinyl",        "search_text": "uk rap vinyl",        "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Britpop Vinyl",       "search_text": "britpop vinyl",       "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Post Punk Vinyl",     "search_text": "post punk vinyl",     "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] },
-    { "name": "Alternative Rock Vinyl", "search_text": "alternative rock vinyl", "price_to": 45, "catalog_ids": "3036,3041", "require_brand_match": false, "category": "electronics", "subcategory": "music", "exclude_ignore": ["case"], "allowed_conditions": ["New with tags", "New without tags", "Very good", "Good"] }
+    { "name": "Crockett Jones",  "search_text": "crockett jones",   "price_to": 100, "rrp": 350, "size_category": "footwear" }
   ],
 
   "shop_watches": [
