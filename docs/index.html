@@ -421,6 +421,16 @@ function sortItems(items){
     });
   } else {
     arr.sort((a, b) => {
+      // Bargains: order by how far under your price cap something is,
+      // not by the blended score - a steep discount on a "Good" condition
+      // item or one listed days ago would otherwise get buried under
+      // BNWT/freshness-boosted items in score order, defeating the point
+      // of a pill meant to isolate on price specifically.
+      if (activeFilter === 'is_bargain'){
+        const ap = a.bargain_pct ?? -Infinity;
+        const bp = b.bargain_pct ?? -Infinity;
+        if (ap !== bp) return bp - ap;
+      }
       // Caution-tier items: fewer red flags always ranks above more,
       // regardless of score - mirrors the backend's ordering so switching
       // to "Best match" doesn't silently undo it by re-sorting on score
