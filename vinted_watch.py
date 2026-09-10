@@ -360,6 +360,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
     # for checking a seller's real history manually in the browser.
     user = item.get("user") or {}
     seller = {
+        "id": user.get("id"),
         "login": user.get("login", ""),
         "profile_url": user.get("profile_url", ""),
         "business": bool(user.get("business")),
@@ -468,10 +469,13 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
     if under_ceiling:
         pct_under_ceiling = round((1 - price_amount / price_to) * 100)
         bargain_reason = f"-{pct_under_ceiling}% of cap"
+        bargain_pct = pct_under_ceiling
     elif is_bargain:
         bargain_reason = f"Under {currency} {int(max_price)}"
+        bargain_pct = round((1 - price_amount / max_price) * 100) if max_price and price_amount is not None else 0
     else:
         bargain_reason = None
+        bargain_pct = None
 
     return {
         "id": item.get("id"),
@@ -493,6 +497,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
         "is_new": is_new,
         "is_bargain": is_bargain,
         "bargain_reason": bargain_reason,
+        "bargain_pct": bargain_pct,
         "source": source,
         "listed_at": listed_at,
         "condition_badge": get_condition_badge(condition, watch.get("category", "clothing")),
@@ -713,6 +718,29 @@ def main():
         existing = unique.get(c["id"])
         if existing is None or c["score"] > existing["score"]:
             unique[c["id"]] = c
+
+    # Same-seller clustering: a seller with multiple caution-tier listings in
+    # one scan is a real red flag - it's exactly the pattern behind the
+    # counterfeit-sourcing case that started this (three identical "Palm
+    # Angels" jumpers, actually an unlabelled Moncler collab, same seller,
+    # same size). That listing passed completely clean under the per-item
+    # checks because nothing cross-referenced it against the seller's other
+    # listings. This needs no extra requests - the seller id is already on
+    # every card, just never compared across the whole scan before.
+    caution_by_seller = {}
+    for c in unique.values():
+        if c.get("subcategory") == "caution":
+            seller_key = c["seller"].get("id") or c["seller"].get("login")
+            if seller_key:
+                caution_by_seller.setdefault(seller_key, []).append(c)
+    for seller_cards in caution_by_seller.values():
+        if len(seller_cards) < 2:
+            continue
+        for c in seller_cards:
+            if not c["caution_flags"]:
+                c["score"] -= 10  # no longer clean - remove the clean bonus
+            c["score"] -= 20  # same penalty as any other caution flag
+            c["caution_flags"].append(f"Seller has {len(seller_cards)} caution listings this scan")
 
     all_watches = config["watches"] + config.get("discovery_pool", [])
     watch_caps = {w["name"]: w["max_in_feed"] for w in all_watches if "max_in_feed" in w}
