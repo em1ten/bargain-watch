@@ -314,6 +314,7 @@
     <button class="pill" data-attr="starred">Starred</button>
     <button class="pill" data-category="games_music">Games &amp; Music</button>
     <button class="pill" data-category="football">Sports</button>
+    <button class="pill" data-category="baby">Baby</button>
     <button class="pill" data-category="caution">Caution</button>
     <button class="pill" data-category="shops">Shops</button>
     <button class="pill" id="brands-toggle">Brands ▾</button>
@@ -397,6 +398,7 @@ function cardMatches(item){
   let categoryMatch;
   if (activeCategory === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
   else if (activeCategory === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
+  else if (activeCategory === 'baby') categoryMatch = isElectronics && item.subcategory === 'baby';
   else if (activeCategory === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
   else if (activeCategory === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
   else if (isElectronics) categoryMatch = false; // every other view is clothing-only
