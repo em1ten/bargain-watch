@@ -307,15 +307,15 @@
   </header>
 
   <div class="pills" id="pills">
-    <button class="pill active" data-filter="all">All</button>
-    <button class="pill" data-filter="is_new">Just listed</button>
-    <button class="pill" data-filter="bnwt">BNWT</button>
-    <button class="pill" data-filter="is_bargain">Bargains</button>
-    <button class="pill" data-filter="starred">Starred</button>
-    <button class="pill" data-filter="games_music">Games &amp; Music</button>
-    <button class="pill" data-filter="football">Sports</button>
-    <button class="pill" data-filter="caution">Caution</button>
-    <button class="pill" data-filter="shops">Shops</button>
+    <button class="pill active" data-category="all">All</button>
+    <button class="pill" data-attr="is_new">Just listed</button>
+    <button class="pill" data-attr="bnwt">BNWT</button>
+    <button class="pill" data-attr="is_bargain">Bargains</button>
+    <button class="pill" data-attr="starred">Starred</button>
+    <button class="pill" data-category="games_music">Games &amp; Music</button>
+    <button class="pill" data-category="football">Sports</button>
+    <button class="pill" data-category="caution">Caution</button>
+    <button class="pill" data-category="shops">Shops</button>
     <button class="pill" id="brands-toggle">Brands ▾</button>
   </div>
 
@@ -375,30 +375,36 @@ async function promoteToCore(item, btn){
   }
 }
 
-let activeFilter = 'all';
+let activeCategory = 'all';
+let activeAttrs = new Set();
 let sortMode = 'rank';
 let feedData = [];
 let selectedSizes = new Set();
 let selectedBrand = null;
 
+function attrMatches(item, attr){
+  switch (attr){
+    case 'is_new':     return item.is_new;
+    case 'bnwt':       return item.condition === 'New with tags';
+    case 'is_bargain': return item.is_bargain;
+    case 'starred':    return starred.has(item.id);
+    default:           return true;
+  }
+}
+
 function cardMatches(item){
   const isElectronics = item.category === 'electronics';
   let categoryMatch;
-  if (activeFilter === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
-  else if (activeFilter === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
-  else if (activeFilter === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
-  else if (activeFilter === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
+  if (activeCategory === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
+  else if (activeCategory === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
+  else if (activeCategory === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
+  else if (activeCategory === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
   else if (isElectronics) categoryMatch = false; // every other view is clothing-only
-  else {
-    switch (activeFilter) {
-      case 'is_new':     categoryMatch = item.is_new; break;
-      case 'bnwt':       categoryMatch = item.condition === 'New with tags'; break;
-      case 'is_bargain': categoryMatch = item.is_bargain; break;
-      case 'starred':    categoryMatch = starred.has(item.id); break;
-      default:           categoryMatch = true;
-    }
-  }
+  else categoryMatch = true;
   if (!categoryMatch) return false;
+  for (const attr of activeAttrs){
+    if (!attrMatches(item, attr)) return false;
+  }
   if (selectedBrand && item.watch !== selectedBrand) return false;
   if (selectedSizes.size && !selectedSizes.has(item.size_term_matched)) return false;
   return true;
@@ -426,7 +432,7 @@ function sortItems(items){
       // item or one listed days ago would otherwise get buried under
       // BNWT/freshness-boosted items in score order, defeating the point
       // of a pill meant to isolate on price specifically.
-      if (activeFilter === 'is_bargain'){
+      if (activeAttrs.has('is_bargain')){
         const ap = a.bargain_pct ?? -Infinity;
         const bp = b.bargain_pct ?? -Infinity;
         if (ap !== bp) return bp - ap;
@@ -512,7 +518,7 @@ function buildCard(item, rank){
     if (starred.has(item.id)){ starred.delete(item.id); starBtn.classList.remove('starred'); starBtn.textContent = '☆'; }
     else { starred.add(item.id); starBtn.classList.add('starred'); starBtn.textContent = '★'; }
     saveStarred();
-    if (activeFilter === 'starred') renderFeed();
+    if (activeAttrs.has('starred')) renderFeed();
   });
   photoWrap.appendChild(starBtn);
 
@@ -620,17 +626,28 @@ function renderFeed(){
   feedEl.appendChild(frag);
 }
 
-function clearOtherFilterPills(except){
-  document.querySelectorAll('#pills .pill')
+function clearOtherCategoryPills(except){
+  document.querySelectorAll('#pills .pill[data-category]')
     .forEach(p => { if (p !== except) p.classList.remove('active'); });
 }
 
 document.getElementById('pills').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
   if (!btn || btn.id === 'brands-toggle') return;
-  activeFilter = btn.dataset.filter;
-  clearOtherFilterPills(btn);
-  btn.classList.add('active');
+  if (btn.dataset.category !== undefined){
+    activeCategory = btn.dataset.category;
+    clearOtherCategoryPills(btn);
+    btn.classList.add('active');
+  } else if (btn.dataset.attr !== undefined){
+    const attr = btn.dataset.attr;
+    if (activeAttrs.has(attr)){
+      activeAttrs.delete(attr);
+      btn.classList.remove('active');
+    } else {
+      activeAttrs.add(attr);
+      btn.classList.add('active');
+    }
+  }
   renderFeed();
 });
 
