@@ -1,5 +1,5 @@
 {
-  "generated_at": 1789176883,
+  "generated_at": 1789194729,
   "errors": [
     "Common Cultured"
   ],
@@ -665,39 +665,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10379561238875",
-      "title": "Colorful Standard Organic Cotton Cap - Seaside Blue",
-      "watch": "Stuarts London",
-      "brand": "Colorful Standard",
-      "size": "SEASIDE BLUE / One Size",
-      "condition": "New",
-      "price": "9.00 GBP",
-      "price_amount": 9.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1771511077-97766100.jpg?v=1773334313",
-      "url": "https://www.stuartslondon.com/products/colorful-standard-organic-cotton-cap-seaside-blue",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 69,
-      "score": 69,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-69%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10379561009499",
       "title": "Colorful Standard Linen Short Sleeve Shirt - Optical White",
       "watch": "Stuarts London",
@@ -973,6 +940,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1760607900-36118600.jpg?v=1764416382",
       "url": "https://www.stuartslondon.com/products/jacques-soloviere-rasmus-lug-smart-shoes-suede-brown",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 65,
+      "score": 65,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-65%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10391647093083",
+      "title": "Pittari Microstripe Short Sleeve Polo - Trian",
+      "watch": "Stuarts London",
+      "brand": "Pittari",
+      "size": "TRIAN / L, TRIAN / M, TRIAN / S, TRIAN / XL, TRIAN / XXL",
+      "condition": "New",
+      "price": "39.00 GBP",
+      "price_amount": 39.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1_5ac85251-cc8f-43d8-90a2-9afa71ca799e.jpg?v=1774880316",
+      "url": "https://www.stuartslondon.com/products/pitssp-tri-ss-polo-tip",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
