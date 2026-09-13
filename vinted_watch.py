@@ -196,10 +196,14 @@ def run_search(session, domain, watch, currency, per_page, catalog_ids):
     return resp.json().get("items", [])
 
 
-def passes_filters(item, exclude_terms, allowed_conditions=None):
+def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_terms=None):
     title = (item.get("title") or "").lower()
     if any(term.lower() in title for term in exclude_terms):
         return False
+    if exclude_size_terms:
+        size = (item.get("size_title") or "").lower()
+        if any(term.lower() in size for term in exclude_size_terms):
+            return False
     if allowed_conditions:
         status = (item.get("status") or "").strip()
         if status and status not in allowed_conditions:
@@ -631,7 +635,7 @@ def main():
         rejections = Counter()  # why an item didn't make the feed, for diagnosing "missing" listings
         for item in raw_items:
             try:
-                if not passes_filters(item, exclude_terms, watch.get("allowed_conditions")):
+                if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size")):
                     rejections["excluded keyword / wrong condition"] += 1
                     continue
                 if not brand_matches(item, watch):
