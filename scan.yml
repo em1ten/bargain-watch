@@ -27,18 +27,16 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python3 vinted_watch.py
 
-      - name: Run eBay scan
-        env:
-          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
-          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
-        run: python3 ebay_watch.py
+      - name: Run shop scan
+        run: python3 shop_watch.py
 
       - name: Commit updated data
         run: |
           git config user.name "vinted-watch-bot"
           git config user.email "actions@users.noreply.github.com"
           git add docs/data.json seen_ids.json
-          [ -f docs/ebay_data.json ] && git add docs/ebay_data.json
-          [ -f ebay_seen_ids.json ] && git add ebay_seen_ids.json
+          [ -f docs/shop_data.json ] && git add docs/shop_data.json
+          [ -f shop_seen_ids.json ] && git add shop_seen_ids.json
+          [ -f digest_pending.json ] && git add digest_pending.json
           git diff --staged --quiet || git commit -m "Update listings [skip ci]"
           git push
