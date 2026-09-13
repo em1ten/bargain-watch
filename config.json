@@ -9,6 +9,22 @@
   "discovery_per_day": 5,
   "feed_size": 150,
 
+  "_tech_note": "Adding a tech item is a one-liner: { \"name\": \"...\", \"search_text\": \"...\", \"rrp\": <retail>, \"subcategory\": \"tech\" }. Everything below is inherited automatically, so no protection can be forgotten. price_to is computed from rrp if omitted. Override any field per watch (e.g. tighter allowed_conditions for something you only want sealed); 'exclude' merges with the defaults rather than replacing them.",
+  "subcategory_defaults": {
+    "tech": {
+      "catalog_ids": "2994",
+      "category": "electronics",
+      "subcategory": "tech",
+      "require_brand_match": false,
+      "notify": "digest",
+      "authenticity_caution": true,
+      "min_favourites": 25,
+      "max_in_feed": 3,
+      "allowed_conditions": ["New with tags", "New without tags", "Very good"],
+      "exclude": ["faulty", "not working", "spares or repair", "spares/repair", "for parts", "broken", "cracked", "water damage", "damaged", "screen burn", "no charger", "untested", "as is", "read description", "drift", "battery issue", "icloud locked", "locked", "replica", "case only", "box only", "empty box"]
+    }
+  },
+
   "my_sizes": {
     "denim":    ["W34", "34", "W36", "36"],
     "tops":     ["M", "L"],
@@ -169,6 +185,8 @@
       "require_brand_match": true, "brand_match": ["Converse"],
       "category": "electronics", "subcategory": "baby", "notify": "digest", "exclude_ignore": ["kids", "junior"],
       "exclude_size": ["newborn", "up to 1 month", "1-3 months", "0-3 months"],
+      "allowed_conditions": ["New with tags", "New without tags"] },
+    { "name": "Meta Quest 2", "search_text": "meta quest 2", "rrp": 180, "price_to": 150, "subcategory": "tech",
       "allowed_conditions": ["New with tags", "New without tags"] },
     { "name": "MKI Miyuki-Zoku",   "search_text": "mki miyuki zoku",     "price_to": 60, "rrp": 140, "size_category": "tops", "notify": "digest",
       "brand_match": ["MKI Miyuki-Zoku", "MKI"] },
