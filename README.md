@@ -61,6 +61,109 @@ trim all of electronics together, so Caution's 11 brand searches could
 silently crowd Games and Football (2 searches each) out of the feed
 entirely, even when the scan found genuine matches for them.
 
+## Authenticity checks now work for any category, not just designer clothing
+
+The whole caution-tier system (hard price floor vs RRP, seller-newness
+flag, same-scan cross-listing fraud detection, clean-ranks-above-flagged
+sorting) was hardcoded to `subcategory == "caution"` in three separate
+places. Adding electronics meant generalizing this properly rather than
+duplicating a weaker version of it for a new category - electronics
+resale carries real fraud risk (non-working units sold as new, stolen
+goods, non-delivery scams), arguably more than designer clothing, so it
+deserved the strongest checks already built, not a lesser copy.
+
+Every card now carries an explicit `authenticity_caution` flag (not just
+the resulting flag list), and all three hardcoded checks were rewritten
+to key off that instead of the literal subcategory name. This is a no-op
+for every existing subcategory with no authenticity_caution cards (flag
+count is always 0, so sorting falls straight through to score exactly as
+before) - tested directly, confirmed zero behaviour change for Caution or
+Football. But it means any future `"authenticity_caution": true` watch,
+in any category, automatically gets the full protection - no more
+special-casing needed per category.
+
+## Tech — built to be extended, not hand-written each time
+
+Own pill, own subcategory (`tech`), searching Vinted's Electronics
+category (**2994** — the parent, so it covers video games, cameras,
+audio, computers, wearables and the rest without needing each child ID).
+
+The requirement was "real, working, clean and well looked after, and a
+bargain" across whatever might come up in future — so rather than
+hand-writing those protections per item and risking one silently going
+missing, they live in `subcategory_defaults.tech` and are inherited
+automatically. Adding anything new is a one-liner:
+
+```json
+{ "name": "Sony WH-1000XM4", "search_text": "sony wh-1000xm4", "rrp": 250, "subcategory": "tech" }
+```
+
+That alone resolves to: Electronics catalog restriction, full
+authenticity checks (`authenticity_caution`), `min_favourites: 25`,
+`max_in_feed: 3`, a condition floor of New/New-without-tags/Very good
+(excludes "Good" and "Satisfactory" — the worn tiers), 22 damage and
+scam keyword excludes, and a `price_to` computed from `rrp` via the
+fitted formula. Mapping to the four requirements:
+
+| Requirement | Mechanism |
+|---|---|
+| Real | `authenticity_caution` — hard price floor vs RRP, new-seller flag, same-scan cross-listing detection |
+| Working | damage/scam keyword excludes (`faulty`, `spares or repair`, `untested`, `no charger`, `icloud locked`, …) |
+| Clean, well looked after | condition floor — "Good" and "Satisfactory" never make the feed |
+| Bargain | `price_to` + the global `bargain_ceiling_ratio` |
+
+Per-watch overrides still work, with one deliberate asymmetry worth
+knowing: `exclude` lists **merge** with the defaults (adding an exclude
+makes a watch stricter, never weaker), while allow-lists like
+`allowed_conditions` **replace** outright. That distinction was a real
+bug when this was built — merging `allowed_conditions` silently widened
+the filter back open, the exact opposite of what setting it per-watch is
+meant to do. Meta Quest 2 uses that override to demand unused only.
+
+**Honest limitation:** the bulk search API returns titles, never
+descriptions. A seller who writes "screen has a scratch" or "controller
+drifts" only in the description is invisible to every keyword check
+here. Condition and price filters still apply, but for electronics
+specifically, read the full listing before buying — these checks narrow
+the field, they don't verify the item.
+
+## Catching multi-listing sellers, without extra requests
+
+Vinted's bulk search API genuinely doesn't return seller feedback or
+review count at all - only `business, id, login, photo, profile_url`.
+There was a real option to fetch full seller detail per item to close
+this gap, but it was scoped back to just caution-tier survivors rather
+than everything, since a blanket per-item request was already ruled out
+early in this project as "40x the request volume - not worth it."
+
+A cheaper alternative needed no extra requests at all: cross-reference
+seller id across every caution-tier listing found in a single scan. This
+is exactly the pattern behind the counterfeit-sourcing case that started
+this thread - three identical "Palm Angels" jumpers (actually an
+unlabelled Moncler collab), same seller, same size, sold as "1 for 25,
+all 3 for 67." That listing passed completely clean because nothing
+cross-referenced it against the seller's other listings in the same scan.
+
+Any seller with 2+ caution-tier listings in one scan now gets a new flag,
+"Seller has N caution listings this scan," with the same -20 penalty (and
+loses the clean bonus if it had one) as any other caution flag. Tested
+against the exact real case: all three identical listings drop from 125
+to 95, while a genuine single-listing seller is untouched.
+
+## Decimal size false positive, fixed for real this time
+
+The original decimal false-positive risk ("9 matches inside 9.5, 43 inside
+43.5") was already flagged as a known lesson in early project notes - but
+the actual regex fix apparently never landed. Confirmed live: a "UK 9.5"
+Clarks listing was matching size term "9" and showing the ✓ badge, purely
+because the boundary regex only excluded letters and digits, not the
+decimal point itself.
+
+Fixed by excluding "." from the token boundary too - "9" no longer matches
+inside "9.5". Deliberately did *not* exclude "," - a comma-separated size
+list like "8.5, 9, 10" still needs a standalone "9" to match correctly,
+and a comma there is a list separator, not part of a number.
+
 ## Every clothing watch gets a guaranteed slot
 
 63 clothing watches now share one feed, with huge result-volume
