@@ -315,6 +315,7 @@
     <button class="pill" data-category="games_music">Games &amp; Music</button>
     <button class="pill" data-category="football">Sports</button>
     <button class="pill" data-category="baby">Baby</button>
+    <button class="pill" data-category="tech">Tech</button>
     <button class="pill" data-category="caution">Caution</button>
     <button class="pill" data-category="shops">Shops</button>
     <button class="pill" id="brands-toggle">Brands ▾</button>
@@ -399,6 +400,7 @@ function cardMatches(item){
   if (activeCategory === 'games_music') categoryMatch = isElectronics && (item.subcategory === 'games' || item.subcategory === 'music');
   else if (activeCategory === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
   else if (activeCategory === 'baby') categoryMatch = isElectronics && item.subcategory === 'baby';
+  else if (activeCategory === 'tech') categoryMatch = isElectronics && item.subcategory === 'tech';
   else if (activeCategory === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
   else if (activeCategory === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
   else if (isElectronics) categoryMatch = false; // every other view is clothing-only
@@ -439,15 +441,15 @@ function sortItems(items){
         const bp = b.bargain_pct ?? -Infinity;
         if (ap !== bp) return bp - ap;
       }
-      // Caution-tier items: fewer red flags always ranks above more,
-      // regardless of score - mirrors the backend's ordering so switching
-      // to "Best match" doesn't silently undo it by re-sorting on score
-      // alone.
-      if (a.subcategory === 'caution' && b.subcategory === 'caution'){
-        const aFlags = (a.caution_flags || []).length;
-        const bFlags = (b.caution_flags || []).length;
-        if (aFlags !== bFlags) return aFlags - bFlags;
-      }
+      // Wherever authenticity checks apply: fewer red flags always ranks
+      // above more, regardless of score - mirrors the backend's ordering
+      // so switching to "Best match" doesn't silently undo it by
+      // re-sorting on score alone. No-op for items with no flags at all
+      // (both sides are 0), so this applies safely everywhere rather than
+      // needing a per-subcategory check.
+      const aFlags = (a.caution_flags || []).length;
+      const bFlags = (b.caution_flags || []).length;
+      if (aFlags !== bFlags) return aFlags - bFlags;
       return b.score - a.score;
     });
   }
