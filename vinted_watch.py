@@ -163,15 +163,47 @@ def suggested_price_to(rrp):
     return round(0.755 * (rrp ** 0.873) / 5) * 5
 
 
-def resolve_watch(watch):
-    """Fill in a computed price_to when one wasn't set, without mutating
-    the original config dict. Returns the watch unchanged if price_to is
-    already explicit, or if there's no rrp to compute a suggestion from."""
-    if watch.get("price_to") or not watch.get("rrp"):
-        return watch
+MERGEABLE_LIST_KEYS = {"exclude", "exclude_ignore", "exclude_size"}
+
+
+def resolve_watch(watch, subcategory_defaults=None):
+    """Resolve a watch into its full effective config, without mutating the
+    original dict.
+
+    Two things happen here:
+
+    1. Per-subcategory defaults are merged in underneath the watch's own
+       values. This exists because a category like `tech` needs several
+       protections applied consistently (authenticity checks, condition
+       floor, damage-keyword excludes, catalog restriction) and repeating
+       all of them per watch is how one silently goes missing. A watch's
+       own explicit value always wins; list fields (`exclude`) merge rather
+       than replace, so a per-item exclude adds to the category's baseline
+       instead of quietly dropping it.
+
+    2. A price_to is computed from rrp when one wasn't set explicitly.
+    """
     resolved = dict(watch)
-    resolved["price_to"] = suggested_price_to(watch["rrp"])
-    print(f"  no price_to set for {watch['name']} - using computed cap £{resolved['price_to']} (from rrp £{watch['rrp']})")
+
+    defaults = (subcategory_defaults or {}).get(watch.get("subcategory"))
+    if defaults:
+        for key, default_value in defaults.items():
+            if key not in resolved:
+                resolved[key] = default_value
+            elif key in MERGEABLE_LIST_KEYS and isinstance(default_value, list) and isinstance(resolved[key], list):
+                # Merge only for exclude-style lists, where adding entries makes
+                # the filter STRICTER. Never merge allow-lists like
+                # allowed_conditions or brand_match: merging those silently
+                # widens what gets through, which is the opposite of what
+                # setting the field per-watch is meant to do.
+                merged = list(resolved[key])
+                merged.extend(v for v in default_value if v not in merged)
+                resolved[key] = merged
+
+    if not resolved.get("price_to") and resolved.get("rrp"):
+        resolved["price_to"] = suggested_price_to(resolved["rrp"])
+        print(f"  no price_to set for {watch['name']} - using computed cap £{resolved['price_to']} (from rrp £{resolved['rrp']})")
+
     return resolved
 
 
@@ -515,6 +547,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
             for k in ("search_text", "price_to", "price_from", "rrp", "size_category", "catalog_ids", "exclude")
             if k in watch
         },
+        "authenticity_caution": bool(watch.get("authenticity_caution")),
         "caution_flags": caution_flags or [],
         "favourite_count": item.get("favourite_count") or 0,
     }
@@ -598,8 +631,9 @@ def main():
             digest_pending = json.load(f)
 
     discovery_today = pick_discovery(config.get("discovery_pool", []), config.get("discovery_per_day", 3))
-    scan_plan = [(resolve_watch(w), "core") for w in config["watches"]] + [
-        (resolve_watch(w), "discovery") for w in discovery_today
+    subcategory_defaults = config.get("subcategory_defaults", {})
+    scan_plan = [(resolve_watch(w, subcategory_defaults), "core") for w in config["watches"]] + [
+        (resolve_watch(w, subcategory_defaults), "discovery") for w in discovery_today
     ]
 
     session = new_session(domain)
@@ -733,7 +767,7 @@ def main():
     # every card, just never compared across the whole scan before.
     caution_by_seller = {}
     for c in unique.values():
-        if c.get("subcategory") == "caution":
+        if c.get("authenticity_caution"):
             seller_key = c["seller"].get("id") or c["seller"].get("login")
             if seller_key:
                 caution_by_seller.setdefault(seller_key, []).append(c)
@@ -804,17 +838,19 @@ def main():
         electronics_by_subcat.setdefault(c.get("subcategory") or "other", []).append(c)
     electronics_feed = []
     for subcat, subcat_cards in electronics_by_subcat.items():
-        if subcat == "caution":
-            # For caution-tier brands, being clean matters more than being
-            # cheap - a big enough discount could still outscore a flagged
-            # listing under plain score sorting (discount alone swings up
-            # to 60 points; the caution penalty only swings 30). Sort by
-            # flag count first so a listing with fewer red flags always
-            # ranks above one with more, regardless of price - score only
-            # breaks ties within the same flag count.
-            sorted_cards = sorted(subcat_cards, key=lambda c: (len(c.get("caution_flags") or []), -c["score"]))
-        else:
-            sorted_cards = sorted(subcat_cards, key=lambda c: c["score"], reverse=True)
+        # Being clean matters more than being cheap wherever authenticity
+        # checks apply - a big enough discount could still outscore a
+        # flagged listing under plain score sorting (discount alone swings
+        # up to 60 points; the caution penalty only swings 30). Sort by
+        # flag count first so a listing with fewer red flags always ranks
+        # above one with more, regardless of price - score only breaks
+        # ties within the same flag count. This is a no-op for
+        # subcategories with no authenticity_caution cards (flag count is
+        # always 0, so it falls straight through to score), so applying it
+        # unconditionally instead of only for subcat == "caution" means any
+        # future authenticity-flagged category gets this protection
+        # automatically.
+        sorted_cards = sorted(subcat_cards, key=lambda c: (len(c.get("caution_flags") or []), -c["score"]))
         electronics_feed.extend(sorted_cards[:feed_size])
     feed = clothing_feed + electronics_feed
 
