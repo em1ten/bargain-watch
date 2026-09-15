@@ -129,10 +129,27 @@ def save_json(path, obj):
 
 def new_session(domain):
     """Vinted's site sets anti-bot cookies on first visit. Grab those
-    before calling the API, same as a real browser would."""
+    before calling the API, same as a real browser would.
+
+    The result of that first visit used to be ignored entirely. That
+    matters because if it fails or gets blocked, every later API call goes
+    out without valid cookies - and Vinted answers those with 404, not
+    403, which is indistinguishable in the log from the API endpoint
+    having been moved or retired. Reporting it makes the two causes
+    tellable apart."""
     session = requests.Session()
     session.headers.update(REQUEST_HEADERS)
-    session.get(f"https://{domain}/", timeout=15)
+    try:
+        resp = session.get(f"https://{domain}/", timeout=15)
+        cookie_names = sorted(session.cookies.keys())
+        if resp.status_code != 200:
+            print(f"! session setup: homepage returned {resp.status_code} (expected 200) - API calls may fail with 404")
+        elif not cookie_names:
+            print("! session setup: homepage returned 200 but set no cookies - API calls may fail with 404")
+        else:
+            print(f"Session established ({len(cookie_names)} cookies: {', '.join(cookie_names[:5])}{'...' if len(cookie_names) > 5 else ''})")
+    except requests.RequestException as e:
+        print(f"! session setup failed: {e} - API calls will almost certainly fail")
     return session
 
 
@@ -675,6 +692,7 @@ def main():
     session = new_session(domain)
     all_cards = []
     errors = []
+    consecutive_404s = 0
     exceptional_finds = []
 
     for watch, source in scan_plan:
@@ -697,7 +715,19 @@ def main():
         except requests.RequestException as e:
             print(f"  ! request failed: {e}")
             errors.append(name)
+            consecutive_404s = consecutive_404s + 1 if "404" in str(e) else 0
+            if consecutive_404s >= 5:
+                print(
+                    "\n! ABORTING: 5 consecutive 404s.\n"
+                    "  A 404 on every request means the problem is global, not per-watch. Either:\n"
+                    "    (a) the session has no valid anti-bot cookies (check the 'Session established'\n"
+                    "        line at the top of this log), or\n"
+                    "    (b) Vinted has changed or retired the /api/v2/catalog/items endpoint.\n"
+                    "  Stopping here rather than repeating the same error for every remaining watch."
+                )
+                break
             continue
+        consecutive_404s = 0
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
 
         notify_cards = []  # new OR price-dropped - both worth alerting on
