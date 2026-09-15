@@ -61,6 +61,27 @@ trim all of electronics together, so Caution's 11 brand searches could
 silently crowd Games and Football (2 searches each) out of the feed
 entirely, even when the scan found genuine matches for them.
 
+## Scan #495: rate-limited into an empty feed
+
+Real incident, not a hypothetical. The watch list roughly tripled this
+session (~50 to 135 entries), and the 1-second pacing between requests
+that was fine at the smaller scale started triggering Vinted's
+rate-limiting. Once one request got a 429, the old code gave up on that
+watch immediately and moved on - but Vinted kept rate-limiting every
+subsequent request too, cascading through the rest of the scan
+(including instant-priority watches) and ending in "Done. 0 listings in
+the feed." Confirmed from the actual log: dozens of consecutive 429s,
+total runtime only 2m10s (fast rejections, not slow timeouts - this was
+a request-frequency problem, not a duration one).
+
+Two fixes: `run_search` now retries a 429 up to twice more with backoff
+(5s, then 10s) before giving up on that watch, rather than treating a
+single rate-limit hit as fatal for the rest of the scan - tested against
+both a recovering case (429 then success) and a persistent one (still
+fails cleanly after exhausting retries, doesn't hang). The base delay
+between requests also went from 1s to 2s, since the list has genuinely
+outgrown what 1s was tuned for.
+
 ## Authenticity checks now work for any category, not just designer clothing
 
 The whole caution-tier system (hard price floor vs RRP, seller-newness
