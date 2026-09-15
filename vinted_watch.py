@@ -148,6 +148,22 @@ def new_session(domain):
             print("! session setup: homepage returned 200 but set no cookies - API calls may fail with 404")
         else:
             print(f"Session established ({len(cookie_names)} cookies: {', '.join(cookie_names[:5])}{'...' if len(cookie_names) > 5 else ''})")
+
+        # A real captured browser request (Sept 2026) showed X-Anon-Id and
+        # X-CSRF-Token headers on every API call, not just cookies. Vinted's
+        # current architecture may require these even for read-only search
+        # requests. anon_id is already one of the cookies this session picks
+        # up - it was just never read back out and sent as a header before.
+        anon_id = session.cookies.get("anon_id")
+        if anon_id:
+            session.headers["X-Anon-Id"] = anon_id
+
+        csrf_match = re.search(r'name="csrf-token"\s+content="([^"]+)"', resp.text)
+        if csrf_match:
+            session.headers["X-CSRF-Token"] = csrf_match.group(1)
+            print("  found CSRF token, added X-CSRF-Token header")
+        else:
+            print("  no CSRF token found in homepage HTML (may not be needed for GET requests, or the meta tag pattern has changed)")
     except requests.RequestException as e:
         print(f"! session setup failed: {e} - API calls will almost certainly fail")
     return session
@@ -224,39 +240,92 @@ def resolve_watch(watch, subcategory_defaults=None):
     return resolved
 
 
-def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retries=3):
-    params = {
-        "search_text": watch["search_text"],
-        "order": "newest_first",
-        "per_page": per_page,
-        "currency": currency,
-    }
+API_PATH_CANDIDATES = [
+    # Confirmed working (Sept 2026, real captured browser request, 200 OK
+    # with actual item results). Vinted moved the whole API off
+    # www.vinted.co.uk onto this subdomain, with a different parameter
+    # naming scheme too (attribute_ids[catalog] instead of catalog_ids) -
+    # handled in _build_search_params below, not just a path change.
+    "https://api.vinted.co.uk/svc-catalogue/items",
+    # Old paths, kept only as a last-resort fallback - confirmed dead as of
+    # Sept 2026 (404 on every request despite a healthy session), but cost
+    # nothing to try if the new path ever stops working and the old one
+    # somehow comes back.
+    "/api/v2/catalog/items",
+    "/api/v2/items",
+]
+
+
+def _build_search_params(watch, currency, per_page, catalog_ids, new_api):
+    """Two parameter schemes, confirmed from real captured requests, not
+    just a path change: the old www.vinted.co.uk API used catalog_ids=5
+    and no page param; the new api.vinted.co.uk one uses page=1 and
+    attribute_ids[catalog]=5 instead - a real bracket-notation query key,
+    which requests percent-encodes correctly on its own."""
+    ids = watch.get("catalog_ids", catalog_ids)
+    if new_api:
+        params = {
+            "page": 1,
+            "per_page": per_page,
+            "search_text": watch["search_text"],
+            "order": "newest_first",
+        }
+        if ids:
+            params["attribute_ids[catalog]"] = ids
+    else:
+        params = {
+            "search_text": watch["search_text"],
+            "order": "newest_first",
+            "per_page": per_page,
+            "currency": currency,
+        }
+        if ids:
+            params["catalog_ids"] = ids
     if watch.get("price_to"):
         params["price_to"] = watch["price_to"]
     if watch.get("price_from"):
         params["price_from"] = watch["price_from"]
-    ids = watch.get("catalog_ids", catalog_ids)
-    if ids:
-        params["catalog_ids"] = ids
+    return params
 
-    url = f"https://{domain}/api/v2/catalog/items"
-    for attempt in range(max_retries):
-        resp = session.get(url, params=params, timeout=20)
-        if resp.status_code == 429:
-            # Once Vinted starts rate-limiting, every subsequent request in
-            # the same scan fails too if we just give up immediately - seen
-            # live in scan #495, where one 429 cascaded into every remaining
-            # watch failing and the feed going completely empty. Back off
-            # and retry rather than let one rate-limit hit take out the
-            # entire rest of the scan.
-            if attempt < max_retries - 1:
-                wait = 5 * (attempt + 1)  # 5s, 10s, 15s
-                print(f"    rate-limited (429), waiting {wait}s before retry {attempt + 2}/{max_retries}")
-                time.sleep(wait)
-                continue
-        resp.raise_for_status()
-        return resp.json().get("items", [])
-    resp.raise_for_status()  # exhausted retries - raise the last response's error
+
+def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retries=3, api_paths=None):
+    # Vinted moves its internal endpoints without warning - /api/v2/catalog/items
+    # went from working to 404-on-every-request in September 2026 with the
+    # session still perfectly healthy. Rather than hardcode one path, try each
+    # candidate and report which one actually answers, so a change like that is
+    # a config edit rather than a code change. A candidate starting with
+    # "http" is used as a complete URL (different host); anything else is
+    # treated as a path on the configured domain.
+    paths = api_paths or API_PATH_CANDIDATES
+    last_exc = None
+    for path in paths:
+        url = path if path.startswith("http") else f"https://{domain}{path}"
+        params = _build_search_params(watch, currency, per_page, catalog_ids, new_api="api.vinted.co.uk" in url)
+        for attempt in range(max_retries):
+            resp = session.get(url, params=params, timeout=20)
+            if resp.status_code == 429:
+                # Once Vinted starts rate-limiting, every subsequent request in
+                # the same scan fails too if we just give up immediately - seen
+                # live in scan #495, where one 429 cascaded into every remaining
+                # watch failing and the feed going completely empty. Back off
+                # and retry rather than let one rate-limit hit take out the
+                # entire rest of the scan.
+                if attempt < max_retries - 1:
+                    wait = 5 * (attempt + 1)  # 5s, 10s, 15s
+                    print(f"    rate-limited (429), waiting {wait}s before retry {attempt + 2}/{max_retries}")
+                    time.sleep(wait)
+                    continue
+            if resp.status_code == 404:
+                last_exc = requests.HTTPError(f"404 Client Error: Not Found for url: {resp.url}")
+                break  # this path is gone - try the next candidate rather than retrying it
+            try:
+                resp.raise_for_status()
+            except requests.RequestException as e:
+                last_exc = e
+                break
+            return resp.json().get("items", [])
+    if last_exc:
+        raise last_exc
     return []
 
 
@@ -653,6 +722,7 @@ def main():
     feed_size = config.get("feed_size", 60)
     global_exclude = config.get("global_exclude", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
+    api_paths = config.get("api_paths") or API_PATH_CANDIDATES
     exceptional_threshold = config.get("exceptional_score_threshold", 90)
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
@@ -711,19 +781,22 @@ def main():
         notify_mode = watch.get("notify", "instant")
         print(f"Checking ({source}): {name}")
         try:
-            raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids)
+            raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids, api_paths=api_paths)
         except requests.RequestException as e:
             print(f"  ! request failed: {e}")
             errors.append(name)
             consecutive_404s = consecutive_404s + 1 if "404" in str(e) else 0
             if consecutive_404s >= 5:
                 print(
-                    "\n! ABORTING: 5 consecutive 404s.\n"
-                    "  A 404 on every request means the problem is global, not per-watch. Either:\n"
-                    "    (a) the session has no valid anti-bot cookies (check the 'Session established'\n"
-                    "        line at the top of this log), or\n"
-                    "    (b) Vinted has changed or retired the /api/v2/catalog/items endpoint.\n"
-                    "  Stopping here rather than repeating the same error for every remaining watch."
+                    "\n! ABORTING: 5 consecutive 404s on every candidate API path.\n"
+                    f"  Tried: {', '.join(api_paths)}\n"
+                    "  The session is fine (see the 'Session established' line above) - Vinted has\n"
+                    "  moved or retired the endpoint. To find the current one:\n"
+                    "    1. Open vinted.co.uk in a browser and search for anything\n"
+                    "    2. F12 -> Network tab -> filter XHR\n"
+                    "    3. Find the request that returns the listings JSON, copy its path\n"
+                    "    4. Add it to config.json as: \"api_paths\": [\"/that/path\"]\n"
+                    "  No code change needed - the path is read straight from config."
                 )
                 break
             continue
