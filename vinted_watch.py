@@ -207,7 +207,7 @@ def resolve_watch(watch, subcategory_defaults=None):
     return resolved
 
 
-def run_search(session, domain, watch, currency, per_page, catalog_ids):
+def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retries=3):
     params = {
         "search_text": watch["search_text"],
         "order": "newest_first",
@@ -223,9 +223,24 @@ def run_search(session, domain, watch, currency, per_page, catalog_ids):
         params["catalog_ids"] = ids
 
     url = f"https://{domain}/api/v2/catalog/items"
-    resp = session.get(url, params=params, timeout=20)
-    resp.raise_for_status()
-    return resp.json().get("items", [])
+    for attempt in range(max_retries):
+        resp = session.get(url, params=params, timeout=20)
+        if resp.status_code == 429:
+            # Once Vinted starts rate-limiting, every subsequent request in
+            # the same scan fails too if we just give up immediately - seen
+            # live in scan #495, where one 429 cascaded into every remaining
+            # watch failing and the feed going completely empty. Back off
+            # and retry rather than let one rate-limit hit take out the
+            # entire rest of the scan.
+            if attempt < max_retries - 1:
+                wait = 5 * (attempt + 1)  # 5s, 10s, 15s
+                print(f"    rate-limited (429), waiting {wait}s before retry {attempt + 2}/{max_retries}")
+                time.sleep(wait)
+                continue
+        resp.raise_for_status()
+        return resp.json().get("items", [])
+    resp.raise_for_status()  # exhausted retries - raise the last response's error
+    return []
 
 
 def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_terms=None):
@@ -738,7 +753,7 @@ def main():
                 existing = {c["id"] for c in bucket}
                 bucket.extend(c for c in notify_cards if c["id"] not in existing)
 
-        time.sleep(1)  # be polite between requests
+        time.sleep(2)  # be polite between requests - watch count has roughly tripled this session, 1s was tuned for a much smaller list
 
     if exceptional_finds:
         print(f"{len(exceptional_finds)} exceptional find(s) (score >= {exceptional_threshold}) this scan")
