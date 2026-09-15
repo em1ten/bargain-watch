@@ -1,5 +1,5 @@
 {
-  "generated_at": 1789424216,
+  "generated_at": 1789432984,
   "errors": [
     "Common Cultured"
   ],
@@ -830,39 +830,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-www.stuartslondon.com-10220203376987",
-      "title": "Jacques Soloviere Rasmus Lug Smart Shoes - Suede Brown",
-      "watch": "Stuarts London",
-      "brand": "Jacques Soloviere",
-      "size": "SUEDE BROWN / 41, SUEDE BROWN / 42, SUEDE BROWN / 43, SUEDE BROWN / 44, SUEDE BROWN / 45",
-      "condition": "New",
-      "price": "149.00 GBP",
-      "price_amount": 149.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1760607900-36118600.jpg?v=1764416382",
-      "url": "https://www.stuartslondon.com/products/jacques-soloviere-rasmus-lug-smart-shoes-suede-brown",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 65,
-      "score": 65,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-65%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-www.stuartslondon.com-10391647093083",
       "title": "Pittari Microstripe Short Sleeve Polo - Trian",
       "watch": "Stuarts London",
@@ -940,6 +907,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/72859-5.jpg?v=1776848816",
       "url": "https://www.stuartslondon.com/products/pitssp-del-ss-polo-tip",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 65,
+      "score": 65,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-65%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10379565465947",
+      "title": "Pittari Microstripe Short Sleeve Polo - Teal/Ecru",
+      "watch": "Stuarts London",
+      "brand": "Pittari",
+      "size": "TEAL/ECRU / S, TEAL/ECRU / M, TEAL/ECRU / L, TEAL/ECRU / XL, TEAL/ECRU / XXL",
+      "condition": "New",
+      "price": "39.00 GBP",
+      "price_amount": 39.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772628631-20990400.jpg?v=1773334530",
+      "url": "https://www.stuartslondon.com/products/pittari-microstripe-short-sleeve-polo-teal-ecru",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
