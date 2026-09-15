@@ -647,7 +647,28 @@ def main():
 
     discovery_today = pick_discovery(config.get("discovery_pool", []), config.get("discovery_per_day", 3))
     subcategory_defaults = config.get("subcategory_defaults", {})
-    scan_plan = [(resolve_watch(w, subcategory_defaults), "core") for w in config["watches"]] + [
+
+    # Volume reduction, not just pacing: scan #495 showed Vinted's
+    # rate-limiting cascading through an entire run once triggered, ending
+    # in an empty feed. Slower pacing (elsewhere in this file) only helps
+    # if that's speed-triggered; if it's volume-triggered instead, the same
+    # request count spread across a similar window doesn't avoid it. This
+    # cuts the count directly: "instant" watches are time-sensitive and run
+    # every scan, but "digest"/"off" watches are already bundled into a
+    # once-daily push, so checking every 40 minutes instead of 20 costs
+    # almost nothing - staggering them across alternating scans can roughly
+    # halve request volume per run. int(time.time() // 1200) alternates
+    # deterministically every 20-minute scan interval with no state needed
+    # between runs.
+    scan_slot = int(time.time() // 1200) % 2
+    instant_watches = [w for w in config["watches"] if w.get("notify") == "instant"]
+    other_watches = [w for w in config["watches"] if w.get("notify") != "instant"]
+    staggered_watches = instant_watches + [w for i, w in enumerate(other_watches) if i % 2 == scan_slot]
+    skipped_this_slot = len(other_watches) - sum(1 for i in range(len(other_watches)) if i % 2 == scan_slot)
+    if skipped_this_slot:
+        print(f"Staggering: {skipped_this_slot} digest/off watch(es) deferred to next scan (slot {scan_slot})")
+
+    scan_plan = [(resolve_watch(w, subcategory_defaults), "core") for w in staggered_watches] + [
         (resolve_watch(w, subcategory_defaults), "discovery") for w in discovery_today
     ]
 
