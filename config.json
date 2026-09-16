@@ -230,7 +230,7 @@
     { "name": "Wax London",      "search_text": "wax london",      "price_to": 60,  "rrp": 150, "size_category": "tops",     "notify": "digest" },
     { "name": "Bellroy",         "search_text": "bellroy",         "price_to": 30,  "rrp": 80,  "notify": "digest" },
     { "name": "Sandqvist",       "search_text": "sandqvist",       "price_to": 40,  "rrp": 110, "notify": "digest" },
-    { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest", "require_brand_match": false, "max_in_feed": 3 },
+    { "name": "Selvedge denim",  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest", "require_brand_match": false },
     { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 15,              "size_category": "tops",     "notify": "off" },
     { "name": "Axel Arigato",    "search_text": "axel arigato",    "price_to": 70,  "rrp": 200, "size_category": "footwear", "notify": "digest" },
     { "name": "Daily Paper",     "search_text": "daily paper",     "price_to": 45,  "rrp": 120, "size_category": "tops",     "notify": "digest" },
