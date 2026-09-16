@@ -257,26 +257,40 @@ API_PATH_CANDIDATES = [
 ]
 
 
-def _build_search_params(watch, currency, per_page, catalog_ids, new_api):
+def _build_search_params(watch, currency, per_page, catalog_ids, new_api, order=None):
     """Two parameter schemes, confirmed from real captured requests, not
     just a path change: the old www.vinted.co.uk API used catalog_ids=5
     and no page param; the new api.vinted.co.uk one uses page=1 and
     attribute_ids[catalog]=5 instead - a real bracket-notation query key,
-    which requests percent-encodes correctly on its own."""
+    which requests percent-encodes correctly on its own.
+
+    `order` matters far more on the new API than it did on the old one.
+    The old API matched search_text strictly enough that newest_first gave
+    genuinely relevant recent listings. The new API matches much more
+    loosely - "sheffield wednesday retro vintage shirt" also matches items
+    containing just "shirt" or "vintage" - so ordering those by newest
+    returns whatever was listed most recently rather than what actually
+    matches (observed: Uruguay and Peterborough shirts under a Sheffield
+    Wednesday watch, with nearly every card flagged JUST LISTED). The real
+    browser request uses relevance, so that's the default here.
+
+    New-listing detection is unaffected: `is_new` comes from seen_ids.json
+    comparing against the previous scan, never from the API's ordering."""
     ids = watch.get("catalog_ids", catalog_ids)
+    effective_order = watch.get("order") or order or ("relevance" if new_api else "newest_first")
     if new_api:
         params = {
             "page": 1,
             "per_page": per_page,
             "search_text": watch["search_text"],
-            "order": "newest_first",
+            "order": effective_order,
         }
         if ids:
             params["attribute_ids[catalog]"] = ids
     else:
         params = {
             "search_text": watch["search_text"],
-            "order": "newest_first",
+            "order": effective_order,
             "per_page": per_page,
             "currency": currency,
         }
@@ -289,7 +303,7 @@ def _build_search_params(watch, currency, per_page, catalog_ids, new_api):
     return params
 
 
-def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retries=3, api_paths=None):
+def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retries=3, api_paths=None, order=None):
     # Vinted moves its internal endpoints without warning - /api/v2/catalog/items
     # went from working to 404-on-every-request in September 2026 with the
     # session still perfectly healthy. Rather than hardcode one path, try each
@@ -301,7 +315,7 @@ def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retr
     last_exc = None
     for path in paths:
         url = path if path.startswith("http") else f"https://{domain}{path}"
-        params = _build_search_params(watch, currency, per_page, catalog_ids, new_api="api.vinted.co.uk" in url)
+        params = _build_search_params(watch, currency, per_page, catalog_ids, new_api="api.vinted.co.uk" in url, order=order)
         for attempt in range(max_retries):
             resp = session.get(url, params=params, timeout=20)
             if resp.status_code == 429:
@@ -330,9 +344,19 @@ def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retr
     return []
 
 
-def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_terms=None):
+def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_terms=None, require_title_any=None):
     title = (item.get("title") or "").lower()
     if any(term.lower() in title for term in exclude_terms):
+        return False
+    # Positive title requirement, for watches that can't use brand matching.
+    # Vinted's new (Sept 2026) search matches far more loosely than the old
+    # one: "sheffield wednesday retro vintage shirt" also matched Uruguay,
+    # Peterborough and US college shirts on the generic words alone.
+    # brand_match is no help for these - a football club isn't a registered
+    # clothing brand, so sellers tag the manufacturer (Score Draw, Umbro)
+    # instead. Requiring a distinctive token in the title is the only
+    # defence left for that kind of watch.
+    if require_title_any and not any(term.lower() in title for term in require_title_any):
         return False
     if exclude_size_terms:
         size = str(item_size(item)).lower()
@@ -393,21 +417,37 @@ _SHAPE_REPORTED = False
 
 
 def report_item_shape(items):
-    """Print the actual field names of the first item received, once per
-    scan. The endpoint migration was only diagnosable because a real
-    captured request showed exactly what the browser sends; this does the
-    same job for the response, so a future shape change is a five-second
-    read of the log rather than another round of guesswork."""
+    """Print the actual shape of the first item received, once per scan.
+    The endpoint migration was only diagnosable because a real captured
+    request showed exactly what the browser sends; this does the same job
+    for the response, so a future shape change is a five-second read of
+    the log rather than another round of guesswork."""
     global _SHAPE_REPORTED
     if _SHAPE_REPORTED or not items:
         return
     _SHAPE_REPORTED = True
     first = items[0]
     print(f"  [shape] item fields returned by the API: {', '.join(sorted(first.keys()))}")
+    missing = []
     for label, fn in (("brand", item_brand), ("size", item_size), ("status", item_status)):
         resolved = fn(first)
-        state = f"'{resolved}'" if resolved else "MISSING - filters depending on this will not work"
-        print(f"  [shape] {label}: {state}")
+        if resolved:
+            print(f"  [shape] {label}: '{resolved}'")
+        else:
+            missing.append(label)
+            print(f"  [shape] {label}: MISSING - filters depending on this are not working")
+    if missing:
+        # Dump a trimmed sample so the real field names are readable straight
+        # from the log, rather than needing another devtools session.
+        sample = {}
+        for k, v in first.items():
+            if isinstance(v, (dict, list)):
+                sample[k] = json.dumps(v)[:120]
+            else:
+                sample[k] = v
+        print(f"  [shape] could not resolve: {', '.join(missing)}. Full sample item below -")
+        for k in sorted(sample):
+            print(f"  [shape]   {k} = {sample[k]}")
 
 
 def normalize_brand(s):
@@ -426,13 +466,30 @@ def brand_matches(item, watch):
     catches things like 'Iron Heart' text-matching iron-on patches, or
     'Acne Studios' text-matching acne skincare pads - Vinted's search matches
     loosely on words in the title, but the brand_title field is what the
-    seller actually tagged the item as."""
+    seller actually tagged the item as.
+
+    When the brand field can't be resolved at all, fall back to matching
+    against the title instead of rejecting outright. This matters because
+    the September 2026 API migration renamed response fields: an
+    unresolvable brand field made this return False for everything, so
+    every brand-restricted watch silently returned zero results and the
+    whole Baby section disappeared. A title match is weaker than Vinted's
+    structured tag - it's the exact looseness this function exists to
+    avoid - but returning nothing at all is worse, and the caller logs
+    when the fallback is in use so it doesn't go unnoticed."""
     if not watch.get("require_brand_match", True):
         return True
+    candidates = watch.get("brand_match") or [watch["name"]]
     actual = normalize_brand(item_brand(item))
     if not actual:
-        return False  # no brand tag at all - usually generic/mistagged junk
-    candidates = watch.get("brand_match") or [watch["name"]]
+        title = normalize_brand(item.get("title") or "")
+        if not title:
+            return False
+        for candidate in candidates:
+            expected = normalize_brand(candidate)
+            if expected and expected in title:
+                return True
+        return False
     for candidate in candidates:
         expected = normalize_brand(candidate)
         if expected and (expected in actual or actual in expected):
@@ -789,6 +846,7 @@ def main():
     global_exclude = config.get("global_exclude", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
     api_paths = config.get("api_paths") or API_PATH_CANDIDATES
+    search_order = config.get("search_order")  # None -> relevance on the new API, newest_first on the old
     exceptional_threshold = config.get("exceptional_score_threshold", 90)
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
@@ -847,7 +905,7 @@ def main():
         notify_mode = watch.get("notify", "instant")
         print(f"Checking ({source}): {name}")
         try:
-            raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids, api_paths=api_paths)
+            raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids, api_paths=api_paths, order=search_order)
         except requests.RequestException as e:
             print(f"  ! request failed: {e}")
             errors.append(name)
@@ -875,7 +933,7 @@ def main():
         rejections = Counter()  # why an item didn't make the feed, for diagnosing "missing" listings
         for item in raw_items:
             try:
-                if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size")):
+                if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size"), watch.get("require_title_any")):
                     rejections["excluded keyword / wrong condition"] += 1
                     continue
                 if not brand_matches(item, watch):
@@ -925,6 +983,20 @@ def main():
         if rejections:
             breakdown = ", ".join(f"{reason}: {n}" for reason, n in rejections.most_common())
             print(f"  rejected — {breakdown}")
+        # A brand-restricted watch that found results but matched none of them
+        # is the signature of an unresolvable brand field, not of genuinely
+        # irrelevant results. That failure is silent by nature (the watch just
+        # shows nothing), which is how the entire Baby section disappeared
+        # after the API migration without any error being raised.
+        if (
+            watch.get("require_brand_match", True)
+            and raw_items
+            and rejections.get("brand tag mismatch", 0) == len(raw_items)
+        ):
+            print(
+                f"  ! every one of {len(raw_items)} results failed brand matching - if this watch "
+                "normally returns items, the API's brand field is probably not resolving (see [shape] above)"
+            )
         if len(raw_items) >= per_page:
             print(f"  ! hit the {per_page}-result page cap - there may be more on Vinted than this scan saw")
 
