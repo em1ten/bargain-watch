@@ -127,7 +127,7 @@ def save_json(path, obj):
         json.dump(obj, f, indent=2)
 
 
-def new_session(domain):
+def new_session(domain, locale="en-GB"):
     """Vinted's site sets anti-bot cookies on first visit. Grab those
     before calling the API, same as a real browser would.
 
@@ -139,6 +139,7 @@ def new_session(domain):
     tellable apart."""
     session = requests.Session()
     session.headers.update(REQUEST_HEADERS)
+    session.headers["Locale"] = locale
     try:
         resp = session.get(f"https://{domain}/", timeout=15)
         cookie_names = sorted(session.cookies.keys())
@@ -334,14 +335,79 @@ def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_te
     if any(term.lower() in title for term in exclude_terms):
         return False
     if exclude_size_terms:
-        size = (item.get("size_title") or "").lower()
+        size = str(item_size(item)).lower()
         if any(term.lower() in size for term in exclude_size_terms):
             return False
     if allowed_conditions:
-        status = (item.get("status") or "").strip()
+        status = str(item_status(item)).strip()
         if status and status not in allowed_conditions:
             return False
     return True
+
+
+def item_field(item, *names, default=None):
+    """Read the first present field from several candidate names.
+
+    Vinted's September 2026 API migration didn't just move the endpoint and
+    rename query parameters - the item response shape changed too, and the
+    two failure modes were opposite and both bad:
+
+      - brand_matches fails CLOSED on a missing brand field, so every
+        brand-restricted watch (all the baby brands, the caution tier,
+        Mitchell & Ness, New Era) silently returned zero results.
+      - the size and condition filters fail OPEN on missing fields (a
+        deliberate, correct choice originally, so genuinely size-less items
+        like caps still pass) - so when the field vanished entirely, those
+        filters silently stopped filtering anything at all.
+
+    Rather than hardcode one name and break again on the next migration,
+    try the known name first and then plausible alternatives. Also handles
+    values that moved from a flat string to a nested object, which is a
+    common shape change in API rewrites."""
+    for name in names:
+        value = item.get(name)
+        if isinstance(value, dict):
+            value = value.get("title") or value.get("name") or value.get("code")
+        if value not in (None, "", [], {}):
+            return value
+    return default
+
+
+def item_brand(item):
+    return item_field(item, "brand_title", "brand", "brand_name", default="")
+
+
+def item_size(item):
+    return item_field(item, "size_title", "size", "size_name", default="")
+
+
+def item_status(item):
+    return item_field(item, "status", "condition", "condition_title", "status_title", default="")
+
+
+def item_favourites(item):
+    return item_field(item, "favourite_count", "favourites_count", "favourite_counts", default=0)
+
+
+_SHAPE_REPORTED = False
+
+
+def report_item_shape(items):
+    """Print the actual field names of the first item received, once per
+    scan. The endpoint migration was only diagnosable because a real
+    captured request showed exactly what the browser sends; this does the
+    same job for the response, so a future shape change is a five-second
+    read of the log rather than another round of guesswork."""
+    global _SHAPE_REPORTED
+    if _SHAPE_REPORTED or not items:
+        return
+    _SHAPE_REPORTED = True
+    first = items[0]
+    print(f"  [shape] item fields returned by the API: {', '.join(sorted(first.keys()))}")
+    for label, fn in (("brand", item_brand), ("size", item_size), ("status", item_status)):
+        resolved = fn(first)
+        state = f"'{resolved}'" if resolved else "MISSING - filters depending on this will not work"
+        print(f"  [shape] {label}: {state}")
 
 
 def normalize_brand(s):
@@ -363,7 +429,7 @@ def brand_matches(item, watch):
     seller actually tagged the item as."""
     if not watch.get("require_brand_match", True):
         return True
-    actual = normalize_brand(item.get("brand_title") or "")
+    actual = normalize_brand(item_brand(item))
     if not actual:
         return False  # no brand tag at all - usually generic/mistagged junk
     candidates = watch.get("brand_match") or [watch["name"]]
@@ -398,7 +464,7 @@ def authenticity_caution_check(item, watch):
     if not watch.get("authenticity_caution"):
         return True, []
 
-    favourites = item.get("favourite_count") or 0
+    favourites = item_favourites(item) or 0
     is_new_seller = bool(item.get("show_1st_time_seller_discount"))
 
     min_favourites = watch.get("min_favourites", 15)
@@ -442,7 +508,7 @@ def authenticity_caution_check(item, watch):
     # floor comfortably (nowhere near "giving it away") and still fit this
     # profile - condition alone was previously a pure positive for these
     # brands with no downside, which is backwards for exactly this category.
-    condition = (item.get("status") or "").strip()
+    condition = str(item_status(item)).strip()
     bnwt_suspicious_ratio = watch.get("bnwt_suspicious_ratio", 0.4)
     if condition == "New with tags" and rrp and price_amount is not None and price_amount < rrp * bnwt_suspicious_ratio:
         caution_flags.append("Cheap for BNWT")
@@ -521,8 +587,8 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
         if price_amount >= rrp * 0.15:
             discount_pct = round((1 - price_amount / rrp) * 100)
 
-    condition = (item.get("status") or "").strip()
-    size_title = (item.get("size_title") or "").strip()
+    condition = str(item_status(item)).strip()
+    size_title = str(item_size(item)).strip()
     size_terms = my_sizes.get(watch.get("size_category", ""), [])
     size_term_matched = size_matches(size_title, size_terms)
     my_size = size_term_matched is not None
@@ -618,7 +684,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
         "id": item.get("id"),
         "title": item.get("title", "").strip(),
         "watch": watch["name"],
-        "brand": (item.get("brand_title") or "").strip(),
+        "brand": str(item_brand(item)).strip(),
         "size": size_title,
         "size_term_matched": size_term_matched,
         "condition": condition,
@@ -650,7 +716,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
         },
         "authenticity_caution": bool(watch.get("authenticity_caution")),
         "caution_flags": caution_flags or [],
-        "favourite_count": item.get("favourite_count") or 0,
+        "favourite_count": item_favourites(item) or 0,
     }
 
 
@@ -759,7 +825,7 @@ def main():
         (resolve_watch(w, subcategory_defaults), "discovery") for w in discovery_today
     ]
 
-    session = new_session(domain)
+    session = new_session(domain, config.get("locale", "en-GB"))
     all_cards = []
     errors = []
     consecutive_404s = 0
@@ -802,6 +868,7 @@ def main():
             continue
         consecutive_404s = 0
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
+        report_item_shape(raw_items)
 
         notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
