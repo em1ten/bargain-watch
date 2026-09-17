@@ -319,6 +319,7 @@
     <button class="pill" data-category="caution">Caution</button>
     <button class="pill" data-category="shops">Shops</button>
     <button class="pill" id="brands-toggle">Brands ▾</button>
+    <button class="pill" id="clear-filters" style="display:none;">Clear ✕</button>
   </div>
 
   <div class="brand-panel" id="brand-panel"></div>
@@ -635,9 +636,17 @@ function clearOtherCategoryPills(except){
     .forEach(p => { if (p !== except) p.classList.remove('active'); });
 }
 
+function anyFilterActive(){
+  return activeCategory !== 'all' || activeAttrs.size > 0 || selectedBrand !== null || selectedSizes.size > 0;
+}
+
+function updateClearButtonVisibility(){
+  document.getElementById('clear-filters').style.display = anyFilterActive() ? '' : 'none';
+}
+
 document.getElementById('pills').addEventListener('click', (e) => {
   const btn = e.target.closest('.pill');
-  if (!btn || btn.id === 'brands-toggle') return;
+  if (!btn || btn.id === 'brands-toggle' || btn.id === 'clear-filters') return;
   if (btn.dataset.category !== undefined){
     activeCategory = btn.dataset.category;
     clearOtherCategoryPills(btn);
@@ -652,6 +661,20 @@ document.getElementById('pills').addEventListener('click', (e) => {
       btn.classList.add('active');
     }
   }
+  updateClearButtonVisibility();
+  renderFeed();
+});
+
+document.getElementById('clear-filters').addEventListener('click', () => {
+  activeCategory = 'all';
+  activeAttrs.clear();
+  selectedBrand = null;
+  selectedSizes.clear();
+  document.querySelectorAll('#pills .pill').forEach(p => p.classList.remove('active'));
+  document.querySelector('#pills .pill[data-category="all"]').classList.add('active');
+  document.querySelectorAll('#brand-panel .pill, #size-pills .pill').forEach(p => p.classList.remove('active'));
+  document.getElementById('brand-panel').classList.remove('open');
+  updateClearButtonVisibility();
   renderFeed();
 });
 
@@ -671,6 +694,7 @@ document.getElementById('brand-panel').addEventListener('click', (e) => {
     selectedBrand = name;
     btn.classList.add('active');
   }
+  updateClearButtonVisibility();
   renderFeed();
 });
 
@@ -685,6 +709,7 @@ document.getElementById('size-pills').addEventListener('click', (e) => {
     selectedSizes.add(term);
     btn.classList.add('active');
   }
+  updateClearButtonVisibility();
   renderFeed();
 });
 
