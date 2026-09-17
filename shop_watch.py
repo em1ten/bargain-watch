@@ -96,7 +96,7 @@ def is_womens_product(product):
     return any(term in combined for term in WOMENS_TERMS)
 
 
-def build_cards(product, domain, shop_name, global_exclude, price_history):
+def build_cards(product, domain, shop_name, global_exclude, price_history, currency="GBP"):
     title = (product.get("title") or "").strip()
     title_lower = title.lower()
     if any(term.lower() in title_lower for term in global_exclude):
@@ -122,6 +122,14 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
         # Only a genuine markdown counts - Shopify sometimes sets
         # compare_at_price equal to price, which isn't actually a sale.
         if price is None or compare_at is None or compare_at <= price:
+            continue
+        # A discounted price means nothing if the size is sold out - this
+        # is exactly why sizes were showing on cards that turned out
+        # unavailable by the time of clicking through. Shopify's public
+        # feed exposes this per variant; only an explicit False excludes
+        # it, since some stores may omit the field entirely and a missing
+        # flag shouldn't be treated as "definitely sold out".
+        if variant.get("available") is False:
             continue
         on_sale_variants.append((variant, price, compare_at))
 
@@ -166,7 +174,7 @@ def build_cards(product, domain, shop_name, global_exclude, price_history):
         "brand": vendor,
         "size": size,
         "condition": "New",
-        "price": f"{price:.2f} GBP",
+        "price": f"{price:.2f} {currency}",
         "price_amount": price,
         "estimated_total": None,  # direct retail - no buyer protection fee, so no fee note to show
         "photo": photo,
@@ -236,6 +244,7 @@ def main():
     for shop in shop_watches:
         name = shop["name"]
         domain = shop["domain"]
+        shop_currency = shop.get("currency", "GBP")
         print(f"Checking (shop): {name} ({domain})")
         try:
             products = fetch_products(domain)
@@ -249,7 +258,7 @@ def main():
         skipped = 0
         for product in products:
             try:
-                shop_cards.extend(build_cards(product, domain, name, global_exclude, price_history))
+                shop_cards.extend(build_cards(product, domain, name, global_exclude, price_history, shop_currency))
             except Exception as e:
                 skipped += 1
                 print(f"  ! skipped one malformed product: {e}")
