@@ -369,6 +369,29 @@ def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_te
     return True
 
 
+def _accessibility_label_fields(item):
+    """Confirmed from a real scan (#514): the new API doesn't send brand,
+    condition or size as separate fields at all. They're packed into one
+    human-readable string meant for screen readers, on
+    item_box.accessibility_label - e.g. "Nudie Jeans, Brand: Nudie Jeans,
+    Condition: Very good, Size: W38, 50.00 £, 53.20 £". Parsed with named
+    regex rather than positional splitting so it's tolerant of fields
+    being reordered or omitted for other item types (electronics with no
+    size, say). Cached on the item dict so three lookups (brand, size,
+    status) on the same card don't reparse the same string three times."""
+    cached = item.get("_parsed_label")
+    if cached is not None:
+        return cached
+    label = ((item.get("item_box") or {}).get("accessibility_label")) or ""
+    parsed = {}
+    for key in ("Brand", "Condition", "Size"):
+        match = re.search(rf"{re.escape(key)}:\s*([^,]+)", label)
+        if match:
+            parsed[key] = match.group(1).strip()
+    item["_parsed_label"] = parsed
+    return parsed
+
+
 def item_field(item, *names, default=None):
     """Read the first present field from several candidate names.
 
@@ -398,15 +421,24 @@ def item_field(item, *names, default=None):
 
 
 def item_brand(item):
-    return item_field(item, "brand_title", "brand", "brand_name", default="")
+    direct = item_field(item, "brand_title", "brand", "brand_name", default="")
+    if direct:
+        return direct
+    return _accessibility_label_fields(item).get("Brand", "")
 
 
 def item_size(item):
-    return item_field(item, "size_title", "size", "size_name", default="")
+    direct = item_field(item, "size_title", "size", "size_name", default="")
+    if direct:
+        return direct
+    return _accessibility_label_fields(item).get("Size", "")
 
 
 def item_status(item):
-    return item_field(item, "status", "condition", "condition_title", "status_title", default="")
+    direct = item_field(item, "status", "condition", "condition_title", "status_title", default="")
+    if direct:
+        return direct
+    return _accessibility_label_fields(item).get("Condition", "")
 
 
 def item_favourites(item):
@@ -414,28 +446,53 @@ def item_favourites(item):
 
 
 _SHAPE_REPORTED = False
+_REPORTED_SHAPES = set()
 
 
-def report_item_shape(items):
-    """Print the actual shape of the first item received, once per scan.
-    The endpoint migration was only diagnosable because a real captured
-    request showed exactly what the browser sends; this does the same job
-    for the response, so a future shape change is a five-second read of
-    the log rather than another round of guesswork."""
+def report_item_shape(items, watch_name=None, force_if_condition_missing=False):
+    """Print the actual shape of an item, the first time this exact set of
+    fields is seen in the scan - not just once globally.
+
+    The original once-per-scan design only ever checked whichever watch
+    happened to run first, which turned out to be a real blind spot: if a
+    later watch's items have a different response shape (a real
+    possibility - promoted/sponsored listings are flagged with
+    content_source=search_promoted_items and may format differently),
+    that would never get reported, because reporting had already switched
+    itself off after the first watch. This reports again whenever an
+    unseen field-name combination shows up, and also whenever condition
+    specifically fails to resolve on a watch with a hard condition filter,
+    since that's a real behavioural gap (used items get through), not
+    just a cosmetic one (a missing badge)."""
     global _SHAPE_REPORTED
-    if _SHAPE_REPORTED or not items:
+    if not items:
         return
-    _SHAPE_REPORTED = True
     first = items[0]
-    print(f"  [shape] item fields returned by the API: {', '.join(sorted(first.keys()))}")
+    brand_resolved = bool(item_brand(first))
+    size_resolved = bool(item_size(first))
+    status_resolved = bool(item_status(first))
+    condition_missing = not status_resolved
+    # Two items can share identical top-level keys while having completely
+    # different nested content (item_box present both times, but only one
+    # has accessibility_label inside it) - so the key has to reflect
+    # whether resolution actually succeeded, not just which keys exist.
+    shape_key = (frozenset(first.keys()), brand_resolved, size_resolved, status_resolved)
+    already_seen = shape_key in _REPORTED_SHAPES
+    if already_seen:
+        if force_if_condition_missing and condition_missing:
+            print(f"  [shape] ({watch_name}) condition also unresolved here - same shape as already reported above")
+        return
+    _REPORTED_SHAPES.add(shape_key)
+    _SHAPE_REPORTED = True
+    label = f" ({watch_name})" if watch_name else ""
+    print(f"  [shape]{label} item fields returned by the API: {', '.join(sorted(first.keys()))}")
     missing = []
-    for label, fn in (("brand", item_brand), ("size", item_size), ("status", item_status)):
-        resolved = fn(first)
+    for lbl, resolved in (("brand", item_brand(first)), ("size", item_size(first)), ("status", item_status(first))):
         if resolved:
-            print(f"  [shape] {label}: '{resolved}'")
+            print(f"  [shape] {lbl}: '{resolved}'")
         else:
-            missing.append(label)
-            print(f"  [shape] {label}: MISSING - filters depending on this are not working")
+            missing.append(lbl)
+            print(f"  [shape] {lbl}: MISSING - filters depending on this are not working")
     if missing:
         # Dump a trimmed sample so the real field names are readable straight
         # from the log, rather than needing another devtools session.
@@ -926,7 +983,7 @@ def main():
             continue
         consecutive_404s = 0
         print(f"  {len(raw_items)} raw results from Vinted before any filtering")
-        report_item_shape(raw_items)
+        report_item_shape(raw_items, watch_name=name, force_if_condition_missing=bool(watch.get("allowed_conditions")))
 
         notify_cards = []  # new OR price-dropped - both worth alerting on
         skipped_count = 0
