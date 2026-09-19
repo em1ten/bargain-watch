@@ -294,6 +294,25 @@
   }
 
   @media (prefers-reduced-motion: reduce){ .card{transition:none;} }
+
+  @media (max-width: 560px){
+    .wrap{padding:0 10px 60px;}
+    .grid{grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px;}
+    .card-body{padding:8px 9px 10px;}
+    .watch-label{font-size:8.5px; margin:0 0 3px;}
+    .card-title{font-size:12px; margin:0 0 5px; line-height:1.3;}
+    .meta-row{font-size:10px; flex-wrap:wrap; gap:2px;}
+    .price-tag{font-size:12px;}
+    .fee-note{font-size:8.5px;}
+    .compare-link{font-size:9.5px; margin-top:6px;}
+    .badge{font-size:8.5px; padding:2px 6px;}
+    .badge.caution{font-size:7.5px;}
+    .star-btn{width:26px; height:26px; font-size:14px; top:6px; right:6px;}
+    .badges{top:6px; left:6px; gap:3px;}
+  }
+  @media (max-width: 360px){
+    .grid{grid-template-columns:1fr 1fr; gap:6px;}
+  }
 </style>
 </head>
 <body>
