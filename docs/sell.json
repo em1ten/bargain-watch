@@ -1,5 +1,5 @@
 {
-  "_comment": "Items Emile is selling. Claude writes this file from photos sent in chat; the page reads it. Status taps on the page are saved per-device in localStorage and override whatever is here, so the 'status' below is just the starting point.",
+  "_comment": "Items selling. Claude writes this file from photos sent in chat; the page reads it. Status taps on the page are saved per-device in localStorage and override whatever is here, so the 'status' below is just the starting point.",
   "generated": "2026-09-22",
   "items": [
     {
