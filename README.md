@@ -507,3 +507,82 @@ pill. Scoring, discovery rotation, and notifications all work the same way
 for them, they just don't get ranked alongside jackets and jeans. Any new
 non-clothing watch just needs that same `"category": "electronics"` field
 to stay out of the main feed.
+
+## Sell List — the other direction (Sept 2026)
+
+Bargain Watch answers "is this cheap enough to buy?". The Sell List answers
+the mirror question, "what should I ask for mine?", for a wardrobe/tech
+clear-out. It's a separate page on the same site (`docs/sell.html`), reading
+`docs/sell.json`, with a link between the two in the header.
+
+It is deliberately **not** a form to fill in. The bottleneck in any clear-out
+is data entry, and a form doesn't fix that — you'd fill it in eleven times and
+abandon the pile. Instead: photograph a batch, send the photos to Claude in
+chat, and the identification, pricing, listing copy and platform call come
+back written into `sell.json`. The page is then a phone-friendly view of that
+while you're actually packing: copy the title, copy the description, tap the
+status on.
+
+### price_check.py
+
+Prices the items against live Vinted comparables, reusing `vinted_watch.py`'s
+session and search code rather than reimplementing it. Vinted's internal API
+has broken three separate ways in a month (endpoint retired, host moved,
+response fields packed into an accessibility string) — one client means
+fixing that once.
+
+```
+python3 price_check.py "nudie jeans grim tim w32" --size W32 --condition "Very good"
+python3 price_check.py --batch items.json --out priced.json
+```
+
+Two things it does that a raw search doesn't:
+
+- **Trims the top and bottom 10%** of asks, so one chancer asking £450 for a
+  £60 jacket doesn't drag the median up, and a mis-tagged accessory at £3
+  doesn't drag it down.
+- **Narrows to the same size** when there are at least four comparables in it
+  — a W30 and a W38 of the same jeans are not the same market — and says so
+  when it has, falling back to the unfiltered set when it can't.
+
+The caveat it prints on every result matters and is not boilerplate: Vinted
+search returns **active listings, not completed sales**. Active asks skew
+high, because the overpriced ones are exactly the items that didn't sell and
+are still sitting there. The median is a ceiling, not a target, so the
+`suggested` figure applies a haircut (0.85) and then a condition multiplier.
+
+### Status tracking
+
+`to_list → listed → sold → posted`, cycled by tapping the status pill. Saved
+in `localStorage`, per device — the page is static and can't write back to the
+repo, same read-only principle as the main dashboard. The `status` field in
+`sell.json` is only the starting point; a local tap overrides it. Telling
+Claude "sold the Barbour" updates the JSON authoritatively if the two drift.
+
+### Safety checklists
+
+Each item carries a per-platform checklist, because the threats genuinely
+differ by platform and by what you're selling:
+
+- **Vinted** (clothing): the risks are off-platform contact, fake payment
+  confirmations and address-change requests. Payment is only real when it's in
+  your Vinted balance — never an email or a screenshot.
+- **eBay** (electronics): the dominant threat is *return* fraud, not fake
+  payment — the switcheroo (buyer returns their broken unit) and the weighted
+  empty box. Serial/IMEI in the listing description is the single strongest
+  defence, because it makes a swap provable.
+- **Facebook** (bulky/local): cash on collection only; "my courier will
+  collect and pay you" is always a scam.
+- **CEX**: guaranteed sale, zero scam risk, noticeably less money.
+
+Both Vinted and eBay are now effectively free for private sellers (Vinted
+takes £0 from sellers; eBay UK dropped private-seller final value fees in
+October 2024, with 300 free listings a month), so platform choice is about
+what sells there and what the risk profile is — not about fees.
+
+### Tax
+
+Selling your own used possessions isn't trading, so it isn't taxable income
+regardless of value. The 30-items / €2,000 threshold that triggers a scary
+platform message is DAC7 *reporting*, not a tax bill. The £1,000 trading
+allowance only starts to matter for things bought specifically to resell.
