@@ -67,6 +67,23 @@
     line-height:1.6;
     white-space:nowrap;
   }
+  .header-right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:9px;
+  }
+  .nav-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--cream-dim);
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:7px 13px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  .nav-link:hover{border-color:var(--brass-bright); color:var(--denim-950);}
 
   .pills{
     display:flex;
@@ -322,7 +339,10 @@
       <p class="eyebrow">Best finds, ranked</p>
       <h1>Bargain Watch</h1>
     </div>
-    <div id="stamp"></div>
+    <div class="header-right">
+      <a class="nav-link" href="sell.html">Sell List →</a>
+      <div id="stamp"></div>
+    </div>
   </header>
 
   <div class="pills" id="pills">
