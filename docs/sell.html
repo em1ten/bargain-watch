@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell List</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --denim-950:#1F2421;
+    --denim-900:#EFEAD8;
+    --denim-800:#F5F1E4;
+    --denim-700:#D9D2BE;
+    --cream:#FBF9F1;
+    --cream-dim:#6B6F62;
+    --brass:#8F6526;
+    --brass-bright:#A8721F;
+    --stitch:#B23A2E;
+    --teal:#3F7A68;
+    --line:rgba(31,36,33,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(63,122,104,0.07), transparent 45%),
+      #F7F4EC;
+    color:var(--denim-950);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px 80px;}
+
+  header{
+    padding:44px 4px 26px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    border-bottom:2px solid var(--denim-950);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Special Elite', monospace;
+    font-weight:400;
+    letter-spacing:0.01em;
+    font-size:clamp(26px, 4.2vw, 40px);
+    margin:0;
+    line-height:1;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--teal);
+    margin:0 0 8px;
+  }
+  .nav-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--cream-dim);
+    text-decoration:none;
+    border:1px solid var(--line);
+    padding:7px 13px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  .nav-link:hover{border-color:var(--brass-bright); color:var(--denim-950);}
+
+  .totals{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .total-box{
+    flex:1 1 130px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:11px 13px;
+    background:var(--denim-800);
+  }
+  .total-box .n{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    line-height:1;
+    display:block;
+    margin-bottom:4px;
+  }
+  .total-box .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--cream-dim);
+  }
+
+  .pills{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
+  .pill{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    background:transparent;
+    color:var(--cream-dim);
+    border:1px solid var(--line);
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .pill.active{
+    color:var(--denim-950);
+    background:var(--brass-bright);
+    border-color:var(--brass-bright);
+    font-weight:700;
+  }
+
+  .item{
+    border:1px solid var(--line);
+    border-left:4px solid var(--line);
+    border-radius:6px;
+    background:linear-gradient(180deg, var(--denim-800), var(--denim-900));
+    padding:14px 16px;
+    margin-bottom:12px;
+  }
+  .item[data-status="listed"]{border-left-color:var(--teal);}
+  .item[data-status="sold"]{border-left-color:var(--brass-bright);}
+  .item[data-status="posted"]{border-left-color:var(--denim-700); opacity:0.62;}
+
+  .item-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:8px;
+  }
+  .item-title{
+    font-family:'Fraunces', serif;
+    font-size:16px;
+    line-height:1.3;
+    margin:0 0 4px;
+  }
+  .item-sub{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--cream-dim);
+    letter-spacing:0.03em;
+  }
+  .ask{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:19px;
+    color:var(--brass-bright);
+    white-space:nowrap;
+  }
+  .comps{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    color:var(--cream-dim);
+    text-align:right;
+    display:block;
+    margin-top:2px;
+  }
+
+  .badge-row{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;}
+  .badge{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    padding:3px 8px;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  .badge.platform{background:var(--teal); color:var(--cream);}
+  .badge.platform.ebay{background:#2B4C7E;}
+  .badge.platform.cex{background:#6B4E9E;}
+  .badge.platform.facebook{background:#3D5A80;}
+  .badge.cond{background:var(--denim-700); color:var(--denim-950);}
+
+  .status-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:3px 10px;
+    border-radius:3px;
+    border:1px solid var(--denim-950);
+    background:transparent;
+    color:var(--denim-950);
+    cursor:pointer;
+  }
+  .status-btn[data-status="listed"]{background:var(--teal); border-color:var(--teal); color:var(--cream);}
+  .status-btn[data-status="sold"]{background:var(--brass-bright); border-color:var(--brass-bright); color:var(--cream);}
+  .status-btn[data-status="posted"]{background:var(--denim-700); border-color:var(--denim-700);}
+
+  .actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .act{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--teal);
+    padding:7px 12px;
+    border-radius:5px;
+    cursor:pointer;
+  }
+  .act:hover{border-color:var(--teal);}
+
+  details{margin-top:10px;}
+  summary{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--cream-dim);
+    cursor:pointer;
+    list-style:none;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"▸ "; color:var(--brass-bright);}
+  details[open] summary::before{content:"▾ ";}
+  .detail-body{
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--denim-950);
+    padding:10px 0 2px;
+    white-space:pre-wrap;
+  }
+  .safety li{margin-bottom:5px; font-size:12.5px; line-height:1.5;}
+  .safety{padding-left:18px; margin:8px 0 0;}
+
+  #toast{
+    position:fixed;
+    bottom:20px; left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:#1F2421;
+    border:1px solid var(--brass-bright);
+    color:#F7F4EC;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    padding:10px 18px;
+    border-radius:20px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+    z-index:50;
+    max-width:90vw;
+    text-align:center;
+  }
+  #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  #loading, #empty{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--cream-dim);
+    padding:50px 20px;
+    text-align:center;
+    line-height:1.8;
+    display:none;
+  }
+  #loading{display:block;}
+
+  footer{
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--cream-dim);
+    line-height:1.7;
+  }
+
+  @media (max-width: 560px){
+    .wrap{padding:0 12px 60px;}
+    header{padding:30px 2px 20px;}
+    .item{padding:12px 13px;}
+    .item-title{font-size:15px;}
+    .ask{font-size:17px;}
+    .total-box{flex:1 1 calc(50% - 5px); padding:9px 11px;}
+    .total-box .n{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">Clear-out tracker</p>
+      <h1>Sell List</h1>
+    </div>
+    <a class="nav-link" href="index.html">Bargain Watch →</a>
+  </header>
+
+  <div class="totals" id="totals"></div>
+
+  <div class="pills" id="pills">
+    <button class="pill active" data-status="all">All</button>
+    <button class="pill" data-status="to_list">To list</button>
+    <button class="pill" data-status="listed">Listed</button>
+    <button class="pill" data-status="sold">Sold</button>
+    <button class="pill" data-status="posted">Posted</button>
+  </div>
+
+  <div id="list"></div>
+  <div id="loading">Loading…</div>
+  <div id="empty">
+    Nothing here yet.<br>
+    Send Claude photos of what you want to shift and it'll land here, priced and written up.
+  </div>
+
+  <footer>
+    Prices are checked against live Vinted comparables — active asking prices, not
+    sold prices, so treat the range as a ceiling.<br>
+    Status taps are saved on this device only.
+  </footer>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const STATUS_KEY = 'bw_sell_status_v1';
+const FLOW = ['to_list', 'listed', 'sold', 'posted'];
+const LABEL = {to_list: 'To list', listed: 'Listed', sold: 'Sold', posted: 'Posted'};
+
+let items = [];
+let activeStatus = 'all';
+let overrides = {};
+
+try { overrides = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}'); } catch (e) { overrides = {}; }
+
+function saveOverrides(){
+  try { localStorage.setItem(STATUS_KEY, JSON.stringify(overrides)); } catch (e) {}
+}
+
+function statusOf(item){
+  return overrides[item.id] || item.status || 'to_list';
+}
+
+function toast(msg, isErr){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'show' + (isErr ? ' err' : '');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.className = ''; }, 1900);
+}
+
+function copyText(text, what){
+  const done = () => toast(what + ' copied');
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); }
+  catch (e) { toast('Could not copy — select it manually', true); }
+  document.body.removeChild(ta);
+}
+
+const SAFETY = {
+  Vinted: [
+    'Keep every message inside Vinted — never WhatsApp, email or texts.',
+    'Payment is only real when it shows in your Vinted balance. Emails and screenshots are not payment.',
+    'Post only to the address on the order. If they ask you to change it, make them cancel and reorder.',
+    'Use the Vinted shipping label so it is tracked and covered — never your own postage.',
+    'Photograph the item and the sealed parcel with the label visible before you drop it off.',
+    'Keep the drop-off receipt until the money has cleared into your balance.'
+  ],
+  eBay: [
+    'Photograph the serial / IMEI and put it in the listing description — this is what makes a swap provable.',
+    'Record a short video of it powering on and working, plus the packing and sealing.',
+    'Tracked and signed for anything over about £100.',
+    'Post only to the eBay-confirmed address.',
+    'Factory reset and deregister (Find My / Google account) before listing.',
+    'If a return comes back, video opening it and check the serial before you accept.'
+  ],
+  Facebook: [
+    'Cash on collection only. No bank transfers, no screenshots, no PayPal friends-and-family.',
+    'No "my courier will collect and pay you" — that is always a scam.',
+    'Meet at the door or outside. Do not let buyers into the house.',
+    'Count the cash before they leave with the item.'
+  ],
+  CEX: [
+    'Get the online quote first so you know the number before you travel.',
+    'Take photo ID — they will not buy without it.',
+    'Wipe the device and sign out of all accounts beforehand.',
+    'Guaranteed sale, zero scam risk, but noticeably less money than a marketplace.'
+  ]
+};
+
+function render(){
+  const list = document.getElementById('list');
+  const shown = items.filter(it => activeStatus === 'all' || statusOf(it) === activeStatus);
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('empty').style.display = items.length ? 'none' : 'block';
+
+  list.innerHTML = shown.map(it => {
+    const st = statusOf(it);
+    const platform = it.platform || 'Vinted';
+    const safety = SAFETY[platform] || SAFETY.Vinted;
+    const comps = it.comps;
+    const compLine = comps && comps.n
+      ? `${comps.n} comparables · £${comps.low}–£${comps.high} (mid £${comps.median})`
+      : 'no comparables checked';
+
+    return `
+      <div class="item" data-status="${st}">
+        <div class="item-head">
+          <div>
+            <p class="item-title">${esc(it.title)}</p>
+            <span class="item-sub">${esc([it.size, it.brand].filter(Boolean).join(' · '))}</span>
+          </div>
+          <div>
+            <span class="ask">£${it.ask}</span>
+            <span class="comps">${esc(compLine)}</span>
+          </div>
+        </div>
+
+        <div class="badge-row">
+          <button class="status-btn" data-status="${st}" data-id="${esc(it.id)}">${LABEL[st]}</button>
+          <span class="badge platform ${platform.toLowerCase()}">${esc(platform)}</span>
+          ${it.condition ? `<span class="badge cond">${esc(it.condition)}</span>` : ''}
+        </div>
+
+        <div class="actions">
+          <button class="act" data-copy="title" data-id="${esc(it.id)}">Copy title</button>
+          <button class="act" data-copy="description" data-id="${esc(it.id)}">Copy description</button>
+        </div>
+
+        ${it.listing_description ? `
+        <details>
+          <summary>Listing text</summary>
+          <div class="detail-body">${esc(it.listing_description)}</div>
+        </details>` : ''}
+
+        <details>
+          <summary>${esc(platform)} safety checklist</summary>
+          <ul class="safety">${safety.map(s => `<li>${esc(s)}</li>`).join('')}</ul>
+        </details>
+      </div>`;
+  }).join('');
+
+  renderTotals();
+}
+
+function renderTotals(){
+  const counts = {to_list: 0, listed: 0, sold: 0, posted: 0};
+  let askTotal = 0, soldTotal = 0;
+  items.forEach(it => {
+    const st = statusOf(it);
+    counts[st] = (counts[st] || 0) + 1;
+    if (st === 'to_list' || st === 'listed') askTotal += Number(it.ask) || 0;
+    if (st === 'sold' || st === 'posted') soldTotal += Number(it.ask) || 0;
+  });
+  document.getElementById('totals').innerHTML = `
+    <div class="total-box"><span class="n">${counts.to_list}</span><span class="lbl">To list</span></div>
+    <div class="total-box"><span class="n">${counts.listed}</span><span class="lbl">Listed</span></div>
+    <div class="total-box"><span class="n">£${Math.round(askTotal)}</span><span class="lbl">Still to sell</span></div>
+    <div class="total-box"><span class="n">£${Math.round(soldTotal)}</span><span class="lbl">Sold</span></div>`;
+}
+
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+  ));
+}
+
+document.getElementById('pills').addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (!pill) return;
+  document.querySelectorAll('#pills .pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  activeStatus = pill.dataset.status;
+  render();
+});
+
+document.getElementById('list').addEventListener('click', e => {
+  const statusBtn = e.target.closest('.status-btn');
+  if (statusBtn){
+    const item = items.find(i => i.id === statusBtn.dataset.id);
+    if (!item) return;
+    const next = FLOW[(FLOW.indexOf(statusOf(item)) + 1) % FLOW.length];
+    overrides[item.id] = next;
+    saveOverrides();
+    render();
+    toast(item.title.slice(0, 28) + ' → ' + LABEL[next]);
+    return;
+  }
+
+  const copyBtn = e.target.closest('[data-copy]');
+  if (copyBtn){
+    const item = items.find(i => i.id === copyBtn.dataset.id);
+    if (!item) return;
+    if (copyBtn.dataset.copy === 'title'){
+      copyText(item.listing_title || item.title, 'Title');
+    } else {
+      copyText(item.listing_description || '', 'Description');
+    }
+  }
+});
+
+fetch('sell.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    items = data.items || [];
+    render();
+  })
+  .catch(() => {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('empty').style.display = 'block';
+  });
+</script>
+</body>
+</html>

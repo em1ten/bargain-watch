@@ -1,0 +1,38 @@
+{
+  "_comment": "Items Emile is selling. Claude writes this file from photos sent in chat; the page reads it. Status taps on the page are saved per-device in localStorage and override whatever is here, so the 'status' below is just the starting point.",
+  "generated": "2026-09-22",
+  "items": [
+    {
+      "id": "sample-1",
+      "title": "SAMPLE — delete when the real ones land",
+      "brand": "Barbour",
+      "size": "L",
+      "condition": "Very good",
+      "category": "clothing",
+      "platform": "Vinted",
+      "ask": 62,
+      "comps": { "low": 65, "median": 72, "high": 95, "n": 6, "checked": "2026-09-22" },
+      "listing_title": "Barbour Bedale Waxed Jacket Navy - Men's L",
+      "listing_description": "Barbour Bedale in navy waxed cotton, size L.\n\nCondition: very good. Wax is still sound with normal wear to the cuffs and a little fading at the shoulders - photographed in detail. No rips, no missing studs, corduroy collar intact, all zips and poppers work. Due a re-wax if you want it fully weatherproof again.\n\nMeasurements taken flat:\n- Pit to pit: 58cm\n- Length from collar seam: 74cm\n- Sleeve from shoulder seam: 63cm\n\nFrom a smoke-free home. Posted tracked within one working day.",
+      "measurements": "Pit to pit 58cm, length 74cm, sleeve 63cm",
+      "notes": "Mention the re-wax up front - it heads off 'not as described' before it starts.",
+      "status": "to_list"
+    },
+    {
+      "id": "sample-2",
+      "title": "SAMPLE — delete when the real ones land",
+      "brand": "Uniqlo",
+      "size": "M",
+      "condition": "New without tags",
+      "category": "clothing",
+      "platform": "Vinted",
+      "ask": 14,
+      "comps": { "low": 10, "median": 16, "high": 28, "n": 11, "checked": "2026-09-22" },
+      "listing_title": "Uniqlo U Oversized Crew Neck T-Shirt Ecru - M",
+      "listing_description": "Uniqlo U crew neck tee in ecru, size M. Lemaire-era cut - boxy, heavier cotton than the standard Uniqlo tee.\n\nCondition: new without tags, never worn. Washed once to remove storage creasing, nothing else.\n\nMeasurements taken flat:\n- Pit to pit: 55cm\n- Length: 70cm\n\nFrom a smoke-free home. Posted tracked within one working day.",
+      "measurements": "Pit to pit 55cm, length 70cm",
+      "notes": "",
+      "status": "to_list"
+    }
+  ]
+}
