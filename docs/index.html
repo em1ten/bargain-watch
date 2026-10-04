@@ -3,390 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1110" media="(prefers-color-scheme: dark)">
 <title>Bargain Watch</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --denim-950:#1F2421;
-    --denim-900:#EFEAD8;
-    --denim-800:#F5F1E4;
-    --denim-700:#D9D2BE;
-    --cream:#FBF9F1;
-    --cream-dim:#6B6F62;
-    --brass:#8F6526;
-    --brass-bright:#A8721F;
-    --stitch:#B23A2E;
-    --teal:#3F7A68;
-    --line:rgba(31,36,33,0.14);
+    color-scheme:light dark;
+    --bg:#FFFFFF;
+    --text:#111312;
+    --muted:#6B7075;
+    --line:#ECEDEE;
+    --border:#D9DBDD;
+    --surface:#F5F6F6;
+    --link:#2B5FD9;
+    --accent:#0F7B63;
+    --accent-ink:#0A5C49;
+    --accent-weak:#E6F4F0;
+    --warn:#B45309;
+    --gold:#A8721F;
+    --thumb-bg:#E9EAEB;
+    --star-bg:rgba(255,255,255,0.92);
+    --scrim:rgba(17,19,18,0.45);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0E1110;
+      --text:#ECEEED;
+      --muted:#8D9490;
+      --line:#232826;
+      --border:#2E3431;
+      --surface:#151918;
+      --link:#7DA6FF;
+      --accent:#3CC4A1;
+      --accent-ink:#7FE0C4;
+      --accent-weak:#12302A;
+      --warn:#F0B35A;
+      --gold:#F0B35A;
+      --thumb-bg:#1A1E1C;
+      --star-bg:rgba(14,17,16,0.72);
+      --scrim:rgba(0,0,0,0.6);
+    }
   }
   *{box-sizing:border-box;}
   body{
     margin:0;
-    background:
-      radial-gradient(circle at 15% 0%, rgba(168,114,31,0.06), transparent 45%),
-      #F7F4EC;
-    color:var(--denim-950);
-    font-family:'Inter', sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1180px;margin:0 auto;padding:0 20px 80px;}
+  button{font-family:inherit;}
 
-  header{
-    padding:44px 4px 26px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:16px;
-    border-bottom:2px solid var(--denim-950);
-    margin-bottom:20px;
+  /* ---------- header ---------- */
+  .topbar{border-bottom:1px solid var(--line);}
+  .topbar-in{
+    max-width:1240px;margin:0 auto;padding:0 40px;min-height:72px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
   }
-  h1{
-    font-family:'Special Elite', monospace;
-    font-weight:400;
-    letter-spacing:0.01em;
-    font-size:clamp(26px, 4.2vw, 40px);
-    margin:0;
-    line-height:1;
-    color:var(--denim-950);
-  }
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    font-size:11px;
-    color:var(--teal);
-    margin:0 0 8px;
-  }
-  #stamp{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    color:var(--cream-dim);
-    text-align:right;
-    line-height:1.6;
-    white-space:nowrap;
-  }
-  .header-right{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    gap:9px;
-  }
+  .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  h1{margin:0;font-size:20px;font-weight:700;letter-spacing:-0.015em;line-height:1.2;}
+  #stamp{font-size:13px;color:var(--muted);}
   .nav-link{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    color:var(--cream-dim);
-    text-decoration:none;
-    border:1px solid var(--line);
-    padding:7px 13px;
-    border-radius:20px;
-    white-space:nowrap;
+    display:inline-flex;align-items:center;gap:6px;min-height:44px;
+    font-size:15px;font-weight:600;color:var(--link);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;
   }
-  .nav-link:hover{border-color:var(--brass-bright); color:var(--denim-950);}
+  .nav-link:hover{text-decoration:underline;}
 
-  .pills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:14px;
+  /* ---------- tabs (phone) ---------- */
+  .tabs{display:none;}
+  .tab{
+    flex:0 0 auto;background:none;border:0;border-bottom:2px solid transparent;
+    padding:12px 0 14px;margin-bottom:-1px;font-size:15px;color:var(--muted);
+    cursor:pointer;white-space:nowrap;
   }
-  .pill{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.03em;
-    background:transparent;
-    color:var(--cream-dim);
-    border:1px solid var(--line);
-    padding:8px 16px;
-    border-radius:20px;
-    cursor:pointer;
-    user-select:none;
-  }
-  .pill.active{
-    color:var(--denim-950);
-    background:var(--brass-bright);
-    border-color:var(--brass-bright);
-    font-weight:700;
-  }
-  .pills-label{
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--cream-dim);
-    margin:0 0 6px;
-  }
+  .tab[aria-current="true"]{color:var(--text);font-weight:600;border-bottom-color:var(--link);}
 
-  .discovery-note{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    color:var(--teal);
-    margin:0 0 22px;
-    line-height:1.6;
+  /* ---------- layout ---------- */
+  .layout{
+    max-width:1240px;margin:0 auto;padding:32px 40px 64px;
+    display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;
   }
+  #filters{flex:0 0 200px;width:200px;}
+  main{flex:999 1 520px;min-width:0;}
 
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
-    gap:14px;
+  /* ---------- filter panel ---------- */
+  .sheet-head{display:none;}
+  .group{margin-bottom:28px;}
+  .group-title{
+    margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--muted);
   }
-  .card{
-    background:linear-gradient(180deg, var(--denim-800), var(--denim-900));
-    border:1px solid var(--line);
-    border-radius:6px;
-    overflow:hidden;
-    position:relative;
-    transition:transform .15s ease, border-color .15s ease;
+  .side-link{
+    display:flex;align-items:center;width:calc(100% + 24px);height:40px;padding:0 12px;margin:0 -12px;
+    border:0;border-radius:8px;background:none;font-size:15px;color:var(--text);
+    text-align:left;cursor:pointer;
   }
-  .card:hover{transform:translateY(-3px); border-color:var(--brass);}
-  .card.bargain{
-    border-color:var(--brass-bright);
-    box-shadow:0 0 0 1px var(--brass-bright), 0 4px 16px rgba(168,114,31,0.18);
+  .side-link:hover{background:var(--surface);}
+  .side-link[aria-current="true"]{background:var(--accent-weak);color:var(--accent-ink);font-weight:600;}
+  .check{display:flex;align-items:center;gap:10px;min-height:40px;font-size:15px;cursor:pointer;}
+  .check input{width:18px;height:18px;margin:0;accent-color:var(--accent);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--border);
+    background:transparent;color:var(--text);font-size:14px;font-weight:500;cursor:pointer;
   }
-  .card a.hit{position:absolute; inset:0; z-index:1;}
-  .photo-wrap{aspect-ratio:1/1; background:var(--denim-700); overflow:hidden; position:relative;}
-  .photo-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
-  .card-body{padding:11px 13px 13px;}
-  .watch-label{
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--brass-bright);
-    margin:0 0 4px;
+  .chip.on{background:var(--accent-weak);border-color:var(--accent);color:var(--accent-ink);font-weight:600;}
+  select{
+    width:100%;height:44px;padding:0 10px;border:1px solid var(--border);border-radius:8px;
+    background:var(--surface);color:var(--text);font:inherit;font-size:15px;
   }
-  .watch-label .disc{color:var(--teal);}
-  .card-title{
-    font-family:'Fraunces', serif;
-    font-size:14px;
-    line-height:1.35;
-    margin:0 0 7px;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-    color:var(--denim-950);
+  .btn-quiet{
+    height:44px;padding:0 4px;border:0;background:none;color:var(--accent);
+    font-size:15px;font-weight:600;cursor:pointer;
   }
-  .meta-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    color:var(--cream-dim);
-  }
-  .price-tag{color:var(--brass-bright); font-weight:700; font-size:13px;}
-  .fee-note{
-    display:block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:9.5px;
-    color:var(--cream-dim);
-    opacity:0.85;
-    text-align:right;
-  }
-  .compare-link{
-    display:block;
-    margin-top:8px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10.5px;
-    color:var(--teal);
-    text-decoration:none;
-    position:relative;
-    z-index:2;
-  }
-  .compare-link:hover{text-decoration:underline;}
+  .btn-quiet:hover{text-decoration:underline;}
+  #scrim{display:none;position:fixed;inset:0;background:var(--scrim);z-index:55;}
 
-  .promote-btn{
-    display:inline-block;
-    margin-top:6px;
-    background:none;
-    border:none;
-    padding:0;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10.5px;
-    color:var(--brass-bright);
-    text-decoration:underline;
-    cursor:pointer;
-    position:relative;
-    z-index:2;
+  /* ---------- list ---------- */
+  .bar{display:none;}
+  .count-line{
+    display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+    gap:8px 16px;padding-bottom:12px;border-bottom:1px solid var(--line);
   }
-  .promote-btn:disabled{color:var(--cream-dim); text-decoration:none; cursor:default;}
+  #count{font-size:15px;font-weight:600;}
+  #discovery-note{font-size:13px;color:var(--muted);}
+  .row{
+    position:relative;display:flex;align-items:center;gap:16px;
+    padding:14px 0;border-bottom:1px solid var(--line);
+  }
+  .row a.hit{position:absolute;inset:0;z-index:1;}
+  .thumb{
+    flex:0 0 72px;width:72px;height:72px;border-radius:10px;overflow:hidden;background:var(--thumb-bg);
+  }
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .info{flex:1;min-width:0;}
+  .title{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .meta{margin-top:3px;font-size:14px;line-height:1.4;color:var(--muted);}
+  .meta .tick{display:inline-block;vertical-align:-2px;margin:0 3px 0 4px;color:var(--accent);}
+  .tags{margin-top:3px;font-size:13px;font-weight:600;color:var(--accent);}
+  .tags .warn{color:var(--warn);}
+  .note{margin-top:3px;font-size:12.5px;color:var(--warn);}
+  .actions{margin-top:4px;display:flex;flex-wrap:wrap;gap:0 16px;position:relative;z-index:2;}
+  .actions a,.actions button{
+    padding:0;border:0;background:none;font-size:12.5px;font-weight:500;color:var(--link);
+    text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;cursor:pointer;line-height:1.8;
+  }
+  .actions a:hover,.actions button:hover{text-decoration:underline;}
+  .actions button:disabled{color:var(--muted);cursor:default;text-decoration:none;}
+  .pricecol{flex:0 0 auto;text-align:right;}
+  .price{font-size:18px;font-weight:700;letter-spacing:-0.01em;}
+  .was{margin-right:8px;font-size:13px;color:var(--muted);text-decoration:line-through;}
+  .fee{margin-top:2px;font-size:12.5px;color:var(--muted);}
+  .star{
+    flex:0 0 44px;width:44px;height:44px;padding:0;border:0;background:none;color:var(--muted);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    position:relative;z-index:2;
+  }
+  .star .dot{display:flex;align-items:center;justify-content:center;}
+  .star.on{color:var(--gold);}
+  .star.on svg{fill:currentColor;}
+
+  #loading,#error,#empty{padding:56px 0;text-align:center;color:var(--muted);font-size:15px;display:none;}
+  #loading{display:block;}
+  footer{
+    margin:40px 0 0;max-width:640px;font-size:13px;line-height:1.6;color:var(--muted);
+  }
 
   #toast{
-    position:fixed;
-    bottom:20px; left:50%;
-    transform:translateX(-50%) translateY(20px);
-    background:#1F2421;
-    border:1px solid var(--brass-bright);
-    color:#F7F4EC;
-    font-family:'JetBrains Mono', monospace;
-    font-size:12.5px;
-    padding:10px 18px;
-    border-radius:20px;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity .2s ease, transform .2s ease;
-    z-index:50;
-    max-width:90vw;
-    text-align:center;
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--text);color:var(--bg);font-size:14px;padding:10px 18px;border-radius:20px;
+    opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;
+    z-index:80;max-width:90vw;text-align:center;
   }
-  #toast.show{opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto;}
-  #toast.err{border-color:var(--stitch);}
-  .size-flag{
-    color:var(--teal);
-    font-weight:700;
-  }
-  .badges{
-    position:absolute;
-    top:8px; left:8px;
-    display:flex;
-    flex-direction:column;
-    gap:5px;
-    z-index:2;
-    pointer-events:none;
-  }
-  .badge{
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:0.05em;
-    padding:2px 7px;
-    border-radius:3px;
-    width:fit-content;
-  }
-  .badge.new{color:#F7F4EC; border:1.5px solid var(--stitch); background:var(--stitch); transform:rotate(-4deg);}
-  .badge.deal{color:var(--cream); background:var(--brass-bright);}
-  .badge.rank{color:var(--denim-950); background:var(--cream); border:1px solid var(--line);}
-  .badge.condition{color:var(--cream); background:var(--teal);}
-  .badge.drop{color:var(--cream); background:var(--stitch);}
-  .badge.caution{color:#3D2E0A; background:#E0A83A; font-size:9px;}
-  .star-btn{
-    position:absolute;
-    top:8px; right:8px;
-    z-index:3;
-    width:30px; height:30px;
-    border-radius:50%;
-    border:1px solid rgba(247,244,236,0.3);
-    background:rgba(31,36,33,0.72);
-    color:#D9CDBA;
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    font-size:16px;
-    line-height:1;
-    padding:0;
-  }
-  .star-btn.starred{color:var(--brass-bright); border-color:var(--brass-bright); background:rgba(31,36,33,0.85);}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  #toast.err{outline:2px solid var(--warn);}
 
-  .brand-panel{
-    display:none;
-    flex-wrap:wrap;
-    gap:6px;
-    margin:-4px 0 14px;
-    padding:12px;
-    background:rgba(31,36,33,0.04);
-    border:1px solid var(--line);
-    border-radius:8px;
-  }
-  .brand-panel.open{display:flex;}
-  .brand-panel .pill{font-size:11px; padding:6px 12px;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ #toast{transition:none;} }
 
-  #loading, #error, #empty{
-    font-family:'JetBrains Mono', monospace;
-    color:var(--cream-dim);
-    padding:60px 20px;
-    text-align:center;
-    display:none;
-  }
-  #loading{display:block;}
-
-  footer{
-    margin-top:56px;
-    padding-top:22px;
-    border-top:1px solid var(--line);
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    color:var(--cream-dim);
-    line-height:1.7;
-  }
-
-  @media (prefers-reduced-motion: reduce){ .card{transition:none;} }
-
-  @media (max-width: 560px){
-    .wrap{padding:0 10px 60px;}
-    .grid{grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px;}
-    .card-body{padding:8px 9px 10px;}
-    .watch-label{font-size:8.5px; margin:0 0 3px;}
-    .card-title{font-size:12px; margin:0 0 5px; line-height:1.3;}
-    .meta-row{font-size:10px; flex-wrap:wrap; gap:2px;}
-    .price-tag{font-size:12px;}
-    .fee-note{font-size:8.5px;}
-    .compare-link{font-size:9.5px; margin-top:6px;}
-    .badge{font-size:8.5px; padding:2px 6px;}
-    .badge.caution{font-size:7.5px;}
-    .star-btn{width:26px; height:26px; font-size:14px; top:6px; right:6px;}
-    .badges{top:6px; left:6px; gap:3px;}
-  }
-  @media (max-width: 360px){
-    .grid{grid-template-columns:1fr 1fr; gap:6px;}
+  /* ---------- phone ---------- */
+  @media (max-width: 859px){
+    .topbar{border-bottom:0;}
+    .topbar-in{padding:10px 16px 4px;min-height:0;}
+    .brand{flex-direction:column;align-items:flex-start;gap:2px;}
+    #stamp{font-size:12px;}
+    .tabs{
+      display:flex;gap:22px;padding:0 16px;border-bottom:1px solid var(--line);
+      overflow-x:auto;scrollbar-width:none;
+    }
+    .tabs::-webkit-scrollbar{display:none;}
+    .layout{display:block;padding:0 0 48px;}
+    main{padding:0 16px;}
+    .bar{display:flex;align-items:center;gap:8px;padding:12px 0;}
+    .bar .filter-btn{
+      height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--border);
+      background:var(--surface);color:var(--text);font-size:14px;font-weight:600;
+      display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    }
+    .bar .filter-btn .n{
+      min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--accent);color:var(--bg);
+      font-size:12px;display:inline-flex;align-items:center;justify-content:center;
+    }
+    .bar .spacer{flex:1;}
+    #count-m{font-size:13px;color:var(--muted);white-space:nowrap;}
+    #sort-select{width:auto;max-width:150px;min-width:0;height:44px;border:0;background:transparent;font-weight:600;font-size:14px;padding:0 4px;}
+    #count{display:none;}
+    .count-line{border-bottom:0;padding-bottom:10px;}
+    #discovery-note{font-size:12px;line-height:1.5;}
+    .list{border-top:1px solid var(--line);}
+    .g-cat,.g-sort{display:none;}
+    #filters{
+      display:none;position:fixed;left:0;right:0;bottom:0;width:auto;max-height:85vh;overflow-y:auto;
+      background:var(--bg);border-radius:16px 16px 0 0;padding:0 20px 24px;z-index:60;
+      box-shadow:0 -8px 32px rgba(0,0,0,0.25);
+    }
+    #filters.open{display:block;}
+    #scrim.show{display:block;}
+    .sheet-head{
+      display:flex;align-items:center;justify-content:space-between;
+      position:sticky;top:0;background:var(--bg);padding:12px 0 8px;margin-bottom:8px;
+    }
+    .sheet-head h2{margin:0;font-size:17px;font-weight:700;}
+    .row{align-items:flex-start;gap:12px;padding:12px 0;}
+    .thumb{flex-basis:80px;width:80px;height:80px;}
+    .title{
+      white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+      font-size:15px;line-height:1.3;
+    }
+    .meta{font-size:13px;}
+    .price{font-size:17px;}
+    .star{position:absolute;left:0;top:12px;flex:none;}
+    .star .dot{width:26px;height:26px;border-radius:50%;background:var(--star-bg);color:var(--text);}
+    .star.on .dot{color:var(--gold);}
+    .star svg{width:14px;height:14px;}
+    footer{margin-top:28px;font-size:12.5px;}
+    #toast{bottom:90px;}
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div>
-      <p class="eyebrow">Best finds, ranked</p>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
       <h1>Bargain Watch</h1>
+      <span id="stamp"></span>
     </div>
-    <div class="header-right">
-      <a class="nav-link" href="sell.html">Sell List →</a>
-      <div id="stamp"></div>
+    <a class="nav-link" href="sell.html">Sell list
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</header>
+
+<nav class="tabs" id="cat-tabs" aria-label="Category"></nav>
+
+<div class="layout">
+
+  <aside id="filters" aria-label="Filters">
+    <div class="sheet-head">
+      <h2>Filters</h2>
+      <button class="btn-quiet" id="close-filters" type="button">Done</button>
     </div>
-  </header>
+    <div class="group g-cat">
+      <div class="group-title">Category</div>
+      <div id="cat-side"></div>
+    </div>
+    <div class="group">
+      <div class="group-title">Show</div>
+      <div id="show-list"></div>
+    </div>
+    <div class="group" id="size-group" style="display:none;">
+      <div class="group-title">Size</div>
+      <div class="chips" id="size-chips"></div>
+    </div>
+    <div class="group g-sort">
+      <div class="group-title">Sort</div>
+      <div id="sort-list"></div>
+    </div>
+    <div class="group">
+      <label class="group-title" for="brand-select" style="display:block;">Brand</label>
+      <select id="brand-select"><option value="">All brands</option></select>
+    </div>
+    <button class="btn-quiet" id="clear-filters" type="button" style="display:none;">Clear filters</button>
+  </aside>
 
-  <div class="pills" id="pills">
-    <button class="pill active" data-category="all">All</button>
-    <button class="pill" data-attr="is_new">Just listed</button>
-    <button class="pill" data-attr="bnwt">BNWT</button>
-    <button class="pill" data-attr="is_bargain">Bargains</button>
-    <button class="pill" data-attr="starred">Starred</button>
-    <button class="pill" data-category="games_music">Games &amp; Music</button>
-    <button class="pill" data-category="football">Sports</button>
-    <button class="pill" data-category="baby">Baby</button>
-    <button class="pill" data-category="tech">Tech</button>
-    <button class="pill" data-category="caution">Caution</button>
-    <button class="pill" data-category="shops">Shops</button>
-    <button class="pill" id="brands-toggle">Brands ▾</button>
-    <button class="pill" id="clear-filters" style="display:none;">Clear ✕</button>
-  </div>
+  <main>
+    <div class="bar">
+      <button class="filter-btn" id="open-filters" type="button" aria-expanded="false" aria-controls="filters">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+        Filters<span class="n" id="filter-n" style="display:none;"></span>
+      </button>
+      <span id="count-m"></span>
+      <span class="spacer"></span>
+      <select id="sort-select" aria-label="Sort"></select>
+    </div>
 
-  <div class="brand-panel" id="brand-panel"></div>
+    <div class="count-line">
+      <span id="count"></span>
+      <span id="discovery-note"></span>
+    </div>
 
-  <div class="pills" id="size-pills" style="display:none;"></div>
+    <div id="loading">Loading latest scan…</div>
+    <div id="error"></div>
+    <div id="empty">Nothing matches these filters right now.</div>
+    <div class="list" id="feed"></div>
 
-  <p class="pills-label">Sort</p>
-  <div class="pills" id="sort-pills">
-    <button class="pill active" data-sort="rank">Best match</button>
-    <button class="pill" data-sort="newest">Newest</button>
-    <button class="pill" data-sort="price-low">Price: low to high</button>
-    <button class="pill" data-sort="price-high">Price: high to low</button>
-  </div>
+    <footer>
+      Refreshes every 20 minutes and ranks by discount, price, condition and your size. Discovery brands rotate daily.
+      Listings come from Vinted's public search; this isn't affiliated with or endorsed by Vinted.
+      Stars are saved in this browser only.
+    </footer>
+  </main>
 
-  <p class="discovery-note" id="discovery-note"></p>
-
-  <div id="loading">Loading latest scan…</div>
-  <div id="error"></div>
-  <div id="empty">Nothing matches this filter right now.</div>
-  <div class="grid" id="feed"></div>
-
-  <footer>
-    Refreshes automatically every 20 minutes via GitHub Actions, ranked by discount, price, condition, seller,
-    and your size. Discovery brands rotate daily. Sourced from Vinted's public search results — not affiliated
-    with or endorsed by Vinted. Stars are saved in this browser only.
-  </footer>
 </div>
 
+<div id="scrim"></div>
 <div id="toast"></div>
 
 <script>
@@ -394,15 +329,46 @@ const STAR_KEY = 'bargain-watch-starred';
 
 let starred = new Set();
 try { starred = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } catch {}
-function saveStarred(){ localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); }
+function saveStarred(){ try { localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); } catch {} }
 
+const CATS = [
+  ['all', 'Clothing'], ['tech', 'Tech'], ['games_music', 'Games & music'],
+  ['football', 'Sports'], ['baby', 'Baby'], ['shops', 'Shops'], ['caution', 'Caution']
+];
+const SHOW = [
+  ['is_new', 'Just listed'], ['bnwt', 'BNWT'], ['is_bargain', 'Bargains'],
+  ['starred', 'Starred'], ['my_size', 'My size']
+];
+const SORTS = [
+  ['rank', 'Best match'], ['newest', 'Newest'],
+  ['price-low', 'Price: low to high'], ['price-high', 'Price: high to low']
+];
+
+const ICON_STAR = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9L12 3.5z"/></svg>';
+const ICON_CHECK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+let activeCategory = 'all';
+let activeAttrs = new Set();
+let sortMode = 'rank';
+let feedData = [];
+let selectedSizes = new Set();
+let selectedBrand = null;
+
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+/* ---------- toast + promote (unchanged behaviour) ---------- */
 let toastTimer = null;
 function showToast(message, isError){
-  const el = document.getElementById('toast');
-  el.textContent = message;
-  el.className = 'show' + (isError ? ' err' : '');
+  const t = document.getElementById('toast');
+  t.textContent = message;
+  t.className = 'show' + (isError ? ' err' : '');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.className = ''; }, 4000);
+  toastTimer = setTimeout(() => { t.className = ''; }, 4000);
 }
 
 async function promoteToCore(item, btn){
@@ -417,19 +383,14 @@ async function promoteToCore(item, btn){
   }
 }
 
-let activeCategory = 'all';
-let activeAttrs = new Set();
-let sortMode = 'rank';
-let feedData = [];
-let selectedSizes = new Set();
-let selectedBrand = null;
-
+/* ---------- filtering + sorting (unchanged behaviour) ---------- */
 function attrMatches(item, attr){
   switch (attr){
     case 'is_new':     return item.is_new;
     case 'bnwt':       return item.condition === 'New with tags';
     case 'is_bargain': return item.is_bargain;
     case 'starred':    return starred.has(item.id);
+    case 'my_size':    return item.my_size;
     default:           return true;
   }
 }
@@ -454,6 +415,12 @@ function cardMatches(item){
   return true;
 }
 
+function priceOf(item){
+  if (item.price_amount != null) return Number(item.price_amount);
+  const p = parseFloat(item.price);
+  return isNaN(p) ? null : p;
+}
+
 function sortItems(items){
   const arr = [...items];
   if (sortMode === 'newest'){
@@ -465,28 +432,21 @@ function sortItems(items){
     });
   } else if (sortMode === 'price-low' || sortMode === 'price-high'){
     arr.sort((a, b) => {
-      const pa = parseFloat(a.price) || Infinity;
-      const pb = parseFloat(b.price) || Infinity;
+      const pa = priceOf(a) ?? Infinity;
+      const pb = priceOf(b) ?? Infinity;
       return sortMode === 'price-low' ? pa - pb : pb - pa;
     });
   } else {
     arr.sort((a, b) => {
-      // Bargains: order by how far under your price cap something is,
-      // not by the blended score - a steep discount on a "Good" condition
-      // item or one listed days ago would otherwise get buried under
-      // BNWT/freshness-boosted items in score order, defeating the point
-      // of a pill meant to isolate on price specifically.
+      // Bargains: order by how far under your price cap something is, not by
+      // the blended score, so the pill isolates on price specifically.
       if (activeAttrs.has('is_bargain')){
         const ap = a.bargain_pct ?? -Infinity;
         const bp = b.bargain_pct ?? -Infinity;
         if (ap !== bp) return bp - ap;
       }
-      // Wherever authenticity checks apply: fewer red flags always ranks
-      // above more, regardless of score - mirrors the backend's ordering
-      // so switching to "Best match" doesn't silently undo it by
-      // re-sorting on score alone. No-op for items with no flags at all
-      // (both sides are 0), so this applies safely everywhere rather than
-      // needing a per-subcategory check.
+      // Fewer authenticity red flags always ranks above more - mirrors the
+      // backend's ordering. No-op for items with no flags (both sides are 0).
       const aFlags = (a.caution_flags || []).length;
       const bFlags = (b.caution_flags || []).length;
       if (aFlags !== bFlags) return aFlags - bFlags;
@@ -496,167 +456,128 @@ function sortItems(items){
   return arr;
 }
 
-function buildCard(item, rank){
-  const card = document.createElement('div');
-  card.className = 'card' + (item.is_bargain ? ' bargain' : '');
+/* ---------- row ---------- */
+function money(n){ return '£' + Number(n).toFixed(2); }
 
-  const photoWrap = document.createElement('div');
-  photoWrap.className = 'photo-wrap';
+function dealText(reason){
+  if (!reason) return '';
+  const cap = /^-?(\d+)% of cap$/.exec(reason);
+  if (cap) return cap[1] + '% under cap';
+  return reason.replace(/^Under GBP\s*/i, 'Under £');
+}
+
+function buildRow(item){
+  const row = el('article', 'row');
+
+  const thumb = el('div', 'thumb');
   if (item.photo){
     const img = document.createElement('img');
     img.src = item.photo;
     img.loading = 'lazy';
-    img.alt = item.title || 'Listing photo';
-    photoWrap.appendChild(img);
+    img.alt = '';
+    thumb.appendChild(img);
   }
-  card.appendChild(photoWrap);
+  row.appendChild(thumb);
 
-  const badges = document.createElement('div');
-  badges.className = 'badges';
-  if (sortMode === 'rank' && rank <= 20){
-    const r = document.createElement('span');
-    r.className = 'badge rank';
-    r.textContent = '#' + rank;
-    badges.appendChild(r);
-  }
-  if (item.is_new){
-    const b = document.createElement('span');
-    b.className = 'badge new';
-    b.textContent = 'JUST LISTED';
-    badges.appendChild(b);
-  }
-  if (item.condition_badge){
-    const b = document.createElement('span');
-    b.className = 'badge condition';
-    b.textContent = item.condition_badge;
-    badges.appendChild(b);
-  }
-  if (item.price_dropped){
-    const b = document.createElement('span');
-    b.className = 'badge drop';
-    b.textContent = `↓ was ${item.previous_price.toFixed(2)}`;
-    badges.appendChild(b);
-  }
-  if (item.bargain_reason){
-    const b = document.createElement('span');
-    b.className = 'badge deal';
-    b.textContent = item.bargain_reason;
-    badges.appendChild(b);
-  }
-  if (item.caution_flags && item.caution_flags.length){
-    item.caution_flags.forEach(flag => {
-      const b = document.createElement('span');
-      b.className = 'badge caution';
-      b.textContent = '⚠ ' + flag;
-      badges.appendChild(b);
-    });
-  }
-  if (badges.children.length) photoWrap.appendChild(badges);
+  const info = el('div', 'info');
+  info.appendChild(el('div', 'title', item.title || '(untitled listing)'));
 
-  const starBtn = document.createElement('button');
-  starBtn.className = 'star-btn' + (starred.has(item.id) ? ' starred' : '');
-  starBtn.setAttribute('aria-label', 'Toggle star');
-  starBtn.textContent = starred.has(item.id) ? '★' : '☆';
-  starBtn.addEventListener('click', (e) => {
-    e.preventDefault(); e.stopPropagation();
-    if (starred.has(item.id)){ starred.delete(item.id); starBtn.classList.remove('starred'); starBtn.textContent = '☆'; }
-    else { starred.add(item.id); starBtn.classList.add('starred'); starBtn.textContent = '★'; }
-    saveStarred();
-    if (activeAttrs.has('starred')) renderFeed();
+  const meta = el('div', 'meta');
+  if (item.size){
+    meta.appendChild(el('span', null, item.size));
+    if (item.my_size){
+      const tick = el('span', 'tick');
+      tick.innerHTML = ICON_CHECK;
+      tick.setAttribute('role', 'img');
+      tick.setAttribute('aria-label', 'your size');
+      meta.appendChild(tick);
+    }
+  }
+  const bits = [];
+  if (item.condition_badge) bits.push(item.condition_badge);
+  let label = item.watch || item.brand || '';
+  if (item.source === 'discovery') label += ' · discovery';
+  if (item.marketplace === 'shop') label += ' · retail';
+  if (label) bits.push(label);
+  if (bits.length) meta.appendChild(el('span', null, (item.size ? '· ' : '') + bits.join(' · ')));
+  info.appendChild(meta);
+
+  const tags = el('div', 'tags');
+  const tagBits = [];
+  if (item.is_new) tagBits.push('Just listed');
+  const deal = dealText(item.bargain_reason);
+  if (deal) tagBits.push(deal);
+  if (tagBits.length) tags.appendChild(document.createTextNode(tagBits.join(' · ')));
+  (item.caution_flags || []).forEach(flag => {
+    if (tags.childNodes.length) tags.appendChild(document.createTextNode(' · '));
+    tags.appendChild(el('span', 'warn', '⚠ ' + flag));
   });
-  photoWrap.appendChild(starBtn);
-
-  const body = document.createElement('div');
-  body.className = 'card-body';
-
-  const label = document.createElement('p');
-  label.className = 'watch-label';
-  label.textContent = item.watch;
-  if (item.source === 'discovery'){
-    const tag = document.createElement('span');
-    tag.className = 'disc';
-    tag.textContent = ' · discovery';
-    label.appendChild(tag);
-  }
-  if (item.marketplace === 'shop'){
-    const tag = document.createElement('span');
-    tag.className = 'disc';
-    tag.textContent = ' · retail';
-    label.appendChild(tag);
-  }
-  body.appendChild(label);
-
-  const title = document.createElement('p');
-  title.className = 'card-title';
-  title.textContent = item.title || '(untitled listing)';
-  body.appendChild(title);
-
-  const meta = document.createElement('div');
-  meta.className = 'meta-row';
-  const size = document.createElement('span');
-  if (item.my_size){
-    size.className = 'size-flag';
-    size.textContent = (item.size || '') + ' ✓';
-  } else {
-    size.textContent = item.size || '';
-  }
-  const price = document.createElement('span');
-  price.className = 'price-tag';
-  price.textContent = item.price || '';
-  meta.appendChild(size);
-  meta.appendChild(price);
-  body.appendChild(meta);
-
-  if (item.estimated_total != null && item.marketplace !== 'shop'){
-    const feeNote = document.createElement('span');
-    feeNote.className = 'fee-note';
-    feeNote.textContent = `£${item.estimated_total.toFixed(2)} total w/ fee`;
-    body.appendChild(feeNote);
-  }
+  if (tags.childNodes.length) info.appendChild(tags);
 
   if (item.caution_flags && item.caution_flags.length){
-    const favNote = document.createElement('span');
-    favNote.className = 'fee-note';
-    favNote.textContent = `${item.favourite_count} favourite${item.favourite_count === 1 ? '' : 's'} — check seller history before buying`;
-    body.appendChild(favNote);
+    const n = item.favourite_count || 0;
+    info.appendChild(el('div', 'note', `${n} favourite${n === 1 ? '' : 's'} — check seller history before buying`));
   }
 
-  const compareLink = document.createElement('a');
-  compareLink.className = 'compare-link';
+  const actions = el('div', 'actions');
+  const compare = document.createElement('a');
   const queryBits = [item.brand || item.watch, item.title].filter(Boolean).join(' ').slice(0, 100);
   if (item.subcategory === 'games' || item.subcategory === 'music'){
-    compareLink.href = 'https://www.google.com/search?tbm=shop&q=' + encodeURIComponent(queryBits);
-    compareLink.textContent = 'Compare prices →';
+    compare.href = 'https://www.google.com/search?tbm=shop&q=' + encodeURIComponent(queryBits);
+    compare.textContent = 'Compare prices →';
   } else {
-    compareLink.href = 'https://www.google.com/search?q=' + encodeURIComponent(queryBits + ' new');
-    compareLink.textContent = 'Find it new →';
+    compare.href = 'https://www.google.com/search?q=' + encodeURIComponent(queryBits + ' new');
+    compare.textContent = 'Find it new →';
   }
-  compareLink.target = '_blank';
-  compareLink.rel = 'noopener noreferrer';
-  compareLink.addEventListener('click', (e) => e.stopPropagation());
-  body.appendChild(compareLink);
-
+  compare.target = '_blank';
+  compare.rel = 'noopener noreferrer';
+  actions.appendChild(compare);
   if (item.source === 'discovery'){
-    const promoteBtn = document.createElement('button');
-    promoteBtn.className = 'promote-btn';
-    promoteBtn.textContent = '+ Add to my watches';
-    promoteBtn.addEventListener('click', (e) => {
-      e.preventDefault(); e.stopPropagation();
-      promoteToCore(item, promoteBtn);
-    });
-    body.appendChild(promoteBtn);
+    const promote = el('button', null, '+ Add to my watches');
+    promote.type = 'button';
+    promote.addEventListener('click', () => promoteToCore(item, promote));
+    actions.appendChild(promote);
   }
+  info.appendChild(actions);
+  row.appendChild(info);
 
-  card.appendChild(body);
+  const pc = el('div', 'pricecol');
+  const p = priceOf(item);
+  const priceLine = el('div');
+  if (item.price_dropped && item.previous_price != null){
+    priceLine.appendChild(el('span', 'was', money(item.previous_price)));
+  }
+  priceLine.appendChild(el('span', 'price', p != null ? money(p) : (item.price || '')));
+  pc.appendChild(priceLine);
+  if (item.estimated_total != null && item.marketplace !== 'shop'){
+    pc.appendChild(el('div', 'fee', `${money(item.estimated_total)} inc. fee`));
+  }
+  row.appendChild(pc);
+
+  const star = el('button', 'star' + (starred.has(item.id) ? ' on' : ''));
+  star.type = 'button';
+  star.setAttribute('aria-label', 'Star this listing');
+  star.setAttribute('aria-pressed', starred.has(item.id) ? 'true' : 'false');
+  star.innerHTML = '<span class="dot">' + ICON_STAR + '</span>';
+  star.addEventListener('click', () => {
+    if (starred.has(item.id)) starred.delete(item.id); else starred.add(item.id);
+    saveStarred();
+    if (activeAttrs.has('starred')) { renderFeed(); return; }
+    const on = starred.has(item.id);
+    star.classList.toggle('on', on);
+    star.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  row.appendChild(star);
 
   const link = document.createElement('a');
   link.className = 'hit';
   link.href = item.url;
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
-  card.appendChild(link);
+  link.setAttribute('aria-label', 'Open listing: ' + (item.title || ''));
+  row.appendChild(link);
 
-  return card;
+  return row;
 }
 
 function renderFeed(){
@@ -664,44 +585,143 @@ function renderFeed(){
   const emptyEl = document.getElementById('empty');
   feedEl.innerHTML = '';
   const visible = sortItems(feedData.filter(cardMatches));
-  emptyEl.style.display = visible.length ? 'none' : 'block';
+  emptyEl.style.display = (visible.length || !feedData.length) ? 'none' : 'block';
   const frag = document.createDocumentFragment();
-  visible.forEach((item, i) => frag.appendChild(buildCard(item, i + 1)));
+  visible.forEach(item => frag.appendChild(buildRow(item)));
   feedEl.appendChild(frag);
+  const word = visible.length === 1 ? 'listing' : 'listings';
+  document.getElementById('count').textContent = `${visible.length} ${word}`;
+  document.getElementById('count-m').textContent = `${visible.length} ${word}`;
 }
 
-function clearOtherCategoryPills(except){
-  document.querySelectorAll('#pills .pill[data-category]')
-    .forEach(p => { if (p !== except) p.classList.remove('active'); });
+/* ---------- controls ---------- */
+function buildStaticControls(){
+  const show = document.getElementById('show-list');
+  SHOW.forEach(([key, label]) => {
+    const l = el('label', 'check');
+    const i = document.createElement('input');
+    i.type = 'checkbox';
+    i.dataset.attr = key;
+    l.appendChild(i);
+    l.appendChild(document.createTextNode(label));
+    show.appendChild(l);
+  });
+
+  const sortList = document.getElementById('sort-list');
+  const sortSel = document.getElementById('sort-select');
+  SORTS.forEach(([key, label]) => {
+    const l = el('label', 'check');
+    const r = document.createElement('input');
+    r.type = 'radio';
+    r.name = 'sort';
+    r.value = key;
+    r.checked = key === sortMode;
+    l.appendChild(r);
+    l.appendChild(document.createTextNode(label));
+    sortList.appendChild(l);
+    const o = document.createElement('option');
+    o.value = key;
+    o.textContent = label;
+    sortSel.appendChild(o);
+  });
+  syncCategories();
+}
+
+function syncCategories(){
+  [['cat-side', 'side-link'], ['cat-tabs', 'tab']].forEach(([id, cls]) => {
+    const box = document.getElementById(id);
+    if (!box.children.length){
+      CATS.forEach(([key, label]) => {
+        const b = el('button', cls, label);
+        b.type = 'button';
+        b.dataset.cat = key;
+        box.appendChild(b);
+      });
+    }
+    box.querySelectorAll('[data-cat]').forEach(b => {
+      if (b.dataset.cat === activeCategory) b.setAttribute('aria-current', 'true');
+      else b.removeAttribute('aria-current');
+    });
+  });
 }
 
 function anyFilterActive(){
   return activeCategory !== 'all' || activeAttrs.size > 0 || selectedBrand !== null || selectedSizes.size > 0;
 }
 
-function updateClearButtonVisibility(){
+function syncControls(){
+  syncCategories();
+  document.querySelectorAll('#show-list input').forEach(i => { i.checked = activeAttrs.has(i.dataset.attr); });
+  document.querySelectorAll('input[name="sort"]').forEach(r => { r.checked = r.value === sortMode; });
+  document.getElementById('sort-select').value = sortMode;
+  document.getElementById('brand-select').value = selectedBrand || '';
+  document.querySelectorAll('#size-chips .chip').forEach(c => {
+    const on = selectedSizes.has(c.dataset.size);
+    c.classList.toggle('on', on);
+    c.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  const n = activeAttrs.size + selectedSizes.size + (selectedBrand ? 1 : 0);
+  const badge = document.getElementById('filter-n');
+  badge.textContent = n;
+  badge.style.display = n ? 'inline-flex' : 'none';
   document.getElementById('clear-filters').style.display = anyFilterActive() ? '' : 'none';
 }
 
-document.getElementById('pills').addEventListener('click', (e) => {
-  const btn = e.target.closest('.pill');
-  if (!btn || btn.id === 'brands-toggle' || btn.id === 'clear-filters') return;
-  if (btn.dataset.category !== undefined){
-    activeCategory = btn.dataset.category;
-    clearOtherCategoryPills(btn);
-    btn.classList.add('active');
-  } else if (btn.dataset.attr !== undefined){
-    const attr = btn.dataset.attr;
-    if (activeAttrs.has(attr)){
-      activeAttrs.delete(attr);
-      btn.classList.remove('active');
-    } else {
-      activeAttrs.add(attr);
-      btn.classList.add('active');
-    }
-  }
-  updateClearButtonVisibility();
+function update(){
+  syncControls();
   renderFeed();
+}
+
+function populateDynamicControls(){
+  const brandSel = document.getElementById('brand-select');
+  const brands = [...new Set(feedData.map(i => i.watch).filter(Boolean))].sort();
+  brandSel.innerHTML = '';
+  const all = document.createElement('option');
+  all.value = '';
+  all.textContent = 'All brands';
+  brandSel.appendChild(all);
+  brands.forEach(name => {
+    const o = document.createElement('option');
+    o.value = name;
+    o.textContent = name;
+    brandSel.appendChild(o);
+  });
+
+  const chipsEl = document.getElementById('size-chips');
+  const sizes = [...new Set(feedData.map(i => i.size_term_matched).filter(Boolean))].sort();
+  chipsEl.innerHTML = '';
+  sizes.forEach(term => {
+    const c = el('button', 'chip', term);
+    c.type = 'button';
+    c.dataset.size = term;
+    chipsEl.appendChild(c);
+  });
+  document.getElementById('size-group').style.display = sizes.length ? '' : 'none';
+}
+
+document.addEventListener('click', (e) => {
+  const cat = e.target.closest('[data-cat]');
+  if (cat){ activeCategory = cat.dataset.cat; update(); return; }
+  const chip = e.target.closest('#size-chips .chip');
+  if (chip){
+    const term = chip.dataset.size;
+    if (selectedSizes.has(term)) selectedSizes.delete(term); else selectedSizes.add(term);
+    update();
+  }
+});
+
+document.addEventListener('change', (e) => {
+  const t = e.target;
+  if (t.matches('#show-list input')){
+    if (t.checked) activeAttrs.add(t.dataset.attr); else activeAttrs.delete(t.dataset.attr);
+    update();
+  } else if (t.name === 'sort' || t.id === 'sort-select'){
+    sortMode = t.value;
+    update();
+  } else if (t.id === 'brand-select'){
+    selectedBrand = t.value || null;
+    update();
+  }
 });
 
 document.getElementById('clear-filters').addEventListener('click', () => {
@@ -709,86 +729,24 @@ document.getElementById('clear-filters').addEventListener('click', () => {
   activeAttrs.clear();
   selectedBrand = null;
   selectedSizes.clear();
-  document.querySelectorAll('#pills .pill').forEach(p => p.classList.remove('active'));
-  document.querySelector('#pills .pill[data-category="all"]').classList.add('active');
-  document.querySelectorAll('#brand-panel .pill, #size-pills .pill').forEach(p => p.classList.remove('active'));
-  document.getElementById('brand-panel').classList.remove('open');
-  updateClearButtonVisibility();
-  renderFeed();
+  update();
 });
 
-document.getElementById('brands-toggle').addEventListener('click', () => {
-  document.getElementById('brand-panel').classList.toggle('open');
-});
-
-document.getElementById('brand-panel').addEventListener('click', (e) => {
-  const btn = e.target.closest('.pill');
-  if (!btn) return;
-  const name = btn.dataset.watch;
-  const wasActive = btn.classList.contains('active');
-  document.querySelectorAll('#brand-panel .pill').forEach(p => p.classList.remove('active'));
-  if (wasActive){
-    selectedBrand = null; // tap the same brand again to clear it
-  } else {
-    selectedBrand = name;
-    btn.classList.add('active');
-  }
-  updateClearButtonVisibility();
-  renderFeed();
-});
-
-document.getElementById('size-pills').addEventListener('click', (e) => {
-  const btn = e.target.closest('.pill');
-  if (!btn) return;
-  const term = btn.dataset.size;
-  if (selectedSizes.has(term)){
-    selectedSizes.delete(term);
-    btn.classList.remove('active');
-  } else {
-    selectedSizes.add(term);
-    btn.classList.add('active');
-  }
-  updateClearButtonVisibility();
-  renderFeed();
-});
-
-function populateBrandAndSizePills(){
-  const brandPanel = document.getElementById('brand-panel');
-  const brands = [...new Set(feedData.map(i => i.watch))].sort();
-  brandPanel.innerHTML = '';
-  brands.forEach(name => {
-    const b = document.createElement('button');
-    b.className = 'pill' + (selectedBrand === name ? ' active' : '');
-    b.dataset.watch = name;
-    b.textContent = name;
-    brandPanel.appendChild(b);
-  });
-
-  const sizePills = document.getElementById('size-pills');
-  const sizes = [...new Set(feedData.map(i => i.size_term_matched).filter(Boolean))].sort();
-  sizePills.innerHTML = '';
-  if (sizes.length){
-    sizes.forEach(term => {
-      const b = document.createElement('button');
-      b.className = 'pill' + (selectedSizes.has(term) ? ' active' : '');
-      b.dataset.size = term;
-      b.textContent = term;
-      sizePills.appendChild(b);
-    });
-    sizePills.style.display = 'flex';
-  } else {
-    sizePills.style.display = 'none';
-  }
+/* filter sheet (phone) */
+const sheet = document.getElementById('filters');
+const scrim = document.getElementById('scrim');
+const openBtn = document.getElementById('open-filters');
+function setSheet(open){
+  sheet.classList.toggle('open', open);
+  scrim.classList.toggle('show', open);
+  openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
+openBtn.addEventListener('click', () => setSheet(true));
+document.getElementById('close-filters').addEventListener('click', () => setSheet(false));
+scrim.addEventListener('click', () => setSheet(false));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSheet(false); });
 
-document.getElementById('sort-pills').addEventListener('click', (e) => {
-  const btn = e.target.closest('.pill');
-  if (!btn) return;
-  sortMode = btn.dataset.sort;
-  document.querySelectorAll('#sort-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
-  renderFeed();
-});
-
+/* ---------- load ---------- */
 async function load(){
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error');
@@ -799,8 +757,10 @@ async function load(){
     loadingEl.style.display = 'none';
 
     const scanDate = new Date(data.generated_at * 1000);
-    document.getElementById('stamp').innerHTML =
-      `LAST SCAN<br>${scanDate.toLocaleDateString()} ${scanDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
+    const time = scanDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const sameDay = scanDate.toDateString() === new Date().toDateString();
+    document.getElementById('stamp').textContent =
+      'Scanned ' + (sameDay ? time : scanDate.toLocaleDateString() + ' ' + time);
 
     if (Array.isArray(data.discovery_today) && data.discovery_today.length){
       document.getElementById('discovery-note').textContent =
@@ -812,14 +772,14 @@ async function load(){
     // Same pattern for Shopify retailer results (real markdowns).
     try {
       const shopRes = await fetch('shop_data.json', { cache: 'no-store' });
-      if (shopRes.ok) {
+      if (shopRes.ok){
         const shopData = await shopRes.json();
         feedData = feedData.concat(shopData.feed || []);
       }
     } catch {}
 
-    populateBrandAndSizePills();
-    renderFeed();
+    populateDynamicControls();
+    update();
   } catch (err){
     loadingEl.style.display = 'none';
     errorEl.style.display = 'block';
@@ -827,6 +787,7 @@ async function load(){
   }
 }
 
+buildStaticControls();
 load();
 </script>
 </body>
