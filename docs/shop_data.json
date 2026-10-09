@@ -1,5 +1,5 @@
 {
-  "generated_at": 1791503448,
+  "generated_at": 1791520321,
   "errors": [
     "Common Cultured"
   ],
@@ -249,39 +249,6 @@
       "url": "https://universalworks.com/products/ecru-green-canvas-baseball-hat",
       "seller": {
         "login": "Universal Works",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 64,
-      "score": 64,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-64%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
-      "id": "shop-www.stuartslondon.com-10379566776667",
-      "title": "Jacques Soloviere Jim - Navy",
-      "watch": "Stuarts London",
-      "brand": "Jacques Soloviere",
-      "size": "NAVY / 43.5",
-      "condition": "New",
-      "price": "89.00 GBP",
-      "price_amount": 89.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1772712850-67406300.jpg?v=1773334586",
-      "url": "https://www.stuartslondon.com/products/jacques-soloviere-jim-navy",
-      "seller": {
-        "login": "Stuarts London",
         "profile_url": "",
         "business": true
       },
@@ -1138,6 +1105,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1661442101-14641100.jpg?v=1764332642",
       "url": "https://www.stuartslondon.com/products/lois-jeans-dallas-jumbo-cord-trousers-dark-sand",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 61,
+      "score": 61,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-61%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10220539150683",
+      "title": "Lois Jeans Dallas Jumbo Cord Trousers - Navy",
+      "watch": "Stuarts London",
+      "brand": "Lois Jeans",
+      "size": "NAVY / W30\" / L30\", NAVY / W30\" / L34\"",
+      "condition": "New",
+      "price": "29.00 GBP",
+      "price_amount": 29.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/1661435280-73888500.jpg?v=1764460620",
+      "url": "https://www.stuartslondon.com/products/lois-jeans-dallas-jumbo-cord-trousers-navy",
       "seller": {
         "login": "Stuarts London",
         "profile_url": "",
