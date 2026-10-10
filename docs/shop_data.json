@@ -1,5 +1,5 @@
 {
-  "generated_at": 1791582982,
+  "generated_at": 1791596062,
   "errors": [
     "Common Cultured"
   ],
@@ -1622,39 +1622,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-jeanstore.co.uk-15626557129085",
-      "title": "Carhartt WIP 50 Years Anniversary OG Active Jacket Leather - Black / Hamilton Brown",
-      "watch": "Jeanstore",
-      "brand": "Carhartt WIP",
-      "size": "L",
-      "condition": "New",
-      "price": "682.50 GBP",
-      "price_amount": 682.5,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I035967_3R0_XX-ST-01.jpg?v=1761750177",
-      "url": "https://jeanstore.co.uk/products/carhartt-wip-50-years-anniversary-og-active-jacket-leather-black-hamilton-brown",
-      "seller": {
-        "login": "Jeanstore",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 50,
-      "score": 50,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-50%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-jeanstore.co.uk-15503331950973",
       "title": "Wrangler Texas Stretch Authentic Straight Mens Cords - Black",
       "watch": "Jeanstore",
@@ -1732,6 +1699,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/CPOSHIRT_WOODLANDCMPRIPSTOP-1_1.jpg?v=1759158090",
       "url": "https://jeanstore.co.uk/products/stan-ray-cpo-shirt-woodland-dpm-ripstop",
+      "seller": {
+        "login": "Jeanstore",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 50,
+      "score": 50,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-50%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-jeanstore.co.uk-7995310145730",
+      "title": "Trickers Simon Longwing Brogue Boot - Snuff Waxed Suede / Dainite Sole",
+      "watch": "Jeanstore",
+      "brand": "Trickers",
+      "size": "UK 8, UK 10",
+      "condition": "New",
+      "price": "292.50 GBP",
+      "price_amount": 292.5,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I034118HZXXJJ11.jpg?v=1730810821",
+      "url": "https://jeanstore.co.uk/products/trickers-simon-longwing-brogue-boot-snuff-waxed-suede",
       "seller": {
         "login": "Jeanstore",
         "profile_url": "",
