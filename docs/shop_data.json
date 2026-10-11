@@ -1,5 +1,5 @@
 {
-  "generated_at": 1791745366,
+  "generated_at": 1791758946,
   "errors": [
     "Common Cultured"
   ],
@@ -1622,39 +1622,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-jeanstore.co.uk-15503331950973",
-      "title": "Wrangler Texas Stretch Authentic Straight Mens Cords - Black",
-      "watch": "Jeanstore",
-      "brand": "Wrangler",
-      "size": "W38 L32",
-      "condition": "New",
-      "price": "42.50 GBP",
-      "price_amount": 42.5,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/112370852_1.jpg?v=1758027410",
-      "url": "https://jeanstore.co.uk/products/wrangler-texas-stretch-authentic-straight-mens-cords-black-1",
-      "seller": {
-        "login": "Jeanstore",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 50,
-      "score": 50,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-50%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-jeanstore.co.uk-15506027938173",
       "title": "Stan Ray OG Hoodie - Washed Navy",
       "watch": "Jeanstore",
@@ -1732,6 +1699,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I034118HZXXJJ11.jpg?v=1730810821",
       "url": "https://jeanstore.co.uk/products/trickers-simon-longwing-brogue-boot-snuff-waxed-suede",
+      "seller": {
+        "login": "Jeanstore",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 50,
+      "score": 50,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-50%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-jeanstore.co.uk-7997746610370",
+      "title": "Cookman TM Paint Hot Dog Tee - White",
+      "watch": "Jeanstore",
+      "brand": "Cookman",
+      "size": "L",
+      "condition": "New",
+      "price": "27.50 GBP",
+      "price_amount": 27.5,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/231-21059101.jpg?v=1732739486",
+      "url": "https://jeanstore.co.uk/products/cookman-tm-paint-hot-dog-tee-white",
       "seller": {
         "login": "Jeanstore",
         "profile_url": "",
