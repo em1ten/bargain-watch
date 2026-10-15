@@ -10,7 +10,7 @@ Built to start with Vinted, with room to add other marketplaces later.
 ## How it works
 
 - `vinted_watch.py` runs every 20 minutes (GitHub Actions), scans your core
-  searches plus a daily rotation of discovery brands, scores every listing,
+  searches, scores every listing,
   and writes one ranked feed to `docs/data.json`
 - `docs/index.html` (served via GitHub Pages) shows that feed with tap-only
   filter pills: All / My size / Just listed / Bargains / Starred / Games &
@@ -257,21 +257,12 @@ not "cheap vs a shop price nobody's actually charging". The on-card badge
 changed from `-77%` (vs a guessed RRP) to `-58% of cap` (vs your own
 ceiling) to reflect what it's actually measuring.
 
-## Discovery
-
-`discovery_pool` in `config.json` holds adjacent brands worth knowing
-(Arpenteur, A.P.C., Our Legacy, Stan Ray, Margaret Howell, and more). Each
-day, 5 rotate in automatically and get scanned alongside your core watches —
-their finds show up tagged "discovery" in the feed, so new brands surface
-without you doing anything. The rotation cycles through the whole pool over
-time.
-
 ## Deliberately read-only dashboard
 
 The page has no text inputs, no tokens, and no write access to anything —
 by design. All configuration lives in `config.json` in this repo, protected
 by your GitHub login. To change anything (brands, sizes, price ceilings,
-discovery pool, notification tiers), edit `config.json` on GitHub and
+notification tiers), edit `config.json` on GitHub and
 commit; the next scan picks it up. The only thing stored in the browser is
 which listings you've starred, and that never leaves the browser.
 
@@ -324,11 +315,10 @@ Top-level:
 - `bargain_ceiling_ratio` — how far under a watch's own `price_to` a listing
   must be to count as a "Bargain" (default 0.6, i.e. bottom 60% of the price
   range you already said you'd consider)
-- `discovery_per_day` — how many discovery brands rotate in daily
 - `feed_size` — how many listings the ranked feed keeps
 - `global_exclude` — junk keywords filtered out of every search
 
-Per watch (in `watches` or `discovery_pool`):
+Per watch (in `watches`):
 - `name`, `search_text` — label and what's searched on Vinted
 - `price_to` — price ceiling for the search
 - `rrp` — rough typical retail price (estimates — tune them), used for
@@ -475,17 +465,9 @@ those broad terms mostly return mass-produced £2 Amazon posters on
 Vinted, not the kind of well-made, different pieces this was meant to
 surface.
 
-## Discovery rotation and adding more brands
+## Discovery (removed)
 
-`discovery_per_day` controls how many discovery brands rotate in daily —
-raised to 5 for more variety per visit. The discovery pool itself has grown
-too; edit `discovery_pool` directly in `config.json` any time to add more.
-
-Each discovery-tagged card also has a **"+ Add to my watches"** button. It
-copies that brand's real search settings to your clipboard (no typing, no
-GitHub token stored in the page) — paste the copied line into `watches` in
-`config.json` on GitHub, then delete the matching entry from
-`discovery_pool` so it's not scanned twice.
+The daily discovery-brand rotation, its "discovery" tag and the "+ Add to my watches" button were removed in October 2026 to cut Vinted request volume and keep the feed reliable. To track a new brand, add it to `watches` in `config.json`.
 
 ## Exceptional find alert
 
@@ -503,7 +485,7 @@ missing something genuinely excellent.
 Watches tagged `"category": "electronics"` in `config.json` (Film Cameras,
 Hi-Fi & Turntables, Yeti) never appear in the default feed or any of the
 other filters — they're only visible under the dedicated **"Other"**
-pill. Scoring, discovery rotation, and notifications all work the same way
+pill. Scoring and notifications all work the same way
 for them, they just don't get ranked alongside jackets and jeans. Any new
 non-clothing watch just needs that same `"category": "electronics"` field
 to stay out of the main feed.
@@ -558,6 +540,29 @@ in `localStorage`, per device — the page is static and can't write back to the
 repo, same read-only principle as the main dashboard. The `status` field in
 `sell.json` is only the starting point; a local tap overrides it. Telling
 Claude "sold the Barbour" updates the JSON authoritatively if the two drift.
+
+### Listing description convention: minimal, not over-specified
+
+Descriptions deliberately don't itemize every specific claim ("no rips, no
+stains, no missing buttons") or commit to a shipping timeframe ("posted
+within one working day"). Both are surface area a bad-faith buyer can use
+later - a specific claim is something to allege wasn't true, and a promised
+timeframe is something to allege wasn't met. The template instead states
+only the overall condition tier (the same one Vinted's own condition
+dropdown asks for) and says only "sent tracked", with no date attached.
+Photos carry the specifics; the text doesn't add claims beyond what's
+already visible in them. Keep this pattern for every future item, not just
+the ones added under this note.
+
+Descriptions also don't include a measurements section by default -
+Emile finds measuring every item before listing extra work he doesn't want
+to commit to up front. He'll give measurements to a buyer if they ask, but
+they're not pre-taken or written into the listing text. Only add one if
+he says he's started doing it again, or a specific item's fit is unusual
+enough that skipping it would be misleading rather than just minimal
+(e.g. a garment that runs dramatically small or large for its tagged
+size - flag that in words instead, as already done for the oversized
+Edwin shacket and cropped Nudie jacket).
 
 ### Safety checklists
 
