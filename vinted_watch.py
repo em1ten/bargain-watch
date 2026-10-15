@@ -2,8 +2,7 @@
 """
 Bargain Watch
 -------------
-Scans Vinted for a set of core searches plus a daily rotation of
-"discovery" brands, scores every listing, and writes one ranked feed
+Scans Vinted for a set of core searches, scores every listing, and writes one ranked feed
 for the dashboard (docs/data.json). Notifications go out via ntfy.sh
 for new finds on instant watches, and queue for the daily digest on
 digest watches.
@@ -19,11 +18,6 @@ Scoring (roughly 0-100+, higher = better find):
   + trustworthy seller      (+5)
   + matches your size       (+20)
   + new since last scan     (+5)
-
-Discovery: each day, `discovery_per_day` brands are picked from the
-discovery_pool (rotating by day of year, so the mix changes daily
-without any input) and scanned alongside the core watches. Their
-finds are tagged so the dashboard can show where they came from.
 """
 
 import json
@@ -168,18 +162,6 @@ def new_session(domain, locale="en-GB"):
     except requests.RequestException as e:
         print(f"! session setup failed: {e} - API calls will almost certainly fail")
     return session
-
-
-def pick_discovery(pool, per_day):
-    """Rotate through the pool by day of year, so the selection changes
-    daily and cycles through everything over time."""
-    if not pool or per_day <= 0:
-        return []
-    start = date.today().timetuple().tm_yday % len(pool)
-    picked = []
-    for i in range(min(per_day, len(pool))):
-        picked.append(pool[(start + i) % len(pool)])
-    return picked
 
 
 def suggested_price_to(rrp):
@@ -913,7 +895,6 @@ def main():
         with open(DIGEST_PATH) as f:
             digest_pending = json.load(f)
 
-    discovery_today = pick_discovery(config.get("discovery_pool", []), config.get("discovery_per_day", 3))
     subcategory_defaults = config.get("subcategory_defaults", {})
 
     # Volume reduction, not just pacing: scan #495 showed Vinted's
@@ -936,9 +917,7 @@ def main():
     if skipped_this_slot:
         print(f"Staggering: {skipped_this_slot} digest/off watch(es) deferred to next scan (slot {scan_slot})")
 
-    scan_plan = [(resolve_watch(w, subcategory_defaults), "core") for w in staggered_watches] + [
-        (resolve_watch(w, subcategory_defaults), "discovery") for w in discovery_today
-    ]
+    scan_plan = [(resolve_watch(w, subcategory_defaults), "core") for w in staggered_watches]
 
     session = new_session(domain, config.get("locale", "en-GB"))
     all_cards = []
@@ -1085,7 +1064,7 @@ def main():
             tags="rotating_light",
         )
 
-    # De-dupe (a discovery brand can overlap a core search), rank, trim
+    # De-dupe, rank, trim
     unique = {}
     for c in all_cards:
         existing = unique.get(c["id"])
@@ -1115,8 +1094,7 @@ def main():
             c["score"] -= 20  # same penalty as any other caution flag
             c["caution_flags"].append(f"Seller has {len(seller_cards)} caution listings this scan")
 
-    all_watches = config["watches"] + config.get("discovery_pool", [])
-    watch_caps = {w["name"]: w["max_in_feed"] for w in all_watches if "max_in_feed" in w}
+    watch_caps = {w["name"]: w["max_in_feed"] for w in config["watches"] if "max_in_feed" in w}
     capped_cards = apply_watch_caps(list(unique.values()), watch_caps)
 
     # Clothing and electronics are ranked and trimmed separately - electronics
@@ -1191,7 +1169,6 @@ def main():
 
     dashboard = {
         "generated_at": int(time.time()),
-        "discovery_today": [w["name"] for w in discovery_today],
         "errors": errors,
         "feed": feed,
     }
