@@ -138,7 +138,6 @@
     gap:8px 16px;padding-bottom:12px;border-bottom:1px solid var(--line);
   }
   #count{font-size:15px;font-weight:600;}
-  #discovery-note{font-size:13px;color:var(--muted);}
   .row{
     position:relative;display:flex;align-items:center;gap:16px;
     padding:14px 0;border-bottom:1px solid var(--line);
@@ -239,7 +238,6 @@
     #sort-select{width:auto;max-width:150px;min-width:0;height:44px;border:0;background:transparent;font-weight:600;font-size:14px;padding:0 4px;}
     #count{display:none;}
     .count-line{border-bottom:0;padding-bottom:10px;}
-    #discovery-note{font-size:12px;line-height:1.5;}
     .list{border-top:1px solid var(--line);}
     .g-cat,.g-sort{display:none;}
     #filters{
@@ -337,7 +335,6 @@
 
     <div class="count-line">
       <span id="count"></span>
-      <span id="discovery-note"></span>
     </div>
 
     <div id="loading">Loading latest scan…</div>
@@ -346,7 +343,7 @@
     <div class="list" id="feed"></div>
 
     <footer>
-      Refreshes every 20 minutes and ranks by discount, price, condition and your size. Discovery brands rotate daily.
+      Refreshes every 20 minutes and ranks by discount, price, condition and your size.
       Listings come from Vinted's public search; this isn't affiliated with or endorsed by Vinted.
       Stars are saved in this browser only.
     </footer>
@@ -406,7 +403,7 @@ function el(tag, cls, text){
   return e;
 }
 
-/* ---------- toast + promote (unchanged behaviour) ---------- */
+/* ---------- toast ---------- */
 let toastTimer = null;
 function showToast(message, isError){
   const t = document.getElementById('toast');
@@ -414,18 +411,6 @@ function showToast(message, isError){
   t.className = 'show' + (isError ? ' err' : '');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { t.className = ''; }, 4000);
-}
-
-async function promoteToCore(item, btn){
-  const snippet = { name: item.watch, ...(item.source_config || {}), notify: "digest" };
-  const text = '    ' + JSON.stringify(snippet) + ',';
-  try {
-    await navigator.clipboard.writeText(text);
-    btn.textContent = 'Copied ✓';
-    showToast(`Copied the real config for "${item.watch}" — paste into "watches" in config.json on GitHub, then delete the matching entry from "discovery_pool".`);
-  } catch {
-    showToast('Could not copy automatically — your browser may be blocking clipboard access.', true);
-  }
 }
 
 /* ---------- filtering + sorting (unchanged behaviour) ---------- */
@@ -540,7 +525,6 @@ function buildRow(item){
   }
   const bits = [];
   let label = item.watch || item.brand || '';
-  if (item.source === 'discovery') label += ' · discovery';
   if (item.marketplace === 'shop') label += ' · retail';
   if (label) bits.push(label);
   if (bits.length) meta.appendChild(el('span', null, (item.size ? '· ' : '') + bits.join(' · ')));
@@ -572,12 +556,6 @@ function buildRow(item){
   compare.target = '_blank';
   compare.rel = 'noopener noreferrer';
   actions.appendChild(compare);
-  if (item.source === 'discovery'){
-    const promote = el('button', null, '+ Add to my watches');
-    promote.type = 'button';
-    promote.addEventListener('click', () => promoteToCore(item, promote));
-    actions.appendChild(promote);
-  }
   info.appendChild(actions);
   row.appendChild(info);
 
@@ -801,11 +779,6 @@ async function load(){
     const sameDay = scanDate.toDateString() === new Date().toDateString();
     document.getElementById('stamp').textContent =
       'Scanned ' + (sameDay ? time : scanDate.toLocaleDateString() + ' ' + time);
-
-    if (Array.isArray(data.discovery_today) && data.discovery_today.length){
-      document.getElementById('discovery-note').textContent =
-        `Today's discovery brands: ${data.discovery_today.join(' · ')}`;
-    }
 
     feedData = data.feed || [];
 
