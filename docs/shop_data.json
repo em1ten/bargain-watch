@@ -1,5 +1,5 @@
 {
-  "generated_at": 1792227079,
+  "generated_at": 1792241081,
   "errors": [
     "Common Cultured"
   ],
@@ -1886,17 +1886,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-andsons.co.uk-15257735201155",
-      "title": "Malone Bomber Sweat Green",
+      "id": "shop-andsons.co.uk-15425557037443",
+      "title": "Orta Bermuda Shorts Sky Blue",
       "watch": "AndSons",
       "brand": "&SONS",
-      "size": "XXL",
+      "size": "S, M, L, XL, XXL",
       "condition": "New",
-      "price": "75.00 GBP",
-      "price_amount": 75.0,
+      "price": "55.00 GBP",
+      "price_amount": 55.0,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/SweatMaloneBomberLSMOBILE1.jpg?v=1764166154",
-      "url": "https://andsons.co.uk/products/malone-bomber-sweat-green",
+      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1_Short_Orta_Bermuda_Sky_Blue_LS_MOBILE.jpg?v=1780501278",
+      "url": "https://andsons.co.uk/products/orta-bermuda-shorts-blue",
       "seller": {
         "login": "AndSons",
         "profile_url": "",
@@ -1919,17 +1919,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-andsons.co.uk-15425557037443",
-      "title": "Orta Bermuda Shorts Sky Blue",
+      "id": "shop-andsons.co.uk-15473065066883",
+      "title": "Cedar Knitted Polo Green",
       "watch": "AndSons",
       "brand": "&SONS",
-      "size": "S, M, L, XL, XXL",
+      "size": "S, M, L, XXL",
       "condition": "New",
-      "price": "55.00 GBP",
-      "price_amount": 55.0,
+      "price": "70.00 GBP",
+      "price_amount": 70.0,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1_Short_Orta_Bermuda_Sky_Blue_LS_MOBILE.jpg?v=1780501278",
-      "url": "https://andsons.co.uk/products/orta-bermuda-shorts-blue",
+      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1PoloCedarKnittedGreenLSMOBILE.jpg?v=1770372117",
+      "url": "https://andsons.co.uk/products/cedar-knitted-polo-green",
       "seller": {
         "login": "AndSons",
         "profile_url": "",
