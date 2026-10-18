@@ -1,5 +1,5 @@
 {
-  "generated_at": 1792331362,
+  "generated_at": 1792343278,
   "errors": [
     "Common Cultured"
   ],
@@ -1226,17 +1226,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-universalworks.com-7406967914692",
-      "title": "Indigo 11oz Denim Bakers Chore Jacket",
+      "id": "shop-universalworks.com-14979277029752",
+      "title": "Blue Woolcot Bio Loose Cardigan II",
       "watch": "Universal Works",
       "brand": "Universal Works",
-      "size": "XS",
+      "size": "L",
       "condition": "New",
-      "price": "95.00 GBP",
-      "price_amount": 95.0,
+      "price": "79.00 GBP",
+      "price_amount": 79.0,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/00106-misato-denim-indigo.jpg?v=1690195648",
-      "url": "https://universalworks.com/products/universal-works-bakers-jacket-in-indigo-11oz-denim",
+      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/34471_woolcot-bio-blue_1_f06915b4-1e46-4e7d-a902-0e501b58d5af.jpg?v=1779808917",
+      "url": "https://universalworks.com/products/blue-woolcot-bio-loose-cardigan-ii",
       "seller": {
         "login": "Universal Works",
         "profile_url": "",
@@ -1259,17 +1259,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-universalworks.com-14979277029752",
-      "title": "Blue Woolcot Bio Loose Cardigan II",
+      "id": "shop-universalworks.com-14895803892088",
+      "title": "Navy Oscar Cotton Zip Shirt",
       "watch": "Universal Works",
       "brand": "Universal Works",
       "size": "L",
       "condition": "New",
-      "price": "79.00 GBP",
-      "price_amount": 79.0,
+      "price": "89.00 GBP",
+      "price_amount": 89.0,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/34471_woolcot-bio-blue_1_f06915b4-1e46-4e7d-a902-0e501b58d5af.jpg?v=1779808917",
-      "url": "https://universalworks.com/products/blue-woolcot-bio-loose-cardigan-ii",
+      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/33751_oscar-cotton-navy_1_e2e85eec-8311-4edd-95f3-3c8b09132bd5_1.jpg?v=1755246197",
+      "url": "https://universalworks.com/products/universal-works-zip-shirt-in-navy-oscar-cotton",
       "seller": {
         "login": "Universal Works",
         "profile_url": "",
