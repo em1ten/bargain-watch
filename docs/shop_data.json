@@ -1,5 +1,5 @@
 {
-  "generated_at": 1792367856,
+  "generated_at": 1792379571,
   "errors": [
     "Common Cultured"
   ],
@@ -1358,39 +1358,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-blacksmith-store.com-15278012236159",
-      "title": "Service Works - Martini Zipper Hoodie - Black",
-      "watch": "Blacksmith Store",
-      "brand": "Service Works SALE",
-      "size": "M",
-      "condition": "New",
-      "price": "44.00 GBP",
-      "price_amount": 44.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1242/5594/files/SW130-ZipperHoodie-Martini-Black-1.jpg?v=1757340884",
-      "url": "https://blacksmith-store.com/products/martini-zipper-hoodie-black",
-      "seller": {
-        "login": "Blacksmith Store",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 51,
-      "score": 51,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-51%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-blacksmith-store.com-15107937763711",
       "title": "Blacksmith - Rindy Widge Jacket - Beige",
       "watch": "Blacksmith Store",
@@ -1930,6 +1897,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/1242/5594/files/Multipocket-Navy-1.jpg?v=1758876616",
       "url": "https://blacksmith-store.com/products/blacksmith-multi-pocket-shell-jacket-navy-grey",
+      "seller": {
+        "login": "Blacksmith Store",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 50,
+      "score": 50,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-50%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-blacksmith-store.com-15227523531135",
+      "title": "Blacksmith - Type-1 Jacket - Light Wash",
+      "watch": "Blacksmith Store",
+      "brand": "Blacksmith Store",
+      "size": "Small, Medium",
+      "condition": "New",
+      "price": "34.00 GBP",
+      "price_amount": 34.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/1242/5594/files/Type-1-LightWash-1.jpg?v=1754567357",
+      "url": "https://blacksmith-store.com/products/blacksmith-type-1-jacket-light-wash",
       "seller": {
         "login": "Blacksmith Store",
         "profile_url": "",
