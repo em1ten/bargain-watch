@@ -1,5 +1,5 @@
 {
-  "generated_at": 1792732950,
+  "generated_at": 1792750642,
   "errors": [
     "Common Cultured"
   ],
@@ -42,7 +42,7 @@
       "title": "Puma Indoor R-Suede Trainers Dark Olive / Prairie Tan",
       "watch": "Yards Store",
       "brand": "Puma",
-      "size": "UK 8 / Dark Olive / Prairie Tan, UK 9 / Dark Olive / Prairie Tan",
+      "size": "UK 8 / Dark Olive / Prairie Tan",
       "condition": "New",
       "price": "25.00 GBP",
       "price_amount": 25.0,
@@ -1523,17 +1523,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-jeanstore.co.uk-15475759251837",
-      "title": "Levi's\u00ae Barstow Western Standard Corduroy Shirt - Jet Black",
+      "id": "shop-jeanstore.co.uk-15514831978877",
+      "title": "Carhartt WIP Michigan Coat Winter - Dark Navy / Black Rigid",
       "watch": "Jeanstore",
-      "brand": "Levi's\u00ae",
-      "size": "S",
+      "brand": "Carhartt WIP",
+      "size": "L",
       "condition": "New",
-      "price": "34.50 GBP",
-      "price_amount": 34.5,
+      "price": "87.50 GBP",
+      "price_amount": 87.5,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/MT_85744-0115_LSE_CM_DA.png?v=1766010187",
-      "url": "https://jeanstore.co.uk/products/levis\u00ae-barstow-western-standard-corduroy-shirt-jet-black",
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I015261_0DI_01-ST-01.jpg?v=1757428283",
+      "url": "https://jeanstore.co.uk/products/carhartt-wip-michigan-coat-winter-dark-navy-black-rigid",
       "seller": {
         "login": "Jeanstore",
         "profile_url": "",
@@ -1556,17 +1556,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-jeanstore.co.uk-15514831978877",
-      "title": "Carhartt WIP Michigan Coat Winter - Dark Navy / Black Rigid",
+      "id": "shop-jeanstore.co.uk-15552367722877",
+      "title": "Stan Ray CPO Shirt - Woodland DPM Ripstop",
       "watch": "Jeanstore",
-      "brand": "Carhartt WIP",
+      "brand": "Stan Ray",
       "size": "L",
       "condition": "New",
-      "price": "87.50 GBP",
-      "price_amount": 87.5,
+      "price": "59.50 GBP",
+      "price_amount": 59.5,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/I015261_0DI_01-ST-01.jpg?v=1757428283",
-      "url": "https://jeanstore.co.uk/products/carhartt-wip-michigan-coat-winter-dark-navy-black-rigid",
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/CPOSHIRT_WOODLANDCMPRIPSTOP-1_1.jpg?v=1759158090",
+      "url": "https://jeanstore.co.uk/products/stan-ray-cpo-shirt-woodland-dpm-ripstop",
       "seller": {
         "login": "Jeanstore",
         "profile_url": "",
