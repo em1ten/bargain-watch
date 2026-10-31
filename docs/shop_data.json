@@ -1,5 +1,5 @@
 {
-  "generated_at": 1793393719,
+  "generated_at": 1793406297,
   "errors": [
     "Common Cultured"
   ],
@@ -1292,39 +1292,6 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-universalworks.com-14979265495416",
-      "title": "Yellow British Wax Cotton Boston Parka",
-      "watch": "Universal Works",
-      "brand": "Universal Works",
-      "size": "M",
-      "condition": "New",
-      "price": "169.00 GBP",
-      "price_amount": 169.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/34204_british-wax-cotton-yellow_1_e4f3cb76-a9ad-4f09-9fd4-977297d4001c.jpg?v=1769764703",
-      "url": "https://universalworks.com/products/yellow-british-wax-cotton-boston-parka",
-      "seller": {
-        "login": "Universal Works",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 60,
-      "score": 60,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-60%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop"
-    },
-    {
       "id": "shop-universalworks.com-14979277029752",
       "title": "Blue Woolcot Bio Loose Cardigan II",
       "watch": "Universal Works",
@@ -1369,6 +1336,39 @@
       "estimated_total": null,
       "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/33751_oscar-cotton-navy_1_e2e85eec-8311-4edd-95f3-3c8b09132bd5_1.jpg?v=1755246197",
       "url": "https://universalworks.com/products/universal-works-zip-shirt-in-navy-oscar-cotton",
+      "seller": {
+        "login": "Universal Works",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 60,
+      "score": 60,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-60%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop"
+    },
+    {
+      "id": "shop-universalworks.com-14895804449144",
+      "title": "Sand Single Jersey Neckerchief",
+      "watch": "Universal Works",
+      "brand": "Universal Works",
+      "size": "One Size",
+      "condition": "New",
+      "price": "12.00 GBP",
+      "price_amount": 12.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/1831/8429/files/33198_single-jersey-sand_1.jpg?v=1754494511",
+      "url": "https://universalworks.com/products/universal-works-jersey-neckerchief-in-sand-single-jersey-1",
       "seller": {
         "login": "Universal Works",
         "profile_url": "",
