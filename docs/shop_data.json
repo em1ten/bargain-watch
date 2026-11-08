@@ -1,5 +1,5 @@
 {
-  "generated_at": 1794155598,
+  "generated_at": 1794170886,
   "errors": [
     "Common Cultured"
   ],
@@ -1523,17 +1523,17 @@
       "marketplace": "shop"
     },
     {
-      "id": "shop-jeanstore.co.uk-15507828474237",
-      "title": "Stan Ray A Pant Loose Straight Work Chino - Black",
+      "id": "shop-jeanstore.co.uk-15560452899197",
+      "title": "Elmer Cuddly Cub Gloves - Turquoise",
       "watch": "Jeanstore",
-      "brand": "Stan Ray",
-      "size": "W36",
+      "brand": "Elmer Gloves",
+      "size": "S",
       "condition": "New",
-      "price": "47.50 GBP",
-      "price_amount": 47.5,
+      "price": "32.50 GBP",
+      "price_amount": 32.5,
       "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/APANT_BLACK-1_60c207e4-96e9-4d1d-8477-9c3bf462c526.jpg?v=1757958628",
-      "url": "https://jeanstore.co.uk/products/stan-ray-a-pant-loose-straight-work-chino-black",
+      "photo": "https://cdn.shopify.com/s/files/1/2577/9994/files/ElmerGloves_EM355-TURQ.jpg?v=1762263962",
+      "url": "https://jeanstore.co.uk/products/elmer-cuddly-cub-gloves-turquoise",
       "seller": {
         "login": "Jeanstore",
         "profile_url": "",
