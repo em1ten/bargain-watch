@@ -11,7 +11,7 @@
   "relevance_fallback_min": 6,
   "notifications": {
     "_comment": "Clothing watches can push; everything else only goes in the morning digest (set a watch's notify to push / digest / off to change that). A push needs score >= push_min_score; at most one push per scan and max_pushes_per_day a day; nothing in quiet_hours (UK time). Held-back finds go in the digest.",
-    "push_min_score": 90,
+    "push_min_score": 95,
     "max_pushes_per_day": 5,
     "quiet_hours": [22, 7],
     "digest_hour": 8,

@@ -901,7 +901,7 @@ DASHBOARD_URL = "https://em1ten.github.io/bargain-watch/"
 
 
 NOTIFY_DEFAULTS = {
-    "push_min_score": 90,        # roughly: BNWT, found in the last few hours, well under your cap
+    "push_min_score": 95,        # BNWT, just found, at most half your cap (60% if in your size)
     "max_pushes_per_day": 5,     # after this, finds wait for the digest
     "quiet_hours": [22, 7],      # UK time; finds in this window wait for the digest
     "digest_hour": 8,            # first scan after this (UK time) sends the digest

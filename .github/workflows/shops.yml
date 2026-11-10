@@ -1,7 +1,7 @@
 name: Shop scan
 
 # Retailer markdowns change slowly, so this runs every 3 hours on its own
-# instead of riding along with the 20-minute Vinted scan.
+# instead of riding along with the hourly Vinted scan.
 on:
   schedule:
     - cron: "17 */3 * * *"

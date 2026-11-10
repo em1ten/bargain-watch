@@ -1,13 +1,12 @@
 name: Vinted scan
 
-# GitHub's scheduler is best-effort and, for this repo, fired the old
-# "*/20" schedule only about 4 times a day. Odd minutes (away from the
-# busy top of the hour) help a bit; for a reliable every-20-minutes scan,
-# trigger this workflow from an external cron service - see "Reliable
-# scan timing" in the README.
+# The main trigger is an external cron service starting this workflow once
+# an hour - see "Reliable scan timing" in the README. GitHub's own
+# scheduler is best-effort (it fired the old "*/20" schedule only about 4
+# times a day), so this schedule is just a backup in case that stops.
 on:
   schedule:
-    - cron: "7,27,47 * * * *"
+    - cron: "37 */3 * * *"
   workflow_dispatch: {}
 
 permissions:

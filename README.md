@@ -9,9 +9,9 @@ Built to start with Vinted, with room to add other marketplaces later.
 
 ## How it works
 
-- `vinted_watch.py` runs from GitHub Actions (aim: every 20 minutes - see
-  **Reliable scan timing** below, because GitHub's own scheduler doesn't
-  manage that), runs every watch in `config.json`, scores every listing and
+- `vinted_watch.py` runs from GitHub Actions once an hour (started by an
+  external cron - see **Reliable scan timing** below, because GitHub's own
+  scheduler doesn't manage that), runs every watch in `config.json`, scores every listing and
   writes one ranked feed to `docs/data.json`
 - `shop_watch.py` runs every 3 hours on its own workflow and writes
   `docs/shop_data.json` (genuine markdowns at Shopify retailers)
@@ -88,8 +88,8 @@ checks (an implausibly low price vs RRP is excluded) and to suggest a
 `price_to` when a watch doesn't set one.
 
 "Freshness" is when *this scan* first saw the listing - Vinted's search no
-longer says when something was listed. With the scan running every 20
-minutes and newest-first searching, that's within 20 minutes of it going up.
+longer says when something was listed. With the scan running every hour
+and newest-first searching, that's within an hour of it going up.
 
 Every clothing watch keeps at least one slot, and no watch gets more than
 `max_in_feed_default` (8) unless it sets its own `max_in_feed`. Electronics
@@ -342,9 +342,9 @@ Then it runs itself.
 ## Reliable scan timing
 
 GitHub's scheduler is best-effort, and for this repo the "every 20
-minutes" schedule ran about 4 times a day. The workflow's schedule is still
-there (at odd minutes, which helps a little), but to actually get a scan
-every 20 minutes, have a free external cron service start it:
+minutes" schedule ran about 4 times a day. So the scan is started once an
+hour by a free external cron service, and the workflow's own schedule is
+only a backup (every 3 hours) in case that stops:
 
 1. **Make a token.** GitHub → Settings → Developer settings → Personal
    access tokens → Fine-grained tokens → Generate. Repository access: only
@@ -352,7 +352,7 @@ every 20 minutes, have a free external cron service start it:
    Set an expiry you're happy with and copy the token.
 2. **Create the job** at cron-job.org (free account):
    - URL: `https://api.github.com/repos/em1ten/bargain-watch/actions/workflows/scan.yml/dispatches`
-   - Schedule: every 20 minutes
+   - Schedule: every hour, at minute 7 (away from the busy top of the hour)
    - Advanced → Request method: `POST`
    - Headers: `Accept: application/vnd.github+json`,
      `Authorization: Bearer <your token>`,
@@ -421,8 +421,8 @@ Per watch (in `watches`):
 - Uses Vinted's public search endpoint (the same one their website calls),
   not an official API — it could change without warning, needing a small
   script fix. Normal for tools like this.
-- Every 20 minutes at best (see **Reliable scan timing**), not real-time,
-  to avoid hammering Vinted.
+- Hourly (see **Reliable scan timing**), not real-time, to avoid
+  hammering Vinted.
 - Domain set to `www.vinted.co.uk` — change in `config.json` for other
   countries.
 - For personal use finding items, not reselling automation.
@@ -481,7 +481,7 @@ alongside Technology/Games/Music/Football.
 ### How the shop scan works (rebuilt October 2026)
 
 - **Its own workflow.** `.github/workflows/shops.yml` runs every 3 hours
-  (shop prices rarely change); the 20-minute Vinted workflow no longer
+  (shop prices rarely change); the hourly Vinted workflow no longer
   runs it. Both use a concurrency group and `git pull --rebase` before
   pushing, and the shop workflow commits only `docs/shop_data.json` and
   `shop_seen_ids.json`.
@@ -569,8 +569,10 @@ step 4). Settings are under `notifications` in `config.json`.
 
 - **Pushes** (only from watches whose `notify` is `push` - every clothing
   watch by default): a new or price-dropped item scoring at least
-  `push_min_score` (90 - in practice a BNWT item found in the last few hours,
-  well under your cap). Everything worth a push in one scan goes out as
+  `push_min_score` (95 - in practice a BNWT item found that scan at no more
+  than half your cap, or up to 60% of it when it's listed in one of your
+  sizes; nothing else can reach it unless its price has just dropped).
+  Everything worth a push in one scan goes out as
   **one** notification, with buttons to open up to three of the listings.
   At most `max_pushes_per_day` (5) a day, and none during `quiet_hours`
   (22:00-07:00 UK); anything held back goes into the digest instead.
