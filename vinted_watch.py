@@ -42,7 +42,6 @@ CONFIG_PATH = ROOT / "config.json"
 DOCS_DIR = ROOT / "docs"
 DATA_PATH = DOCS_DIR / "data.json"
 SEEN_PATH = ROOT / "seen_ids.json"
-DIGEST_PATH = ROOT / "digest_pending.json"
 
 # A small set of realistic, current browser identities rather than one
 # static string used on every single request forever - a real browser
@@ -114,6 +113,14 @@ def load_json_set(path):
     return set()
 
 
+# Notification state (today's push count, the digest queue, when the digest
+# last went out). Kept inside seen_ids.json rather than a file of its own,
+# because seen_ids.json is committed by every version of the workflow - a
+# separate state file that didn't get committed is exactly why the old
+# digest never worked.
+NOTIFY_STATE = {}
+
+
 def today_index(now=None):
     return int((now or time.time()) // 86400)
 
@@ -139,6 +146,8 @@ def load_price_history(path):
     with open(path) as f:
         data = json.load(f)
     if isinstance(data, dict) and data.get("version") == 2:
+        NOTIFY_STATE.clear()
+        NOTIFY_STATE.update(data.get("notify") or {})
         return data.get("items", {})
     old_day = today_index() - 27
     if isinstance(data, list):
@@ -153,8 +162,9 @@ def save_price_history(path, history):
     kept = {k: v for k, v in history.items() if v[2] is not None and v[2] >= cutoff}
     pruned = len(history) - len(kept)
     lines = [json.dumps(k) + ":" + json.dumps(kept[k], separators=(",", ":")) for k in sorted(kept)]
+    notify = json.dumps(NOTIFY_STATE, sort_keys=True, separators=(",", ":"))
     with open(path, "w") as f:
-        f.write('{"version":2,"items":{\n' + ",\n".join(lines) + "\n}}\n")
+        f.write('{"version":2,"notify":' + notify + ',"items":{\n' + ",\n".join(lines) + "\n}}\n")
     if pruned:
         print(f"Forgot {pruned} item(s) not seen for {HISTORY_KEEP_DAYS}+ days")
 
@@ -890,9 +900,69 @@ def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now
 DASHBOARD_URL = "https://em1ten.github.io/bargain-watch/"
 
 
+NOTIFY_DEFAULTS = {
+    "push_min_score": 90,        # roughly: BNWT, found in the last few hours, well under your cap
+    "max_pushes_per_day": 5,     # after this, finds wait for the digest
+    "quiet_hours": [22, 7],      # UK time; finds in this window wait for the digest
+    "digest_hour": 8,            # first scan after this (UK time) sends the digest
+    "digest_min_score": 70,
+    "digest_per_section": {"Clothing": 10, "other": 3},
+}
+PRIORITY = {"min": 1, "low": 2, "default": 3, "high": 4, "urgent": 5}
+SECTION_NAMES = {"baby": "Baby", "games": "Games & music", "music": "Games & music",
+                 "football": "Football", "tech": "Tech", "caution": "Caution"}
+
+
+def notify_settings(config):
+    settings = json.loads(json.dumps(NOTIFY_DEFAULTS))
+    for key, value in (config.get("notifications") or {}).items():
+        if key.startswith("_"):
+            continue
+        if isinstance(value, dict) and isinstance(settings.get(key), dict):
+            settings[key].update(value)
+        else:
+            settings[key] = value
+    return settings
+
+
+def notify_mode_for(watch):
+    """push = can notify straight away; digest = only in the morning
+    digest; off = never. Clothing defaults to push, everything else
+    (baby, games, music, football, tech, caution) to digest - a £4 baby
+    vest or a CD is worth knowing about, not worth a buzz. The old name
+    "instant" still works and means push."""
+    mode = watch.get("notify")
+    if mode == "instant":
+        return "push"
+    if mode in ("push", "digest", "off"):
+        return mode
+    return "push" if watch.get("category", "clothing") != "electronics" else "digest"
+
+
+def section_of(card):
+    if card.get("category", "clothing") != "electronics":
+        return "Clothing"
+    return SECTION_NAMES.get(card.get("subcategory"), "Other")
+
+
+def uk_now():
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.fromtimestamp(time.time(), ZoneInfo("Europe/London"))
+    except Exception:
+        return datetime.utcfromtimestamp(time.time())
+
+
+def in_quiet_hours(hour, quiet):
+    if not quiet or len(quiet) != 2 or quiet[0] == quiet[1]:
+        return False
+    start, end = quiet
+    return start <= hour < end if start < end else (hour >= start or hour < end)
+
+
 def format_line(c):
     tags = []
-    if c.get("price_dropped"):
+    if c.get("price_dropped") and c.get("previous_price") is not None:
         tags.append(f"was £{c['previous_price']:.2f}")
     if c.get("condition_badge"):
         tags.append(c["condition_badge"])
@@ -903,75 +973,95 @@ def format_line(c):
     return f"{price} {c['title']}{tag_str} - {c['watch']}"
 
 
-def notify_ntfy(topic, title, cards, priority="default", tags="shirt"):
-    if not topic or not cards:
-        return
-    cards = sorted(cards, key=lambda c: c.get("score", 0), reverse=True)
-    lines = [format_line(c) for c in cards[:6]]
-    message = "\n".join(lines)
-    if len(cards) > 6:
-        message += f"\n…and {len(cards) - 6} more on the dashboard"
-    # Tapping the notification opens the listing itself when there's one,
-    # otherwise the dashboard.
-    click = cards[0].get("url") if len(cards) == 1 else DASHBOARD_URL
+def notify_ntfy(topic, title, message, click=None, priority="default", tags=("shirt",), actions=None):
+    """Publishes as JSON (handles £ and emoji cleanly, and allows buttons)."""
+    if not topic:
+        return False
+    payload = {
+        "topic": topic,
+        "title": title,
+        "message": message,
+        "priority": PRIORITY.get(priority, 3),
+        "tags": list(tags),
+    }
+    if click:
+        payload["click"] = click
+    if actions:
+        payload["actions"] = actions[:3]
     try:
-        requests.post(
-            f"https://ntfy.sh/{topic}",
-            data=message.encode("utf-8"),
-            headers={
-                "Title": title.encode("utf-8"),
-                "Priority": priority,
-                "Tags": tags,
-                "Click": click,
-            },
-            timeout=15,
-        )
+        r = requests.post("https://ntfy.sh/", json=payload, timeout=15)
+        return getattr(r, "status_code", 200) < 400
     except requests.RequestException as e:
         print(f"  ! ntfy push failed: {e}")
+        return False
 
 
-def load_digest(path):
-    """{"last_sent": "YYYY-MM-DD", "items": {id: compact card}}. The old
-    format was {watch: [cards]} - migrated, though in practice it was never
-    committed by the workflow, so the queue was always empty."""
-    if not path.exists():
-        return {"last_sent": None, "items": {}}
-    with open(path) as f:
-        data = json.load(f)
-    if isinstance(data, dict) and "items" in data and isinstance(data["items"], dict):
-        return data
-    items = {}
-    for cards in (data or {}).values():
-        for c in cards if isinstance(cards, list) else []:
-            items[str(c.get("id"))] = c
-    return {"last_sent": None, "items": items}
+def push_finds(topic, cards):
+    """One notification for everything worth a buzz in this scan."""
+    cards = sorted(cards, key=lambda c: c.get("score", 0), reverse=True)
+    top = cards[0]
+    if len(cards) == 1:
+        title = f"Find: {top['title'][:60]}"
+    else:
+        title = f"{len(cards)} finds on Vinted"
+    lines = [format_line(c) for c in cards[:6]]
+    if len(cards) > 6:
+        lines.append(f"…and {len(cards) - 6} more on the dashboard")
+    actions = []
+    for c in cards[:3]:
+        price = f"£{c['price_amount']:.0f}" if c.get("price_amount") is not None else ""
+        label = f"{price} {c['watch']}".strip().replace(",", " ").replace(";", " ")[:24]
+        actions.append({"action": "view", "label": label, "url": c["url"]})
+    click = top["url"] if len(cards) == 1 else DASHBOARD_URL
+    return notify_ntfy(topic, title, "\n".join(lines), click=click, priority="high",
+                       tags=("shirt", "sparkles"), actions=actions)
 
 
 def compact(c):
     keep = ("id", "title", "watch", "price", "price_amount", "condition_badge", "size",
-            "score", "url", "price_dropped", "previous_price")
+            "score", "url", "price_dropped", "previous_price", "category", "subcategory")
     return {k: c.get(k) for k in keep}
 
 
-def maybe_send_digest(topic, digest, digest_hour):
-    """The digest used to be a separate 08:00 workflow, but GitHub's
-    scheduler is unreliable and the scan never committed the queue file,
-    so it never sent anything. Now the first scan after digest_hour (UK
-    time) each day sends it."""
-    try:
-        from zoneinfo import ZoneInfo
-        now_uk = datetime.fromtimestamp(time.time(), ZoneInfo("Europe/London"))
-    except Exception:
-        now_uk = datetime.utcfromtimestamp(time.time())
+def queue_for_digest(cards):
+    queue = NOTIFY_STATE.setdefault("queue", {})
+    for c in cards:
+        old = queue.get(str(c["id"]))
+        if old is None or c.get("score", 0) >= old.get("score", 0):
+            queue[str(c["id"])] = compact(c)
+    if len(queue) > 150:  # keep the state small
+        best = sorted(queue.values(), key=lambda c: c.get("score", 0), reverse=True)[:150]
+        NOTIFY_STATE["queue"] = {str(c["id"]): c for c in best}
+
+
+def maybe_send_digest(topic, settings):
+    """The first scan after digest_hour (UK time) each day sends the best of
+    what was queued, grouped by section, then clears the queue."""
+    now_uk = uk_now()
     today = now_uk.date().isoformat()
-    if now_uk.hour < digest_hour or digest.get("last_sent") == today:
+    if now_uk.hour < settings["digest_hour"] or NOTIFY_STATE.get("digest_sent") == today:
         return
-    cards = list(digest["items"].values())
-    if cards:
-        print(f"Sending daily digest: {len(cards)} item(s)")
-        notify_ntfy(topic, f"Vinted digest: {len(cards)} worth a look", cards, tags="shirt,calendar")
-    digest["items"] = {}
-    digest["last_sent"] = today
+    queue = list((NOTIFY_STATE.get("queue") or {}).values())
+    per_section = settings["digest_per_section"]
+    sections = {}
+    for c in sorted(queue, key=lambda c: c.get("score", 0), reverse=True):
+        name = section_of(c)
+        limit = per_section.get(name, per_section.get("other", 3))
+        bucket = sections.setdefault(name, [])
+        if len(bucket) < limit:
+            bucket.append(c)
+    picked = sum(len(v) for v in sections.values())
+    if picked:
+        order = ["Clothing"] + sorted(k for k in sections if k != "Clothing")
+        parts = []
+        for name in order:
+            if sections.get(name):
+                parts.append(name + "\n" + "\n".join(format_line(c) for c in sections[name]))
+        print(f"Sending daily digest: {picked} of {len(queue)} queued item(s)")
+        notify_ntfy(topic, f"Vinted digest: {picked} worth a look", "\n\n".join(parts),
+                    click=DASHBOARD_URL, tags=("shirt", "calendar"))
+    NOTIFY_STATE["queue"] = {}
+    NOTIFY_STATE["digest_sent"] = today
 
 
 def apply_watch_caps(cards, watch_caps):
@@ -1029,10 +1119,7 @@ def main():
     api_paths = config.get("api_paths") or API_PATH_CANDIDATES
     search_order = config.get("search_order")  # set to force one order for every watch
     scoring = merged_scoring(config)
-    notify_min = config.get("notify_min_score", 55)
-    digest_min = config.get("digest_min_score", 45)
-    great_find = config.get("great_find_score", 85)
-    digest_hour = config.get("digest_hour", 8)
+    notify_cfg = notify_settings(config)
     default_cap = config.get("max_in_feed_default", 8)
     fallback_min = config.get("relevance_fallback_min", 6)
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
@@ -1040,7 +1127,6 @@ def main():
     now = int(time.time())
     today = today_index(now)
     price_history = load_price_history(SEEN_PATH)
-    digest = load_digest(DIGEST_PATH)
     previous_feed = load_previous_feed()
     subcategory_defaults = config.get("subcategory_defaults", {})
 
@@ -1056,7 +1142,8 @@ def main():
     consecutive_404s = 0
     newest_failures = 0
     newest_disabled = False
-    great_finds = []
+    push_candidates = []
+    digest_candidates = []
     aborted = False
     order_stats = Counter()
 
@@ -1070,7 +1157,7 @@ def main():
         # lets a specific watch opt back in to a global term.
         ignore = set(watch.get("exclude_ignore", []))
         exclude_terms = [t for t in global_exclude if t not in ignore] + watch.get("exclude", [])
-        notify_mode = watch.get("notify", "instant")
+        notify_mode = notify_mode_for(watch)
         print(f"Checking: {name}")
 
         # Newest first, so each scan sees what was just listed rather than
@@ -1197,39 +1284,41 @@ def main():
         if watch.get("require_brand_match", True) and raw_total and rejections.get("brand tag mismatch", 0) == raw_total:
             print(f"  ! every one of {raw_total} results failed brand matching - check [shape] above")
 
-        # Notifications: only what's genuinely worth a look. Every new item
-        # on an "instant" watch used to ping, worn ones included.
-        if notify_cards:
-            if notify_mode == "instant":
-                worthy = [c for c in notify_cards if c["score"] >= notify_min]
-                if worthy:
-                    priority = "high" if any(c["score"] >= great_find for c in worthy) else "default"
-                    n_new = sum(1 for c in worthy if c["first_seen"] == now)
-                    n_drop = len(worthy) - n_new
-                    bits = ([f"{n_new} new"] if n_new else []) + ([f"{n_drop} price drop{'s' if n_drop > 1 else ''}"] if n_drop else [])
-                    print(f"  pushing {', '.join(bits)}")
-                    notify_ntfy(ntfy_topic, f"{name}: {', '.join(bits)}", worthy, priority=priority)
-            elif notify_mode == "digest":
-                for c in notify_cards:
-                    if c["score"] >= great_find:
-                        great_finds.append(c)
-                    elif c["score"] >= digest_min:
-                        digest["items"][str(c["id"])] = compact(c)
+        # Sort this watch's new / price-dropped items into "worth a buzz now"
+        # and "worth a line in the morning digest". Sending happens once,
+        # after every watch has run.
+        for c in notify_cards:
+            if notify_mode == "push" and c["score"] >= notify_cfg["push_min_score"]:
+                push_candidates.append(c)
+            elif notify_mode != "off" and c["score"] >= notify_cfg["digest_min_score"]:
+                digest_candidates.append(c)
 
         time.sleep(2)
 
     if order_stats:
         print("Search order: " + ", ".join(f"{k}: {v}" for k, v in order_stats.items()))
-    if great_finds:
-        print(f"{len(great_finds)} great find(s) (score >= {great_find}) this scan")
-        notify_ntfy(ntfy_topic, f"Great find{'s' if len(great_finds) > 1 else ''} on Vinted", great_finds,
-                    priority="urgent", tags="rotating_light")
-
-    # Keep the digest to the best 40 so one noisy watch can't bury it.
-    if len(digest["items"]) > 40:
-        best = sorted(digest["items"].values(), key=lambda c: c.get("score", 0), reverse=True)[:40]
-        digest["items"] = {str(c["id"]): c for c in best}
-    maybe_send_digest(ntfy_topic, digest, digest_hour)
+    # At most one push per scan, at most max_pushes_per_day a day, and none
+    # in quiet hours. Anything held back goes into the digest instead.
+    today_uk = uk_now().date().isoformat()
+    if NOTIFY_STATE.get("push_day") != today_uk:
+        NOTIFY_STATE["push_day"] = today_uk
+        NOTIFY_STATE["pushes"] = 0
+    if push_candidates:
+        if not ntfy_topic:
+            print(f"{len(push_candidates)} find(s) worth a push, but NTFY_TOPIC isn't set")
+        elif in_quiet_hours(uk_now().hour, notify_cfg["quiet_hours"]):
+            print(f"{len(push_candidates)} find(s) held for the digest (quiet hours)")
+            digest_candidates.extend(push_candidates)
+        elif NOTIFY_STATE.get("pushes", 0) >= notify_cfg["max_pushes_per_day"]:
+            print(f"{len(push_candidates)} find(s) held for the digest (already sent {NOTIFY_STATE['pushes']} pushes today)")
+            digest_candidates.extend(push_candidates)
+        elif push_finds(ntfy_topic, push_candidates):
+            NOTIFY_STATE["pushes"] = NOTIFY_STATE.get("pushes", 0) + 1
+            print(f"Pushed {len(push_candidates)} find(s) (push {NOTIFY_STATE['pushes']} of {notify_cfg['max_pushes_per_day']} today)")
+        else:
+            digest_candidates.extend(push_candidates)
+    queue_for_digest(digest_candidates)
+    maybe_send_digest(ntfy_topic, notify_cfg)
 
     # A watch whose request failed this time keeps its cards from the last
     # scan, rather than vanishing from the dashboard until the next one.
@@ -1311,7 +1400,6 @@ def main():
     DOCS_DIR.mkdir(exist_ok=True)
     save_json(DATA_PATH, dashboard)
     save_price_history(SEEN_PATH, price_history)
-    save_json(DIGEST_PATH, digest)
     print(f"Done. {len(feed)} listings in the feed, {len(price_history)} items in history.")
 
 

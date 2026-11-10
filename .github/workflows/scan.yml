@@ -1,17 +1,27 @@
 name: Vinted scan
 
+# GitHub's scheduler is best-effort and, for this repo, fired the old
+# "*/20" schedule only about 4 times a day. Odd minutes (away from the
+# busy top of the hour) help a bit; for a reliable every-20-minutes scan,
+# trigger this workflow from an external cron service - see "Reliable
+# scan timing" in the README.
 on:
   schedule:
-    # every 20 minutes
-    - cron: "*/20 * * * *"
+    - cron: "7,27,47 * * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
+# Never two scans at once: a late one waits rather than racing the push.
+concurrency:
+  group: vinted-scan
+  cancel-in-progress: false
+
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -27,15 +37,11 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python3 vinted_watch.py
 
-      - name: Run shop scan
-        run: python3 shop_watch.py
-
       - name: Commit updated data
         run: |
           git config user.name "vinted-watch-bot"
           git config user.email "actions@users.noreply.github.com"
           git add docs/data.json seen_ids.json
-          [ -f docs/shop_data.json ] && git add docs/shop_data.json
-          [ -f shop_seen_ids.json ] && git add shop_seen_ids.json
           git diff --staged --quiet || git commit -m "Update listings [skip ci]"
+          git pull --rebase
           git push
