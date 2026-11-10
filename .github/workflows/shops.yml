@@ -1,0 +1,54 @@
+name: Shop scan
+
+# Retailer markdowns change slowly, so this runs every 3 hours on its own
+# instead of riding along with the hourly Vinted scan.
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      list_sale_collections:
+        description: "Only print each shop's sale-like collections (to fill in sale_collections in config.json); no scan, no commit"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# One shop scan at a time; a late one waits rather than racing the push.
+concurrency:
+  group: shop-scan
+  cancel-in-progress: false
+
+jobs:
+  shops:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: List sale collections
+        if: ${{ inputs.list_sale_collections }}
+        run: python3 shop_watch.py --list-sale-collections
+
+      - name: Run shop scan
+        if: ${{ !inputs.list_sale_collections }}
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python3 shop_watch.py
+
+      - name: Commit updated shop data
+        if: ${{ !inputs.list_sale_collections }}
+        run: |
+          git config user.name "vinted-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/shop_data.json shop_seen_ids.json
+          git diff --staged --quiet || git commit -m "Update shop listings [skip ci]"
+          git pull --rebase
+          git push

@@ -76,6 +76,22 @@
   .nav-right{display:flex;align-items:center;gap:16px;white-space:nowrap;}
   .nav-link{white-space:nowrap;}
   .theme-btn{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:13px;font-weight:600;cursor:pointer;}
+  .scan-btn{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
+  .scan-btn[disabled]{opacity:.75;cursor:default;}
+  .scan-btn .spin{width:12px;height:12px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite;display:none;}
+  .scan-btn.busy .spin{display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media (prefers-reduced-motion: reduce){ .scan-btn .spin{animation:none;} }
+  #scan-dialog{border:1px solid var(--border);border-radius:14px;background:var(--bg);color:var(--text);padding:22px;max-width:420px;width:calc(100% - 32px);}
+  #scan-dialog::backdrop{background:var(--scrim);}
+  #scan-dialog h2{margin:0 0 8px;font-size:18px;}
+  #scan-dialog p{margin:0 0 12px;font-size:14px;line-height:1.5;color:var(--muted);}
+  #scan-dialog input{width:100%;height:44px;padding:0 12px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);font:inherit;font-size:15px;margin-bottom:12px;}
+  #scan-dialog .row-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  #scan-dialog .row-btns button{height:40px;padding:0 16px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);}
+  #scan-dialog .row-btns .primary{background:var(--accent);border-color:var(--accent);color:var(--bg);}
+  #scan-dialog a{color:var(--link);font-size:14px;font-weight:600;}
+  #scan-dialog .forget{margin-left:auto;border:0 !important;background:none !important;color:var(--p-warn) !important;padding:0 4px !important;}
   .nav-link{
     display:inline-flex;align-items:center;gap:6px;min-height:44px;
     font-size:15px;font-weight:600;color:var(--link);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;
@@ -217,7 +233,7 @@
     .brand{flex-direction:column;align-items:flex-start;gap:2px;}
     h1{white-space:nowrap;font-size:19px;}
     .nav-right{gap:10px;}
-    .theme-btn{height:32px;padding:0 10px;font-size:12px;}
+    .theme-btn,.scan-btn{height:32px;padding:0 10px;font-size:12px;}
     #stamp{font-size:12px;}
     .tabs{
       display:flex;gap:22px;padding:0 16px;border-bottom:1px solid var(--line);
@@ -285,6 +301,7 @@
       <span id="stamp"></span>
     </div>
     <div class="nav-right">
+    <button class="scan-btn" id="scan-btn" type="button"><span class="spin" aria-hidden="true"></span><span id="scan-label">Scan now</span></button>
     <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch light or dark mode"></button>
     </div>
   </div>
@@ -346,12 +363,26 @@
       Ranked by condition (BNWT first), price under your cap for that search, and how recently it turned up.
       Listings come from Vinted's public search; this isn't affiliated with or endorsed by Vinted.
       Stars are saved in this browser only.
+      <a href="#" id="scan-settings">Scan token settings</a>
     </footer>
   </main>
 
 </div>
 
 <div id="scrim"></div>
+<dialog id="scan-dialog" aria-labelledby="scan-title">
+  <form method="dialog" id="scan-form">
+    <h2 id="scan-title">Scan from here</h2>
+    <p>To start a scan from this page, paste a GitHub token that can run this repo's Actions (fine-grained, <b>bargain-watch</b> only, <b>Actions: Read and write</b>). It's kept in this browser only.</p>
+    <input type="password" id="scan-token" autocomplete="off" spellcheck="false" placeholder="github_pat_…" aria-label="GitHub token">
+    <div class="row-btns">
+      <button type="submit" class="primary" value="save">Save and scan</button>
+      <button type="submit" value="cancel" formnovalidate>Cancel</button>
+      <button type="button" class="forget" id="scan-forget">Forget token</button>
+    </div>
+    <p style="margin:14px 0 0">Or <a id="scan-gh-link" href="#" target="_blank" rel="noopener">run it on GitHub</a> (Run workflow button) without a token.</p>
+  </form>
+</dialog>
 <div id="toast"></div>
 
 <script>
@@ -810,18 +841,135 @@ document.getElementById('close-filters').addEventListener('click', () => setShee
 scrim.addEventListener('click', () => setSheet(false));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSheet(false); });
 
+/* ---------- scan now ---------- */
+// Starts the "Vinted scan" workflow through GitHub's API, using a token
+// saved in this browser (never in the page or the repo), then watches
+// data.json until the new scan lands and reloads the feed.
+const TOKEN_KEY = 'bargain-watch-gh-token';
+const REPO = (() => {
+  const owner = location.hostname.endsWith('.github.io') ? location.hostname.split('.')[0] : 'em1ten';
+  const repo = location.hostname.endsWith('.github.io') ? (location.pathname.split('/').filter(Boolean)[0] || 'bargain-watch') : 'bargain-watch';
+  return owner + '/' + repo;
+})();
+const WORKFLOW_URL = `https://github.com/${REPO}/actions/workflows/scan.yml`;
+let lastGenerated = 0;
+let scanTimer = null;
+
+function getToken(){ try { return localStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; } }
+function setToken(t){ try { t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY); } catch {} }
+
+const scanBtn = document.getElementById('scan-btn');
+const scanLabel = document.getElementById('scan-label');
+const scanDialog = document.getElementById('scan-dialog');
+document.getElementById('scan-gh-link').href = WORKFLOW_URL;
+
+function setScanning(on, label){
+  scanBtn.classList.toggle('busy', on);
+  scanBtn.disabled = on;
+  scanLabel.textContent = label || (on ? 'Scanning…' : 'Scan now');
+}
+
+function openScanDialog(){
+  document.getElementById('scan-token').value = '';
+  document.getElementById('scan-forget').style.display = getToken() ? '' : 'none';
+  if (scanDialog.showModal) scanDialog.showModal();
+  else window.open(WORKFLOW_URL, '_blank', 'noopener');
+}
+
+async function startScan(){
+  const token = getToken();
+  if (!token){ openScanDialog(); return; }
+  setScanning(true, 'Starting…');
+  let res;
+  try {
+    res = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/scan.yml/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/vnd.github+json',
+        'Authorization': 'Bearer ' + token,
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ref: 'main' })
+    });
+  } catch {
+    setScanning(false);
+    showToast('Couldn\'t reach GitHub - check your connection.', true);
+    return;
+  }
+  if (res.status !== 204){
+    setScanning(false);
+    if (res.status === 401 || res.status === 403 || res.status === 404){
+      showToast('GitHub refused the token. It needs Actions: Read and write on this repo.', true);
+      openScanDialog();
+    } else {
+      showToast('GitHub said ' + res.status + ' - try again in a minute.', true);
+    }
+    return;
+  }
+  watchForNewScan(Date.now());
+}
+
+// A scan takes about 5-8 minutes, plus a minute for GitHub Pages to
+// publish it. Poll data.json (with a cache-buster, since Pages caches for
+// up to 10 minutes) and reload when a newer scan shows up.
+function watchForNewScan(startedAt){
+  clearTimeout(scanTimer);
+  const before = lastGenerated;
+  const tick = async () => {
+    const mins = Math.floor((Date.now() - startedAt) / 60000);
+    setScanning(true, mins ? `Scanning… ${mins}m` : 'Scanning…');
+    try {
+      const r = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
+      if (r.ok){
+        const d = await r.json();
+        if (d.generated_at > before && d.generated_at * 1000 >= startedAt - 60000){
+          await load();
+          setScanning(false);
+          showToast('Updated - ' + (d.feed || []).length + ' listings');
+          return;
+        }
+      }
+    } catch {}
+    if (Date.now() - startedAt > 15 * 60000){
+      setScanning(false);
+      showToast('Still not finished after 15 minutes - check the Actions tab on GitHub.', true);
+      return;
+    }
+    scanTimer = setTimeout(tick, 30000);
+  };
+  scanTimer = setTimeout(tick, 60000);
+  setScanning(true, 'Scanning…');
+}
+
+scanBtn.addEventListener('click', startScan);
+document.getElementById('scan-settings').addEventListener('click', (e) => { e.preventDefault(); openScanDialog(); });
+document.getElementById('scan-forget').addEventListener('click', () => {
+  setToken('');
+  scanDialog.close('cancel');
+  showToast('Token removed from this browser.');
+});
+scanDialog.addEventListener('close', () => {
+  if (scanDialog.returnValue !== 'save') return;
+  const t = document.getElementById('scan-token').value.trim();
+  if (!t) return;
+  setToken(t);
+  startScan();
+});
+
 /* ---------- load ---------- */
 async function load(){
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error');
   try {
-    const res = await fetch('data.json', { cache: 'no-store' });
+    const res = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) throw new Error('No data yet — the first scan hasn\'t run.');
     const data = await res.json();
     loadingEl.style.display = 'none';
 
     // Say plainly when the data is old - GitHub's scheduler had been
     // running the scan only ~4 times a day without it being obvious here.
+    lastGenerated = data.generated_at;
     const stamp = document.getElementById('stamp');
     const ageMin = (Date.now() / 1000 - data.generated_at) / 60;
     stamp.textContent = 'Scanned ' + ago(data.generated_at);
@@ -832,7 +980,7 @@ async function load(){
 
     // Same pattern for Shopify retailer results (real markdowns).
     try {
-      const shopRes = await fetch('shop_data.json', { cache: 'no-store' });
+      const shopRes = await fetch('shop_data.json?t=' + Date.now(), { cache: 'no-store' });
       if (shopRes.ok){
         const shopData = await shopRes.json();
         feedData = feedData.concat(shopData.feed || []);
