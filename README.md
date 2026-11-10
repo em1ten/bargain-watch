@@ -9,57 +9,92 @@ Built to start with Vinted, with room to add other marketplaces later.
 
 ## How it works
 
-- `vinted_watch.py` runs every 20 minutes (GitHub Actions), scans your core
-  searches, scores every listing,
-  and writes one ranked feed to `docs/data.json`
-- `docs/index.html` (served via GitHub Pages) shows that feed with tap-only
-  filter pills: All / My size / Just listed / Bargains / Starred / Games &
-  Music / Football / Caution / Shops / Brands, plus a Sort row (Best match /
-  Newest / Price) and, when the feed has sized items, a Size row underneath
-  the main pills for narrowing to one exact size (e.g. just W34, not W36)
-- Tapping **Brands** opens a panel of every brand currently in the feed —
-  tapping one filters to just that brand. No text entry anywhere, so
-  searching doesn't need a search box
-- New finds push to your phone via ntfy.sh — instantly for priority brands,
-  bundled into one daily digest for the rest (`digest_send.py`)
+- `vinted_watch.py` runs from GitHub Actions (aim: every 20 minutes - see
+  **Reliable scan timing** below, because GitHub's own scheduler doesn't
+  manage that), runs every watch in `config.json`, scores every listing and
+  writes one ranked feed to `docs/data.json`
+- `shop_watch.py` runs every 3 hours on its own workflow and writes
+  `docs/shop_data.json` (genuine markdowns at Shopify retailers)
+- `docs/index.html` (GitHub Pages) shows both, with category tabs, Show
+  filters (BNWT / New today / Bargains / Starred / My size / Off-menu),
+  sort, brand and size pickers. The category, Show filters and sort you pick
+  are remembered in that browser, so ticking BNWT once sticks
+- New finds push to your phone via ntfy.sh: straight away for `instant`
+  watches, and in one daily digest (first scan after 08:00 UK time) for
+  `digest` ones - only items that score well enough, not every listing
+
+## November 2026 review: why the feed wasn't working
+
+- **The scan barely ran.** The workflow said every 20 minutes, but GitHub's
+  scheduler only started it about 4 times a day (808 runs, all successful,
+  4-5 a day). Good BNWT pieces usually sell within hours, so they'd gone
+  before the feed saw them. The dashboard now says how old the scan is (in
+  red once it's over 90 minutes), and the README explains how to trigger it
+  reliably from outside.
+- **Half the watches were missing at any time.** To cut requests, each scan
+  ran only half of the digest watches, alternating - but the dashboard only
+  shows the latest scan, so the other half vanished (51 of 100 watches were
+  absent on 10 Nov). Every scan now runs every watch, and a watch whose
+  request fails keeps its cards from the previous scan.
+- **It kept seeing the same 40 listings.** Searches used Vinted's
+  "relevance" order, so brand-new listings often never showed up. Brand
+  watches now ask for the newest listings first and only add the relevance
+  page when the newest one is mostly other brands (Vinted's text search is
+  loose). Generic searches (vinyl, "side adjuster trousers") stay on
+  relevance.
+- **The score couldn't tell items apart.** Discount was measured against a
+  guessed brand RRP, which made almost everything look 55-60% off: 121 of 150
+  clothing cards scored 80-99, and a worn £16 hoodie ranked with BNWT
+  finds. The score is now led by condition (BNWT first), price under your
+  own cap for that search, and how recently it turned up. See **The ranking**.
+- **Digests had never been sent.** The scan never committed the digest
+  queue file, so the separate digest job found nothing and failed every
+  morning. The digest is now sent by the scan itself.
+- **Notifications were noisy where they did fire.** Every new item on an
+  instant watch pinged (worn ones included), and the urgent "exceptional"
+  alert fired at a score most items reached. Now only items above a score
+  threshold notify.
+- **Brand check was too loose one way.** A listing tagged "Drake" (rapper
+  merch) matched Drake's, because a tag that was *part of* the brand name
+  counted. Now the tag has to contain the brand; spellings go in
+  `brand_match`.
+- `seen_ids.json` had grown to 180k ids / 4MB. It now records when each item
+  was first seen (for freshness) and forgets items not seen for 30 days.
+- The Sell List page, `sell.json` and `price_check.py` were removed.
 
 ## The ranking
 
-Every listing gets a score. Higher = better find, feed is sorted best-first:
+Every listing gets a score; the feed is sorted best-first. Weights are in
+`config.json` under `scoring`, so they can be tuned without touching code.
 
 | Signal | Points |
 |---|---|
-| Discount vs typical retail price (`rrp`) | up to 60 |
-| At/under the flat bargain price (default £20) | +15 |
-| Condition (new with tags → good) | +30 → +3 |
-| Matches your size | +20 |
-| New since the last scan | +5 |
-| Price drop since last scan | +15 |
-| Caution-tier brand, no flags raised | +10 |
-| Caution-tier brand, per flag raised | −20 each |
+| Condition: new with tags / new without tags / very good / good | +45 / +32 / +10 / 0 |
+| Price vs **your cap for that search** (`price_to`): anywhere from 15% to 50% of the cap | +30 |
+| ...tapering to nothing at the cap (e.g. 75% of the cap) | +15 |
+| ...under 15% of the cap (almost always a different, cheaper product, or a fake) | 0 |
+| First seen in the last 6h / 24h / 3 days / 7 days | +20 / +14 / +8 / +3 |
+| Still there after 14 days (usually overpriced) | -10 |
+| Price dropped since last seen | +10 |
+| Size stated and it's yours (size-less things like bags get 0) | +6 |
+| Caution-tier brand, per flag raised | -20 each |
 
-There's no seller-reputation bonus — Vinted's bulk search API doesn't return
-feedback count or reputation on the seller object, only
-`business/id/login/photo/profile_url`, so it genuinely can't be scored from
-data available in a single request. An earlier version of this scoring had a
-dead +5 bonus checking fields that were never actually present; removed
-rather than left silently doing nothing.
+So a BNWT item found this morning at 70% of your cap scores about 83; the
+same item a fortnight later scores about 53; a "very good" one at half your
+cap found today scores about 66.
 
-The caution penalty is the more important row: a flagged listing (new
-seller, or suspiciously high unsold interest) doesn't just miss the clean
-bonus, it's actively marked down enough that discount and condition alone
-can't carry it to the top. Before this fix, an item with a steep "discount"
-and "New with tags" condition — exactly the profile of a fake — could still
-outrank everything else even while flagged, because the flag only withheld
-a bonus rather than costing anything.
+`rrp` is no longer part of the score. It's still used for the caution-tier
+checks (an implausibly low price vs RRP is excluded) and to suggest a
+`price_to` when a watch doesn't set one.
 
-Separately: every electronics subcategory (Games & Music, Football,
-Caution) is now trimmed to its own `feed_size` budget rather than one
-shared pool. They never compete with each other on the dashboard — each
-tab only ever shows its own subcategory — but the feed used to rank and
-trim all of electronics together, so Caution's 11 brand searches could
-silently crowd Games and Football (2 searches each) out of the feed
-entirely, even when the scan found genuine matches for them.
+"Freshness" is when *this scan* first saw the listing - Vinted's search no
+longer says when something was listed. With the scan running every 20
+minutes and newest-first searching, that's within 20 minutes of it going up.
+
+Every clothing watch keeps at least one slot, and no watch gets more than
+`max_in_feed_default` (8) unless it sets its own `max_in_feed`. Electronics
+subcategories (Games & Music, Sports, Baby, Tech, Caution) are each ranked
+separately, so a busy one can't crowd out a quiet one.
 
 ## Scan #495: rate-limited into an empty feed
 
@@ -289,6 +324,32 @@ which listings you've starred, and that never leaves the browser.
 
 Then it runs itself.
 
+## Reliable scan timing
+
+GitHub's scheduler is best-effort, and for this repo the "every 20
+minutes" schedule ran about 4 times a day. The workflow's schedule is still
+there (at odd minutes, which helps a little), but to actually get a scan
+every 20 minutes, have a free external cron service start it:
+
+1. **Make a token.** GitHub → Settings → Developer settings → Personal
+   access tokens → Fine-grained tokens → Generate. Repository access: only
+   `bargain-watch`. Permissions: **Actions: Read and write** (nothing else).
+   Set an expiry you're happy with and copy the token.
+2. **Create the job** at cron-job.org (free account):
+   - URL: `https://api.github.com/repos/em1ten/bargain-watch/actions/workflows/scan.yml/dispatches`
+   - Schedule: every 20 minutes
+   - Advanced → Request method: `POST`
+   - Headers: `Accept: application/vnd.github+json`,
+     `Authorization: Bearer <your token>`,
+     `X-GitHub-Api-Version: 2022-11-28`
+   - Request body: `{"ref":"main"}`
+3. Save and use "Test run": it should return 204, and a new "Vinted scan"
+   run appears in the Actions tab.
+
+The workflow has a concurrency group, so if a scan is still running when the
+next trigger arrives, the new one waits instead of overlapping. Optionally
+do the same for `shops.yml` every 3 hours.
+
 ## Adding a new watch without picking a price_to by hand
 
 Every existing watch's `price_to` was set manually, brand by brand. Looking
@@ -309,36 +370,57 @@ watch and it takes over completely.
 ## config.json reference
 
 Top-level:
-- `my_sizes` — your sizes per category (`denim` / `tops` / `footwear`);
-  powers the size flag and score bonus
+- `my_sizes` — your sizes per category (`denim` / `tops` / `smart` /
+  `footwear` / `baby`); listings in other sizes are dropped
 - `bargain_max_price` — flat "always a bargain" price cutoff
 - `bargain_ceiling_ratio` — how far under a watch's own `price_to` a listing
   must be to count as a "Bargain" (default 0.6, i.e. bottom 60% of the price
   range you already said you'd consider)
 - `feed_size` — how many listings the ranked feed keeps
+- `max_in_feed_default` — most listings any one watch can have in the feed
+  (8); a watch's own `max_in_feed` overrides it
+- `scoring` — score weights (see **The ranking**)
+- `notify_min_score` — an `instant` watch only pushes new items scoring at
+  least this (55: roughly any fresh BNWT or unworn item, or a worn one well
+  under your cap)
+- `digest_min_score` — a `digest` watch queues new items scoring at least
+  this for the daily digest (45)
+- `great_find_score` — anything new scoring at least this pushes straight
+  away as "Great find", whatever its watch's `notify` setting (85: roughly a
+  fresh BNWT item at three quarters of your cap or less)
+- `digest_hour` — UK hour after which the first scan sends the digest (8)
+- `relevance_fallback_min` — if the newest-first page gives fewer than this
+  many usable items for a brand watch, the relevance page is fetched too (6)
 - `global_exclude` — junk keywords filtered out of every search
 
 Per watch (in `watches`):
 - `name`, `search_text` — label and what's searched on Vinted
 - `price_to` — price ceiling for the search
-- `rrp` — rough typical retail price (estimates — tune them), used for
-  discount scoring
-- `size_category` — which of `my_sizes` applies (`denim`/`tops`/`footwear`)
+- `rrp` — rough typical retail price; only used for the caution-tier checks
+  and to suggest a `price_to` when none is set
+- `brand_match` — the brand tag(s) a listing must carry (defaults to the
+  watch name); add other spellings here
+- `size_category` — which of `my_sizes` applies (`denim`/`tops`/`smart`/`footwear`/`baby`; `smart` covers collar sizes, waists and L/M for brands that do shirts, trousers and jackets).
+  A listing that states a size outside that list is dropped, so keep the list generous
+- `exclude_size` — size labels to drop (baby watches drop newborn up to 6 months)
 - `exclude` — extra junk keywords for just this watch
-- `notify` (core watches only) — `instant`, `digest`, or `off`
+- `notify` — `instant`, `digest`, or `off`
+- `order` — force `newest_first` or `relevance` for this watch
 
 ## Notes and limits
 
 - Uses Vinted's public search endpoint (the same one their website calls),
   not an official API — it could change without warning, needing a small
   script fix. Normal for tools like this.
-- Every 20 minutes rather than truly real-time, to stay in GitHub's free
-  tier and avoid hammering Vinted.
+- Every 20 minutes at best (see **Reliable scan timing**), not real-time,
+  to avoid hammering Vinted.
 - Domain set to `www.vinted.co.uk` — change in `config.json` for other
   countries.
 - For personal use finding items, not reselling automation.
 
 ## eBay (Technology / Games / Music)
+
+**Not currently running:** the scan workflow doesn't call `ebay_watch.py`, so nothing below happens until a step for it is added back to `.github/workflows/scan.yml`.
 
 `ebay_watch.py` is a separate, optional add-on — a different marketplace,
 different API, different auth, kept fully decoupled from the Vinted scan
@@ -378,16 +460,70 @@ signal in the whole project: Shopify tells you the actual "was" price
 straight from the retailer, no guessing needed.
 
 **The catch:** only works for shops that happen to run on Shopify. Not
-every retailer does. Currently configured for Universal Works and Yards
-Store (both confirmed Shopify) — add more to `shop_watches` in
+every retailer does. Currently configured for ten shops (see `shop_watches`) — add more to `shop_watches` in
 `config.json` if you find other shops you like that are also on Shopify
 (`{domain}/products.json` returning real product data is the quick way to
 check).
 
 No secrets or setup needed for this one — Shopify's product feed is
-public. It'll just start working once `shop_watch.py` is uploaded and the
-scan runs. Cards are tagged "· retail" and appear under the "Shops" pill,
+public. Cards are tagged "· retail" and appear under the "Shops" pill,
 alongside Technology/Games/Music/Football.
+
+### How the shop scan works (rebuilt October 2026)
+
+- **Its own workflow.** `.github/workflows/shops.yml` runs every 3 hours
+  (shop prices rarely change); the 20-minute Vinted workflow no longer
+  runs it. Both use a concurrency group and `git pull --rebase` before
+  pushing, and the shop workflow commits only `docs/shop_data.json` and
+  `shop_seen_ids.json`.
+- **Whole catalogue.** It pages through every product (250 a page, up to
+  60 pages) instead of the first 1,250. A failed page keeps what was
+  already fetched and logs it to `errors`; hitting the page cap logs
+  "catalogue truncated".
+- **Price history.** `shop_seen_ids.json` is now version 2: every in-scope
+  product (on sale or not) is recorded each scan, storing change points
+  only (`prices: [[scan, price], ...]`, plus `low` / `high` /
+  `first_seen`). Written one item per line with sorted keys, so unchanged
+  items make no git diff. The old `{id: price}` file is migrated
+  automatically on the first run. **If you ever roll back, restore
+  `shop_seen_ids.json` from before that run too.**
+- **Scoring** leans on verified signals: new all-time low (+45), dropped
+  since last scan (+20), below its own typical price (x0.4, max 50),
+  how many scans it has been watched (x0.25, max 40), the retailer's
+  discount (capped at 60, x0.35), new (+3), off-menu (+10). Cards also
+  carry `at_low`, `was_price_seen`, `observations` and `typical_price`.
+  "Lowest seen" on a card means it is at or below every price recorded
+  since the tracker started watching it.
+- **Your size.** Each available on-sale variant title is split on `" / "`
+  and compared (case-insensitively) with everything in `my_sizes`; any
+  match gives the tick.
+- **Feed mix.** Colour variants of the same product (`Name - Navy`,
+  `Name - Olive`) take one slot; at most `shop_max_per_brand` (2) per brand
+  within a shop (single-brand shops like Universal Works are exempt);
+  at most `shop_max_per_shop` (20) per shop; `shop_feed_size` (60) overall.
+
+### Off-menu finds
+
+Shopify keeps "buyable" separate from "listed in collections", so shops
+pull old-season leftovers out of their menus and Sale pages but leave them
+live and orderable. Those are the least-competed deals. A marked-down item
+is flagged **Off-menu** (badge on the card, and an "Off-menu" filter) when:
+
+- it isn't in any of the shop's `sale_collections` (list the handles
+  behind the site's Sale menu), or
+- it carries one of the shop's `off_menu_tags` (Universal Works:
+  `ARCHIVE`).
+
+A sale collection with fewer than 5 products is ignored (Universal Works'
+`/collections/sale` returned 0), so tags are used instead. To find the
+right handles for a shop, run the **Shop scan** workflow manually with
+"list_sale_collections" ticked and read the log, or run
+`python shop_watch.py --list-sale-collections` locally. Until a shop has
+`sale_collections` or `off_menu_tags` set, nothing from it is flagged.
+
+If `NTFY_TOPIC` is set, an off-menu item that is in your size and at its
+lowest seen price sends one push (once per item). Archived stock is
+sometimes phantom, so expect the odd cancelled order.
 
 ## Buyer protection fee estimate
 
@@ -411,22 +547,24 @@ on a watch.
 
 ## Price drops
 
-`seen_ids.json` now tracks each listing's last-known price, not just
-whether it's been seen. If a seller drops the price on something already
-in the feed, it gets a red "↓ was £X" badge, a scoring bonus, and is
-treated as notify-worthy the same as a brand-new listing — including
-through the exceptional-find alert if the new price pushes its score high
-enough. Trivial rounding changes (under 1% or 50p) don't count as a drop.
+`seen_ids.json` stores, for each listing, its last price, when the scan
+first saw it, and the day it was last seen. A price drop on something
+already seen gets a "was £X" badge, +10, and counts as notify-worthy like a
+new listing. Trivial changes (under 1% or 50p) don't count. Items not seen
+for 30 days are forgotten, so the file stays small.
 
 ## Notifications
 
-Actually need `NTFY_TOPIC` set as a repo secret to receive anything — see
-setup step 4 above. Push messages now include the score, condition badge,
-your-size flag, and (for price drops) the old price and % drop, not just
-brand/price/title. The exceptional-find alert no longer double-fires for
-`instant`-tier watches — it only covers `digest`/`off` watches now, since
-`instant` watches already get pushed immediately through their normal
-per-brand notification.
+Need `NTFY_TOPIC` set as a repo secret (setup step 4). Tapping a push opens
+the listing (or the dashboard when there are several).
+
+- `instant` watches: new or price-dropped items scoring at least
+  `notify_min_score` push straight away (high priority if they also clear
+  `great_find_score`).
+- `digest` watches: anything clearing `great_find_score` pushes straight
+  away as "Great find" (urgent); anything clearing `digest_min_score` waits
+  for the daily digest, which lists the best 40 of the day.
+- `off` watches never notify.
 
 ## Hard condition filter (not just scoring)
 
@@ -469,17 +607,6 @@ surface.
 
 The daily discovery-brand rotation, its "discovery" tag and the "+ Add to my watches" button were removed in October 2026 to cut Vinted request volume and keep the feed reliable. To track a new brand, add it to `watches` in `config.json`.
 
-## Exceptional find alert
-
-Any new listing that scores 90+ (tune via `exceptional_score_threshold`)
-triggers an immediate high-priority push, regardless of that brand's own
-`notify` setting — even a brand set to `digest` or `off` will alert
-instantly for something this good. Runs as an extra check on top of your
-normal per-brand notification settings, so an `instant`-tier brand's
-exceptional find may briefly notify twice (once as its usual push, once as
-the flagged "exceptional" one) — a minor duplicate in exchange for never
-missing something genuinely excellent.
-
 ## "Other" (games, music, homeware, etc.) — tracked separately, not mixed into the main feed
 
 Watches tagged `"category": "electronics"` in `config.json` (Film Cameras,
@@ -489,105 +616,3 @@ pill. Scoring and notifications all work the same way
 for them, they just don't get ranked alongside jackets and jeans. Any new
 non-clothing watch just needs that same `"category": "electronics"` field
 to stay out of the main feed.
-
-## Sell List — the other direction (Sept 2026)
-
-Bargain Watch answers "is this cheap enough to buy?". The Sell List answers
-the mirror question, "what should I ask for mine?", for a wardrobe/tech
-clear-out. It's a separate page on the same site (`docs/sell.html`), reading
-`docs/sell.json`, with a link between the two in the header.
-
-It is deliberately **not** a form to fill in. The bottleneck in any clear-out
-is data entry, and a form doesn't fix that — you'd fill it in eleven times and
-abandon the pile. Instead: photograph a batch, send the photos to Claude in
-chat, and the identification, pricing, listing copy and platform call come
-back written into `sell.json`. The page is then a phone-friendly view of that
-while you're actually packing: copy the title, copy the description, tap the
-status on.
-
-### price_check.py
-
-Prices the items against live Vinted comparables, reusing `vinted_watch.py`'s
-session and search code rather than reimplementing it. Vinted's internal API
-has broken three separate ways in a month (endpoint retired, host moved,
-response fields packed into an accessibility string) — one client means
-fixing that once.
-
-```
-python3 price_check.py "nudie jeans grim tim w32" --size W32 --condition "Very good"
-python3 price_check.py --batch items.json --out priced.json
-```
-
-Two things it does that a raw search doesn't:
-
-- **Trims the top and bottom 10%** of asks, so one chancer asking £450 for a
-  £60 jacket doesn't drag the median up, and a mis-tagged accessory at £3
-  doesn't drag it down.
-- **Narrows to the same size** when there are at least four comparables in it
-  — a W30 and a W38 of the same jeans are not the same market — and says so
-  when it has, falling back to the unfiltered set when it can't.
-
-The caveat it prints on every result matters and is not boilerplate: Vinted
-search returns **active listings, not completed sales**. Active asks skew
-high, because the overpriced ones are exactly the items that didn't sell and
-are still sitting there. The median is a ceiling, not a target, so the
-`suggested` figure applies a haircut (0.85) and then a condition multiplier.
-
-### Status tracking
-
-`to_list → listed → sold → posted`, cycled by tapping the status pill. Saved
-in `localStorage`, per device — the page is static and can't write back to the
-repo, same read-only principle as the main dashboard. The `status` field in
-`sell.json` is only the starting point; a local tap overrides it. Telling
-Claude "sold the Barbour" updates the JSON authoritatively if the two drift.
-
-### Listing description convention: minimal, not over-specified
-
-Descriptions deliberately don't itemize every specific claim ("no rips, no
-stains, no missing buttons") or commit to a shipping timeframe ("posted
-within one working day"). Both are surface area a bad-faith buyer can use
-later - a specific claim is something to allege wasn't true, and a promised
-timeframe is something to allege wasn't met. The template instead states
-only the overall condition tier (the same one Vinted's own condition
-dropdown asks for) and says only "sent tracked", with no date attached.
-Photos carry the specifics; the text doesn't add claims beyond what's
-already visible in them. Keep this pattern for every future item, not just
-the ones added under this note.
-
-Descriptions also don't include a measurements section by default -
-Emile finds measuring every item before listing extra work he doesn't want
-to commit to up front. He'll give measurements to a buyer if they ask, but
-they're not pre-taken or written into the listing text. Only add one if
-he says he's started doing it again, or a specific item's fit is unusual
-enough that skipping it would be misleading rather than just minimal
-(e.g. a garment that runs dramatically small or large for its tagged
-size - flag that in words instead, as already done for the oversized
-Edwin shacket and cropped Nudie jacket).
-
-### Safety checklists
-
-Each item carries a per-platform checklist, because the threats genuinely
-differ by platform and by what you're selling:
-
-- **Vinted** (clothing): the risks are off-platform contact, fake payment
-  confirmations and address-change requests. Payment is only real when it's in
-  your Vinted balance — never an email or a screenshot.
-- **eBay** (electronics): the dominant threat is *return* fraud, not fake
-  payment — the switcheroo (buyer returns their broken unit) and the weighted
-  empty box. Serial/IMEI in the listing description is the single strongest
-  defence, because it makes a swap provable.
-- **Facebook** (bulky/local): cash on collection only; "my courier will
-  collect and pay you" is always a scam.
-- **CEX**: guaranteed sale, zero scam risk, noticeably less money.
-
-Both Vinted and eBay are now effectively free for private sellers (Vinted
-takes £0 from sellers; eBay UK dropped private-seller final value fees in
-October 2024, with 300 free listings a month), so platform choice is about
-what sells there and what the risk profile is — not about fees.
-
-### Tax
-
-Selling your own used possessions isn't trading, so it isn't taxable income
-regardless of value. The 30-items / €2,000 threshold that triggers a scary
-platform message is DAC7 *reporting*, not a tax bill. The £1,000 trading
-allowance only starts to matter for things bought specifically to resell.

@@ -1,0 +1,8 @@
+Delete these from the repo (they're no longer used):
+
+docs/sell.html
+docs/sell.json
+price_check.py
+digest_send.py
+.github/workflows/digest.yml
+scan.yml            (the stray copy in the repo root, not the one in .github/workflows)

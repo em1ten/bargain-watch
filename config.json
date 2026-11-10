@@ -1,5 +1,5 @@
 {
-  "_comment": "Bargain Watch config. All management happens here in the repo (protected by your GitHub login) - the dashboard itself is read-only. 'catalog_ids': '5' (Men) is the default for every search, but any watch can override it with its own 'catalog_ids' to search outside menswear entirely - used for the camera (3054) and hi-fi (3683) watches, which also set 'require_brand_match': false since they're category searches, not single-brand ones. 'my_sizes' powers the your-size flag per category. 'rrp' is a rough typical retail price used for discount scoring - tune as needed.",
+  "_comment": "Bargain Watch config. All management happens here in the repo (protected by your GitHub login) - the dashboard itself is read-only. 'catalog_ids': '5' (Men) is the default for every search, but any watch can override it with its own 'catalog_ids' to search outside menswear entirely - used for the camera (3054) and hi-fi (3683) watches, which also set 'require_brand_match': false since they're category searches, not single-brand ones. 'my_sizes' powers the your-size flag per category. 'rrp' is a rough typical retail price, now only used for the caution-tier price checks and to suggest a price_to when one isn't set - scoring uses each watch's own price_to instead. 'scoring' sets the weights.",
   "domain": "www.vinted.co.uk",
   "currency": "GBP",
   "catalog_ids": "5",
@@ -7,6 +7,23 @@
   "bargain_ceiling_ratio": 0.6,
   "bargain_max_price": 20,
   "feed_size": 150,
+  "max_in_feed_default": 8,
+  "relevance_fallback_min": 6,
+  "notify_min_score": 55,
+  "digest_min_score": 45,
+  "great_find_score": 85,
+  "digest_hour": 8,
+  "scoring": {
+    "_comment": "Score = condition + price under your cap + freshness (+ price drop, + explicit size match, - caution flags). Raise a condition's points to favour it more.",
+    "condition": { "New with tags": 45, "New without tags": 32, "Very good": 10, "Good": 0 },
+    "price_vs_cap_max": 30,
+    "freshness": [[6, 20], [24, 14], [72, 8], [168, 3]],
+    "stale_after_days": 14,
+    "stale_penalty": 10,
+    "price_drop": 10,
+    "explicit_size": 6,
+    "caution_flag_penalty": 20
+  },
 
   "_tech_note": "Adding a tech item is a one-liner: { \"name\": \"...\", \"search_text\": \"...\", \"rrp\": <retail>, \"subcategory\": \"tech\" }. Everything below is inherited automatically, so no protection can be forgotten. price_to is computed from rrp if omitted. Override any field per watch (e.g. tighter allowed_conditions for something you only want sealed); 'exclude' merges with the defaults rather than replacing them.",
   "subcategory_defaults": {
@@ -244,9 +261,9 @@
     { "name": "Wax London",      "search_text": "wax london",      "price_to": 60,  "rrp": 150, "size_category": "tops",     "notify": "digest" },
     { "name": "Oliver Spencer",   "search_text": "oliver spencer",   "price_to": 40, "rrp": 150, "size_category": "smart", "notify": "digest", "require_brand_match": true, "brand_match": ["Oliver Spencer"] },
     { "name": "Charles Tyrwhitt", "search_text": "charles tyrwhitt", "price_to": 20, "rrp": 80,  "size_category": "smart", "notify": "digest", "require_brand_match": true, "brand_match": ["Charles Tyrwhitt"] },
-    { "name": "Drakes",           "search_text": "drakes",           "price_to": 60, "rrp": 200, "size_category": "smart", "notify": "digest", "require_brand_match": true, "brand_match": ["Drake's", "Drakes"] },
-    { "name": "Side adjuster trousers",  "search_text": "side adjuster trousers",  "price_to": 30, "size_category": "denim", "notify": "digest", "require_brand_match": false, "max_in_feed": 6 },
-    { "name": "Trouser adjusters (tailored)", "search_text": "tailored trousers adjusters", "price_to": 30, "size_category": "denim", "notify": "digest", "require_brand_match": false, "max_in_feed": 6 },
+    { "name": "Drakes",           "search_text": "drakes",           "price_to": 60, "rrp": 200, "size_category": "smart", "notify": "digest", "require_brand_match": true, "brand_match": ["Drake's", "Drakes", "Drakes London", "Drake's London"] },
+    { "name": "Side adjuster trousers", "require_title_any": ["adjuster", "adjusters", "side tab", "side tabs"],  "search_text": "side adjuster trousers",  "price_to": 30, "size_category": "denim", "notify": "digest", "require_brand_match": false, "max_in_feed": 6 },
+    { "name": "Trouser adjusters (tailored)", "require_title_any": ["adjuster", "adjusters", "side tab", "side tabs"], "search_text": "tailored trousers adjusters", "price_to": 30, "size_category": "denim", "notify": "digest", "require_brand_match": false, "max_in_feed": 6 },
     { "name": "Bellroy",         "search_text": "bellroy",         "price_to": 30,  "rrp": 80,  "notify": "digest" },
     { "name": "Selvedge denim", "require_title_any": ["selvedge", "selvage"],  "search_text": "selvedge",        "price_to": 60,              "size_category": "denim",    "notify": "digest", "require_brand_match": false },
     { "name": "Uniqlo",          "search_text": "uniqlo",          "price_to": 15,  "rrp": 25,  "size_category": "tops",     "notify": "digest", "max_in_feed": 3 },

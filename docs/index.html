@@ -30,7 +30,7 @@
     --thumb-bg:#E9EAEB;
     --star-bg:rgba(255,255,255,0.92);
     --scrim:rgba(17,19,18,0.45);
-    --p-new-bg:#E8EFFD;--p-new:#1E47A8;--p-deal-bg:#FFF0DD;--p-deal:#B45309;--p-cond-bg:#F1E8FF;--p-cond:#6B2FC4;--p-warn-bg:#FDE8EA;--p-warn:#B4232F;--p-size-bg:#DDF5F8;--p-size:#0B6E7C;--card:#FFFFFF;
+    --p-new-bg:#E8EFFD;--p-new:#1E47A8;--p-deal-bg:#FFF0DD;--p-deal:#B45309;--p-cond-bg:#F1E8FF;--p-cond:#6B2FC4;--p-warn-bg:#FDE8EA;--p-warn:#B4232F;--p-size-bg:#DDF5F8;--p-size:#0B6E7C;--card:#FFFFFF;--p-off-bg:#FCE7F3;--p-off:#A21C75;
   }
   :root[data-theme="dark"]{
     color-scheme:dark;
@@ -51,7 +51,7 @@
       --thumb-bg:#1A1E1C;
       --star-bg:rgba(14,17,16,0.72);
       --scrim:rgba(0,0,0,0.6);
-      --p-new-bg:#16233F;--p-new:#A9C4FF;--p-deal-bg:#3A2410;--p-deal:#FFB867;--p-cond-bg:#2A1B45;--p-cond:#D2B8FF;--p-warn-bg:#3F1A1F;--p-warn:#FF9AA5;--p-size-bg:#0F3338;--p-size:#6FE0EE;--card:#151918;
+      --p-new-bg:#16233F;--p-new:#A9C4FF;--p-deal-bg:#3A2410;--p-deal:#FFB867;--p-cond-bg:#2A1B45;--p-cond:#D2B8FF;--p-warn-bg:#3F1A1F;--p-warn:#FF9AA5;--p-size-bg:#0F3338;--p-size:#6FE0EE;--card:#151918;--p-off-bg:#3A1530;--p-off:#F5A9D8;
   }
   *{box-sizing:border-box;}
   body{
@@ -72,6 +72,7 @@
   .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
   h1{margin:0;font-size:20px;font-weight:700;letter-spacing:-0.015em;line-height:1.2;}
   #stamp{font-size:13px;color:var(--muted);}
+  #stamp.stale{color:var(--p-warn);font-weight:600;}
   .nav-right{display:flex;align-items:center;gap:16px;white-space:nowrap;}
   .nav-link{white-space:nowrap;}
   .theme-btn{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:13px;font-weight:600;cursor:pointer;}
@@ -167,6 +168,8 @@
   .p-deal{background:var(--p-deal-bg);color:var(--p-deal);}
   .p-cond{background:var(--p-cond-bg);color:var(--p-cond);}
   .p-warn{background:var(--p-warn-bg);color:var(--p-warn);}
+  .p-off{background:var(--p-off-bg);color:var(--p-off);}
+  .p-low{background:var(--p-size-bg);color:var(--p-size);}
   .meta .tick{color:var(--p-size);}
   .note{margin-top:3px;font-size:12.5px;color:var(--warn);}
   .actions{margin-top:4px;display:flex;flex-wrap:wrap;gap:0 16px;position:relative;z-index:2;}
@@ -283,9 +286,6 @@
     </div>
     <div class="nav-right">
     <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch light or dark mode"></button>
-    <a class="nav-link" href="sell.html">Sell list
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
     </div>
   </div>
 </header>
@@ -343,7 +343,7 @@
     <div class="list" id="feed"></div>
 
     <footer>
-      Refreshes every 20 minutes and ranks by discount, price, condition and your size.
+      Ranked by condition (BNWT first), price under your cap for that search, and how recently it turned up.
       Listings come from Vinted's public search; this isn't affiliated with or endorsed by Vinted.
       Stars are saved in this browser only.
     </footer>
@@ -366,8 +366,8 @@ const CATS = [
   ['football', 'Sports'], ['baby', 'Baby'], ['shops', 'Shops'], ['caution', 'Caution']
 ];
 const SHOW = [
-  ['is_new', 'Just listed'], ['bnwt', 'BNWT'], ['is_bargain', 'Bargains'],
-  ['starred', 'Starred'], ['my_size', 'My size']
+  ['bnwt', 'BNWT'], ['is_new', 'New today'], ['is_bargain', 'Bargains'],
+  ['starred', 'Starred'], ['my_size', 'My size'], ['off_menu', 'Off-menu']
 ];
 const SORTS = [
   ['rank', 'Best match'], ['newest', 'Newest'],
@@ -392,6 +392,29 @@ const ICON_CHECK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" 
 let activeCategory = 'all';
 let activeAttrs = new Set();
 let sortMode = 'rank';
+
+// Remember the category, Show filters and sort between visits, so ticking
+// BNWT once sticks. Brand and size picks aren't kept (they depend on what
+// the latest scan found).
+const VIEW_KEY = 'bargain-watch-view';
+try {
+  const v = JSON.parse(localStorage.getItem(VIEW_KEY) || 'null');
+  if (v){
+    if (typeof v.cat === 'string') activeCategory = v.cat;
+    if (Array.isArray(v.attrs)) activeAttrs = new Set(v.attrs.filter(a => SHOW.some(([k]) => k === a)));
+    if (typeof v.sort === 'string' && SORTS.some(([k]) => k === v.sort)) sortMode = v.sort;
+  }
+} catch {}
+function saveView(){
+  try { localStorage.setItem(VIEW_KEY, JSON.stringify({ cat: activeCategory, attrs: [...activeAttrs], sort: sortMode })); } catch {}
+}
+
+function ago(ts){
+  const s = Math.max(0, Date.now() / 1000 - ts);
+  if (s < 3600) return Math.max(1, Math.round(s / 60)) + 'm ago';
+  if (s < 86400) return Math.round(s / 3600) + 'h ago';
+  return Math.round(s / 86400) + 'd ago';
+}
 let feedData = [];
 let selectedSizes = new Set();
 let selectedBrand = null;
@@ -421,6 +444,7 @@ function attrMatches(item, attr){
     case 'is_bargain': return item.is_bargain;
     case 'starred':    return starred.has(item.id);
     case 'my_size':    return item.my_size;
+    case 'off_menu':   return !!item.off_menu;
     default:           return true;
   }
 }
@@ -454,10 +478,14 @@ function priceOf(item){
 function sortItems(items){
   const arr = [...items];
   if (sortMode === 'newest'){
+    // first_seen = when the scan first found it (Vinted no longer sends a
+    // listing time); listed_at is used if it ever comes back.
+    const when = i => i.first_seen ?? i.listed_at ?? null;
     arr.sort((a, b) => {
-      if (a.listed_at != null && b.listed_at != null) return b.listed_at - a.listed_at;
-      if (a.listed_at != null) return -1;
-      if (b.listed_at != null) return 1;
+      const wa = when(a), wb = when(b);
+      if (wa != null && wb != null) return wb - wa;
+      if (wa != null) return -1;
+      if (wb != null) return 1;
       return 0;
     });
   } else if (sortMode === 'price-low' || sortMode === 'price-high'){
@@ -527,12 +555,15 @@ function buildRow(item){
   let label = item.watch || item.brand || '';
   if (item.marketplace === 'shop') label += ' · retail';
   if (label) bits.push(label);
-  if (bits.length) meta.appendChild(el('span', null, (item.size ? '· ' : '') + bits.join(' · ')));
+  if (item.first_seen) bits.push('found ' + ago(item.first_seen));
+  if (bits.length) meta.appendChild(el('span', null, (item.size ? ' · ' : '') + bits.join(' · ')));
   info.appendChild(meta);
 
   const tags = el('div', 'tags');
   if (item.condition_badge) tags.appendChild(el('span', 'pill p-cond', item.condition_badge));
-  if (item.is_new) tags.appendChild(el('span', 'pill p-new', 'Just listed'));
+  if (item.off_menu) tags.appendChild(el('span', 'pill p-off', 'Off-menu'));
+  if (item.at_low) tags.appendChild(el('span', 'pill p-low', 'Lowest seen'));
+  if (item.is_new) tags.appendChild(el('span', 'pill p-new', 'New today'));
   const deal = dealText(item.bargain_reason);
   if (deal) tags.appendChild(el('span', 'pill p-deal', deal));
   (item.caution_flags || []).forEach(flag => tags.appendChild(el('span', 'pill p-warn', '\u26a0 ' + flag)));
@@ -686,13 +717,25 @@ function syncControls(){
 }
 
 function update(){
+  saveView();
   syncControls();
   renderFeed();
 }
 
+function inCategory(item){
+  const saved = [activeAttrs, selectedBrand, selectedSizes];
+  activeAttrs = new Set(); selectedBrand = null; selectedSizes = new Set();
+  const ok = cardMatches(item);
+  [activeAttrs, selectedBrand, selectedSizes] = saved;
+  return ok;
+}
+
+// Brand list and size chips only offer what's in the current category
+// (baby sizes were showing up under Clothing).
 function populateDynamicControls(){
+  const pool = feedData.filter(inCategory);
   const brandSel = document.getElementById('brand-select');
-  const brands = [...new Set(feedData.map(i => i.watch).filter(Boolean))].sort();
+  const brands = [...new Set(pool.map(i => i.watch).filter(Boolean))].sort();
   brandSel.innerHTML = '';
   const all = document.createElement('option');
   all.value = '';
@@ -706,7 +749,9 @@ function populateDynamicControls(){
   });
 
   const chipsEl = document.getElementById('size-chips');
-  const sizes = [...new Set(feedData.map(i => i.size_term_matched).filter(Boolean))].sort();
+  const sizes = [...new Set(pool.map(i => i.size_term_matched).filter(Boolean))].sort();
+  for (const s of [...selectedSizes]) if (!sizes.includes(s)) selectedSizes.delete(s);
+  if (selectedBrand && !brands.includes(selectedBrand)) selectedBrand = null;
   chipsEl.innerHTML = '';
   sizes.forEach(term => {
     const c = el('button', 'chip', term);
@@ -719,7 +764,7 @@ function populateDynamicControls(){
 
 document.addEventListener('click', (e) => {
   const cat = e.target.closest('[data-cat]');
-  if (cat){ activeCategory = cat.dataset.cat; update(); return; }
+  if (cat){ activeCategory = cat.dataset.cat; populateDynamicControls(); update(); return; }
   const chip = e.target.closest('#size-chips .chip');
   if (chip){
     const term = chip.dataset.size;
@@ -747,6 +792,7 @@ document.getElementById('clear-filters').addEventListener('click', () => {
   activeAttrs.clear();
   selectedBrand = null;
   selectedSizes.clear();
+  populateDynamicControls();
   update();
 });
 
@@ -774,11 +820,13 @@ async function load(){
     const data = await res.json();
     loadingEl.style.display = 'none';
 
-    const scanDate = new Date(data.generated_at * 1000);
-    const time = scanDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const sameDay = scanDate.toDateString() === new Date().toDateString();
-    document.getElementById('stamp').textContent =
-      'Scanned ' + (sameDay ? time : scanDate.toLocaleDateString() + ' ' + time);
+    // Say plainly when the data is old - GitHub's scheduler had been
+    // running the scan only ~4 times a day without it being obvious here.
+    const stamp = document.getElementById('stamp');
+    const ageMin = (Date.now() / 1000 - data.generated_at) / 60;
+    stamp.textContent = 'Scanned ' + ago(data.generated_at);
+    stamp.title = new Date(data.generated_at * 1000).toLocaleString();
+    stamp.classList.toggle('stale', ageMin > 90);
 
     feedData = data.feed || [];
 

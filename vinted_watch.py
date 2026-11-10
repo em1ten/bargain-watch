@@ -11,13 +11,18 @@ The dashboard is deliberately read-only: all configuration lives in
 config.json in the repo (protected by your GitHub login), so the page
 itself has no inputs, tokens, or write access to anything.
 
-Scoring (roughly 0-100+, higher = better find):
-  + discount vs RRP        (up to 60)
-  + at/under flat bargain price (+15)
-  + condition               (new with tags +30, new without tags +24, very good +8, good +3)
-  + trustworthy seller      (+5)
-  + matches your size       (+20)
-  + new since last scan     (+5)
+Scoring (roughly 0-100, higher = better find; weights live in
+config.json "scoring" and default to the values below):
+  + condition               (new with tags +45, new without tags +32,
+                             very good +10, good 0)
+  + price vs your own cap   (+30 anywhere from 15-50% of this watch's
+                             price_to, tapering to 0 at the cap; under 15%
+                             gets 0 - usually a different product or fake)
+  + freshness               (first seen <6h +20, <24h +14, <3d +8, <7d +3,
+                             still unsold after 14d -10)
+  + price drop since last seen (+10)
+  + explicitly your size    (+6; size-less items like bags get 0)
+  - caution flags           (-20 each, caution-tier brands only)
 """
 
 import json
@@ -27,7 +32,7 @@ import re
 import time
 import unicodedata
 from collections import Counter
-from datetime import date
+from datetime import datetime
 from pathlib import Path
 
 import requests
@@ -65,12 +70,19 @@ REQUEST_HEADERS = {
     "Accept": "application/json, text/plain, */*",
 }
 
-CONDITION_SCORES = {
-    "New with tags": 30,
-    "New without tags": 12,
-    "Very good": 8,
-    "Good": 3,
+DEFAULT_SCORING = {
+    "condition": {"New with tags": 45, "New without tags": 32, "Very good": 10, "Good": 0},
+    "price_vs_cap_max": 30,
+    # [max hours since first seen, points], checked in order
+    "freshness": [[6, 20], [24, 14], [72, 8], [168, 3]],
+    "stale_after_days": 14,
+    "stale_penalty": 10,
+    "price_drop": 10,
+    "explicit_size": 6,
+    "caution_flag_penalty": 20,
 }
+FRESH_HOURS = 24        # "Just listed" on the dashboard = first seen within this
+HISTORY_KEEP_DAYS = 30  # forget items not seen for this long
 CONDITION_BADGE = {
     "New with tags": "BNWT",
     "New without tags": "UNWORN",
@@ -102,18 +114,49 @@ def load_json_set(path):
     return set()
 
 
+def today_index(now=None):
+    return int((now or time.time()) // 86400)
+
+
 def load_price_history(path):
-    """seen_ids.json used to be a flat list of item IDs. Now it's a dict of
-    {id: last_known_price} so price drops can be detected. Old-format files
-    are migrated on first load - prices are unknown for those, so no drop
-    gets (falsely) reported for anything already tracked pre-upgrade."""
+    """seen_ids.json, version 2: {"version": 2, "items": {id: [price,
+    first_seen_unix_or_null, last_seen_day]}}.
+
+    first_seen is what makes freshness scoring possible - Vinted's new
+    search API doesn't return when an item was listed, so the first time
+    this scan saw it is the best available proxy. last_seen is a day number
+    (not a timestamp) on purpose: it then changes at most once a day per
+    item, which keeps the committed file's git churn small, and it lets
+    items that have disappeared be forgotten after HISTORY_KEEP_DAYS
+    instead of the file growing forever (it had reached 180k ids / 4MB).
+
+    Older formats are migrated: a flat list of ids, or {id: last_price}.
+    Their first-seen time is unknown (null - scored as neither fresh nor
+    stale) and they are given a last_seen 27 days back, so anything no
+    longer turning up is pruned within about 3 days."""
     if not path.exists():
         return {}
     with open(path) as f:
         data = json.load(f)
+    if isinstance(data, dict) and data.get("version") == 2:
+        return data.get("items", {})
+    old_day = today_index() - 27
     if isinstance(data, list):
-        return {str(i): None for i in data}
-    return data
+        return {str(i): [None, None, old_day] for i in data}
+    migrated = {str(k): [v, None, old_day] for k, v in data.items()}
+    print(f"Migrated {len(migrated)} items from the old seen_ids.json format")
+    return migrated
+
+
+def save_price_history(path, history):
+    cutoff = today_index() - HISTORY_KEEP_DAYS
+    kept = {k: v for k, v in history.items() if v[2] is not None and v[2] >= cutoff}
+    pruned = len(history) - len(kept)
+    lines = [json.dumps(k) + ":" + json.dumps(kept[k], separators=(",", ":")) for k in sorted(kept)]
+    with open(path, "w") as f:
+        f.write('{"version":2,"items":{\n' + ",\n".join(lines) + "\n}}\n")
+    if pruned:
+        print(f"Forgot {pruned} item(s) not seen for {HISTORY_KEEP_DAYS}+ days")
 
 
 def save_json(path, obj):
@@ -256,8 +299,10 @@ def _build_search_params(watch, currency, per_page, catalog_ids, new_api, order=
     Wednesday watch, with nearly every card flagged JUST LISTED). The real
     browser request uses relevance, so that's the default here.
 
-    New-listing detection is unaffected: `is_new` comes from seen_ids.json
-    comparing against the previous scan, never from the API's ordering."""
+    main() now asks for newest_first first and falls back to relevance
+    when the newest page is mostly other brands; see the comment there.
+    Freshness comes from seen_ids.json (first time this scan saw an item),
+    never from the API's ordering."""
     ids = watch.get("catalog_ids", catalog_ids)
     effective_order = watch.get("order") or order or ("relevance" if new_api else "newest_first")
     if new_api:
@@ -531,7 +576,11 @@ def brand_matches(item, watch):
         return False
     for candidate in candidates:
         expected = normalize_brand(candidate)
-        if expected and (expected in actual or actual in expected):
+        # Only "the tag contains the brand" ("Nudie Jeans Co" for Nudie
+        # Jeans), never the reverse: the reverse let a "Drake" tag (rapper
+        # merch) match Drake's, and would let a bare "Acne" tag (skincare)
+        # match Acne Studios. Add alternative spellings to brand_match.
+        if expected and expected in actual:
             return True
     return False
 
@@ -640,7 +689,52 @@ def size_matches(size_title, size_terms):
     return None
 
 
-def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previous_price=None, caution_flags=None, bargain_ceiling_ratio=0.6):
+def freshness_points(first_seen, now, scoring):
+    """Points for how recently this scan first saw the item. Good BNWT
+    pieces on Vinted tend to go within hours, so a find from this morning
+    is worth far more than the same item still sitting there a fortnight
+    later (which usually means it's overpriced)."""
+    if first_seen is None:
+        return 0  # migrated from the old history format: age unknown
+    hours = max(0.0, (now - first_seen) / 3600)
+    for max_hours, points in scoring["freshness"]:
+        if hours <= max_hours:
+            return points
+    if hours > scoring["stale_after_days"] * 24:
+        return -scoring["stale_penalty"]
+    return 0
+
+
+def score_card(condition, price_amount, price_to, first_seen, now, price_dropped, my_size, caution_flags, scoring):
+    score = scoring["condition"].get(condition, 0)
+    # Price against YOUR cap for this search, not a guessed brand RRP. The
+    # RRP version gave nearly every listing 55-60 of its 60 possible points
+    # (any cap is well under RRP), so 121 of 150 clothing cards scored
+    # 80-99 and the ranking couldn't tell a BNWT find from a worn tee.
+    # Full points anywhere from 15% to 50% of the cap, tapering to nothing
+    # at the cap. Under 15% gets nothing: at that price it's almost always a
+    # different, cheaper product (a keyring under a jacket brand, rapper
+    # merch under Drake's) or a fake, not a real steal.
+    if price_to and price_amount is not None and price_to > 0:
+        ratio = price_amount / price_to
+        if ratio < 0.15:
+            fraction = 0.0
+        elif ratio <= 0.5:
+            fraction = 1.0
+        else:
+            fraction = max(0.0, (1 - ratio) / 0.5)
+        score += scoring["price_vs_cap_max"] * fraction
+    score += freshness_points(first_seen, now, scoring)
+    if price_dropped:
+        score += scoring["price_drop"]
+    if my_size:
+        score += scoring["explicit_size"]
+    score -= scoring["caution_flag_penalty"] * len(caution_flags or [])
+    return round(score)
+
+
+def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now, previous_price=None, caution_flags=None, bargain_ceiling_ratio=0.6, scoring=None):
+    scoring = scoring or DEFAULT_SCORING
     photo = (item.get("photo") or {}).get("url", "")
     # "price" is the seller's actual asking price. "total_item_price" is
     # already inclusive of Vinted's buyer protection fee - using it here
@@ -695,6 +789,9 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
         listed_at = int(listed_at) if listed_at is not None else None
     except (TypeError, ValueError):
         listed_at = None
+    # If Vinted ever sends a real listing time again, it beats "first seen".
+    if listed_at and (first_seen is None or listed_at < first_seen):
+        first_seen = listed_at
 
     # A genuine price drop since the last scan - not "new", but worth
     # surfacing the same way. Ignore trivial rounding noise (<1% or <£0.50).
@@ -713,38 +810,11 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
     if price_amount is not None:
         estimated_total = round(price_amount * 1.05 + 0.7, 2)
 
-    score = 0
-    if discount_pct is not None and discount_pct > 0:
-        score += min(discount_pct, 60)
-    if max_price is not None and price_amount is not None and price_amount <= max_price:
-        score += 15
-    score += CONDITION_SCORES.get(condition, 0)
-    # NOTE: no seller-reputation scoring bonus - Vinted's bulk search API
-    # doesn't return feedback count or reputation on the seller object
-    # (confirmed via diagnostic: only business/id/login/photo/profile_url
-    # are present), so this can't be computed from data actually available
-    # here without a separate per-item request. Previously there was a
-    # dead +5 bonus that could never fire since it checked fields that
-    # never existed in this response.
-    if my_size:
-        score += 20
-    if is_new:
-        score += 5
-    if price_dropped:
-        score += 15
-    # For authenticity_caution watches (Caution pill): a completely clean
-    # pass gets a bonus, same as before. But a flagged listing used to just
-    # miss that bonus - which meant a high discount + "New with tags"
-    # condition (exactly the profile of a fake: too cheap, suspiciously
-    # mint) could still out-score everything else and land at the top.
-    # Flags now actively subtract, so a caution listing has to be both
-    # clean AND genuinely good to rank near the top - flagged items sink
-    # below the fold rather than merely missing a boost.
-    if watch.get("authenticity_caution"):
-        if caution_flags:
-            score -= 20 * len(caution_flags)
-        else:
-            score += 10
+    score = score_card(
+        condition, price_amount, watch.get("price_to"), first_seen, now,
+        price_dropped, my_size, caution_flags, scoring,
+    )
+    is_new = first_seen is not None and (now - first_seen) <= FRESH_HOURS * 3600
 
     # "Bargain" used to mean "discount vs RRP >= bargain_threshold_pct". But every
     # watch's price_to ceiling was already set well below half of RRP -
@@ -794,6 +864,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
         "score": score,
         "my_size": my_size,
         "is_new": is_new,
+        "first_seen": first_seen,
         "is_bargain": is_bargain,
         "bargain_reason": bargain_reason,
         "bargain_pct": bargain_pct,
@@ -816,27 +887,33 @@ def build_card(item, domain, watch, source, my_sizes, max_price, is_new, previou
     }
 
 
+DASHBOARD_URL = "https://em1ten.github.io/bargain-watch/"
+
+
 def format_line(c):
     tags = []
     if c.get("price_dropped"):
-        tags.append(f"was {c['previous_price']:.2f}, -{c['price_drop_pct']}%")
+        tags.append(f"was £{c['previous_price']:.2f}")
     if c.get("condition_badge"):
         tags.append(c["condition_badge"])
-    if c.get("my_size"):
-        tags.append("your size")
-    if not c.get("price_dropped") and c.get("bargain_reason"):
-        tags.append(c["bargain_reason"])
+    if c.get("size"):
+        tags.append(c["size"])
     tag_str = f" [{', '.join(tags)}]" if tags else ""
-    return f"{c['watch']} — {c['price']}: {c['title']}{tag_str} (score {c['score']})"
+    price = f"£{c['price_amount']:.2f}" if c.get("price_amount") is not None else c.get("price", "")
+    return f"{price} {c['title']}{tag_str} - {c['watch']}"
 
 
 def notify_ntfy(topic, title, cards, priority="default", tags="shirt"):
     if not topic or not cards:
         return
-    lines = [format_line(c) for c in cards[:5]]
+    cards = sorted(cards, key=lambda c: c.get("score", 0), reverse=True)
+    lines = [format_line(c) for c in cards[:6]]
     message = "\n".join(lines)
-    if len(cards) > 5:
-        message += f"\n…and {len(cards) - 5} more"
+    if len(cards) > 6:
+        message += f"\n…and {len(cards) - 6} more on the dashboard"
+    # Tapping the notification opens the listing itself when there's one,
+    # otherwise the dashboard.
+    click = cards[0].get("url") if len(cards) == 1 else DASHBOARD_URL
     try:
         requests.post(
             f"https://ntfy.sh/{topic}",
@@ -845,11 +922,56 @@ def notify_ntfy(topic, title, cards, priority="default", tags="shirt"):
                 "Title": title.encode("utf-8"),
                 "Priority": priority,
                 "Tags": tags,
+                "Click": click,
             },
             timeout=15,
         )
     except requests.RequestException as e:
         print(f"  ! ntfy push failed: {e}")
+
+
+def load_digest(path):
+    """{"last_sent": "YYYY-MM-DD", "items": {id: compact card}}. The old
+    format was {watch: [cards]} - migrated, though in practice it was never
+    committed by the workflow, so the queue was always empty."""
+    if not path.exists():
+        return {"last_sent": None, "items": {}}
+    with open(path) as f:
+        data = json.load(f)
+    if isinstance(data, dict) and "items" in data and isinstance(data["items"], dict):
+        return data
+    items = {}
+    for cards in (data or {}).values():
+        for c in cards if isinstance(cards, list) else []:
+            items[str(c.get("id"))] = c
+    return {"last_sent": None, "items": items}
+
+
+def compact(c):
+    keep = ("id", "title", "watch", "price", "price_amount", "condition_badge", "size",
+            "score", "url", "price_dropped", "previous_price")
+    return {k: c.get(k) for k in keep}
+
+
+def maybe_send_digest(topic, digest, digest_hour):
+    """The digest used to be a separate 08:00 workflow, but GitHub's
+    scheduler is unreliable and the scan never committed the queue file,
+    so it never sent anything. Now the first scan after digest_hour (UK
+    time) each day sends it."""
+    try:
+        from zoneinfo import ZoneInfo
+        now_uk = datetime.fromtimestamp(time.time(), ZoneInfo("Europe/London"))
+    except Exception:
+        now_uk = datetime.utcfromtimestamp(time.time())
+    today = now_uk.date().isoformat()
+    if now_uk.hour < digest_hour or digest.get("last_sent") == today:
+        return
+    cards = list(digest["items"].values())
+    if cards:
+        print(f"Sending daily digest: {len(cards)} item(s)")
+        notify_ntfy(topic, f"Vinted digest: {len(cards)} worth a look", cards, tags="shirt,calendar")
+    digest["items"] = {}
+    digest["last_sent"] = today
 
 
 def apply_watch_caps(cards, watch_caps):
@@ -873,6 +995,26 @@ def apply_watch_caps(cards, watch_caps):
     return result
 
 
+def merged_scoring(config):
+    scoring = json.loads(json.dumps(DEFAULT_SCORING))
+    for key, value in (config.get("scoring") or {}).items():
+        if key.startswith("_"):
+            continue
+        if isinstance(value, dict) and isinstance(scoring.get(key), dict):
+            scoring[key].update(value)
+        else:
+            scoring[key] = value
+    return scoring
+
+
+def load_previous_feed():
+    try:
+        with open(DATA_PATH) as f:
+            return json.load(f).get("feed", [])
+    except (OSError, ValueError):
+        return []
+
+
 def main():
     config = load_config()
     domain = config.get("domain", "www.vinted.co.uk")
@@ -885,184 +1027,218 @@ def main():
     global_exclude = config.get("global_exclude", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
     api_paths = config.get("api_paths") or API_PATH_CANDIDATES
-    search_order = config.get("search_order")  # None -> relevance on the new API, newest_first on the old
-    exceptional_threshold = config.get("exceptional_score_threshold", 90)
+    search_order = config.get("search_order")  # set to force one order for every watch
+    scoring = merged_scoring(config)
+    notify_min = config.get("notify_min_score", 55)
+    digest_min = config.get("digest_min_score", 45)
+    great_find = config.get("great_find_score", 85)
+    digest_hour = config.get("digest_hour", 8)
+    default_cap = config.get("max_in_feed_default", 8)
+    fallback_min = config.get("relevance_fallback_min", 6)
     ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
 
+    now = int(time.time())
+    today = today_index(now)
     price_history = load_price_history(SEEN_PATH)
-    digest_pending = {}
-    if DIGEST_PATH.exists():
-        with open(DIGEST_PATH) as f:
-            digest_pending = json.load(f)
-
+    digest = load_digest(DIGEST_PATH)
+    previous_feed = load_previous_feed()
     subcategory_defaults = config.get("subcategory_defaults", {})
 
-    # Volume reduction, not just pacing: scan #495 showed Vinted's
-    # rate-limiting cascading through an entire run once triggered, ending
-    # in an empty feed. Slower pacing (elsewhere in this file) only helps
-    # if that's speed-triggered; if it's volume-triggered instead, the same
-    # request count spread across a similar window doesn't avoid it. This
-    # cuts the count directly: "instant" watches are time-sensitive and run
-    # every scan, but "digest"/"off" watches are already bundled into a
-    # once-daily push, so checking every 40 minutes instead of 20 costs
-    # almost nothing - staggering them across alternating scans can roughly
-    # halve request volume per run. int(time.time() // 1200) alternates
-    # deterministically every 20-minute scan interval with no state needed
-    # between runs.
-    scan_slot = int(time.time() // 1200) % 2
-    instant_watches = [w for w in config["watches"] if w.get("notify") == "instant"]
-    other_watches = [w for w in config["watches"] if w.get("notify") != "instant"]
-    staggered_watches = instant_watches + [w for i, w in enumerate(other_watches) if i % 2 == scan_slot]
-    skipped_this_slot = len(other_watches) - sum(1 for i in range(len(other_watches)) if i % 2 == scan_slot)
-    if skipped_this_slot:
-        print(f"Staggering: {skipped_this_slot} digest/off watch(es) deferred to next scan (slot {scan_slot})")
-
-    scan_plan = [(resolve_watch(w, subcategory_defaults), "core") for w in staggered_watches]
+    # Every watch, every scan. This used to alternate half of the digest
+    # watches between scans to cut request volume - but the dashboard only
+    # ever showed the latest scan, so at any moment about half of those
+    # watches were simply missing from it (51 of 100 on 10 Nov).
+    scan_plan = [resolve_watch(w, subcategory_defaults) for w in config["watches"]]
 
     session = new_session(domain, config.get("locale", "en-GB"))
     all_cards = []
     errors = []
     consecutive_404s = 0
-    exceptional_finds = []
+    newest_failures = 0
+    newest_disabled = False
+    great_finds = []
+    aborted = False
+    order_stats = Counter()
 
-    for watch, source in scan_plan:
+    for watch in scan_plan:
         name = watch["name"]
         # global_exclude was written with clothing/kids-junk in mind ('case'
         # for phone cases, 'replica' for fake designer items) but those same
         # words are completely ordinary in other categories - 'replica' is
         # the standard term for a genuine retro football shirt, and 'case'
-        # shows up constantly in legitimate game/CD listings ('complete with
-        # case', 'no case'). Applied unconditionally, that was silently
-        # gutting exactly those searches. exclude_ignore lets a specific
-        # watch opt back in to a global term without weakening it everywhere
-        # else (caution watches still want 'replica' excluded, for instance).
+        # shows up constantly in legitimate game/CD listings. exclude_ignore
+        # lets a specific watch opt back in to a global term.
         ignore = set(watch.get("exclude_ignore", []))
         exclude_terms = [t for t in global_exclude if t not in ignore] + watch.get("exclude", [])
         notify_mode = watch.get("notify", "instant")
-        print(f"Checking ({source}): {name}")
-        try:
-            raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids, api_paths=api_paths, order=search_order)
-        except requests.RequestException as e:
-            print(f"  ! request failed: {e}")
+        print(f"Checking: {name}")
+
+        # Newest first, so each scan sees what was just listed rather than
+        # the same 40 "most relevant" items every time. Vinted's text search
+        # is loose, though ("oliver spencer" also matches plain "spencer"),
+        # so the newest page can be mostly other brands that the brand check
+        # then throws away. If fewer than `relevance_fallback_min` survive,
+        # the relevance-ordered page is fetched as well and merged in.
+        # Only brand-checked watches get the newest page: for a generic search
+        # ("side adjuster trousers", vinyl, games) nothing would weed out the
+        # loose matches, so those stay on relevance.
+        forced = watch.get("order") or search_order
+        if forced:
+            orders = [forced]
+        elif newest_disabled or not watch.get("require_brand_match", True):
+            orders = ["relevance"]
+        else:
+            orders = ["newest_first", "relevance"]
+
+        seen_here = set()
+        accepted = 0
+        fetched_ok = False
+        last_error = None
+        rejections = Counter()
+        skipped_count = 0
+        notify_cards = []
+        raw_total = 0
+
+        for idx, order in enumerate(orders):
+            if idx > 0:
+                if accepted >= fallback_min:
+                    order_stats["newest page was enough"] += 1
+                    break
+                order_stats["needed the relevance page too"] += 1
+                time.sleep(2)
+            try:
+                raw_items = run_search(session, domain, watch, currency, per_page, catalog_ids, api_paths=api_paths, order=order)
+            except requests.RequestException as e:
+                print(f"  ! request failed ({order}): {e}")
+                last_error = e
+                if order == "newest_first" and "404" not in str(e):
+                    newest_failures += 1
+                    if newest_failures >= 3:
+                        newest_disabled = True
+                        print("  ! newest_first failed 3 times in a row - using relevance only for the rest of this scan")
+                continue
+            fetched_ok = True
+            if order == "newest_first":
+                newest_failures = 0
+            raw_total += len(raw_items)
+            print(f"  {len(raw_items)} raw results ({order})")
+            report_item_shape(raw_items, watch_name=name, force_if_condition_missing=bool(watch.get("allowed_conditions")))
+            if len(raw_items) >= per_page and order == orders[-1]:
+                print(f"  ! hit the {per_page}-result page cap - there may be more on Vinted than this scan saw")
+
+            for item in raw_items:
+                item_id_str = str(item.get("id"))
+                if item_id_str in seen_here:
+                    continue
+                seen_here.add(item_id_str)
+                try:
+                    if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size"), watch.get("require_title_any")):
+                        rejections["excluded keyword / wrong condition"] += 1
+                        continue
+                    if not brand_matches(item, watch):
+                        rejections["brand tag mismatch"] += 1
+                        continue
+                    passes_auth, caution_flags = authenticity_caution_check(item, watch)
+                    if not passes_auth:
+                        rejections["caution hard-exclude"] += 1
+                        continue
+                    prev = price_history.get(item_id_str)
+                    first_time = prev is None
+                    first_seen = now if first_time else prev[1]
+                    previous_price = None if first_time else prev[0]
+                    card = build_card(
+                        item, domain, watch, "core", my_sizes, max_price, first_seen, now,
+                        previous_price, caution_flags, bargain_ceiling_ratio, scoring,
+                    )
+                except Exception as e:
+                    skipped_count += 1
+                    print(f"  ! skipped one malformed item: {e}")
+                    continue
+
+                price_history[item_id_str] = [card["price_amount"], card["first_seen"], today]
+
+                # Hard size filter, not just a scoring nudge - this is a
+                # personal wardrobe feed, so a listing in a size that isn't
+                # wearable shouldn't appear at all. Only applies when the
+                # watch has a size_category AND the listing states a size.
+                if watch.get("size_category") and card["size"] and not card["my_size"]:
+                    rejections["wrong size"] += 1
+                    continue
+
+                accepted += 1
+                all_cards.append(card)
+                if first_time or card["price_dropped"]:
+                    notify_cards.append(card)
+
+        if not fetched_ok:
             errors.append(name)
-            consecutive_404s = consecutive_404s + 1 if "404" in str(e) else 0
+            consecutive_404s = consecutive_404s + 1 if last_error is not None and "404" in str(last_error) else 0
             if consecutive_404s >= 5:
                 print(
                     "\n! ABORTING: 5 consecutive 404s on every candidate API path.\n"
                     f"  Tried: {', '.join(api_paths)}\n"
-                    "  The session is fine (see the 'Session established' line above) - Vinted has\n"
-                    "  moved or retired the endpoint. To find the current one:\n"
+                    "  Vinted has probably moved or retired the endpoint. To find the current one:\n"
                     "    1. Open vinted.co.uk in a browser and search for anything\n"
                     "    2. F12 -> Network tab -> filter XHR\n"
                     "    3. Find the request that returns the listings JSON, copy its path\n"
-                    "    4. Add it to config.json as: \"api_paths\": [\"/that/path\"]\n"
-                    "  No code change needed - the path is read straight from config."
+                    "    4. Add it to config.json as: \"api_paths\": [\"/that/path\"]"
                 )
+                aborted = True
                 break
+            time.sleep(2)
             continue
         consecutive_404s = 0
-        print(f"  {len(raw_items)} raw results from Vinted before any filtering")
-        report_item_shape(raw_items, watch_name=name, force_if_condition_missing=bool(watch.get("allowed_conditions")))
 
-        notify_cards = []  # new OR price-dropped - both worth alerting on
-        skipped_count = 0
-        rejections = Counter()  # why an item didn't make the feed, for diagnosing "missing" listings
-        for item in raw_items:
-            try:
-                if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size"), watch.get("require_title_any")):
-                    rejections["excluded keyword / wrong condition"] += 1
-                    continue
-                if not brand_matches(item, watch):
-                    rejections["brand tag mismatch"] += 1
-                    continue
-                passes_auth, caution_flags = authenticity_caution_check(item, watch)
-                if not passes_auth:
-                    rejections["caution hard-exclude"] += 1
-                    continue
-                item_id = item.get("id")
-                item_id_str = str(item_id)
-                is_new = item_id_str not in price_history
-                previous_price = price_history.get(item_id_str)
-                card = build_card(
-                    item, domain, watch, source, my_sizes, max_price, is_new, previous_price,
-                    caution_flags, bargain_ceiling_ratio,
-                )
-            except Exception as e:
-                skipped_count += 1
-                print(f"  ! skipped one malformed item: {e}")
-                continue
-
-            # Hard size filter, not just a scoring nudge - this is a personal
-            # wardrobe feed, not a resale tool, so a listing in a size that
-            # isn't wearable shouldn't appear at all. Only applies when the
-            # watch has a size_category AND the listing actually states a
-            # size - blank/one-size items (accessories, caps) still pass
-            # through, since fit doesn't apply to them.
-            if watch.get("size_category") and card["size"] and not card["my_size"]:
-                rejections["wrong size"] += 1
-                price_history[item_id_str] = card["price_amount"]
-                continue
-
-            all_cards.append(card)
-            price_history[item_id_str] = card["price_amount"]
-
-            if is_new or card["price_dropped"]:
-                notify_cards.append(card)
-                # Exceptional-score alert is a cross-brand safety net for
-                # anything that might get missed - skip it for "instant"
-                # watches since they already get pushed immediately below,
-                # so it doesn't fire twice for the same item.
-                if notify_mode != "instant" and card["score"] >= exceptional_threshold:
-                    exceptional_finds.append(card)
         if skipped_count:
             print(f"  {skipped_count} item(s) skipped due to unexpected data")
         if rejections:
             breakdown = ", ".join(f"{reason}: {n}" for reason, n in rejections.most_common())
-            print(f"  rejected — {breakdown}")
-        # A brand-restricted watch that found results but matched none of them
-        # is the signature of an unresolvable brand field, not of genuinely
-        # irrelevant results. That failure is silent by nature (the watch just
-        # shows nothing), which is how the entire Baby section disappeared
-        # after the API migration without any error being raised.
-        if (
-            watch.get("require_brand_match", True)
-            and raw_items
-            and rejections.get("brand tag mismatch", 0) == len(raw_items)
-        ):
-            print(
-                f"  ! every one of {len(raw_items)} results failed brand matching - if this watch "
-                "normally returns items, the API's brand field is probably not resolving (see [shape] above)"
-            )
-        if len(raw_items) >= per_page:
-            print(f"  ! hit the {per_page}-result page cap - there may be more on Vinted than this scan saw")
+            print(f"  {accepted} kept; rejected - {breakdown}")
+        if watch.get("require_brand_match", True) and raw_total and rejections.get("brand tag mismatch", 0) == raw_total:
+            print(f"  ! every one of {raw_total} results failed brand matching - check [shape] above")
 
-        if notify_cards and source == "core":
-            new_count = sum(1 for c in notify_cards if c["is_new"])
-            drop_count = sum(1 for c in notify_cards if c["price_dropped"])
-            label_bits = []
-            if new_count:
-                label_bits.append(f"{new_count} new")
-            if drop_count:
-                label_bits.append(f"{drop_count} price drop{'s' if drop_count != 1 else ''}")
-            print(f"  {', '.join(label_bits)}")
+        # Notifications: only what's genuinely worth a look. Every new item
+        # on an "instant" watch used to ping, worn ones included.
+        if notify_cards:
             if notify_mode == "instant":
-                notify_ntfy(ntfy_topic, f"Vinted: {', '.join(label_bits)} — {name}", notify_cards)
+                worthy = [c for c in notify_cards if c["score"] >= notify_min]
+                if worthy:
+                    priority = "high" if any(c["score"] >= great_find for c in worthy) else "default"
+                    n_new = sum(1 for c in worthy if c["first_seen"] == now)
+                    n_drop = len(worthy) - n_new
+                    bits = ([f"{n_new} new"] if n_new else []) + ([f"{n_drop} price drop{'s' if n_drop > 1 else ''}"] if n_drop else [])
+                    print(f"  pushing {', '.join(bits)}")
+                    notify_ntfy(ntfy_topic, f"{name}: {', '.join(bits)}", worthy, priority=priority)
             elif notify_mode == "digest":
-                bucket = digest_pending.setdefault(name, [])
-                existing = {c["id"] for c in bucket}
-                bucket.extend(c for c in notify_cards if c["id"] not in existing)
+                for c in notify_cards:
+                    if c["score"] >= great_find:
+                        great_finds.append(c)
+                    elif c["score"] >= digest_min:
+                        digest["items"][str(c["id"])] = compact(c)
 
-        time.sleep(2)  # be polite between requests - watch count has roughly tripled this session, 1s was tuned for a much smaller list
+        time.sleep(2)
 
-    if exceptional_finds:
-        print(f"{len(exceptional_finds)} exceptional find(s) (score >= {exceptional_threshold}) this scan")
-        notify_ntfy(
-            ntfy_topic,
-            f"🔥 Exceptional find{'s' if len(exceptional_finds) > 1 else ''}",
-            exceptional_finds,
-            priority="urgent",
-            tags="rotating_light",
-        )
+    if order_stats:
+        print("Search order: " + ", ".join(f"{k}: {v}" for k, v in order_stats.items()))
+    if great_finds:
+        print(f"{len(great_finds)} great find(s) (score >= {great_find}) this scan")
+        notify_ntfy(ntfy_topic, f"Great find{'s' if len(great_finds) > 1 else ''} on Vinted", great_finds,
+                    priority="urgent", tags="rotating_light")
+
+    # Keep the digest to the best 40 so one noisy watch can't bury it.
+    if len(digest["items"]) > 40:
+        best = sorted(digest["items"].values(), key=lambda c: c.get("score", 0), reverse=True)[:40]
+        digest["items"] = {str(c["id"]): c for c in best}
+    maybe_send_digest(ntfy_topic, digest, digest_hour)
+
+    # A watch whose request failed this time keeps its cards from the last
+    # scan, rather than vanishing from the dashboard until the next one.
+    if errors and not aborted:
+        failed = set(errors)
+        carried = [c for c in previous_feed if c.get("watch") in failed and c.get("marketplace") != "shop"]
+        if carried:
+            print(f"Carrying forward {len(carried)} card(s) from the last scan for {len(failed)} failed watch(es)")
+            all_cards.extend(carried)
 
     # De-dupe, rank, trim
     unique = {}
@@ -1072,13 +1248,9 @@ def main():
             unique[c["id"]] = c
 
     # Same-seller clustering: a seller with multiple caution-tier listings in
-    # one scan is a real red flag - it's exactly the pattern behind the
-    # counterfeit-sourcing case that started this (three identical "Palm
-    # Angels" jumpers, actually an unlabelled Moncler collab, same seller,
-    # same size). That listing passed completely clean under the per-item
-    # checks because nothing cross-referenced it against the seller's other
-    # listings. This needs no extra requests - the seller id is already on
-    # every card, just never compared across the whole scan before.
+    # one scan is a real red flag (the three identical "Palm Angels" jumpers
+    # that were really an unlabelled Moncler collab). No extra requests -
+    # the seller id is already on every card.
     caution_by_seller = {}
     for c in unique.values():
         if c.get("authenticity_caution"):
@@ -1089,95 +1261,58 @@ def main():
         if len(seller_cards) < 2:
             continue
         for c in seller_cards:
-            if not c["caution_flags"]:
-                c["score"] -= 10  # no longer clean - remove the clean bonus
-            c["score"] -= 20  # same penalty as any other caution flag
+            c["score"] -= scoring["caution_flag_penalty"]
             c["caution_flags"].append(f"Seller has {len(seller_cards)} caution listings this scan")
 
-    watch_caps = {w["name"]: w["max_in_feed"] for w in config["watches"] if "max_in_feed" in w}
+    # Per-watch cap so one prolific brand can't fill the feed (Acne Studios
+    # had 19 of the 150 clothing slots). max_in_feed on a watch overrides it.
+    watch_caps = {w["name"]: w.get("max_in_feed", default_cap) for w in scan_plan}
     capped_cards = apply_watch_caps(list(unique.values()), watch_caps)
 
-    # Clothing and electronics are ranked and trimmed separately - electronics
-    # items structurally can't score as high (no size-match bonus, often no
-    # RRP set), so ranking them together let clothing silently squeeze every
-    # electronics result out of the top N, even when the scan found genuine
-    # matches.
-    #
-    # The same crowding bug existed *within* electronics too, just less
-    # obviously: every dashboard tab (Games & Music, Football, Caution) only
-    # ever shows its own subcategory - they never compete with each other on
-    # screen - but this used to rank and trim all of electronics as one
-    # shared pool. Caution alone covers 11 brand searches; Games and Football
-    # cover two each. A prolific, higher-scoring subcategory could silently
-    # push a quieter one off the edge of the feed entirely, even when the
-    # scan found genuine matches for it. Trimming each subcategory to its own
-    # feed_size budget fixes that - a subcategory can only ever be crowded
-    # out by more of itself, never by a different one.
+    def rank_key(c):
+        return (-c["score"], -(c.get("first_seen") or 0))
+
+    # Clothing and each electronics subcategory are ranked and trimmed
+    # separately, so a busy subcategory can only crowd out more of itself.
     clothing_cards = [c for c in capped_cards if c.get("category", "clothing") != "electronics"]
     electronics_cards = [c for c in capped_cards if c.get("category") == "electronics"]
 
-    # 60+ clothing watches now share one feed budget, with huge
-    # result-volume differences between them (a common brand like Uniqlo
-    # vs a rare find like Kiton or Auralee). Same crowding risk as the
-    # electronics case above, just across every clothing watch instead of
-    # just Caution - simply sorting and trimming the shared pool would let
-    # a high-volume watch silently fill every slot, starving quieter ones
-    # even when the scan found genuine matches for them. Reserve a minimum
-    # slot per watch first (same pattern as shop_watch.py's min_per_shop),
-    # so a watch can only ever be crowded out by more of itself, then fill
-    # whatever's left with the best remaining cards regardless of watch.
+    # Reserve one slot per clothing watch first, then fill by score.
     clothing_by_watch = {}
     for c in clothing_cards:
         clothing_by_watch.setdefault(c["watch"], []).append(c)
-    for watch_cards in clothing_by_watch.values():
-        watch_cards.sort(key=lambda c: c["score"], reverse=True)
-
     clothing_feed = []
     reserved_ids = set()
-    min_per_watch = 1
     for watch_cards in clothing_by_watch.values():
-        for c in watch_cards[:min_per_watch]:
-            clothing_feed.append(c)
-            reserved_ids.add(c["id"])
-
-    remaining = [c for c in clothing_cards if c["id"] not in reserved_ids]
-    remaining.sort(key=lambda c: c["score"], reverse=True)
+        watch_cards.sort(key=rank_key)
+        clothing_feed.append(watch_cards[0])
+        reserved_ids.add(watch_cards[0]["id"])
+    remaining = sorted((c for c in clothing_cards if c["id"] not in reserved_ids), key=rank_key)
     clothing_feed.extend(remaining[: max(0, feed_size - len(clothing_feed))])
-    clothing_feed.sort(key=lambda c: c["score"], reverse=True)
+    clothing_feed.sort(key=rank_key)
     clothing_feed = clothing_feed[:feed_size]
 
     electronics_by_subcat = {}
     for c in electronics_cards:
         electronics_by_subcat.setdefault(c.get("subcategory") or "other", []).append(c)
     electronics_feed = []
-    for subcat, subcat_cards in electronics_by_subcat.items():
-        # Being clean matters more than being cheap wherever authenticity
-        # checks apply - a big enough discount could still outscore a
-        # flagged listing under plain score sorting (discount alone swings
-        # up to 60 points; the caution penalty only swings 30). Sort by
-        # flag count first so a listing with fewer red flags always ranks
-        # above one with more, regardless of price - score only breaks
-        # ties within the same flag count. This is a no-op for
-        # subcategories with no authenticity_caution cards (flag count is
-        # always 0, so it falls straight through to score), so applying it
-        # unconditionally instead of only for subcat == "caution" means any
-        # future authenticity-flagged category gets this protection
-        # automatically.
-        sorted_cards = sorted(subcat_cards, key=lambda c: (len(c.get("caution_flags") or []), -c["score"]))
-        electronics_feed.extend(sorted_cards[:feed_size])
+    for subcat_cards in electronics_by_subcat.values():
+        # Fewer red flags always ranks above more, whatever the price.
+        subcat_cards.sort(key=lambda c: (len(c.get("caution_flags") or []),) + rank_key(c))
+        electronics_feed.extend(subcat_cards[:feed_size])
     feed = clothing_feed + electronics_feed
 
     dashboard = {
-        "generated_at": int(time.time()),
+        "generated_at": now,
         "errors": errors,
         "feed": feed,
     }
 
     DOCS_DIR.mkdir(exist_ok=True)
     save_json(DATA_PATH, dashboard)
-    save_json(SEEN_PATH, price_history)
-    save_json(DIGEST_PATH, digest_pending)
-    print(f"Done. {len(feed)} listings in the feed.")
+    save_price_history(SEEN_PATH, price_history)
+    save_json(DIGEST_PATH, digest)
+    print(f"Done. {len(feed)} listings in the feed, {len(price_history)} items in history.")
 
 
 if __name__ == "__main__":
