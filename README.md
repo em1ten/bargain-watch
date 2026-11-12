@@ -385,8 +385,8 @@ watch and it takes over completely.
 ## config.json reference
 
 Top-level:
-- `my_sizes` — your sizes per category (`denim` / `tops` / `smart` /
-  `footwear` / `baby`); listings in other sizes are dropped
+- `my_sizes` — your sizes per category (`denim` / `denim_brand` / `tops` /
+  `smart` / `footwear` / `baby`); listings in other sizes are dropped
 - `bargain_max_price` — flat "always a bargain" price cutoff
 - `bargain_ceiling_ratio` — how far under a watch's own `price_to` a listing
   must be to count as a "Bargain" (default 0.6, i.e. bottom 60% of the price
@@ -408,7 +408,7 @@ Per watch (in `watches`):
   and to suggest a `price_to` when none is set
 - `brand_match` — the brand tag(s) a listing must carry (defaults to the
   watch name); add other spellings here
-- `size_category` — which of `my_sizes` applies (`denim`/`tops`/`smart`/`footwear`/`baby`; `smart` covers collar sizes, waists and L/M for brands that do shirts, trousers and jackets).
+- `size_category` — which of `my_sizes` applies (`denim`/`denim_brand`/`tops`/`smart`/`footwear`/`baby`; `smart` covers collar sizes, waists and L/M for brands that do shirts, trousers and jackets; `denim_brand` is waists plus L/M, for denim brands that also make shirts and jackets - a `denim`-only watch drops every shirt as the wrong size).
   A listing that states a size outside that list is dropped, so keep the list generous
 - `exclude_size` — size labels to drop (baby watches drop newborn up to 6 months)
 - `exclude` — extra junk keywords for just this watch
