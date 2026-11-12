@@ -56,7 +56,7 @@
                  "74", "80", "86", "92", "98"]
   },
 
-  "global_exclude": ["kids", "junior", "toy", "doll", "replica", "fake", "case", "phone", "figure", "sticker", "decal", "polyester"],
+  "global_exclude": ["kids", "junior", "toy", "doll", "replica", "fake", "case", "phone", "figure", "sticker", "decal", "polyester", "sock", "underwear", "boxers", "boxer short", "boxer brief", "briefs"],
 
   "watches": [
     { "name": "Nudie Jeans",     "search_text": "nudie jeans",     "price_to": 60,  "rrp": 140, "size_category": "denim" },
