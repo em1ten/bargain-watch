@@ -1,4 +1,4 @@
-{"version":2,"scan":10,"items":{
+{"version":2,"scan":11,"items":{
 "shop-andsons.co.uk-10072184519":{"first_scan":2,"first_seen":1794319837,"high":110.0,"low":110.0,"prices":[[2,110.0]]},
 "shop-andsons.co.uk-10451643987":{"first_scan":2,"first_seen":1794319837,"high":45.0,"low":45.0,"prices":[[2,45.0]]},
 "shop-andsons.co.uk-10451788691":{"first_scan":1,"first_seen":null,"high":125.0,"low":95.0,"prices":[[1,95.0],[2,125.0]]},
@@ -5898,7 +5898,6 @@
 "shop-jeanstore.co.uk-15901182034301":{"first_scan":2,"first_seen":1794319837,"high":65.0,"low":65.0,"prices":[[2,65.0]]},
 "shop-jeanstore.co.uk-15901208904061":{"first_scan":2,"first_seen":1794319837,"high":35.0,"low":35.0,"prices":[[2,35.0]]},
 "shop-jeanstore.co.uk-15914240967037":{"first_scan":1,"first_seen":null,"high":71.4,"low":71.4,"prices":[[1,71.4]]},
-"shop-jeanstore.co.uk-15914252075389":{"first_scan":1,"first_seen":null,"high":65.4,"low":65.4,"prices":[[1,65.4]]},
 "shop-jeanstore.co.uk-15914864836989":{"first_scan":2,"first_seen":1794319837,"high":49.0,"low":49.0,"prices":[[2,49.0]]},
 "shop-jeanstore.co.uk-15921243521405":{"first_scan":2,"first_seen":1794319837,"high":39.0,"low":39.0,"prices":[[2,39.0]]},
 "shop-jeanstore.co.uk-15921250894205":{"first_scan":2,"first_seen":1794319837,"high":39.0,"low":39.0,"prices":[[2,39.0]]},
@@ -14656,6 +14655,7 @@
 "shop-www.stuartslondon.com-10781876257115":{"first_scan":2,"first_seen":1794319837,"high":199.0,"low":199.0,"prices":[[2,199.0]]},
 "shop-www.stuartslondon.com-10781962109275":{"first_scan":2,"first_seen":1794319837,"high":59.0,"low":59.0,"prices":[[2,59.0]]},
 "shop-www.stuartslondon.com-10781962142043":{"first_scan":2,"first_seen":1794319837,"high":59.0,"low":59.0,"prices":[[2,59.0]]},
+"shop-www.stuartslondon.com-10781986685275":{"first_scan":11,"first_seen":1794534793,"high":59.0,"low":59.0,"prices":[[11,59.0]]},
 "shop-www.stuartslondon.com-10781986718043":{"first_scan":2,"first_seen":1794319837,"high":109.0,"low":109.0,"prices":[[2,109.0]]},
 "shop-www.stuartslondon.com-10781986783579":{"first_scan":2,"first_seen":1794319837,"high":99.0,"low":99.0,"prices":[[2,99.0]]},
 "shop-www.stuartslondon.com-10781986849115":{"first_scan":2,"first_seen":1794319837,"high":69.0,"low":69.0,"prices":[[2,69.0]]},
