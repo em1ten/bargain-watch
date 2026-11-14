@@ -1,4 +1,4 @@
-{"version":2,"scan":14,"items":{
+{"version":2,"scan":15,"items":{
 "shop-andsons.co.uk-10072184519":{"first_scan":2,"first_seen":1794319837,"high":110.0,"low":110.0,"prices":[[2,110.0]]},
 "shop-andsons.co.uk-10451643987":{"first_scan":2,"first_seen":1794319837,"high":45.0,"low":45.0,"prices":[[2,45.0]]},
 "shop-andsons.co.uk-10451788691":{"first_scan":1,"first_seen":null,"high":125.0,"low":95.0,"prices":[[1,95.0],[2,125.0]]},
@@ -13,7 +13,6 @@
 "shop-andsons.co.uk-14840524276099":{"first_scan":1,"first_seen":null,"high":65.0,"low":65.0,"prices":[[1,65.0]]},
 "shop-andsons.co.uk-14843363950979":{"first_scan":2,"first_seen":1794319837,"high":350.0,"low":350.0,"prices":[[2,350.0]]},
 "shop-andsons.co.uk-14843364278659":{"first_scan":1,"first_seen":null,"high":75.0,"low":75.0,"prices":[[1,75.0]]},
-"shop-andsons.co.uk-14844604547459":{"first_scan":1,"first_seen":null,"high":45.0,"low":45.0,"prices":[[1,45.0]]},
 "shop-andsons.co.uk-14993056170371":{"first_scan":2,"first_seen":1794319837,"high":45.0,"low":45.0,"prices":[[2,45.0]]},
 "shop-andsons.co.uk-14993831559555":{"first_scan":1,"first_seen":null,"high":75.0,"low":75.0,"prices":[[1,75.0]]},
 "shop-andsons.co.uk-15000091591043":{"first_scan":1,"first_seen":null,"high":40.0,"low":40.0,"prices":[[1,40.0]]},
@@ -3502,6 +3501,8 @@
 "shop-clutch-cafe.com-16400228221315":{"first_scan":2,"first_seen":1794319837,"high":275.0,"low":275.0,"prices":[[2,275.0]]},
 "shop-clutch-cafe.com-16400245358979":{"first_scan":2,"first_seen":1794319837,"high":20.25,"low":20.25,"prices":[[2,20.25]]},
 "shop-clutch-cafe.com-16420435362179":{"first_scan":2,"first_seen":1794319837,"high":675.0,"low":675.0,"prices":[[2,675.0]]},
+"shop-clutch-cafe.com-16420446044547":{"first_scan":15,"first_seen":1794652482,"high":260.0,"low":260.0,"prices":[[15,260.0]]},
+"shop-clutch-cafe.com-16420454924675":{"first_scan":15,"first_seen":1794652482,"high":225.0,"low":225.0,"prices":[[15,225.0]]},
 "shop-clutch-cafe.com-16420551328131":{"first_scan":2,"first_seen":1794319837,"high":485.0,"low":485.0,"prices":[[2,485.0]]},
 "shop-clutch-cafe.com-16420554113411":{"first_scan":3,"first_seen":1794325153,"high":480.0,"low":480.0,"prices":[[3,480.0]]},
 "shop-clutch-cafe.com-16420955619715":{"first_scan":2,"first_seen":1794319837,"high":63.0,"low":63.0,"prices":[[2,63.0]]},
@@ -8421,7 +8422,6 @@
 "shop-label-menswear.com-15631785984384":{"first_scan":1,"first_seen":null,"high":160.0,"low":160.0,"prices":[[1,160.0]]},
 "shop-label-menswear.com-15631799681408":{"first_scan":1,"first_seen":null,"high":195.0,"low":195.0,"prices":[[1,195.0]]},
 "shop-label-menswear.com-15631816360320":{"first_scan":1,"first_seen":null,"high":195.0,"low":195.0,"prices":[[1,195.0]]},
-"shop-label-menswear.com-15631822455168":{"first_scan":1,"first_seen":null,"high":160.0,"low":160.0,"prices":[[1,160.0]]},
 "shop-label-menswear.com-15632111108480":{"first_scan":1,"first_seen":null,"high":325.0,"low":325.0,"prices":[[1,325.0]]},
 "shop-label-menswear.com-15632147186048":{"first_scan":1,"first_seen":null,"high":165.0,"low":165.0,"prices":[[1,165.0]]},
 "shop-label-menswear.com-15632148857216":{"first_scan":1,"first_seen":null,"high":165.0,"low":165.0,"prices":[[1,165.0]]},
