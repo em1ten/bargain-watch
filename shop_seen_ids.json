@@ -1,4 +1,4 @@
-{"version":2,"scan":17,"items":{
+{"version":2,"scan":18,"items":{
 "shop-andsons.co.uk-10072184519":{"first_scan":2,"first_seen":1794319837,"high":110.0,"low":110.0,"prices":[[2,110.0]]},
 "shop-andsons.co.uk-10451643987":{"first_scan":2,"first_seen":1794319837,"high":45.0,"low":45.0,"prices":[[2,45.0]]},
 "shop-andsons.co.uk-10451788691":{"first_scan":1,"first_seen":null,"high":125.0,"low":95.0,"prices":[[1,95.0],[2,125.0]]},
@@ -257,7 +257,6 @@
 "shop-andsons.co.uk-2365589946473":{"first_scan":1,"first_seen":null,"high":85.0,"low":65.0,"prices":[[1,65.0],[2,85.0]]},
 "shop-andsons.co.uk-2423553196137":{"first_scan":2,"first_seen":1794319837,"high":40.0,"low":40.0,"prices":[[2,40.0]]},
 "shop-andsons.co.uk-2432103579753":{"first_scan":2,"first_seen":1794319837,"high":75.0,"low":75.0,"prices":[[2,75.0]]},
-"shop-andsons.co.uk-2432105709673":{"first_scan":1,"first_seen":null,"high":60.0,"low":60.0,"prices":[[1,60.0]]},
 "shop-andsons.co.uk-2432638189673":{"first_scan":2,"first_seen":1794319837,"high":85.0,"low":85.0,"prices":[[2,85.0]]},
 "shop-andsons.co.uk-2433427275881":{"first_scan":2,"first_seen":1794319837,"high":85.0,"low":85.0,"prices":[[2,85.0]]},
 "shop-andsons.co.uk-2433427832937":{"first_scan":1,"first_seen":null,"high":85.0,"low":70.0,"prices":[[1,70.0],[2,85.0]]},
@@ -5445,7 +5444,6 @@
 "shop-jeanstore.co.uk-15830137864573":{"first_scan":2,"first_seen":1794319837,"high":51.0,"low":51.0,"prices":[[2,51.0]]},
 "shop-jeanstore.co.uk-15830154838397":{"first_scan":2,"first_seen":1794319837,"high":79.0,"low":75.0,"prices":[[2,75.0],[4,79.0]]},
 "shop-jeanstore.co.uk-15830178988413":{"first_scan":2,"first_seen":1794319837,"high":69.0,"low":65.0,"prices":[[2,65.0],[4,69.0]]},
-"shop-jeanstore.co.uk-15830188491133":{"first_scan":1,"first_seen":null,"high":39.0,"low":39.0,"prices":[[1,39.0]]},
 "shop-jeanstore.co.uk-15830201139581":{"first_scan":2,"first_seen":1794319837,"high":99.0,"low":99.0,"prices":[[2,99.0]]},
 "shop-jeanstore.co.uk-15830215000445":{"first_scan":1,"first_seen":null,"high":59.4,"low":59.4,"prices":[[1,59.4]]},
 "shop-jeanstore.co.uk-15830229156221":{"first_scan":2,"first_seen":1794319837,"high":79.0,"low":75.0,"prices":[[2,75.0],[4,79.0]]},
