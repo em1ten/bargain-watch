@@ -387,6 +387,10 @@ watch and it takes over completely.
 Top-level:
 - `my_sizes` — your sizes per category (`denim` / `denim_brand` / `tops` /
   `smart` / `footwear` / `baby`); listings in other sizes are dropped
+- `next_sizes` — sizes you're working towards rather than wearing now (M,
+  W34, 34). They stay in the feed and the morning digest, marked "next
+  size", but score `next_size` (-10) instead of `explicit_size` (+6), so the
+  same item in your current size ranks 16 points higher, and they never push
 - `bargain_max_price` — flat "always a bargain" price cutoff
 - `bargain_ceiling_ratio` — how far under a watch's own `price_to` a listing
   must be to count as a "Bargain" (default 0.6, i.e. bottom 60% of the price
