@@ -19,7 +19,7 @@
     "digest_per_section": { "Clothing": 10, "other": 3 }
   },
   "scoring": {
-    "_comment": "Score = condition + price under your cap + freshness (+ price drop, + explicit size match, - caution flags). Raise a condition's points to favour it more.",
+    "_comment": "Score = condition + price under your cap + freshness (+ price drop, + explicit size match or - a next size, - caution flags). Raise a condition's points to favour it more.",
     "condition": { "New with tags": 45, "New without tags": 32, "Very good": 10, "Good": 0 },
     "price_vs_cap_max": 30,
     "freshness": [[6, 20], [24, 14], [72, 8], [168, 3]],
@@ -27,6 +27,7 @@
     "stale_penalty": 10,
     "price_drop": 10,
     "explicit_size": 6,
+    "next_size": -10,
     "caution_flag_penalty": 20
   },
 
@@ -45,6 +46,8 @@
     }
   },
 
+  "_next_sizes_note": "Sizes you're working towards rather than wearing now. They still show in the feed and the morning digest, but score next_size (-10) instead of explicit_size (+6), so the same item in your current size ranks 16 points higher, and they never push.",
+  "next_sizes": ["M", "W34", "34"],
   "my_sizes": {
     "denim":    ["W34", "34", "W36", "36"],
     "tops":     ["M", "L"],

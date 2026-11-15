@@ -187,6 +187,7 @@
   .p-off{background:var(--p-off-bg);color:var(--p-off);}
   .p-low{background:var(--p-size-bg);color:var(--p-size);}
   .meta .tick{color:var(--p-size);}
+  .meta .next-size{margin-left:6px;font-size:12px;font-style:italic;}
   .note{margin-top:3px;font-size:12.5px;color:var(--warn);}
   .actions{margin-top:4px;display:flex;flex-wrap:wrap;gap:0 16px;position:relative;z-index:2;}
   .actions a,.actions button{
@@ -574,7 +575,9 @@ function buildRow(item){
   const meta = el('div', 'meta');
   if (item.size){
     meta.appendChild(el('span', null, item.size));
-    if (item.my_size){
+    if (item.my_size && item.size_tier === 'next'){
+      meta.appendChild(el('span', 'next-size', 'next size'));
+    } else if (item.my_size){
       const tick = el('span', 'tick');
       tick.innerHTML = ICON_CHECK;
       tick.setAttribute('role', 'img');

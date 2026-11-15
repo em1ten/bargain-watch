@@ -78,6 +78,7 @@ DEFAULT_SCORING = {
     "stale_penalty": 10,
     "price_drop": 10,
     "explicit_size": 6,
+    "next_size": -10,
     "caution_flag_penalty": 20,
 }
 FRESH_HOURS = 24        # "Just listed" on the dashboard = first seen within this
@@ -715,7 +716,7 @@ def freshness_points(first_seen, now, scoring):
     return 0
 
 
-def score_card(condition, price_amount, price_to, first_seen, now, price_dropped, my_size, caution_flags, scoring):
+def score_card(condition, price_amount, price_to, first_seen, now, price_dropped, my_size, caution_flags, scoring, size_tier=None):
     score = scoring["condition"].get(condition, 0)
     # Price against YOUR cap for this search, not a guessed brand RRP. The
     # RRP version gave nearly every listing 55-60 of its 60 possible points
@@ -738,12 +739,14 @@ def score_card(condition, price_amount, price_to, first_seen, now, price_dropped
     if price_dropped:
         score += scoring["price_drop"]
     if my_size:
-        score += scoring["explicit_size"]
+        # A size you're only working towards ("next_sizes" in config) ranks
+        # below the same item in the size you wear now.
+        score += scoring["next_size"] if size_tier == "next" else scoring["explicit_size"]
     score -= scoring["caution_flag_penalty"] * len(caution_flags or [])
     return round(score)
 
 
-def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now, previous_price=None, caution_flags=None, bargain_ceiling_ratio=0.6, scoring=None):
+def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now, previous_price=None, caution_flags=None, bargain_ceiling_ratio=0.6, scoring=None, next_sizes=None):
     scoring = scoring or DEFAULT_SCORING
     photo = (item.get("photo") or {}).get("url", "")
     # "price" is the seller's actual asking price. "total_item_price" is
@@ -790,7 +793,16 @@ def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now
     condition = str(item_status(item)).strip()
     size_title = str(item_size(item)).strip()
     size_terms = my_sizes.get(watch.get("size_category", ""), [])
-    size_term_matched = size_matches(size_title, size_terms)
+    # Sizes you wear now are tried first, so a listing like "M/L" counts as
+    # L; the "next" sizes (ones you're working towards) only match if none
+    # of the current ones do.
+    next_set = {t.strip().lower() for t in (next_sizes or [])}
+    size_term_matched = size_matches(size_title, [t for t in size_terms if t.strip().lower() not in next_set])
+    size_tier = "now" if size_term_matched is not None else None
+    if size_term_matched is None:
+        size_term_matched = size_matches(size_title, [t for t in size_terms if t.strip().lower() in next_set])
+        if size_term_matched is not None:
+            size_tier = "next"
     my_size = size_term_matched is not None
 
     photo_obj = item.get("photo") or {}
@@ -822,7 +834,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now
 
     score = score_card(
         condition, price_amount, watch.get("price_to"), first_seen, now,
-        price_dropped, my_size, caution_flags, scoring,
+        price_dropped, my_size, caution_flags, scoring, size_tier,
     )
     is_new = first_seen is not None and (now - first_seen) <= FRESH_HOURS * 3600
 
@@ -873,6 +885,7 @@ def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now
         "discount_pct": discount_pct,
         "score": score,
         "my_size": my_size,
+        "size_tier": size_tier,
         "is_new": is_new,
         "first_seen": first_seen,
         "is_bargain": is_bargain,
@@ -1113,6 +1126,7 @@ def main():
     bargain_ceiling_ratio = config.get("bargain_ceiling_ratio", 0.6)
     max_price = config.get("bargain_max_price")
     my_sizes = config.get("my_sizes", {})
+    next_sizes = config.get("next_sizes", [])
     feed_size = config.get("feed_size", 60)
     global_exclude = config.get("global_exclude", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
@@ -1236,6 +1250,7 @@ def main():
                     card = build_card(
                         item, domain, watch, "core", my_sizes, max_price, first_seen, now,
                         previous_price, caution_flags, bargain_ceiling_ratio, scoring,
+                        next_sizes,
                     )
                 except Exception as e:
                     skipped_count += 1
@@ -1287,8 +1302,9 @@ def main():
         # Sort this watch's new / price-dropped items into "worth a buzz now"
         # and "worth a line in the morning digest". Sending happens once,
         # after every watch has run.
+        # A size you're not in yet never pushes; it can still make the digest.
         for c in notify_cards:
-            if notify_mode == "push" and c["score"] >= notify_cfg["push_min_score"]:
+            if notify_mode == "push" and c["score"] >= notify_cfg["push_min_score"] and c.get("size_tier") != "next":
                 push_candidates.append(c)
             elif notify_mode != "off" and c["score"] >= notify_cfg["digest_min_score"]:
                 digest_candidates.append(c)
