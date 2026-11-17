@@ -61,6 +61,9 @@
   },
 
   "global_exclude": ["kids", "junior", "toy", "doll", "replica", "fake", "case", "phone", "figure", "sticker", "decal", "polyester", "sock", "underwear", "boxers", "boxer short", "boxer brief", "briefs"],
+  "_global_exclude_words_note": "Like global_exclude, but matched as whole words (a plural s/es also counts), for words that hide inside others: 'tie' drops 'Silk Tie' and 'ties' but not 'tie-dye', 'Beastie Boys' or 'booties'; 'cufflinks' drops cufflinks but not a 'cufflink shirt'. Phrases in global_exclude_words_keep (tie dye, tie front...) are ignored when checking.",
+  "global_exclude_words": ["tie", "necktie", "bow tie", "pocket square", "handkerchief", "hanky", "hankie", "cufflinks", "tie clip", "tie bar", "tie pin", "tie slide", "lapel pin"],
+  "global_exclude_words_keep": ["tie dye", "tie-dye", "tie front", "tie waist", "tie belt", "tie hem"],
 
   "watches": [
     { "name": "Nudie Jeans",     "search_text": "nudie jeans",     "price_to": 60,  "rrp": 140, "size_category": "denim_brand" },

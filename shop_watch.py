@@ -180,10 +180,17 @@ def is_womens_product(product):
     return any(term in combined for term in WOMENS_TERMS)
 
 
-def in_scope(product, global_exclude):
+def in_scope(product, global_exclude, global_exclude_words=None, keep_phrases=None):
     title_lower = (product.get("title") or "").lower()
     if any(term.lower() in title_lower for term in global_exclude):
         return False
+    words_title = title_lower
+    for phrase in keep_phrases or []:
+        words_title = words_title.replace(phrase.lower(), " ")
+    for w in global_exclude_words or []:
+        w = w.strip().lower()
+        if w and re.search(r"(?<![\w-])" + re.escape(w) + r"(?:e?s)?(?![\w-])", words_title):
+            return False
     return not is_womens_product(product)
 
 
@@ -557,6 +564,8 @@ def main():
         return
 
     global_exclude = config.get("global_exclude", [])
+    global_exclude_words = config.get("global_exclude_words", [])
+    exclude_words_keep = config.get("global_exclude_words_keep", [])
     my_sizes = flatten_sizes(config.get("my_sizes"))
     feed_size = config.get("shop_feed_size", 60)
     max_per_brand = config.get("shop_max_per_brand", 2)
@@ -602,7 +611,7 @@ def main():
         skipped = 0
         for product in products:
             try:
-                if not in_scope(product, global_exclude):
+                if not in_scope(product, global_exclude, global_exclude_words, exclude_words_keep):
                     continue
                 price = current_price(product)
                 if price is None:
