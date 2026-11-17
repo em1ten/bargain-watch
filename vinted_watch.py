@@ -233,7 +233,7 @@ def suggested_price_to(rrp):
     return round(0.755 * (rrp ** 0.873) / 5) * 5
 
 
-MERGEABLE_LIST_KEYS = {"exclude", "exclude_ignore", "exclude_size"}
+MERGEABLE_LIST_KEYS = {"exclude", "exclude_ignore", "exclude_size", "exclude_words"}
 
 
 def resolve_watch(watch, subcategory_defaults=None):
@@ -382,9 +382,27 @@ def run_search(session, domain, watch, currency, per_page, catalog_ids, max_retr
     return []
 
 
-def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_terms=None, require_title_any=None):
+def has_word(title_lower, words, keep_phrases=None):
+    """True if any of `words` appears in the title as a whole word (a plural
+    s/es also counts). Hyphens count as part of a word, so "tie" catches
+    "Silk Tie" and "ties" but not "tie-dye", "Beastie Boys" or "booties" -
+    which plain substring matching (global_exclude) would. keep_phrases are
+    blanked out first ("tie dye", "tie front"), so clothing that merely
+    mentions the word isn't dropped."""
+    for phrase in keep_phrases or []:
+        title_lower = title_lower.replace(phrase.lower(), " ")
+    for w in words or []:
+        w = w.strip().lower()
+        if w and re.search(r"(?<![\w-])" + re.escape(w) + r"(?:e?s)?(?![\w-])", title_lower):
+            return True
+    return False
+
+
+def passes_filters(item, exclude_terms, allowed_conditions=None, exclude_size_terms=None, require_title_any=None, exclude_words=None, keep_phrases=None):
     title = (item.get("title") or "").lower()
     if any(term.lower() in title for term in exclude_terms):
+        return False
+    if has_word(title, exclude_words, keep_phrases):
         return False
     # Positive title requirement, for watches that can't use brand matching.
     # Vinted's new (Sept 2026) search matches far more loosely than the old
@@ -1129,6 +1147,8 @@ def main():
     next_sizes = config.get("next_sizes", [])
     feed_size = config.get("feed_size", 60)
     global_exclude = config.get("global_exclude", [])
+    global_exclude_words = config.get("global_exclude_words", [])
+    exclude_words_keep = config.get("global_exclude_words_keep", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
     api_paths = config.get("api_paths") or API_PATH_CANDIDATES
     search_order = config.get("search_order")  # set to force one order for every watch
@@ -1171,6 +1191,7 @@ def main():
         # lets a specific watch opt back in to a global term.
         ignore = set(watch.get("exclude_ignore", []))
         exclude_terms = [t for t in global_exclude if t not in ignore] + watch.get("exclude", [])
+        exclude_words = [w for w in global_exclude_words if w not in ignore] + watch.get("exclude_words", [])
         notify_mode = notify_mode_for(watch)
         print(f"Checking: {name}")
 
@@ -1233,7 +1254,7 @@ def main():
                     continue
                 seen_here.add(item_id_str)
                 try:
-                    if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size"), watch.get("require_title_any")):
+                    if not passes_filters(item, exclude_terms, watch.get("allowed_conditions"), watch.get("exclude_size"), watch.get("require_title_any"), exclude_words, exclude_words_keep):
                         rejections["excluded keyword / wrong condition"] += 1
                         continue
                     if not brand_matches(item, watch):

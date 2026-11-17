@@ -404,6 +404,12 @@ Top-level:
 - `relevance_fallback_min` — if the newest-first page gives fewer than this
   many usable items for a brand watch, the relevance page is fetched too (6)
 - `global_exclude` — junk keywords filtered out of every search
+- `global_exclude_words` — like `global_exclude`, but matched as whole words
+  (plurals count), for words that hide inside others: `tie` drops ties but
+  not tie-dye, Beastie Boys or booties. Phrases in
+  `global_exclude_words_keep` (tie dye, tie front...) are ignored when
+  checking. Currently ties, bow ties, pocket squares, handkerchiefs,
+  cufflinks, tie clips/bars/pins and lapel pins
 
 Per watch (in `watches`):
 - `name`, `search_text` — label and what's searched on Vinted
