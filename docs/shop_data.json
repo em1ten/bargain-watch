@@ -1,5 +1,5 @@
 {
-  "generated_at": 1795227825,
+  "generated_at": 1795259668,
   "errors": [
     "Common Cultured"
   ],
@@ -22,7 +22,7 @@
         "business": true
       },
       "discount_pct": 52,
-      "score": 90.5,
+      "score": 90.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -39,8 +39,8 @@
       "compare_at_price": 155.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 142.88,
+      "observations": 34,
+      "typical_price": 140.88,
       "off_menu": false
     },
     {
@@ -78,8 +78,8 @@
       "compare_at_price": 10.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 9.24,
+      "observations": 34,
+      "typical_price": 9.12,
       "off_menu": false
     },
     {
@@ -117,8 +117,8 @@
       "compare_at_price": 59.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 26.65,
+      "observations": 35,
+      "typical_price": 26.43,
       "off_menu": false
     },
     {
@@ -156,8 +156,8 @@
       "compare_at_price": 190.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 128.18,
+      "observations": 34,
+      "typical_price": 127.06,
       "off_menu": false
     },
     {
@@ -195,8 +195,8 @@
       "compare_at_price": 190.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 128.18,
+      "observations": 34,
+      "typical_price": 127.06,
       "off_menu": false
     },
     {
@@ -217,7 +217,7 @@
         "business": true
       },
       "discount_pct": 20,
-      "score": 82.7,
+      "score": 82.6,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -234,8 +234,8 @@
       "compare_at_price": 40.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 72.73,
+      "observations": 34,
+      "typical_price": 71.53,
       "off_menu": false
     },
     {
@@ -256,7 +256,7 @@
         "business": true
       },
       "discount_pct": 79,
-      "score": 80.8,
+      "score": 80.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -273,8 +273,8 @@
       "compare_at_price": 190.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 46.35,
+      "observations": 35,
+      "typical_price": 46.14,
       "off_menu": false
     },
     {
@@ -295,7 +295,7 @@
         "business": true
       },
       "discount_pct": 71,
-      "score": 80.8,
+      "score": 80.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -312,8 +312,8 @@
       "compare_at_price": 135.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 46.35,
+      "observations": 35,
+      "typical_price": 46.14,
       "off_menu": false
     },
     {
@@ -351,8 +351,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 149.0,
+      "observations": 34,
+      "typical_price": 147.53,
       "off_menu": false
     },
     {
@@ -390,8 +390,8 @@
       "compare_at_price": 159.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 144.45,
+      "observations": 34,
+      "typical_price": 143.12,
       "off_menu": false
     },
     {
@@ -412,7 +412,7 @@
         "business": true
       },
       "discount_pct": 65,
-      "score": 78.5,
+      "score": 78.6,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -429,8 +429,8 @@
       "compare_at_price": 199.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 76.65,
+      "observations": 35,
+      "typical_price": 76.43,
       "off_menu": false
     },
     {
@@ -468,8 +468,8 @@
       "compare_at_price": 150.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 34,
-      "typical_price": 134.85,
+      "observations": 35,
+      "typical_price": 133.71,
       "off_menu": false
     },
     {
@@ -507,8 +507,8 @@
       "compare_at_price": 140.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 96.21,
+      "observations": 34,
+      "typical_price": 95.59,
       "off_menu": false
     },
     {
@@ -546,8 +546,8 @@
       "compare_at_price": 160.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 106.21,
+      "observations": 34,
+      "typical_price": 105.59,
       "off_menu": false
     },
     {
@@ -585,8 +585,8 @@
       "compare_at_price": 170.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 153.64,
+      "observations": 34,
+      "typical_price": 152.35,
       "off_menu": false
     },
     {
@@ -624,8 +624,8 @@
       "compare_at_price": 200.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 180.91,
+      "observations": 34,
+      "typical_price": 179.41,
       "off_menu": false
     },
     {
@@ -663,8 +663,8 @@
       "compare_at_price": 60.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 56.97,
+      "observations": 34,
+      "typical_price": 56.47,
       "off_menu": false
     },
     {
@@ -702,8 +702,8 @@
       "compare_at_price": 225.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 213.64,
+      "observations": 34,
+      "typical_price": 211.76,
       "off_menu": false
     },
     {
@@ -724,7 +724,7 @@
         "business": true
       },
       "discount_pct": 40,
-      "score": 75.7,
+      "score": 75.8,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -741,8 +741,8 @@
       "compare_at_price": 149.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 111.94,
+      "observations": 35,
+      "typical_price": 111.29,
       "off_menu": false
     },
     {
@@ -780,8 +780,8 @@
       "compare_at_price": 64.95,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 61.93,
+      "observations": 34,
+      "typical_price": 61.43,
       "off_menu": false
     },
     {
@@ -802,7 +802,7 @@
         "business": true
       },
       "discount_pct": 59,
-      "score": 74.7,
+      "score": 75.0,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -819,8 +819,8 @@
       "compare_at_price": 95.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 39.59,
+      "observations": 35,
+      "typical_price": 39.57,
       "off_menu": false
     },
     {
@@ -841,7 +841,7 @@
         "business": true
       },
       "discount_pct": 59,
-      "score": 74.7,
+      "score": 75.0,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -858,8 +858,8 @@
       "compare_at_price": 95.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 39.59,
+      "observations": 35,
+      "typical_price": 39.57,
       "off_menu": false
     },
     {
@@ -897,8 +897,8 @@
       "compare_at_price": 145.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 34,
-      "typical_price": 132.21,
+      "observations": 35,
+      "typical_price": 131.29,
       "off_menu": false
     },
     {
@@ -919,7 +919,7 @@
         "business": true
       },
       "discount_pct": 30,
-      "score": 73.4,
+      "score": 73.5,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -936,8 +936,8 @@
       "compare_at_price": 200.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 34,
-      "typical_price": 183.24,
+      "observations": 35,
+      "typical_price": 182.0,
       "off_menu": false
     },
     {
@@ -975,8 +975,8 @@
       "compare_at_price": 200.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 183.64,
+      "observations": 34,
+      "typical_price": 182.35,
       "off_menu": false
     },
     {
@@ -997,7 +997,7 @@
         "business": true
       },
       "discount_pct": 30,
-      "score": 73.1,
+      "score": 73.2,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1014,8 +1014,8 @@
       "compare_at_price": 135.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 124.09,
+      "observations": 34,
+      "typical_price": 123.24,
       "off_menu": false
     },
     {
@@ -1053,8 +1053,8 @@
       "compare_at_price": 220.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 202.27,
+      "observations": 34,
+      "typical_price": 200.88,
       "off_menu": false
     },
     {
@@ -1075,7 +1075,7 @@
         "business": true
       },
       "discount_pct": 54,
-      "score": 72.7,
+      "score": 72.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1092,7 +1092,7 @@
       "compare_at_price": 85.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 39.29,
       "off_menu": false
     },
@@ -1114,7 +1114,7 @@
         "business": true
       },
       "discount_pct": 29,
-      "score": 72.5,
+      "score": 72.6,
       "my_size": true,
       "is_new": false,
       "is_bargain": false,
@@ -1131,8 +1131,8 @@
       "compare_at_price": 35.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 34,
-      "typical_price": 32.15,
+      "observations": 35,
+      "typical_price": 31.94,
       "off_menu": false
     },
     {
@@ -1153,7 +1153,7 @@
         "business": true
       },
       "discount_pct": 29,
-      "score": 72.5,
+      "score": 72.6,
       "my_size": true,
       "is_new": false,
       "is_bargain": false,
@@ -1170,8 +1170,8 @@
       "compare_at_price": 35.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 34,
-      "typical_price": 32.15,
+      "observations": 35,
+      "typical_price": 31.94,
       "off_menu": false
     },
     {
@@ -1192,7 +1192,7 @@
         "business": true
       },
       "discount_pct": 46,
-      "score": 71.5,
+      "score": 71.7,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1209,8 +1209,8 @@
       "compare_at_price": 140.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 78.68,
+      "observations": 35,
+      "typical_price": 78.57,
       "off_menu": false
     },
     {
@@ -1231,7 +1231,7 @@
         "business": true
       },
       "discount_pct": 28,
-      "score": 70.5,
+      "score": 70.6,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1248,8 +1248,47 @@
       "compare_at_price": 100.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 88.58,
+      "observations": 34,
+      "typical_price": 88.09,
+      "off_menu": false
+    },
+    {
+      "id": "shop-www.yardsstore.com-15869030269309",
+      "title": "Polo Ralph Lauren Pony Embroidered Stripe Linen Shirt Royal White",
+      "watch": "Yards Store",
+      "brand": "Polo Ralph Lauren",
+      "size": "15.5\" / Royal White, 16.5\" / Royal White, 17\" / Royal White, 17.5\" / Royal White",
+      "condition": "New",
+      "price": "90.00 GBP",
+      "price_amount": 90.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0423/7875/6245/files/PoloRalphLaurenPonyEmbroideredStripeLinenShirtRoyalWhite.jpg?v=1783024148",
+      "url": "https://www.yardsstore.com/products/polo-ralph-lauren-pony-embroidered-stripe-linen-shirt-royal-white",
+      "seller": {
+        "login": "Yards Store",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 47,
+      "score": 70.5,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-47%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop",
+      "compare_at_price": 169.0,
+      "at_low": true,
+      "was_price_seen": false,
+      "observations": 35,
+      "typical_price": 90.71,
       "off_menu": false
     },
     {
@@ -1287,47 +1326,8 @@
       "compare_at_price": 80.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 70.25,
-      "off_menu": false
-    },
-    {
-      "id": "shop-www.yardsstore.com-15869030269309",
-      "title": "Polo Ralph Lauren Pony Embroidered Stripe Linen Shirt Royal White",
-      "watch": "Yards Store",
-      "brand": "Polo Ralph Lauren",
-      "size": "15.5\" / Royal White, 16.5\" / Royal White, 17\" / Royal White, 17.5\" / Royal White",
-      "condition": "New",
-      "price": "90.00 GBP",
-      "price_amount": 90.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0423/7875/6245/files/PoloRalphLaurenPonyEmbroideredStripeLinenShirtRoyalWhite.jpg?v=1783024148",
-      "url": "https://www.yardsstore.com/products/polo-ralph-lauren-pony-embroidered-stripe-linen-shirt-royal-white",
-      "seller": {
-        "login": "Yards Store",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 47,
-      "score": 70.3,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-47%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop",
-      "compare_at_price": 169.0,
-      "at_low": true,
-      "was_price_seen": false,
       "observations": 34,
-      "typical_price": 90.74,
+      "typical_price": 69.88,
       "off_menu": false
     },
     {
@@ -1348,7 +1348,7 @@
         "business": true
       },
       "discount_pct": 27,
-      "score": 70.0,
+      "score": 70.1,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1365,8 +1365,8 @@
       "compare_at_price": 65.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 57.38,
+      "observations": 35,
+      "typical_price": 57.09,
       "off_menu": false
     },
     {
@@ -1387,7 +1387,7 @@
         "business": true
       },
       "discount_pct": 27,
-      "score": 69.8,
+      "score": 69.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1404,8 +1404,8 @@
       "compare_at_price": 65.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 33,
-      "typical_price": 57.45,
+      "observations": 34,
+      "typical_price": 57.15,
       "off_menu": false
     },
     {
@@ -1426,7 +1426,7 @@
         "business": true
       },
       "discount_pct": 26,
-      "score": 69.7,
+      "score": 69.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1443,8 +1443,8 @@
       "compare_at_price": 85.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 77.45,
+      "observations": 34,
+      "typical_price": 77.03,
       "off_menu": false
     },
     {
@@ -1465,7 +1465,7 @@
         "business": true
       },
       "discount_pct": 26,
-      "score": 69.7,
+      "score": 69.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1482,8 +1482,8 @@
       "compare_at_price": 85.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 76.79,
+      "observations": 35,
+      "typical_price": 76.4,
       "off_menu": false
     },
     {
@@ -1504,7 +1504,7 @@
         "business": true
       },
       "discount_pct": 44,
-      "score": 69.3,
+      "score": 69.5,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1521,8 +1521,8 @@
       "compare_at_price": 2700.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 1514.26,
+      "observations": 35,
+      "typical_price": 1513.86,
       "off_menu": false
     },
     {
@@ -1543,7 +1543,7 @@
         "business": true
       },
       "discount_pct": 24,
-      "score": 69.2,
+      "score": 69.3,
       "my_size": true,
       "is_new": false,
       "is_bargain": false,
@@ -1560,8 +1560,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 33,
-      "typical_price": 154.09,
+      "observations": 34,
+      "typical_price": 153.24,
       "off_menu": false
     },
     {
@@ -1582,7 +1582,7 @@
         "business": true
       },
       "discount_pct": 24,
-      "score": 65.3,
+      "score": 65.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1599,8 +1599,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 136.47,
+      "observations": 35,
+      "typical_price": 136.14,
       "off_menu": false
     },
     {
@@ -1621,7 +1621,7 @@
         "business": true
       },
       "discount_pct": 24,
-      "score": 65.3,
+      "score": 65.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1638,8 +1638,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 34,
-      "typical_price": 136.47,
+      "observations": 35,
+      "typical_price": 136.14,
       "off_menu": false
     },
     {
@@ -1660,7 +1660,7 @@
         "business": true
       },
       "discount_pct": 7,
-      "score": 50.4,
+      "score": 50.7,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1677,8 +1677,8 @@
       "compare_at_price": 1075.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 10,
-      "typical_price": 1007.5,
+      "observations": 11,
+      "typical_price": 1006.36,
       "off_menu": false
     },
     {
@@ -1699,7 +1699,7 @@
         "business": true
       },
       "discount_pct": 7,
-      "score": 50.4,
+      "score": 50.7,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1716,8 +1716,8 @@
       "compare_at_price": 1075.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 10,
-      "typical_price": 1007.5,
+      "observations": 11,
+      "typical_price": 1006.36,
       "off_menu": false
     },
     {
@@ -1738,7 +1738,7 @@
         "business": true
       },
       "discount_pct": 60,
-      "score": 39.5,
+      "score": 39.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1755,7 +1755,7 @@
       "compare_at_price": 240.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 95.0,
       "off_menu": true
     },
@@ -1777,7 +1777,7 @@
         "business": true
       },
       "discount_pct": 60,
-      "score": 39.5,
+      "score": 39.8,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1794,7 +1794,7 @@
       "compare_at_price": 200.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 79.0,
       "off_menu": true
     },
@@ -1816,7 +1816,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 36.0,
+      "score": 36.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1833,7 +1833,7 @@
       "compare_at_price": 210.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 105.0,
       "off_menu": true
     },
@@ -1855,7 +1855,7 @@
         "business": true
       },
       "discount_pct": 49,
-      "score": 35.6,
+      "score": 35.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1872,7 +1872,7 @@
       "compare_at_price": 205.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 105.0,
       "off_menu": true
     },
@@ -1894,7 +1894,7 @@
         "business": true
       },
       "discount_pct": 49,
-      "score": 35.6,
+      "score": 35.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1911,7 +1911,7 @@
       "compare_at_price": 135.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 69.0,
       "off_menu": true
     },
@@ -1933,7 +1933,7 @@
         "business": true
       },
       "discount_pct": 60,
-      "score": 29.5,
+      "score": 29.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1950,7 +1950,7 @@
       "compare_at_price": 275.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 110.0,
       "off_menu": false
     },
@@ -1972,7 +1972,7 @@
         "business": true
       },
       "discount_pct": 51,
-      "score": 26.3,
+      "score": 26.6,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1989,7 +1989,7 @@
       "compare_at_price": 65.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 32.0,
       "off_menu": false
     },
@@ -2011,7 +2011,7 @@
         "business": true
       },
       "discount_pct": 51,
-      "score": 26.1,
+      "score": 26.3,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2028,7 +2028,7 @@
       "compare_at_price": 135.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 33,
+      "observations": 34,
       "typical_price": 66.0,
       "off_menu": false
     },
@@ -2050,7 +2050,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 26.0,
+      "score": 26.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2067,7 +2067,7 @@
       "compare_at_price": 245.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 122.5,
       "off_menu": false
     },
@@ -2089,7 +2089,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 26.0,
+      "score": 26.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2106,7 +2106,7 @@
       "compare_at_price": 195.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 97.5,
       "off_menu": false
     },
@@ -2128,7 +2128,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 26.0,
+      "score": 26.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2145,7 +2145,7 @@
       "compare_at_price": 195.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 97.5,
       "off_menu": false
     },
@@ -2167,7 +2167,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 26.0,
+      "score": 26.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2184,7 +2184,7 @@
       "compare_at_price": 425.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 212.5,
       "off_menu": false
     },
@@ -2206,7 +2206,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 26.0,
+      "score": 26.2,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -2223,7 +2223,7 @@
       "compare_at_price": 249.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 124.5,
       "off_menu": false
     },
@@ -2245,7 +2245,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 26.0,
+      "score": 26.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2262,7 +2262,7 @@
       "compare_at_price": 80.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 40.0,
       "off_menu": false
     },
@@ -2284,7 +2284,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 25.8,
+      "score": 26.0,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2301,7 +2301,7 @@
       "compare_at_price": 60.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 33,
+      "observations": 34,
       "typical_price": 30.0,
       "off_menu": false
     },
@@ -2323,7 +2323,7 @@
         "business": true
       },
       "discount_pct": 48,
-      "score": 25.3,
+      "score": 25.5,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -2340,7 +2340,7 @@
       "compare_at_price": 85.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 34,
+      "observations": 35,
       "typical_price": 44.0,
       "off_menu": false
     }
