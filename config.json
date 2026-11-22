@@ -272,7 +272,7 @@
     { "name": "Parlez",          "search_text": "parlez",          "price_to": 35,  "rrp": 80,  "size_category": "tops",     "max_in_feed": 3 },
     { "name": "Service Works",   "search_text": "service works",   "price_to": 30,  "rrp": 70,  "size_category": "tops" },
     { "name": "Stan Ray",        "search_text": "stan ray",        "price_to": 40,  "rrp": 90,  "size_category": "tops" },
-    { "name": "Aspesi",          "search_text": "aspesi",          "price_to": 100, "rrp": 300, "size_category": "tops" },
+    { "name": "Aspesi",          "search_text": "aspesi",          "price_to": 100, "rrp": 300, "size_category": "tops", "exclude": ["vinyl", "pvc", "glossy", "patent"] },
     { "name": "Fjallraven",      "search_text": "fjallraven",      "price_to": 60,  "rrp": 160, "size_category": "tops",     "exclude_ignore": ["polyester"] },
     { "name": "Asket",           "search_text": "asket",           "price_to": 40,  "rrp": 100, "size_category": "tops" },
     { "name": "Wax London",      "search_text": "wax london",      "price_to": 60,  "rrp": 150, "size_category": "tops" },
