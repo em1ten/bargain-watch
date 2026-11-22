@@ -766,6 +766,10 @@ def score_card(condition, price_amount, price_to, first_seen, now, price_dropped
 
 def build_card(item, domain, watch, source, my_sizes, max_price, first_seen, now, previous_price=None, caution_flags=None, bargain_ceiling_ratio=0.6, scoring=None, next_sizes=None):
     scoring = scoring or DEFAULT_SCORING
+    # A watch can rate conditions differently, e.g. leather jackets where
+    # "New without tags" is as good as new with tags.
+    if watch.get("condition_points"):
+        scoring = dict(scoring, condition=dict(scoring["condition"], **watch["condition_points"]))
     photo = (item.get("photo") or {}).get("url", "")
     # "price" is the seller's actual asking price. "total_item_price" is
     # already inclusive of Vinted's buyer protection fee - using it here

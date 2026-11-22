@@ -425,6 +425,9 @@ Per watch (in `watches`):
 - `notify` — `push`, `digest` or `off` (default: `push` for clothing,
   `digest` for everything else; the old `instant` means `push`)
 - `order` — force `newest_first` or `relevance` for this watch
+- `condition_points` — override condition points for this watch only, e.g.
+  `{ "New without tags": 45 }` on AllSaints Leather, where unworn but
+  untagged is as good as BNWT
 
 ## Notes and limits
 
