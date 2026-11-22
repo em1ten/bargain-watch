@@ -594,6 +594,10 @@ def brand_matches(item, watch):
         return True
     candidates = watch.get("brand_match") or [watch["name"]]
     actual = normalize_brand(item_brand(item))
+    if not actual and watch.get("strict_brand"):
+        # For brands named after an ordinary word (Samurai, Oni), a title
+        # mention proves nothing - "Samurai Graphic Tee" is just a print.
+        return False
     if not actual:
         title = normalize_brand(item.get("title") or "")
         if not title:
