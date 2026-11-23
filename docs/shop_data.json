@@ -1,9 +1,48 @@
 {
-  "generated_at": 1795398445,
+  "generated_at": 1795438706,
   "errors": [
     "Common Cultured"
   ],
   "feed": [
+    {
+      "id": "shop-andsons.co.uk-16034905358723",
+      "title": "Rogue by &SONS Vial, 2ml",
+      "watch": "AndSons",
+      "brand": "&SONS",
+      "size": "",
+      "condition": "New",
+      "price": "3.00 GBP",
+      "price_amount": 3.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1ROGUESampleParfumLSMOBILE.jpg?v=1793119644",
+      "url": "https://andsons.co.uk/products/rogue-by-sons-vial-2ml",
+      "seller": {
+        "login": "AndSons",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 70,
+      "score": 121.8,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-70%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": true,
+      "price_drop_pct": 40,
+      "previous_price": 5.0,
+      "marketplace": "shop",
+      "compare_at_price": 10.0,
+      "at_low": true,
+      "was_price_seen": true,
+      "observations": 40,
+      "typical_price": 8.45,
+      "off_menu": false
+    },
     {
       "id": "shop-www.yardsstore.com-8002464383224",
       "title": "Hanwag Coastrock Low ES Shoe Seablue / Sulphur",
@@ -39,47 +78,8 @@
       "compare_at_price": 155.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 132.44,
-      "off_menu": false
-    },
-    {
-      "id": "shop-andsons.co.uk-16034905358723",
-      "title": "Rogue by &SONS Vial, 2ml",
-      "watch": "AndSons",
-      "brand": "&SONS",
-      "size": "",
-      "condition": "New",
-      "price": "5.00 GBP",
-      "price_amount": 5.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/1ROGUESampleParfumLSMOBILE.jpg?v=1793119644",
-      "url": "https://andsons.co.uk/products/rogue-by-sons-vial-2ml",
-      "seller": {
-        "login": "AndSons",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 50,
-      "score": 89.0,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-50%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop",
-      "compare_at_price": 10.0,
-      "at_low": true,
-      "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 8.59,
+      "observations": 40,
+      "typical_price": 131.0,
       "off_menu": false
     },
     {
@@ -100,7 +100,7 @@
         "business": true
       },
       "discount_pct": 68,
-      "score": 86.2,
+      "score": 86.3,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -117,8 +117,8 @@
       "compare_at_price": 59.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 25.5,
+      "observations": 41,
+      "typical_price": 25.34,
       "off_menu": false
     },
     {
@@ -156,8 +156,8 @@
       "compare_at_price": 190.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 122.31,
+      "observations": 40,
+      "typical_price": 121.5,
       "off_menu": false
     },
     {
@@ -195,8 +195,8 @@
       "compare_at_price": 190.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 122.31,
+      "observations": 40,
+      "typical_price": 121.5,
       "off_menu": false
     },
     {
@@ -234,8 +234,8 @@
       "compare_at_price": 40.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 66.46,
+      "observations": 40,
+      "typical_price": 65.6,
       "off_menu": false
     },
     {
@@ -256,7 +256,7 @@
         "business": true
       },
       "discount_pct": 37,
-      "score": 81.8,
+      "score": 81.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -273,8 +273,8 @@
       "compare_at_price": 95.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 40,
-      "typical_price": 91.88,
+      "observations": 41,
+      "typical_price": 91.1,
       "off_menu": false
     },
     {
@@ -295,7 +295,7 @@
         "business": true
       },
       "discount_pct": 79,
-      "score": 81.5,
+      "score": 81.7,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -312,8 +312,8 @@
       "compare_at_price": 190.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 45.25,
+      "observations": 41,
+      "typical_price": 45.1,
       "off_menu": false
     },
     {
@@ -334,7 +334,7 @@
         "business": true
       },
       "discount_pct": 71,
-      "score": 81.5,
+      "score": 81.7,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -351,8 +351,8 @@
       "compare_at_price": 135.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 45.25,
+      "observations": 41,
+      "typical_price": 45.1,
       "off_menu": false
     },
     {
@@ -373,7 +373,7 @@
         "business": true
       },
       "discount_pct": 40,
-      "score": 80.7,
+      "score": 80.8,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -390,8 +390,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 141.31,
+      "observations": 40,
+      "typical_price": 140.25,
       "off_menu": false
     },
     {
@@ -412,7 +412,7 @@
         "business": true
       },
       "discount_pct": 65,
-      "score": 79.4,
+      "score": 79.6,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -429,8 +429,8 @@
       "compare_at_price": 199.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 75.5,
+      "observations": 41,
+      "typical_price": 75.34,
       "off_menu": false
     },
     {
@@ -451,7 +451,7 @@
         "business": true
       },
       "discount_pct": 38,
-      "score": 79.2,
+      "score": 79.3,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -468,8 +468,8 @@
       "compare_at_price": 159.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 137.46,
+      "observations": 40,
+      "typical_price": 136.5,
       "off_menu": false
     },
     {
@@ -490,7 +490,7 @@
         "business": true
       },
       "discount_pct": 46,
-      "score": 78.6,
+      "score": 78.7,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -507,8 +507,8 @@
       "compare_at_price": 140.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 92.95,
+      "observations": 40,
+      "typical_price": 92.5,
       "off_menu": false
     },
     {
@@ -546,8 +546,8 @@
       "compare_at_price": 150.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 40,
-      "typical_price": 128.88,
+      "observations": 41,
+      "typical_price": 128.05,
       "off_menu": false
     },
     {
@@ -568,7 +568,7 @@
         "business": true
       },
       "discount_pct": 47,
-      "score": 78.2,
+      "score": 78.3,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -585,8 +585,8 @@
       "compare_at_price": 160.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 102.95,
+      "observations": 40,
+      "typical_price": 102.5,
       "off_menu": false
     },
     {
@@ -607,7 +607,7 @@
         "business": true
       },
       "discount_pct": 34,
-      "score": 78.1,
+      "score": 78.2,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -624,8 +624,8 @@
       "compare_at_price": 220.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 203.46,
+      "observations": 40,
+      "typical_price": 202.0,
       "off_menu": false
     },
     {
@@ -646,7 +646,7 @@
         "business": true
       },
       "discount_pct": 35,
-      "score": 77.7,
+      "score": 77.8,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -663,8 +663,8 @@
       "compare_at_price": 200.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 40,
-      "typical_price": 176.0,
+      "observations": 41,
+      "typical_price": 174.88,
       "off_menu": false
     },
     {
@@ -702,8 +702,8 @@
       "compare_at_price": 200.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 176.15,
+      "observations": 40,
+      "typical_price": 175.0,
       "off_menu": false
     },
     {
@@ -711,7 +711,7 @@
       "title": "McQueen Nevada V-Neck Orange",
       "watch": "AndSons",
       "brand": "&SONS",
-      "size": "S, M, L, XL, XXL",
+      "size": "S, L, XL, XXL",
       "condition": "New",
       "price": "110.00 GBP",
       "price_amount": 110.0,
@@ -741,8 +741,8 @@
       "compare_at_price": 170.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 146.92,
+      "observations": 40,
+      "typical_price": 146.0,
       "off_menu": false
     },
     {
@@ -780,8 +780,8 @@
       "compare_at_price": 200.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 173.08,
+      "observations": 40,
+      "typical_price": 172.0,
       "off_menu": false
     },
     {
@@ -819,8 +819,8 @@
       "compare_at_price": 145.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 40,
-      "typical_price": 127.0,
+      "observations": 41,
+      "typical_price": 126.22,
       "off_menu": false
     },
     {
@@ -858,8 +858,8 @@
       "compare_at_price": 60.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 54.36,
+      "observations": 40,
+      "typical_price": 54.0,
       "off_menu": false
     },
     {
@@ -897,8 +897,8 @@
       "compare_at_price": 225.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 203.85,
+      "observations": 40,
+      "typical_price": 202.5,
       "off_menu": false
     },
     {
@@ -936,47 +936,8 @@
       "compare_at_price": 220.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 194.23,
-      "off_menu": false
-    },
-    {
-      "id": "shop-www.stuartslondon.com-10466714911067",
-      "title": "Levi's\u00ae England Football Type III Jacket - Navy",
-      "watch": "Stuarts London",
-      "brand": "Levi's\u00ae",
-      "size": "NAVY / L",
-      "condition": "New",
-      "price": "89.00 GBP",
-      "price_amount": 89.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/14_22d06e06-698a-44ca-954a-2c492fc5a894.jpg?v=1778062934",
-      "url": "https://www.stuartslondon.com/products/levis-r-england-football-type-iii-jacket-navy",
-      "seller": {
-        "login": "Stuarts London",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 40,
-      "score": 76.2,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-40%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop",
-      "compare_at_price": 149.0,
-      "at_low": true,
-      "was_price_seen": false,
       "observations": 40,
-      "typical_price": 108.5,
+      "typical_price": 193.0,
       "off_menu": false
     },
     {
@@ -997,7 +958,7 @@
         "business": true
       },
       "discount_pct": 59,
-      "score": 76.2,
+      "score": 76.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1014,8 +975,8 @@
       "compare_at_price": 95.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 39.5,
+      "observations": 41,
+      "typical_price": 39.49,
       "off_menu": false
     },
     {
@@ -1036,7 +997,7 @@
         "business": true
       },
       "discount_pct": 59,
-      "score": 76.2,
+      "score": 76.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1053,8 +1014,47 @@
       "compare_at_price": 95.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 39.5,
+      "observations": 41,
+      "typical_price": 39.49,
+      "off_menu": false
+    },
+    {
+      "id": "shop-www.stuartslondon.com-10466714911067",
+      "title": "Levi's\u00ae England Football Type III Jacket - Navy",
+      "watch": "Stuarts London",
+      "brand": "Levi's\u00ae",
+      "size": "NAVY / L",
+      "condition": "New",
+      "price": "89.00 GBP",
+      "price_amount": 89.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/0943/8307/9771/files/14_22d06e06-698a-44ca-954a-2c492fc5a894.jpg?v=1778062934",
+      "url": "https://www.stuartslondon.com/products/levis-r-england-football-type-iii-jacket-navy",
+      "seller": {
+        "login": "Stuarts London",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 40,
+      "score": 76.3,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-40%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop",
+      "compare_at_price": 149.0,
+      "at_low": true,
+      "was_price_seen": false,
+      "observations": 41,
+      "typical_price": 108.02,
       "off_menu": false
     },
     {
@@ -1092,47 +1092,8 @@
       "compare_at_price": 64.95,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 59.32,
-      "off_menu": false
-    },
-    {
-      "id": "shop-andsons.co.uk-15200569917827",
-      "title": "McQueen Boot Tan",
-      "watch": "AndSons",
-      "brand": "&SONS",
-      "size": "UK 8, UK 9, UK 10",
-      "condition": "New",
-      "price": "275.00 GBP",
-      "price_amount": 275.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/BootsMcQueenTanLSMOBILE1.jpg?v=1756995979",
-      "url": "https://andsons.co.uk/products/mcqueen-boot-tan",
-      "seller": {
-        "login": "AndSons",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 27,
-      "score": 74.3,
-      "my_size": true,
-      "is_new": false,
-      "is_bargain": false,
-      "bargain_reason": "-27%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop",
-      "compare_at_price": 375.0,
-      "at_low": true,
-      "was_price_seen": true,
       "observations": 40,
-      "typical_price": 365.0,
+      "typical_price": 58.97,
       "off_menu": false
     },
     {
@@ -1153,7 +1114,7 @@
         "business": true
       },
       "discount_pct": 54,
-      "score": 74.2,
+      "score": 74.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1170,8 +1131,47 @@
       "compare_at_price": 85.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 39.25,
+      "observations": 41,
+      "typical_price": 39.24,
+      "off_menu": false
+    },
+    {
+      "id": "shop-andsons.co.uk-15200569917827",
+      "title": "McQueen Boot Tan",
+      "watch": "AndSons",
+      "brand": "&SONS",
+      "size": "UK 8, UK 9, UK 10",
+      "condition": "New",
+      "price": "275.00 GBP",
+      "price_amount": 275.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/1330/2573/files/BootsMcQueenTanLSMOBILE1.jpg?v=1756995979",
+      "url": "https://andsons.co.uk/products/mcqueen-boot-tan",
+      "seller": {
+        "login": "AndSons",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 27,
+      "score": 74.4,
+      "my_size": true,
+      "is_new": false,
+      "is_bargain": false,
+      "bargain_reason": "-27%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop",
+      "compare_at_price": 375.0,
+      "at_low": true,
+      "was_price_seen": true,
+      "observations": 41,
+      "typical_price": 362.8,
       "off_menu": false
     },
     {
@@ -1192,7 +1192,7 @@
         "business": true
       },
       "discount_pct": 30,
-      "score": 73.5,
+      "score": 73.6,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1209,8 +1209,8 @@
       "compare_at_price": 135.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 119.62,
+      "observations": 40,
+      "typical_price": 119.0,
       "off_menu": false
     },
     {
@@ -1231,7 +1231,7 @@
         "business": true
       },
       "discount_pct": 29,
-      "score": 73.0,
+      "score": 73.1,
       "my_size": true,
       "is_new": false,
       "is_bargain": false,
@@ -1248,8 +1248,8 @@
       "compare_at_price": 35.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 40,
-      "typical_price": 31.07,
+      "observations": 41,
+      "typical_price": 30.93,
       "off_menu": false
     },
     {
@@ -1270,7 +1270,7 @@
         "business": true
       },
       "discount_pct": 29,
-      "score": 73.0,
+      "score": 73.1,
       "my_size": true,
       "is_new": false,
       "is_bargain": false,
@@ -1287,8 +1287,8 @@
       "compare_at_price": 35.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 40,
-      "typical_price": 31.07,
+      "observations": 41,
+      "typical_price": 30.93,
       "off_menu": false
     },
     {
@@ -1309,7 +1309,7 @@
         "business": true
       },
       "discount_pct": 46,
-      "score": 72.7,
+      "score": 72.9,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1326,8 +1326,8 @@
       "compare_at_price": 140.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 78.12,
+      "observations": 41,
+      "typical_price": 78.05,
       "off_menu": false
     },
     {
@@ -1348,7 +1348,7 @@
         "business": true
       },
       "discount_pct": 47,
-      "score": 71.7,
+      "score": 72.0,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1365,8 +1365,8 @@
       "compare_at_price": 169.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 90.62,
+      "observations": 41,
+      "typical_price": 90.61,
       "off_menu": false
     },
     {
@@ -1387,7 +1387,7 @@
         "business": true
       },
       "discount_pct": 28,
-      "score": 71.1,
+      "score": 71.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1404,8 +1404,8 @@
       "compare_at_price": 100.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 86.03,
+      "observations": 40,
+      "typical_price": 85.67,
       "off_menu": false
     },
     {
@@ -1426,7 +1426,7 @@
         "business": true
       },
       "discount_pct": 28,
-      "score": 70.8,
+      "score": 70.9,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1443,8 +1443,8 @@
       "compare_at_price": 80.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 68.31,
+      "observations": 40,
+      "typical_price": 68.04,
       "off_menu": false
     },
     {
@@ -1465,7 +1465,7 @@
         "business": true
       },
       "discount_pct": 27,
-      "score": 70.6,
+      "score": 70.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1482,8 +1482,8 @@
       "compare_at_price": 65.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 55.85,
+      "observations": 41,
+      "typical_price": 55.64,
       "off_menu": false
     },
     {
@@ -1504,7 +1504,7 @@
         "business": true
       },
       "discount_pct": 27,
-      "score": 70.4,
+      "score": 70.5,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1521,8 +1521,8 @@
       "compare_at_price": 65.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 55.87,
+      "observations": 40,
+      "typical_price": 55.65,
       "off_menu": false
     },
     {
@@ -1543,7 +1543,7 @@
         "business": true
       },
       "discount_pct": 26,
-      "score": 70.3,
+      "score": 70.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1560,8 +1560,8 @@
       "compare_at_price": 85.0,
       "at_low": true,
       "was_price_seen": true,
-      "observations": 39,
-      "typical_price": 75.26,
+      "observations": 40,
+      "typical_price": 74.95,
       "off_menu": false
     },
     {
@@ -1582,7 +1582,7 @@
         "business": true
       },
       "discount_pct": 24,
-      "score": 66.3,
+      "score": 66.5,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1599,8 +1599,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 134.75,
+      "observations": 41,
+      "typical_price": 134.51,
       "off_menu": false
     },
     {
@@ -1621,7 +1621,7 @@
         "business": true
       },
       "discount_pct": 24,
-      "score": 66.3,
+      "score": 66.5,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1638,8 +1638,8 @@
       "compare_at_price": 165.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 40,
-      "typical_price": 134.75,
+      "observations": 41,
+      "typical_price": 134.51,
       "off_menu": false
     },
     {
@@ -1660,7 +1660,7 @@
         "business": true
       },
       "discount_pct": 7,
-      "score": 51.8,
+      "score": 52.0,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1677,8 +1677,8 @@
       "compare_at_price": 1075.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 16,
-      "typical_price": 1002.81,
+      "observations": 17,
+      "typical_price": 1002.35,
       "off_menu": false
     },
     {
@@ -1699,7 +1699,7 @@
         "business": true
       },
       "discount_pct": 7,
-      "score": 51.8,
+      "score": 52.0,
       "my_size": false,
       "is_new": false,
       "is_bargain": false,
@@ -1716,8 +1716,8 @@
       "compare_at_price": 1075.0,
       "at_low": true,
       "was_price_seen": false,
-      "observations": 16,
-      "typical_price": 1002.81,
+      "observations": 17,
+      "typical_price": 1002.35,
       "off_menu": false
     },
     {
@@ -1738,7 +1738,7 @@
         "business": true
       },
       "discount_pct": 60,
-      "score": 41.0,
+      "score": 41.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1755,7 +1755,7 @@
       "compare_at_price": 240.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 95.0,
       "off_menu": true
     },
@@ -1777,7 +1777,7 @@
         "business": true
       },
       "discount_pct": 60,
-      "score": 41.0,
+      "score": 41.2,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -1794,7 +1794,7 @@
       "compare_at_price": 200.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 79.0,
       "off_menu": true
     },
@@ -1816,7 +1816,7 @@
         "business": true
       },
       "discount_pct": 49,
-      "score": 37.1,
+      "score": 37.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1833,7 +1833,7 @@
       "compare_at_price": 205.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 105.0,
       "off_menu": true
     },
@@ -1855,7 +1855,7 @@
         "business": true
       },
       "discount_pct": 49,
-      "score": 37.1,
+      "score": 37.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1872,7 +1872,7 @@
       "compare_at_price": 205.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 105.0,
       "off_menu": true
     },
@@ -1894,7 +1894,7 @@
         "business": true
       },
       "discount_pct": 49,
-      "score": 37.1,
+      "score": 37.4,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1911,7 +1911,7 @@
       "compare_at_price": 135.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 69.0,
       "off_menu": true
     },
@@ -1933,7 +1933,7 @@
         "business": true
       },
       "discount_pct": 60,
-      "score": 31.0,
+      "score": 31.2,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1950,7 +1950,7 @@
       "compare_at_price": 275.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 110.0,
       "off_menu": false
     },
@@ -1972,7 +1972,7 @@
         "business": true
       },
       "discount_pct": 51,
-      "score": 27.8,
+      "score": 28.1,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -1989,47 +1989,8 @@
       "compare_at_price": 65.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 32.0,
-      "off_menu": false
-    },
-    {
-      "id": "shop-blacksmith-store.com-8207652716825",
-      "title": "Okonkwo MFG - M65 Hooded Field Jacket - Olive",
-      "watch": "Blacksmith Store",
-      "brand": "Okonkwo MFG SALE",
-      "size": "40 (see sizing), 42 (see sizing)",
-      "condition": "New",
-      "price": "66.00 GBP",
-      "price_amount": 66.0,
-      "estimated_total": null,
-      "photo": "https://cdn.shopify.com/s/files/1/1242/5594/products/olive-m75-front.jpg?v=1755160507",
-      "url": "https://blacksmith-store.com/products/okonkwo-mfg-m65-hooded-field-jacket-olive",
-      "seller": {
-        "login": "Blacksmith Store",
-        "profile_url": "",
-        "business": true
-      },
-      "discount_pct": 51,
-      "score": 27.6,
-      "my_size": false,
-      "is_new": false,
-      "is_bargain": true,
-      "bargain_reason": "-51%",
-      "source": "core",
-      "listed_at": null,
-      "condition_badge": "NEW",
-      "category": "electronics",
-      "subcategory": "shops",
-      "price_dropped": false,
-      "price_drop_pct": null,
-      "previous_price": null,
-      "marketplace": "shop",
-      "compare_at_price": 135.0,
-      "at_low": false,
-      "was_price_seen": false,
-      "observations": 39,
-      "typical_price": 66.0,
       "off_menu": false
     },
     {
@@ -2050,7 +2011,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.5,
+      "score": 27.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2067,7 +2028,7 @@
       "compare_at_price": 245.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 122.5,
       "off_menu": false
     },
@@ -2089,7 +2050,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.5,
+      "score": 27.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2106,7 +2067,7 @@
       "compare_at_price": 195.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 97.5,
       "off_menu": false
     },
@@ -2128,7 +2089,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.5,
+      "score": 27.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2145,7 +2106,7 @@
       "compare_at_price": 195.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 97.5,
       "off_menu": false
     },
@@ -2167,7 +2128,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.5,
+      "score": 27.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2184,7 +2145,7 @@
       "compare_at_price": 425.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 212.5,
       "off_menu": false
     },
@@ -2206,7 +2167,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.5,
+      "score": 27.8,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -2223,7 +2184,7 @@
       "compare_at_price": 249.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 124.5,
       "off_menu": false
     },
@@ -2245,7 +2206,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.5,
+      "score": 27.8,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2262,8 +2223,47 @@
       "compare_at_price": 80.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 40.0,
+      "off_menu": false
+    },
+    {
+      "id": "shop-blacksmith-store.com-8207652716825",
+      "title": "Okonkwo MFG - M65 Hooded Field Jacket - Olive",
+      "watch": "Blacksmith Store",
+      "brand": "Okonkwo MFG SALE",
+      "size": "40 (see sizing), 42 (see sizing)",
+      "condition": "New",
+      "price": "66.00 GBP",
+      "price_amount": 66.0,
+      "estimated_total": null,
+      "photo": "https://cdn.shopify.com/s/files/1/1242/5594/products/olive-m75-front.jpg?v=1755160507",
+      "url": "https://blacksmith-store.com/products/okonkwo-mfg-m65-hooded-field-jacket-olive",
+      "seller": {
+        "login": "Blacksmith Store",
+        "profile_url": "",
+        "business": true
+      },
+      "discount_pct": 51,
+      "score": 27.8,
+      "my_size": false,
+      "is_new": false,
+      "is_bargain": true,
+      "bargain_reason": "-51%",
+      "source": "core",
+      "listed_at": null,
+      "condition_badge": "NEW",
+      "category": "electronics",
+      "subcategory": "shops",
+      "price_dropped": false,
+      "price_drop_pct": null,
+      "previous_price": null,
+      "marketplace": "shop",
+      "compare_at_price": 135.0,
+      "at_low": false,
+      "was_price_seen": false,
+      "observations": 40,
+      "typical_price": 66.0,
       "off_menu": false
     },
     {
@@ -2284,7 +2284,7 @@
         "business": true
       },
       "discount_pct": 50,
-      "score": 27.2,
+      "score": 27.5,
       "my_size": false,
       "is_new": false,
       "is_bargain": true,
@@ -2301,7 +2301,7 @@
       "compare_at_price": 60.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 39,
+      "observations": 40,
       "typical_price": 30.0,
       "off_menu": false
     },
@@ -2323,7 +2323,7 @@
         "business": true
       },
       "discount_pct": 48,
-      "score": 26.8,
+      "score": 27.0,
       "my_size": true,
       "is_new": false,
       "is_bargain": true,
@@ -2340,7 +2340,7 @@
       "compare_at_price": 85.0,
       "at_low": false,
       "was_price_seen": false,
-      "observations": 40,
+      "observations": 41,
       "typical_price": 44.0,
       "off_menu": false
     }
