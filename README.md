@@ -595,7 +595,7 @@ step 4). Settings are under `notifications` in `config.json`.
 - **Morning digest** (first scan after `digest_hour`, 08:00 UK): the best of
   everything since the last digest that scored at least `digest_min_score`
   (70), grouped into Clothing (top 10) and each other section (top 3 each:
-  Baby, Games & music, Football, Tech, Caution).
+  Baby, Games, Music, Football, Tech, Caution).
 - Baby, games, music, football, tech and caution-tier watches default to
   `digest` (never a push). Set any watch's `notify` to `push`, `digest` or
   `off` to change that.
