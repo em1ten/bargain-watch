@@ -948,8 +948,7 @@ NOTIFY_DEFAULTS = {
     "digest_per_section": {"Clothing": 10, "other": 3},
 }
 PRIORITY = {"min": 1, "low": 2, "default": 3, "high": 4, "urgent": 5}
-SECTION_NAMES = {"baby": "Baby", "games": "Games", "music": "Vinyl",
-                 "football": "Football", "tech": "Tech", "caution": "Caution"}
+SECTION_NAMES = {"baby": "Baby", "music": "Vinyl", "football": "Sports", "tech": "Tech"}
 
 
 def notify_settings(config):
@@ -1209,13 +1208,16 @@ def main():
         # so the newest page can be mostly other brands that the brand check
         # then throws away. If fewer than `relevance_fallback_min` survive,
         # the relevance-ordered page is fetched as well and merged in.
-        # Only brand-checked watches get the newest page: for a generic search
-        # ("side adjuster trousers", vinyl, games) nothing would weed out the
-        # loose matches, so those stay on relevance.
+        # Only brand-checked watches get the newest page by default: for a
+        # generic search ("side adjuster trousers", genre vinyl) nothing would
+        # weed out the loose matches, so those stay on relevance. A watch can
+        # opt in with "newest_first": true when require_title_any does that
+        # weeding instead (a model name, a club) - otherwise relevance keeps
+        # serving the same 40 old listings and new ones are missed.
         forced = watch.get("order") or search_order
         if forced:
             orders = [forced]
-        elif newest_disabled or not watch.get("require_brand_match", True):
+        elif newest_disabled or not (watch.get("require_brand_match", True) or watch.get("newest_first")):
             orders = ["relevance"]
         else:
             orders = ["newest_first", "relevance"]

@@ -93,7 +93,7 @@ and newest-first searching, that's within an hour of it going up.
 
 Every clothing watch keeps at least one slot, and no watch gets more than
 `max_in_feed_default` (8) unless it sets its own `max_in_feed`. Electronics
-subcategories (Games & Music, Sports, Baby, Tech, Caution) are each ranked
+subcategories (Vinyl, Sports, Baby, Tech) are each ranked
 separately, so a busy one can't crowd out a quiet one.
 
 ## Scan #495: rate-limited into an empty feed
@@ -118,6 +118,9 @@ between requests also went from 1s to 2s, since the list has genuinely
 outgrown what 1s was tuned for.
 
 ## Authenticity checks now work for any category, not just designer clothing
+
+(The Caution tab and its designer-brand watches were removed in Nov 2026;
+the checks below are still used by every Tech watch.)
 
 The whole caution-tier system (hard price floor vs RRP, seller-newness
 flag, same-scan cross-listing fraud detection, clean-ranks-above-flagged
@@ -425,6 +428,11 @@ Per watch (in `watches`):
 - `notify` — `push`, `digest` or `off` (default: `push` for clothing,
   `digest` for everything else; the old `instant` means `push`)
 - `order` — force `newest_first` or `relevance` for this watch
+- `newest_first` — `true` lets a watch without brand matching check the
+  newest listings first (relevance page still merged in if fewer than
+  `relevance_fallback_min` survive). Only safe with `require_title_any`
+  doing the weeding - used by Tech and the club/country football watches
+- `price_from` — price floor; Tech uses it to skip cases, straps and fakes
 - `strict_brand` — only accept listings Vinted has tagged with the brand;
   without it, an untagged listing can match on its title. Used for brands
   named after ordinary words (Samurai, Oni)
@@ -595,8 +603,8 @@ step 4). Settings are under `notifications` in `config.json`.
 - **Morning digest** (first scan after `digest_hour`, 08:00 UK): the best of
   everything since the last digest that scored at least `digest_min_score`
   (70), grouped into Clothing (top 10) and each other section (top 3 each:
-  Baby, Games, Vinyl, Football, Tech, Caution).
-- Baby, games, music, football, tech and caution-tier watches default to
+  Baby, Vinyl, Sports, Tech).
+- Baby, vinyl, sports and tech watches default to
   `digest` (never a push). Set any watch's `notify` to `push`, `digest` or
   `off` to change that.
 
@@ -616,18 +624,28 @@ that list never makes it into the feed at all, not just deprioritized. Add
 this to any watch where "good condition only" needs to be a real rule, not
 a preference.
 
-## Games and vinyl
+## Vinyl
 
-Video games (PS5/Xbox) and vinyl records are tracked the same way as
-clothing — same scoring — each under its own pill (**Games** and
-**Vinyl**) and its own section in the morning digest. CDs are no longer
-tracked. Vinyl uses the hard condition filter above, since worn media isn't
-worth the risk the way a worn jacket might still be fine.
+Vinyl records are tracked the same way as clothing — same scoring — under
+the **Vinyl** pill and its own section in the morning digest. Games and CDs
+are no longer tracked. Vinyl uses the hard condition filter above, since
+worn media isn't worth the risk the way a worn jacket might still be fine.
 
-Price ceilings: £45 for games, £40 for vinyl. If raw result counts for
-these watches are low, check that the `catalog_ids` values (`2994,3002` for
-games; `3036,3041` for vinyl) still match Vinted's current category
-structure.
+Price ceiling £40. If raw result counts are low, check that `catalog_ids`
+(`3036,3041`) still matches Vinted's current category structure.
+
+## Sports and Tech
+
+- **Sports**: Sheffield Wednesday (pushes, like clothing), Jamaica and
+  England shirts, general retro football shirts, Mitchell & Ness jerseys,
+  New Era caps. The football-shirt watches drop other sports (NBA, NFL,
+  rugby, cricket...) and non-shirts (jackets, scarves, programmes).
+- **Tech**: every watch checks newest listings first, needs the model in
+  the title, and has a `price_from` floor. Accessory-only listings
+  (straps, cables, chargers, single earbuds, "for AirPods"...) and clone
+  wording ("style", "TWS", "1:1") are dropped via the tech
+  `subcategory_defaults`. Kindles from 2016 and older, and Garmin
+  220/235-era Forerunners, are skipped.
 
 ## Homeware and art
 
