@@ -413,6 +413,14 @@ Top-level:
   `global_exclude_words_keep` (tie dye, tie front...) are ignored when
   checking. Currently ties, bow ties, pocket squares, handkerchiefs,
   cufflinks, tie clips/bars/pins and lapel pins
+- `clothing_exclude_words` — the same whole-word matching, but only for
+  clothing watches and the shop scan (Baby, Sports, Vinyl and Tech are
+  untouched): bags, backpacks, wallets, belts, braces, caps, hats, scarves,
+  gloves, sunglasses; women's, girls' and boys'; trunks, long johns,
+  pyjamas; fragrance. Keep phrases include cap toe, cap sleeve, belt loop
+  and band names (Beastie Boys...). Opt a watch back in with
+  `exclude_ignore` (Bellroy does, for wallets and bags; Hoka/Karhu/Novesta
+  for unisex "women's" sizing)
 
 Per watch (in `watches`):
 - `name`, `search_text` — label and what's searched on Vinted
@@ -421,7 +429,7 @@ Per watch (in `watches`):
   and to suggest a `price_to` when none is set
 - `brand_match` — the brand tag(s) a listing must carry (defaults to the
   watch name); add other spellings here
-- `size_category` — which of `my_sizes` applies (`denim`/`denim_brand`/`tops`/`smart`/`footwear`/`baby`; `smart` covers collar sizes, waists and L/M for brands that do shirts, trousers and jackets; `denim_brand` is waists plus L/M, for denim brands that also make shirts and jackets - a `denim`-only watch drops every shirt as the wrong size).
+- `size_category` — which of `my_sizes` applies (`denim`/`denim_brand`/`tops`/`smart`/`footwear`/`baby`; `smart` covers collar sizes (16 and 16.5 in only - Vinted writes collars as "17 in | 42 cm", so bare cm numbers like 42 or 38 would match 17" and 15" collars), waists and L/M for brands that do shirts, trousers and jackets; `denim_brand` is waists plus L/M, for denim brands that also make shirts and jackets - a `denim`-only watch drops every shirt as the wrong size).
   A listing that states a size outside that list is dropped, so keep the list generous
 - `exclude_size` — size labels to drop (baby watches drop newborn up to 6 months)
 - `exclude` — extra junk keywords for just this watch
@@ -493,7 +501,7 @@ signal in the whole project: Shopify tells you the actual "was" price
 straight from the retailer, no guessing needed.
 
 **The catch:** only works for shops that happen to run on Shopify. Not
-every retailer does. Currently configured for ten shops (see `shop_watches`) — add more to `shop_watches` in
+every retailer does. Currently configured for fourteen shops (see `shop_watches`) — add more to `shop_watches` in
 `config.json` if you find other shops you like that are also on Shopify
 (`{domain}/products.json` returning real product data is the quick way to
 check).
@@ -527,13 +535,19 @@ alongside Technology/Games/Music/Football.
   carry `at_low`, `was_price_seen`, `observations` and `typical_price`.
   "Lowest seen" on a card means it is at or below every price recorded
   since the tracker started watching it.
-- **Your size.** Each available on-sale variant title is split on `" / "`
-  and compared (case-insensitively) with everything in `my_sizes`; any
-  match gives the tick.
+- **Your size.** Each available on-sale variant title is matched token by
+  token, the same rule as the Vinted scan ("L" never inside "XL" or
+  "L32"; "W36 L32" counts as W36; "Large"/"Medium" read as L/M), against
+  the adult `my_sizes` (baby sizes are skipped). `next_sizes` (M, W34)
+  count too but score `next_size` (-10), show "next size" on the card and
+  never alert. With `shop_require_my_size` (on), a product whose
+  marked-down in-stock sizes are all other sizes is dropped; one-size
+  products always stay. Anything under `shop_min_discount_pct` (20%) off
+  is ignored.
 - **Feed mix.** Colour variants of the same product (`Name - Navy`,
   `Name - Olive`) take one slot; at most `shop_max_per_brand` (2) per brand
   within a shop (single-brand shops like Universal Works are exempt);
-  at most `shop_max_per_shop` (20) per shop; `shop_feed_size` (60) overall.
+  at most `shop_max_per_shop` (15) per shop; `shop_feed_size` (80) overall.
 
 ### Off-menu finds
 

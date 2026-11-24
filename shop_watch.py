@@ -194,21 +194,60 @@ def in_scope(product, global_exclude, global_exclude_words=None, keep_phrases=No
     return not is_womens_product(product)
 
 
-def flatten_sizes(my_sizes_config):
+def flatten_sizes(my_sizes_config, skip=("baby",)):
+    """Every adult size term from my_sizes. Baby sizes are left out: "80" or
+    "92" there are centimetres for a baby, not a size on a menswear shop."""
     out = set()
-    for sizes in (my_sizes_config or {}).values():
+    for cat, sizes in (my_sizes_config or {}).items():
+        if cat in skip:
+            continue
         for s in sizes:
             out.add(str(s).strip().lower())
     return out
 
 
+# Shops spell sizes out ("Large", "X Large") where Vinted says "L"/"XL".
+_SIZE_WORDS = [
+    (r"\b(?:xxx|3x)[\s-]*l(?:arge)?\b", "xxxl"),
+    (r"\b(?:xx|2x)[\s-]*l(?:arge)?\b", "xxl"),
+    (r"\b(?:x|extra)[\s-]*large\b", "xl"),
+    (r"\b(?:x|extra)[\s-]*small\b", "xs"),
+    (r"\blarge\b", "l"),
+    (r"\bmedium\b", "m"),
+    (r"\bsmall\b", "s"),
+]
+
+
+def normalise_size_text(text):
+    t = (text or "").lower()
+    for pattern, repl in _SIZE_WORDS:
+        t = re.sub(pattern, repl, t)
+    return t
+
+
 def variant_matches_my_size(variant_title, my_sizes):
-    """Variant titles look like "UK 10 / Chocolate Chip / Sport Yellow" or
-    "W34 / L32" or just "M". Split on " / " and compare each part,
-    case-insensitively, against the configured sizes."""
+    """Variant titles look like "UK 10 / Chocolate Chip / Sport Yellow",
+    "W34 L32", "NAVY / L", "Large" or '16.5" / White'. Each size term must
+    appear as its own token (the same rule as the Vinted scan), so "L" never
+    matches inside "XL" or "L32", "9" never inside "9.5" or "W29", and
+    "W36 L32" counts as a W36."""
     if not variant_title or not my_sizes:
         return False
-    return any(part.strip().lower() in my_sizes for part in variant_title.split(" / "))
+    text = normalise_size_text(variant_title)
+    for term in my_sizes:
+        if term and re.search(r"(?<![a-z0-9.])" + re.escape(term) + r"(?![a-z0-9.])", text):
+            return True
+    return False
+
+
+def has_size_options(variant_titles):
+    """False for one-size products (bags, caps, "Default Title"), which can't
+    be the wrong size."""
+    for vt in variant_titles:
+        t = (vt or "").strip().lower()
+        if t and t not in ("default title", "one size", "os", "o/s", "onesize"):
+            return True
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -347,8 +386,14 @@ def current_price(product):
     return min(allp) if allp else None
 
 
-def build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, currency="GBP"):
-    """One card per product with a genuine markdown on an available size."""
+def build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, currency="GBP",
+               next_sizes=None, require_my_size=False, min_discount_pct=0, next_size_points=-10):
+    """One card per product with a genuine markdown on an available size.
+
+    my_sizes are the sizes worn now, next_sizes the ones being worked towards
+    (they rank lower, like on Vinted). With require_my_size, a product whose
+    marked-down, in-stock sizes include neither is skipped - an S-only shirt
+    is no use however cheap. One-size products are always kept."""
     on_sale_variants = []
     for variant in product.get("variants", []):
         price = parse_price(variant.get("price"))
@@ -367,15 +412,25 @@ def build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, 
 
     _best, price, compare_at = min(on_sale_variants, key=lambda v: v[1])
     discount_pct = round((1 - price / compare_at) * 100)
+    if discount_pct < min_discount_pct:
+        return None
 
     sizes = []
-    my_size = False
+    now_fit = False
+    next_fit = False
     for variant, _p, _c in on_sale_variants:
         vt = variant.get("title", "")
         if vt and vt != "Default Title" and vt not in sizes:
             sizes.append(vt)
         if variant_matches_my_size(vt, my_sizes):
-            my_size = True
+            now_fit = True
+        elif next_sizes and variant_matches_my_size(vt, next_sizes):
+            next_fit = True
+    sized = has_size_options(v.get("title", "") for v, _p, _c in on_sale_variants)
+    if require_my_size and sized and not (now_fit or next_fit):
+        return None
+    my_size = now_fit or next_fit
+    size_tier = "now" if now_fit else ("next" if next_fit else None)
 
     title = (product.get("title") or "").strip()
     handle = product.get("handle", "")
@@ -395,6 +450,8 @@ def build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, 
     d["price"] = price if abs(price - d["price"]) > 0.005 else d["price"]
     was_price_seen = bool(len(entry["prices"]) > 1 and entry["high"] >= compare_at - 0.01)
     score = score_card(discount_pct, d, off_menu)
+    if size_tier == "next":
+        score = round(score + next_size_points, 1)
 
     return {
         "id": f"shop-{domain}-{product.get('id')}",
@@ -412,6 +469,7 @@ def build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, 
         "discount_pct": discount_pct,
         "score": score,
         "my_size": my_size,
+        "size_tier": size_tier,
         "is_new": d["is_new"],
         "is_bargain": discount_pct >= 30,
         "bargain_reason": f"-{discount_pct}%",
@@ -566,7 +624,12 @@ def main():
     global_exclude = config.get("global_exclude", [])
     global_exclude_words = config.get("global_exclude_words", [])
     exclude_words_keep = config.get("global_exclude_words_keep", [])
-    my_sizes = flatten_sizes(config.get("my_sizes"))
+    next_sizes = {str(s).strip().lower() for s in config.get("next_sizes", [])}
+    my_sizes = flatten_sizes(config.get("my_sizes")) - next_sizes
+    require_my_size = config.get("shop_require_my_size", True)
+    min_discount_pct = config.get("shop_min_discount_pct", 20)
+    next_size_points = config.get("scoring", {}).get("next_size", -10)
+    global_exclude_words = global_exclude_words + config.get("clothing_exclude_words", [])
     feed_size = config.get("shop_feed_size", 60)
     max_per_brand = config.get("shop_max_per_brand", 2)
     max_per_shop = config.get("shop_max_per_shop", 20)
@@ -620,7 +683,9 @@ def main():
                 present.add(item_id)
                 vendors.add((product.get("vendor") or "").strip().lower())
                 entry = record_price(history, item_id, price, scan, now, bootstrap)
-                card = build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, currency)
+                card = build_card(product, domain, shop, entry, scan, now, my_sizes, sale_handles, currency,
+                                  next_sizes=next_sizes, require_my_size=require_my_size,
+                                  min_discount_pct=min_discount_pct, next_size_points=next_size_points)
                 if card:
                     marked_down += 1
                     shop_cards.append(card)
@@ -656,7 +721,7 @@ def main():
     alert = []
     for c in feed:
         entry = history["items"].get(c["id"])
-        if entry and c["off_menu"] and c["my_size"] and c["at_low"] and not entry.get("alerted"):
+        if entry and c["off_menu"] and c.get("size_tier") == "now" and c["at_low"] and not entry.get("alerted"):
             alert.append(c)
             entry["alerted"] = True
     notify_ntfy(ntfy_topic, alert)
