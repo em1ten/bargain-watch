@@ -394,8 +394,8 @@ try { starred = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } c
 function saveStarred(){ try { localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); } catch {} }
 
 const CATS = [
-  ['all', 'Clothing'], ['tech', 'Tech'], ['games', 'Games'], ['music', 'Vinyl'],
-  ['football', 'Sports'], ['baby', 'Baby'], ['shops', 'Shops'], ['caution', 'Caution']
+  ['all', 'Clothing'], ['tech', 'Tech'], ['music', 'Vinyl'],
+  ['football', 'Sports'], ['baby', 'Baby'], ['shops', 'Shops']
 ];
 const SHOW = [
   ['bnwt', 'BNWT'], ['is_new', 'New today'], ['is_bargain', 'Bargains'],
@@ -432,7 +432,7 @@ const VIEW_KEY = 'bargain-watch-view';
 try {
   const v = JSON.parse(localStorage.getItem(VIEW_KEY) || 'null');
   if (v){
-    if (typeof v.cat === 'string') activeCategory = v.cat === 'games_music' ? 'music' : v.cat;
+    if (typeof v.cat === 'string') activeCategory = v.cat === 'games_music' ? 'music' : (CATS.some(([k]) => k === v.cat) ? v.cat : 'all');
     if (Array.isArray(v.attrs)) activeAttrs = new Set(v.attrs.filter(a => SHOW.some(([k]) => k === a)));
     if (typeof v.sort === 'string' && SORTS.some(([k]) => k === v.sort)) sortMode = v.sort;
   }
@@ -484,12 +484,10 @@ function attrMatches(item, attr){
 function cardMatches(item){
   const isElectronics = item.category === 'electronics';
   let categoryMatch;
-  if (activeCategory === 'games') categoryMatch = isElectronics && item.subcategory === 'games';
-  else if (activeCategory === 'music') categoryMatch = isElectronics && item.subcategory === 'music';
+  if (activeCategory === 'music') categoryMatch = isElectronics && item.subcategory === 'music';
   else if (activeCategory === 'football') categoryMatch = isElectronics && item.subcategory === 'football';
   else if (activeCategory === 'baby') categoryMatch = isElectronics && item.subcategory === 'baby';
   else if (activeCategory === 'tech') categoryMatch = isElectronics && item.subcategory === 'tech';
-  else if (activeCategory === 'caution') categoryMatch = isElectronics && item.subcategory === 'caution';
   else if (activeCategory === 'shops') categoryMatch = isElectronics && item.subcategory === 'shops';
   else if (isElectronics) categoryMatch = false; // every other view is clothing-only
   else categoryMatch = true;
@@ -612,7 +610,7 @@ function buildRow(item){
   const actions = el('div', 'actions');
   const compare = document.createElement('a');
   const queryBits = [item.brand || item.watch, item.title].filter(Boolean).join(' ').slice(0, 100);
-  if (item.subcategory === 'games' || item.subcategory === 'music'){
+  if (item.subcategory === 'music' || item.subcategory === 'tech'){
     compare.href = 'https://www.google.com/search?tbm=shop&q=' + encodeURIComponent(queryBits);
     compare.textContent = 'Compare prices →';
   } else {
