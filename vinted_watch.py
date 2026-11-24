@@ -1156,6 +1156,7 @@ def main():
     global_exclude = config.get("global_exclude", [])
     global_exclude_words = config.get("global_exclude_words", [])
     exclude_words_keep = config.get("global_exclude_words_keep", [])
+    clothing_exclude_words = config.get("clothing_exclude_words", [])
     catalog_ids = config.get("catalog_ids", "5")  # 5 = Vinted's "Men" category
     api_paths = config.get("api_paths") or API_PATH_CANDIDATES
     search_order = config.get("search_order")  # set to force one order for every watch
@@ -1188,6 +1189,10 @@ def main():
     aborted = False
     order_stats = Counter()
 
+    live_watches = {w["name"] for w in scan_plan}
+    if NOTIFY_STATE.get("queue"):
+        NOTIFY_STATE["queue"] = {k: v for k, v in NOTIFY_STATE["queue"].items() if v.get("watch") in live_watches}
+
     for watch in scan_plan:
         name = watch["name"]
         # global_exclude was written with clothing/kids-junk in mind ('case'
@@ -1199,6 +1204,10 @@ def main():
         ignore = set(watch.get("exclude_ignore", []))
         exclude_terms = [t for t in global_exclude if t not in ignore] + watch.get("exclude", [])
         exclude_words = [w for w in global_exclude_words if w not in ignore] + watch.get("exclude_words", [])
+        if watch.get("category", "clothing") != "electronics":
+            # Accessories, women's/kids', underwear: junk for a menswear
+            # watch, but the whole point of a Baby, Sports or Tech one.
+            exclude_words += [w for w in clothing_exclude_words if w not in ignore]
         notify_mode = notify_mode_for(watch)
         print(f"Checking: {name}")
 
@@ -1223,6 +1232,7 @@ def main():
             orders = ["newest_first", "relevance"]
 
         seen_here = set()
+        rejected_brands = Counter()
         accepted = 0
         fetched_ok = False
         last_error = None
@@ -1269,6 +1279,7 @@ def main():
                         continue
                     if not brand_matches(item, watch):
                         rejections["brand tag mismatch"] += 1
+                        rejected_brands[item_brand(item) or "(none)"] += 1
                         continue
                     passes_auth, caution_flags = authenticity_caution_check(item, watch)
                     if not passes_auth:
@@ -1327,6 +1338,9 @@ def main():
         if rejections:
             breakdown = ", ".join(f"{reason}: {n}" for reason, n in rejections.most_common())
             print(f"  {accepted} kept; rejected - {breakdown}")
+        if rejections.get("brand tag mismatch", 0) >= 10:
+            top = ", ".join(f"{b} {n}" for b, n in rejected_brands.most_common(5))
+            print(f"  rejected brand tags: {top}")
         if watch.get("require_brand_match", True) and raw_total and rejections.get("brand tag mismatch", 0) == raw_total:
             print(f"  ! every one of {raw_total} results failed brand matching - check [shape] above")
 
