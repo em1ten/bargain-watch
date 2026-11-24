@@ -948,7 +948,7 @@ NOTIFY_DEFAULTS = {
     "digest_per_section": {"Clothing": 10, "other": 3},
 }
 PRIORITY = {"min": 1, "low": 2, "default": 3, "high": 4, "urgent": 5}
-SECTION_NAMES = {"baby": "Baby", "games": "Games", "music": "Music",
+SECTION_NAMES = {"baby": "Baby", "games": "Games", "music": "Vinyl",
                  "football": "Football", "tech": "Tech", "caution": "Caution"}
 
 
