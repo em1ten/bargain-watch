@@ -595,7 +595,7 @@ step 4). Settings are under `notifications` in `config.json`.
 - **Morning digest** (first scan after `digest_hour`, 08:00 UK): the best of
   everything since the last digest that scored at least `digest_min_score`
   (70), grouped into Clothing (top 10) and each other section (top 3 each:
-  Baby, Games, Music, Football, Tech, Caution).
+  Baby, Games, Vinyl, Football, Tech, Caution).
 - Baby, games, music, football, tech and caution-tier watches default to
   `digest` (never a push). Set any watch's `notify` to `push`, `digest` or
   `off` to change that.
@@ -616,24 +616,18 @@ that list never makes it into the feed at all, not just deprioritized. Add
 this to any watch where "good condition only" needs to be a real rule, not
 a preference.
 
-## Games and music
+## Games and vinyl
 
-Video games (PS5/Xbox), vinyl, and CDs are tracked the same way as
-clothing — same scoring, shown together under the **Games & Music** pill
-(previously two separate pills; combined since both were sparse enough on
-their own that tabbing between two near-empty views wasn't worth it).
-Vinyl and CDs use the hard condition filter above, since worn media isn't
+Video games (PS5/Xbox) and vinyl records are tracked the same way as
+clothing — same scoring — each under its own pill (**Games** and
+**Vinyl**) and its own section in the morning digest. CDs are no longer
+tracked. Vinyl uses the hard condition filter above, since worn media isn't
 worth the risk the way a worn jacket might still be fine.
 
-Price ceilings were raised across the board here — £35 for games, £40 for
-core vinyl, £30 for discovery vinyl, and £20 for CDs were likely cutting
-out a lot of what Vinted actually had listed. Now £45 for games, £55 for
-core vinyl, £45 for discovery vinyl, £30 for CDs. Worth checking the scan
-log after a run or two: if raw result counts for these watches are still
-low even at the new ceiling, the next thing to check is whether the
-`catalog_ids` values (`2994,3002` for games; `3036,3041`/`3036,3039` for
-vinyl/CDs) still match Vinted's current category structure — that's not
-something checkable without seeing a live scan's actual result counts.
+Price ceilings: £45 for games, £40 for vinyl. If raw result counts for
+these watches are low, check that the `catalog_ids` values (`2994,3002` for
+games; `3036,3041` for vinyl) still match Vinted's current category
+structure.
 
 ## Homeware and art
 

@@ -394,7 +394,7 @@ try { starred = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } c
 function saveStarred(){ try { localStorage.setItem(STAR_KEY, JSON.stringify([...starred])); } catch {} }
 
 const CATS = [
-  ['all', 'Clothing'], ['tech', 'Tech'], ['games', 'Games'], ['music', 'Music'],
+  ['all', 'Clothing'], ['tech', 'Tech'], ['games', 'Games'], ['music', 'Vinyl'],
   ['football', 'Sports'], ['baby', 'Baby'], ['shops', 'Shops'], ['caution', 'Caution']
 ];
 const SHOW = [
