@@ -143,6 +143,11 @@ special-casing needed per category.
 
 ## Tech — built to be extended, not hand-written each time
 
+(Nov 2026: the gadget watches this was written for are gone - see
+**Sports and Tech** below for what Tech covers now. The tech defaults no
+longer use `authenticity_caution` or the accessory filters, and allow Good
+condition. The rest of this section is the original design.)
+
 Own pill, own subcategory (`tech`), searching Vinted's Electronics
 category (**2994** — the parent, so it covers video games, cameras,
 audio, computers, wearables and the rest without needing each child ID).
@@ -654,12 +659,19 @@ Price ceiling £40. If raw result counts are low, check that `catalog_ids`
   England shirts, general retro football shirts, Mitchell & Ness jerseys,
   New Era caps. The football-shirt watches drop other sports (NBA, NFL,
   rugby, cricket...) and non-shirts (jackets, scarves, programmes).
-- **Tech**: every watch checks newest listings first, needs the model in
-  the title, and has a `price_from` floor. Accessory-only listings
-  (straps, cables, chargers, single earbuds, "for AirPods"...) and clone
-  wording ("style", "TWS", "1:1") are dropped via the tech
-  `subcategory_defaults`. Kindles from 2016 and older, and Garmin
-  220/235-era Forerunners, are skipped.
+- **Tech** (rethought Nov 2026, no more earbuds/Kindles/Garmins): record
+  player kit (record cleaning, record storage, vintage hi-fi amps), retro
+  tech (Sony Walkman/Discman, iPod Classic, Polaroid, 35mm film cameras),
+  mechanical keyboards (Keychron, NuPhy, other enthusiast boards - the big
+  gaming brands are excluded - and keycaps), Teenage Engineering, and a
+  catch-all "limited edition" search with games, consoles, controllers and
+  collectables excluded. Every watch checks newest listings first and needs
+  a telling word in the title. Record cleaning/storage search all of Vinted
+  (`catalog_ids: ""`), since crates and brushes aren't listed under
+  Electronics. Good condition is allowed and used conditions score higher
+  (`condition_points`: Very good 30, Good 20), so a clean secondhand find
+  can reach the digest. The DP-29F takes a replaceable stylus (DSN-82 /
+  ATN-3600), cheap new, so there's no cartridge watch.
 
 ## Homeware and art
 
