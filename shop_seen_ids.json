@@ -1,4 +1,4 @@
-{"version":2,"scan":46,"items":{
+{"version":2,"scan":47,"items":{
 "shop-andsons.co.uk-10451643987":{"first_scan":2,"first_seen":1794319837,"high":45.0,"low":40.0,"prices":[[2,45.0],[38,40.0]]},
 "shop-andsons.co.uk-10451848019":{"first_scan":1,"first_seen":null,"high":55.0,"low":40.0,"prices":[[1,40.0],[2,55.0],[26,45.0]]},
 "shop-andsons.co.uk-14783060312451":{"first_scan":1,"first_seen":null,"high":85.0,"low":85.0,"prices":[[1,85.0]]},
@@ -11632,6 +11632,7 @@
 "shop-universalworks.com-8086633251012":{"first_scan":1,"first_seen":null,"high":49.0,"low":49.0,"prices":[[1,49.0]]},
 "shop-weekendoffender.com-14830561821051":{"first_scan":43,"first_seen":1795528308,"high":85.0,"low":85.0,"prices":[[43,85.0]]},
 "shop-weekendoffender.com-14830563361147":{"first_scan":43,"first_seen":1795528308,"high":12.0,"low":12.0,"prices":[[43,12.0]]},
+"shop-weekendoffender.com-14835071648123":{"first_scan":47,"first_seen":1795664221,"high":55.0,"low":55.0,"prices":[[47,55.0]]},
 "shop-weekendoffender.com-14835071746427":{"first_scan":43,"first_seen":1795528308,"high":66.0,"low":66.0,"prices":[[43,66.0]]},
 "shop-weekendoffender.com-14835072336251":{"first_scan":43,"first_seen":1795528308,"high":56.0,"low":56.0,"prices":[[43,56.0]]},
 "shop-weekendoffender.com-14835299254651":{"first_scan":43,"first_seen":1795528308,"high":70.0,"low":70.0,"prices":[[43,70.0]]},
@@ -11640,6 +11641,7 @@
 "shop-weekendoffender.com-14835344015739":{"first_scan":43,"first_seen":1795528308,"high":60.0,"low":60.0,"prices":[[43,60.0]]},
 "shop-weekendoffender.com-14835344081275":{"first_scan":43,"first_seen":1795528308,"high":60.0,"low":60.0,"prices":[[43,60.0]]},
 "shop-weekendoffender.com-14835344114043":{"first_scan":43,"first_seen":1795528308,"high":60.0,"low":60.0,"prices":[[43,60.0]]},
+"shop-weekendoffender.com-14835621855611":{"first_scan":47,"first_seen":1795664221,"high":51.0,"low":51.0,"prices":[[47,51.0]]},
 "shop-weekendoffender.com-14835651641723":{"first_scan":43,"first_seen":1795528308,"high":60.0,"low":60.0,"prices":[[43,60.0]]},
 "shop-weekendoffender.com-14836417495419":{"first_scan":43,"first_seen":1795528308,"high":14.0,"low":14.0,"prices":[[43,14.0]]},
 "shop-weekendoffender.com-14836418838907":{"first_scan":43,"first_seen":1795528308,"high":10.0,"low":10.0,"prices":[[43,10.0]]},
@@ -11686,6 +11688,7 @@
 "shop-weekendoffender.com-15158932341115":{"first_scan":43,"first_seen":1795528308,"high":28.0,"low":28.0,"prices":[[43,28.0]]},
 "shop-weekendoffender.com-15158932668795":{"first_scan":43,"first_seen":1795528308,"high":12.0,"low":12.0,"prices":[[43,12.0]]},
 "shop-weekendoffender.com-15158932701563":{"first_scan":43,"first_seen":1795528308,"high":12.0,"low":12.0,"prices":[[43,12.0]]},
+"shop-weekendoffender.com-15159823991163":{"first_scan":47,"first_seen":1795664221,"high":30.0,"low":30.0,"prices":[[47,30.0]]},
 "shop-weekendoffender.com-15162317832571":{"first_scan":43,"first_seen":1795528308,"high":270.0,"low":270.0,"prices":[[43,270.0]]},
 "shop-weekendoffender.com-15162318029179":{"first_scan":43,"first_seen":1795528308,"high":75.0,"low":75.0,"prices":[[43,75.0]]},
 "shop-weekendoffender.com-15162318586235":{"first_scan":43,"first_seen":1795528308,"high":64.0,"low":64.0,"prices":[[43,64.0]]},
@@ -11835,7 +11838,6 @@
 "shop-weekendoffender.com-15326733730171":{"first_scan":43,"first_seen":1795528308,"high":30.0,"low":30.0,"prices":[[43,30.0]]},
 "shop-weekendoffender.com-15326733795707":{"first_scan":43,"first_seen":1795528308,"high":37.5,"low":37.5,"prices":[[43,37.5]]},
 "shop-weekendoffender.com-15326734877051":{"first_scan":43,"first_seen":1795528308,"high":42.0,"low":42.0,"prices":[[43,42.0]]},
-"shop-weekendoffender.com-15326735008123":{"first_scan":43,"first_seen":1795528308,"high":27.5,"low":27.5,"prices":[[43,27.5]]},
 "shop-weekendoffender.com-15326735073659":{"first_scan":43,"first_seen":1795528308,"high":35.75,"low":35.75,"prices":[[43,35.75]]},
 "shop-weekendoffender.com-15326735270267":{"first_scan":43,"first_seen":1795528308,"high":37.5,"low":37.5,"prices":[[43,37.5]]},
 "shop-weekendoffender.com-15326735827323":{"first_scan":43,"first_seen":1795528308,"high":32.5,"low":32.5,"prices":[[43,32.5]]},
